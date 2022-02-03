@@ -1,5 +1,6 @@
 ![home-logo-extended](.github/brand-extended.png)
-[*XIV Tracker*](https://damongreenhalgh.github.io/xivtracker) is a web app designed to track character data in *Final Fantasy 14*.
+
+[***XIV Tracker***](https://damongreenhalgh.github.io/xivtracker) is a tool to help players keep track of their character progress through **Final Fantasy 14**. The web app utilizes the community made [***XIVAPI***](https://xivapi.com/) for all its **REST**ful requests. **FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.**
 
 ## Features
 Current features of the app include the following,
