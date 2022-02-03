@@ -1,0 +1,209 @@
+* {
+  --color-1000: #0c0d0f;
+  --color-900: #111214;
+  --color-800: #16171a;
+  --color-700: #1b1d22;
+  --color-600: #262a38;
+  --color-500: #2c2e38;
+  --color-300: #595d68;
+  --color-200: #9ea1a8;
+  --color-100: #ecf1f3;
+  --color-accent: #585bd5;
+  --color-hover: #1b1b24;
+  --color-experience: #cfb671;
+  --color-max-level: #f09744;
+  --color-free-company: #404040;
+  --color-completed: #30bb65; 
+  --color-health: #5d9c22;
+  --color-mana: #be2c9f;
+
+  --margin-global: calc((100vw - 30rem) / 2);
+  --character-width: 70rem;
+  --home-width: 30rem;
+
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Comfortaa';
+  color: var(--color-200);
+  background-color: var(--color-900);
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+}
+
+h1, h2 {
+  color: var(--color-100);
+}
+
+p {
+  font-size: .8rem;
+}
+
+br {
+  line-height: 200%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  border: none;
+  z-index: 2;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Comfortaa';
+  padding: 1rem;
+  background-color: var(--color-700);
+  border: 1px solid var(--color-500);
+  color: var(--color-300);
+  border-radius: .5rem;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--color-accent);
+  color: var(--color-100);
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('fonts/Comfortaa.ttf');
+}
+
+.header {
+  position: absolute;
+  top: -.75rem;
+  padding: 0 1rem;
+  color: var(--color-200);
+  transition: color 1s;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+}
+
+.divider--vertical {
+  width: 2px;
+  height: 203rem;
+  background-color: var(--color-700);
+  transition: background-color 0.25s;
+}
+
+.divider--horizontal {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-700);
+}
+
+.interactable:hover {
+  cursor: pointer;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.rounded {
+  border-radius: 100%;
+}
+
+.icon {
+  height: 1rem;
+}
+
+.icon--msq {
+  margin-left: auto;
+  max-height: 1.25rem;
+  filter: invert(74%) sepia(12%) saturate(143%) hue-rotate(184deg) brightness(86%) contrast(87%);
+}
+
+.icon--job-header {
+  height: 1.5rem;
+}
+
+.icon--job {
+  width: 2rem;
+}
+
+.icon--mid {
+  height: 4rem;
+  min-width: 4rem;
+}
+
+.icon--quests {
+  max-width: 2rem;
+}
+
+.icon--home {
+  object-fit: contain;
+  width: var(--home-width);
+  height: 10rem;
+}
+
+.icon--footer {
+  color: var(--color-300);
+}
+
+.icon--footer:hover {
+  color: var(--color-200);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.notice {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 3rem;
+  grid-area: notice;
+  width: 100%;
+  border-radius: .5rem;
+  background-color: var(--color-100);
+}
+
+.notice-text {
+  color: var(--color-900);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.notice__exit-button {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 2rem;
+}

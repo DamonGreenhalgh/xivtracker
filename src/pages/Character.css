@@ -1,0 +1,143 @@
+.character {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 30rem 37rem;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "notice   notice"
+      "side     main  "
+      "quests   quests"
+    ;
+    gap: 3rem;
+    margin: 9rem auto 5rem auto;
+}
+
+.section {
+    border-radius: .5rem;
+    padding: 2rem;
+    background-color: var(--color-800);
+    box-shadow: 0 0 .8rem var(--color-1000);
+    border: 1px solid var(--color-500);
+}
+
+.section:hover .header {
+    color: var(--color-100);
+}
+
+.section-header {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    margin: 0 0 3rem 0;
+}
+
+.section-header--minor {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.section-header--minor-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-header__minor-text {
+    color: var(--color-100);
+}
+
+.section-header--cover {
+    grid-column: span 2;
+}
+
+.tab {
+    display: flex;
+    gap: 2rem
+}
+  
+.tab__button {
+    width: 100%;
+}
+  
+.active {
+    background-color: var(--color-accent);
+    color: var(--color-100);
+}
+  
+.panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.panel--quests {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.panel__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+  
+.panel__content--jobs {
+    display: grid;
+    justify-content: space-around;
+    grid-auto-flow: column;
+    grid-template-columns: 10fr 10fr;
+    gap: 1rem 2rem;
+    padding-top: 2rem;    
+}
+
+.jobs--war-magic {
+    grid-template-rows: repeat(14, 2rem);
+    grid-template-areas: 
+        "Tank         Melee    "
+        "paladin      monk     "
+        "warrior      dragoon  "
+        "darkknight   ninja    "
+        "gunbreaker   samurai  "
+        ".            reaper   "
+        "Healer       Ranged   "
+        "whitemage    bard     "
+        "scholar      machinist"
+        "astrologian  dancer   "
+        "sage         .        "
+        ".            Magic    "
+        ".            blackmage"
+        ".            summoner "
+        ".            redmage  "
+        ".            bluemage "            
+    ;
+}
+
+.jobs--hand-land {
+    grid-template-rows: repeat(9, 2rem);
+    grid-template-areas:
+        "Hand           Land    "
+        "carpenter      miner   "
+        "blacksmith     botanist"
+        "armorer        fisher  "
+        "goldsmith      .       "
+        "leatherworker  .       "
+        "weaver         .       "
+        "alchemist      .       "
+        "culinarian     .       "
+    ;
+}
+
+.disabled {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.blur {
+    filter: blur(5px);
+}

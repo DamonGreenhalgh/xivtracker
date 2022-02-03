@@ -1,0 +1,42 @@
+.attributes {
+    position: relative;
+    width: 100%;
+    height: 33rem;
+}
+
+.attributes__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    padding-top: 2rem;
+}
+
+.attributes__list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.attributes__list__item h4 {
+    width: 4rem;
+    color: var(--color-100);
+    text-align: end;
+}
+
+.attributes__main-container {
+    width: 100%;
+}
+
+.attributes__bar {
+    width: 100%;
+    height: .75rem;
+    border-radius: 5px;
+}
+
+.hp {
+    background-color: var(--color-health);
+}
+
+.mp {
+    background-color: var(--color-mana);
+}

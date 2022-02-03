@@ -1,0 +1,12 @@
+.item {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.item img {
+    position: absolute;
+    width: 3rem;
+}

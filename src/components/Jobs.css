@@ -1,0 +1,39 @@
+.jobs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.job {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.job__level-text {
+    width: 2rem;
+    text-align: center;
+}
+
+.max-level {
+    color: var(--color-max-level);
+}
+
+.job__level-bar {
+    margin-top: .25rem;
+    position: relative;
+    overflow: hidden;
+    width: 10rem;
+    height: .8rem;
+    border-radius: .5rem;
+    border: 2px solid var(--color-700);
+    background-color: var(--color-900);
+}
+
+.job__level-bar__completed {
+    position: absolute;
+    height: 100%;
+    background-color: var(--color-experience);
+}

@@ -1,0 +1,39 @@
+.banner {  
+    grid-area: banner;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 8rem;
+    padding: 1rem;
+    gap: 2rem;
+    border-radius: .5rem;
+    background-color: var(--color-800);
+    transition: outline 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+
+.banner--profile {
+    pointer-events: none;
+    background-color: transparent;
+    width: auto;
+    padding: 0;
+    height: auto;
+}
+
+.banner--free-company {
+    pointer-events: none;
+    background-color: var(--color-free-company);
+    gap: 1rem;
+    height: auto;
+}
+
+.banner:hover {
+    background-color: var(--color-hover);
+    box-shadow: 0 0 1rem var(--color-1000);
+}
+
+.banner__server {
+    min-width: 4rem;
+    align-self: flex-start;
+    text-align: end;
+    margin-left: auto;
+}
