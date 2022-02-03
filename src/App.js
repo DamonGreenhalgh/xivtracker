@@ -9,7 +9,7 @@ import {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/xivtracker">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/character/:id" element={<Character />} />
