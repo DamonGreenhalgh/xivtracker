@@ -22,7 +22,7 @@ const Searchbar = (props) => {
     }
 
     return (
-        <form className={"searchbar " + (props.isHome ? "searchbar--home" : "")} onSubmit={callbackMethod}>
+        <form className={props.isSearching ? "disabled" : "searchbar"} onSubmit={callbackMethod}>
             <select className='searchbar__server-list searchbar__component' value={server} onChange={onChange} name="server">
                 <option>Server</option>
                 <option>Adamantoise</option>

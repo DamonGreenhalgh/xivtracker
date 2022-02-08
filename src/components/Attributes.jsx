@@ -9,15 +9,15 @@ const Attributes = (props) => {
                 <div className="row">
                     <div className="attributes__main-container">
                         <div className="attributes__list__item">
-                            <p>{props.content[17].Attribute.Name}</p>
-                            <h4>{props.content[17].Value}</h4>
+                            <p>{props.content.at(-2).Attribute.Name}</p>
+                            <h4>{props.content.at(-2).Value}</h4>
                         </div>
                         <div className="attributes__bar hp"></div>
                     </div>
                     <div className="attributes__main-container">
                         <div className="attributes__list__item">
-                            <p>{props.content[18].Attribute.Name}</p>
-                            <h4>{props.content[18].Value}</h4>
+                            <p>{props.content.at(-1).Attribute.Name}</p>
+                            <h4>{props.content.at(-1).Value}</h4>
                         </div>
                         <div className="attributes__bar mp"></div>
                     </div>

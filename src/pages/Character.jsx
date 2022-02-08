@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Notice from '../components/Notice';
@@ -23,17 +23,21 @@ const Character = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 
+    // On mount, fetch character data, update component props with retrieved data.
     useEffect(async () => {
         
         let characterData, freeCompanyData;
 
-        // Get core character data from xivapi.com
+        // Get extended character data from xivapi.com
         await fetch("https://xivapi.com/character/" + id + "?extended=1&data=FC", {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 characterData = data.Character;
                 freeCompanyData = data.FreeCompany;
             });
+
+        // Set window title to 'XIV Tracker | {character name}'
+        document.title = "XIV Tracker | " + characterData.Name;
 
         // Update the respective props with the newly aquired data.
         setBannerProps({
@@ -44,14 +48,15 @@ const Character = () => {
             isPrefix: characterData.TitleTop,
             avatar: characterData.Avatar,  
             id: characterData.ID,
-        });  
-        
+        });   
         setEquipmentProps({
             portrait: characterData.Portrait,
             level: characterData.ActiveClassJob.Level,
             gear: characterData.GearSet.Gear
         });
 
+        // Only update free company props if the character belongs to
+        // a free company.
         if (freeCompanyData !== null) {
             setFreeCompanyProps({
                 type: "free-company",
@@ -63,33 +68,28 @@ const Character = () => {
                 avatar: freeCompanyData.Crest
             })
         }
-
         setJobsProps({
             type: "jobs",
             jobs: characterData.ClassJobs
         });
-
         setAttributeProps({
             content: characterData.GearSet.Attributes
         });
-
         setQuestsProps ({
             id: characterData.ID
         });
 
         setIsLoading(false);
-
     }, []);
-    
-    const searchCharacter = (name, server) => {
-        window.location.href = "../?name=" + name + "&server=" + server;
-    }
 
     return (
-        isLoading ? 
-        <div className="loading"><img src={loadingIcon} className="icon--mid" /></div> :
+        isLoading ?
+        <div className="loading"><img src={loadingIcon} className="icon--loading" /></div> :
         <>
-            <Navbar {...bannerProps} search={searchCharacter} />
+            <Navbar 
+            {...bannerProps} 
+            search={(name, server) => window.location.href = "../?name=" + name + "&server=" + server} 
+            />
             <div className="character">
                 <Notice
                 text={<p className="notice-text">Some XIV Tracker features may not function properly due to 

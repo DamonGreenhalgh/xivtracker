@@ -94,7 +94,7 @@
 }
 
 .jobs--war-magic {
-    grid-template-rows: repeat(14, 2rem);
+    grid-template-rows: repeat(16, 2rem);
     grid-template-areas: 
         "Tank         Melee    "
         "paladin      monk     "

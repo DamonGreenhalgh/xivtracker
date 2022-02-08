@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: calc((100vh - 30rem) / 2) auto;
+    margin: calc((100vh - 24.875rem) / 2) auto;
     width: var(--home-width);
-    gap: 1rem;
+    gap: 2rem;
 }

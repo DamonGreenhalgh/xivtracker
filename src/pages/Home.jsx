@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Searchbar from '../components/Searchbar';
 import Footer from '../components/Footer';
@@ -21,14 +21,20 @@ const Home = () =>  {
         setIsLoading(true);
         setResults(null);
         setShowNotice(false);
+
+        // If serverlist value was left on default, set to "" for the GET request.
         let currentServer = "";
         if (server !== "Server") { currentServer = server; }
-        await fetch("https://xivapi.com/character/search?name=" + name + "&server=" + currentServer, {mode: 'cors'})
+
+        // Fetch character search for xivapi.com.
+        await fetch("https://xivapi.com/character/search?name="+ name + "&server=" + currentServer, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 if (data.Results.length == 0) {
                     setTextContent("Did not find any characters by the name of '" + name + "'");
                 } else {
+
+                    // Create character banners for each valid returned character.
                     setResults([data.Results.map(result => (
                         <Banner 
                         isDisabled={false}
@@ -48,8 +54,8 @@ const Home = () =>  {
             setIsLoading(false);
     }
 
-    // On page load, check if there are url search parameters, if there are
-    // use them for the search.
+    // On page load, check if there are url search parameters.
+    // If they exist, use them for the search.
     useEffect(() => {
         const searchParams = new URLSearchParams(window.location.search);
         const urlName = searchParams.get('name');
@@ -61,20 +67,22 @@ const Home = () =>  {
         <>  
             <div className="home">
                 <img 
-                src={brandIcon}
-                className="icon--home"
-                alt="Brand Logo" 
+                    src={brandIcon}
+                    className="icon--home interactable"
+                    alt="Brand Logo" 
+                    onClick={() => window.location.reload(false)}
                 />
-                <Searchbar search={searchCharacter} isHome={true} />
+
+                <Searchbar search={searchCharacter} isHome={true} isSearching={isLoading} />
                 {results}
-                <img 
-                src={loadingIcon}
-                className={isLoading ? "icon--mid" : "disabled"}
-                alt="Loading Icon"
+                <img
+                    src={loadingIcon}
+                    className={isLoading ? "icon--loading" : "disabled"}
+                    alt="Loading Icon"
                 />
                 <Notice
-                text={<p className="notice-text">{textContent}</p>}
-                show={showNotice}
+                    text={<p className="notice-text">{textContent}</p>}
+                    show={showNotice}
                 />
             </div>
             <Footer isHome={true}/>

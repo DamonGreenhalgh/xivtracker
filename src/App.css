@@ -7,6 +7,7 @@
   --color-500: #2c2e38;
   --color-300: #595d68;
   --color-200: #9ea1a8;
+  --color-150: #d4dbdd;
   --color-100: #ecf1f3;
   --color-accent: #585bd5;
   --color-hover: #1b1b24;
@@ -156,6 +157,10 @@ button:hover {
   min-width: 4rem;
 }
 
+.icon--loading {
+  height: 46px;
+}
+
 .icon--quests {
   max-width: 2rem;
 }
@@ -188,7 +193,6 @@ button:hover {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  margin-top: 3rem;
   grid-area: notice;
   width: 100%;
   border-radius: .5rem;

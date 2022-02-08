@@ -37,7 +37,7 @@ const Jobs = (props) => {
                     <Header name="Ranged" isMinor={true} image={rangedIcon} />
                     <Header name="Magic" isMinor={true} image={magicIcon} />
 
-                    {warMagicJobs.map((job, index) => 
+                    {warMagicJobs.map(job => 
                         <Job
                         key={job.Job.ID}
                         icon={job.Job.Icon}

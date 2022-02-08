@@ -2,15 +2,10 @@
     display: flex;
     justify-content: space-between;
     width: 30rem;
-    /* box-shadow: 0 0 1rem var(--color-1000); */
     border: 1px solid var(--color-500);
     background-color: var(--color-700);
     border-radius: .5rem;
     overflow: hidden;
-}
-
-.searchbar--home {
-    margin: 3rem 0;
 }
 
 .searchbar__component {

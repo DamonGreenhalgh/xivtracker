@@ -8,7 +8,7 @@ const Footer = (props) => {
 			<i>XIV Tracker</i> is Designed and Developed by Damon Greenhalgh.<br />
 			FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.
         </p>
-        <a className="icon icon--footer" href="https://github.com/DamonGreenhalgh/ffxiv-tracker">
+        <a className="icon icon--footer" href="https://github.com/DamonGreenhalgh/xivtracker">
 			<i className="fa-brands fa-github fa-lg"></i>
         </a>
       </div>  

@@ -15,6 +15,8 @@ const Equipment = (props) => {
                 gridArea={equipmentNames[index]}
                 name={item.Item.Name}
                 icon={("https://xivapi.com" + item.Item.Icon).slice(0, -4) + "_hr1.png"}
+                materia={item.Materia}
+                glamour={item.Mirage}
                 key={item.Item.ID} 
                 />
             )}

@@ -9,7 +9,6 @@
 .collection__items {
     display: grid;
     position: absolute;
-    overflow: hidden;
     grid-template-columns: repeat(7, 3rem);
     grid-template-rows: repeat(6, 3rem);
     gap: .5rem;

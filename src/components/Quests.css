@@ -33,6 +33,10 @@
     margin: 1rem 0;
 }
 
+.spoiler {
+    filter: blur(5px);
+}
+
 .quests__list {
     font-size: .8rem;
 }
