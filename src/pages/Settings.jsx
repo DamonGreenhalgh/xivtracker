@@ -8,7 +8,7 @@ const Settings = (props) => {
         <div className="settings">
             <button onClick={() => navigate(-1)}><IoIosArrowRoundBack className="return" /></button>
             <form className="settings__form">
-                <h1>Settings</h1>
+                <h1 style={{marginBottom: "2rem"}}>Settings</h1>
                 <h3>Theme</h3>
                 <div className='divider--horizontal' />
                 <select className="themes-dropbox" value={props.themeIndex} name="Theme" onChange={(e) => props.setThemeIndex(e.target.selectedIndex)}>

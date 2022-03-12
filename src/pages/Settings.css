@@ -18,17 +18,6 @@
     width: 3rem;
 }
 
-.save {
-    background-color: var(--c-accent);
-    color: white;
-    padding: 1rem;
-    border-radius: .5rem;
-}
-
-.save:hover {
-    color: white;
-}
-
 select {
     border: none;
     outline: none;
