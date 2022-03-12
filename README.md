@@ -29,6 +29,10 @@ Current features of the app include the following,
 
 ![Character](.github/character.png)
 
+> Tooltips display glamour and materia if available.
+
+![Equipment Tooltips](.github/equipment-tooltip.png)
+
 ![Mounts and Disciple of War/Magic Jobs](.github/mounts-jobs.png)
 
 ![Minions and Disciple of Hand/Land Jobs](.github/minions-jobs.png)
