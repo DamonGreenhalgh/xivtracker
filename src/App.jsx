@@ -13,6 +13,7 @@ import themesJSON from './themes.json';
 const App = () => {
   const [themeIndex, setThemeIndex] = useState(0);
 
+  // Function to set the theme of the web app.
   const setTheme = () => {
     const keys = Object.keys(themesJSON[themeIndex].colors);
     const values = Object.values(themesJSON[themeIndex].colors);
@@ -22,6 +23,14 @@ const App = () => {
   }
 
   useEffect(() => {
+
+    // Check local storage to see if a theme has already been set.
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", 0);
+    } else {
+      setThemeIndex(() => localStorage.getItem("theme"))
+    }
+    
     setTheme(themeIndex);
   }, [themeIndex])
 
