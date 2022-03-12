@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Light theme, and support for more themes in future.
 - Settings page
+- Glamour icon indicator on items with glamour applied.
 ### Changes
 - Changed most icon assets to use the react-icons library.
 - Updated navbar
