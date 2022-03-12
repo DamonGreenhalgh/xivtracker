@@ -1,0 +1,30 @@
+.notice {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    grid-area: notice;
+    width: 100%;
+    border-radius: .5rem;
+    background-color: var(--c-notice-background);
+    color: var(--c-background);
+}
+  
+.notice-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+  
+.notice__exit-button {
+    position: absolute;
+    top: .25rem;
+    right: .25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.notice__icon {
+    width: 4rem;
+    height: 4rem;
+}

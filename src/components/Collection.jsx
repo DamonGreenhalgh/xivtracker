@@ -2,22 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 import Item from './Item';
 import Header from './Header';
 import './Collection.css';
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 const Collection = (props) => {
 
     const [currentPanel, setCurrentPanel] = useState(0);
-
     const [mounts, setMounts] = useState(null);
     const [minions, setMinions] = useState(null);
-
     const [mountPage, setMountPage] = useState(1);
     const [minionPage, setMinionPage] = useState(1);
-
     const [maxPage, setMaxPage] = useState(null);
-
     const mountsContainer = useRef(null);
     const minionsContainer = useRef(null);
-
     const capacity = 42;
 
     const onClick = (event) => {
@@ -30,7 +26,6 @@ const Collection = (props) => {
             mountsContainer.current.childNodes[mountPage - 1].className = "collection__items disabled";
             mountsContainer.current.childNodes[mountPage].className = "collection__items";
         }
-        
     }
 
     const decrementMountPage = () => {
@@ -39,7 +34,6 @@ const Collection = (props) => {
             mountsContainer.current.childNodes[mountPage - 1].className = "collection__items disabled";
             mountsContainer.current.childNodes[mountPage - 2].className = "collection__items";
         }
-        
     }
 
     const incrementMinionPage = () => {
@@ -48,7 +42,6 @@ const Collection = (props) => {
             minionsContainer.current.childNodes[minionPage - 1].className = "collection__items disabled";
             minionsContainer.current.childNodes[minionPage].className = "collection__items";
         }
-        
     }
 
     const decrementMinionPage = () => {
@@ -119,9 +112,6 @@ const Collection = (props) => {
             
             setMaxPage([Math.ceil(mountData.length / capacity), Math.ceil(minionData.length / capacity)])    
         }
-        
-        
-        
     }, []);
 
     return (
@@ -129,24 +119,24 @@ const Collection = (props) => {
             <div className="collection section">
                 <Header name="Collection" />
                 <div className="tab">
-                    <button name={0} onClick={onClick} className={"tab__button " + (currentPanel == 0 ? "active" : "")}>Mounts</button>
-                    <button name={1} onClick={onClick} className={"tab__button " + (currentPanel == 1 ? "active" : "")}>Minions</button>
+                    <button name={0} onClick={onClick} className={"section-button  " + (currentPanel == 0 ? "active" : "")}>Mounts</button>
+                    <button name={1} onClick={onClick} className={"section-button  " + (currentPanel == 1 ? "active" : "")}>Minions</button>
                 </div>
                 <div className="panel">
                     <div className={"panel__content " + (currentPanel == 0 ? "" : "disabled")} ref={mountsContainer}>
                         {mounts}
                         <div className="collection__button-container">
-                            <button className="collection__button" onClick={decrementMountPage}>{"<"}</button>
+                            <button onClick={decrementMountPage}><FaChevronLeft /></button>
                             <h4 className="collection__page-text">{mountPage}</h4>
-                            <button className="collection__button" onClick={incrementMountPage}>{">"}</button>
+                            <button onClick={incrementMountPage}><FaChevronRight /></button>
                         </div>
                     </div>
                     <div className={"panel__content " + (currentPanel == 1 ? "" : "disabled")} ref={minionsContainer}>
                         {minions}
                         <div className="collection__button-container">
-                            <button className="collection__button" onClick={decrementMinionPage}>{"<"}</button>
+                            <button onClick={decrementMinionPage}><FaChevronLeft /></button>
                             <h4 className="collection__page-text">{minionPage}</h4>
-                            <button className="collection__button" onClick={incrementMinionPage}>{">"}</button>
+                            <button onClick={incrementMinionPage}><FaChevronRight /></button>
                         </div>
                     </div>
                 </div>

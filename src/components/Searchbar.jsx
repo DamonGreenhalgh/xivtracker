@@ -1,6 +1,7 @@
 import { useState }  from 'react';
 import './Searchbar.css';
 import searchLogo from '../images/search.png';
+import { FaSearch } from 'react-icons/fa';
 
 const Searchbar = (props) => {
 
@@ -22,8 +23,8 @@ const Searchbar = (props) => {
     }
 
     return (
-        <form className={props.isSearching ? "disabled" : "searchbar"} onSubmit={callbackMethod}>
-            <select className='searchbar__server-list searchbar__component' value={server} onChange={onChange} name="server">
+        <form className={props.isSearching ? "disabled" : "searchbar"} onSubmit={callbackMethod} autoComplete="off">
+            <select className='searchbar__server-list searchbar__component' value={server} onChange={onChange} name="server" autoComplete="false">
                 <option>Server</option>
                 <option>Adamantoise</option>
                 <option>Aegis</option>
@@ -127,7 +128,7 @@ const Searchbar = (props) => {
             >
             </input>
             <button className="searchbar__component searchbar__button">
-                <img src={searchLogo} className="icon"></img>
+                <FaSearch />
             </button>
         </form>
     );

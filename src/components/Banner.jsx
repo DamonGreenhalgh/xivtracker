@@ -6,7 +6,6 @@ const Banner = (props) => {
         props.isDisabled ?
         null :
         <Link className={"banner banner--" + props.type} to={"/character/" + props.id}>
-            
             {
             props.isCrest ? 
             <div className="icon--mid relative">
@@ -17,17 +16,16 @@ const Banner = (props) => {
             :
             <img className="rounded" src={props.avatar} />
             }
-
             <div className="banner__text">
                 <h4>{props.isPrefix ? props.title : ""}</h4>
-                <h2>{props.name}</h2>
-                
+                <h2 className={props.type == "free-company" ? "free-company__text" : ""}>
+                    {props.name}
+                </h2>
                 {
                 props.type == "free-company" ?
                 <p>{props.title}</p> :
                 <h4>{props.isPrefix ? "" : props.title}</h4>
                 }
-
             </div>
             <h5 className="banner__server">{props.server}</h5>
         </Link>

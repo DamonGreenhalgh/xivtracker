@@ -32,13 +32,13 @@
 .collection__button {
     font-size: 2rem;
     padding: 0;
-    color: var(--color-300);
+    color: var(--c-minor-text);
     background-color: transparent;
     border: none;
 }
 
 .collection__button:hover {
-    color: var(--color-100);
+    color: var(--c-major-text);
     background-color: transparent;
 }
 

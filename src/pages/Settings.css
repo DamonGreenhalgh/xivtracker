@@ -1,0 +1,40 @@
+.settings {
+    display: flex;
+    justify-content: center;
+    margin: 5rem auto;
+}
+
+.settings__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.return {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+.save {
+    background-color: var(--c-accent);
+    color: white;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.save:hover {
+    color: white;
+}
+
+select {
+    border: none;
+    outline: none;
+    padding: .5rem;
+    font-size: 1rem;
+    width: 10rem;
+    background-color: var(--c-content-background);
+    color: var(--c-minor-text);
+}

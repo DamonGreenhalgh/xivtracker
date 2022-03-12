@@ -26,8 +26,8 @@ const Jobs = (props) => {
             <div className="jobs section">
             <Header name="Jobs" />
             <div className="tab">
-                <button name={0} onClick={onClick} className={"tab__button tab__button--jobs " + (currentPanel == 0 ? "active" : "")}>War/Magic</button>
-                <button name={1} onClick={onClick} className={"tab__button tab__button--jobs " + (currentPanel == 1 ? "active" : "")}>Hand/Land</button>
+                <button name={0} onClick={onClick} className={"section-button " + (currentPanel == 0 ? "active" : "")}>War/Magic</button>
+                <button name={1} onClick={onClick} className={"section-button " + (currentPanel == 1 ? "active" : "")}>Hand/Land</button>
             </div>
             <div className="panel">
                 <div className={"jobs--war-magic panel__content panel__content--" + props.type + " " + (currentPanel == 0 ? "" : "disabled")}>

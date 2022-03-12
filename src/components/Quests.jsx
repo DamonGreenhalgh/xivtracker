@@ -200,8 +200,6 @@ const Quests = (props) => {
 
                     </div>
 
-                    <div className="divider--vertical" />
-
                     <div className="quests__column">
 
                         {/* Dungeons */}
@@ -314,9 +312,7 @@ const Quests = (props) => {
                             <li><img src={checkmarkIcon} className="icon hidden" alt="" /><a href={eorzeadbBaseUrl + "duty/25f8ec27427/"} className="eorzeadb_link">The Stigma Dreamscape</a></li>
                         </ol>
                     </div>
-
-                    <div className="divider--vertical" />
-
+                    
                     <div className="quests__column">
 
                         {/* Trials */}

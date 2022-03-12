@@ -25,14 +25,14 @@
     left: 4rem;
     padding: 1rem;
     font-weight: bold;
-    color: var(--color-1000);
-    background-color: var(--color-100);
-    box-shadow: 0 .5rem 2rem var(--color-1000);
+    color: var(--c-major-text);
+    background-color: var(--c-content-background);
+    box-shadow: 0 .5rem 2rem var(--c-shadow);
     border-radius: .5rem;
 }
 
 .tooltip .divider--horizontal {
-    background-color: var(--color-150);
+    background-color: var(--c-background);
 }
 
 .item:hover .tooltip {

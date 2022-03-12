@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Searchbar from '../components/Searchbar';
 import Footer from '../components/Footer';
 import Banner from '../components/Banner';
@@ -72,7 +71,6 @@ const Home = () =>  {
                     alt="Brand Logo" 
                     onClick={() => window.location.reload(false)}
                 />
-
                 <Searchbar search={searchCharacter} isHome={true} isSearching={isLoading} />
                 {results}
                 <img

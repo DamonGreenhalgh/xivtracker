@@ -27,8 +27,7 @@
     width: 10rem;
     height: .8rem;
     border-radius: .5rem;
-    border: 2px solid var(--color-700);
-    background-color: var(--color-900);
+    background-color: var(--c-background);
 }
 
 .job__level-bar__completed {

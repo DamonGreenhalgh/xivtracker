@@ -1,16 +1,4 @@
 * {
-  --color-1000: #0c0d0f;
-  --color-900: #111214;
-  --color-800: #16171a;
-  --color-700: #1b1d22;
-  --color-600: #262a38;
-  --color-500: #2c2e38;
-  --color-300: #595d68;
-  --color-200: #9ea1a8;
-  --color-150: #d4dbdd;
-  --color-100: #ecf1f3;
-  --color-accent: #585bd5;
-  --color-hover: #1b1b24;
   --color-experience: #cfb671;
   --color-max-level: #f09744;
   --color-free-company: #404040;
@@ -24,15 +12,15 @@
 
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: var(--color-accent) transparent;
+  scrollbar-color: var(--c-accent) transparent;
 }
 
 body {
   margin: 0;
   font-size: 1rem;
   font-family: 'Comfortaa';
-  color: var(--color-200);
-  background-color: var(--color-900);
+  color: var(--c-minor-text);
+  background-color: var(--c-background);
 }
 
 h1, h2, h3, h4, h5, p {
@@ -40,7 +28,11 @@ h1, h2, h3, h4, h5, p {
 }
 
 h1, h2 {
-  color: var(--color-100);
+  color: var(--c-major-text);
+}
+
+h3, h4 {
+  color: var(--c-mid-text);
 }
 
 p {
@@ -67,31 +59,36 @@ button {
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Comfortaa';
-  padding: 1rem;
-  background-color: var(--color-700);
-  border: 1px solid var(--color-500);
-  color: var(--color-300);
-  border-radius: .5rem;
+  background-color: transparent;
+  color: var(--c-minor-text);
   transition: background-color 0.25s, color 0.25s;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: var(--color-accent);
-  color: var(--color-100);
+  color: var(--c-accent);
+}
+
+.section-button {
+  padding: 1rem;
+  border-radius: .5rem;
+  width: 100%;
+  background-color: var(--c-background);
+}
+
+.section-button:hover {
+  background-color: var(--c-accent);
+  color: white;
+}
+
+.active {
+  background-color: var(--c-accent);
+  color: white;
 }
 
 @font-face {
   font-family: 'Comfortaa';
   src: url('fonts/Comfortaa.ttf');
-}
-
-.header {
-  position: absolute;
-  top: -.75rem;
-  padding: 0 1rem;
-  color: var(--color-200);
-  transition: color 1s;
 }
 
 .column {
@@ -105,17 +102,10 @@ button:hover {
   gap: 2rem;
 }
 
-.divider--vertical {
-  width: 2px;
-  height: 203rem;
-  background-color: var(--color-700);
-  transition: background-color 0.25s;
-}
-
 .divider--horizontal {
   width: 100%;
   height: 2px;
-  background-color: var(--color-700);
+  background-color: var(--c-mid-background);
 }
 
 .interactable:hover {
@@ -171,43 +161,10 @@ button:hover {
   height: 10rem;
 }
 
-.icon--footer {
-  color: var(--color-300);
-}
-
-.icon--footer:hover {
-  color: var(--color-200);
-}
-
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
-}
-
-.notice {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  grid-area: notice;
-  width: 100%;
-  border-radius: .5rem;
-  background-color: var(--color-100);
-}
-
-.notice-text {
-  color: var(--color-900);
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.notice__exit-button {
-  position: absolute;
-  top: -1rem;
-  right: -1rem;
-  width: 2rem;
 }
