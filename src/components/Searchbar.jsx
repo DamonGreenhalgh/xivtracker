@@ -1,20 +1,19 @@
 import { useState }  from 'react';
 import './Searchbar.css';
-import searchLogo from '../images/search.png';
 import { FaSearch } from 'react-icons/fa';
+import { BsChevronDown } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import { VscSettings } from 'react-icons/vsc';
 
 const Searchbar = (props) => {
 
     const [name, setName] = useState("");
     const [server, setServer] = useState("Server");
+    const [displayDropdown, setDisplayDropdown] = useState(false);
 
     const onChange = (event) => {
         const value = event.target.value;
-        if (event.target.name == "name") {
-            setName(value);
-        } else {
-            setServer(value);
-        }
+        setName(value);
     }
 
     const callbackMethod = (event) => {
@@ -24,112 +23,121 @@ const Searchbar = (props) => {
 
     return (
         <form className={props.isSearching ? "disabled" : "searchbar"} onSubmit={callbackMethod} autoComplete="off">
-            <select className='searchbar__server-list searchbar__component' value={server} onChange={onChange} name="server" autoComplete="false">
-                <option>Server</option>
-                <option>Adamantoise</option>
-                <option>Aegis</option>
-                <option>Alexander</option>
-                <option>Anima</option>
-                <option>Asura</option>
-                <option>Atomos</option>
-                <option>Bahamut</option>
-                <option>Balmung</option>
-                <option>Behemoth</option>
-                <option>Belias</option>
-                <option>Brynhildr</option>
-                <option>Cactuar</option>
-                <option>Carbuncle</option>
-                <option>Cerberus</option>
-                <option>Chocobo</option>
-                <option>Coeurl</option>
-                <option>Diabolos</option>
-                <option>Durandal</option>
-                <option>Excalibur</option>
-                <option>Exodus</option>
-                <option>Faerie</option>
-                <option>Famfrit</option>
-                <option>Fenrir</option>
-                <option>Garuda</option>
-                <option>Gilgamesh</option>
-                <option>Goblin</option>
-                <option>Gungnir</option>
-                <option>Hades</option>
-                <option>Hyperion</option>
-                <option>Ifrit</option>
-                <option>Ixion</option>
-                <option>Jenova</option>
-                <option>Kujata</option>
-                <option>Lamia</option>
-                <option>Leviathan</option>
-                <option>Lich</option>
-                <option>Louisoix</option>
-                <option>Malboro</option>
-                <option>Mandragora</option>
-                <option>Masamune</option>
-                <option>Mateus</option>
-                <option>Midgardsormr</option>
-                <option>Moogle</option>
-                <option>Odin</option>
-                <option>Omega</option>
-                <option>Pandaemonium</option>
-                <option>Phoenix</option>
-                <option>Ragnarok</option>
-                <option>Ramuh</option>
-                <option>Ridill</option>
-                <option>Sargatanas</option>
-                <option>Shinryu</option>
-                <option>Shiva</option>
-                <option>Siren</option>
-                <option>Tiamat</option>
-                <option>Titan</option>
-                <option>Tonberry</option>
-                <option>Typhon</option>
-                <option>Ultima</option>
-                <option>Ultros</option>
-                <option>Unicorn</option>
-                <option>Valefor</option>
-                <option>Yojimbo</option>
-                <option>Zalera</option>
-                <option>Zeromus</option>
-                <option>Zodiark</option>
-                <option>Spriggan</option>
-                <option>Twintania</option>
-                <option>HongYuHai</option>
-                <option>ShenYiZhiDi</option>
-                <option>LaNuoXiYa</option>
-                <option>HuanYingQunDao</option>
-                <option>MengYaChi</option>
-                <option>YuZhouHeYin</option>
-                <option>WoXianXiRan</option>
-                <option>ChenXiWangZuo</option>
-                <option>BaiYinXiang</option>
-                <option>BaiJinHuanXiang</option>
-                <option>ShenQuanHen</option>
-                <option>ChaoFengTing</option>
-                <option>LvRenZhanQiao</option>
-                <option>FuXiaoZhiJian</option>
-                <option>Longchaoshendian</option>
-                <option>MengYuBaoJing</option>
-                <option>ZiShuiZhanQiao</option>
-                <option>YanXia</option>
-                <option>JingYuZhuangYuan</option>
-                <option>MoDuNa</option>
-                <option>HaiMaoChaWu</option>
-                <option>RouFengHaiWan</option>
-                <option>HuPoYuan</option>
-            </select>
+            <div className={displayDropdown ? "select select--dropdown" : "select"} onClick={() => setDisplayDropdown(displayDropdown ? false : true)}>
+                {server}
+                <BsChevronDown />
+                <div className={displayDropdown ? "options options--serverlist" : "disabled"} onClick={(e) => setServer(e.target.innerText)}>
+                    <div>Server</div>
+                    <div>Adamantoise</div>
+                    <div>Aegis</div>
+                    <div>Alexander</div>
+                    <div>Anima</div>
+                    <div>Asura</div>
+                    <div>Atomos</div>
+                    <div>Bahamut</div>
+                    <div>Balmung</div>
+                    <div>Behemoth</div>
+                    <div>Belias</div>
+                    <div>Brynhildr</div>
+                    <div>Cactuar</div>
+                    <div>Carbuncle</div>
+                    <div>Cerberus</div>
+                    <div>Chocobo</div>
+                    <div>Coeurl</div>
+                    <div>Diabolos</div>
+                    <div>Durandal</div>
+                    <div>Excalibur</div>
+                    <div>Exodus</div>
+                    <div>Faerie</div>
+                    <div>Famfrit</div>
+                    <div>Fenrir</div>
+                    <div>Garuda</div>
+                    <div>Gilgamesh</div>
+                    <div>Goblin</div>
+                    <div>Gungnir</div>
+                    <div>Hades</div>
+                    <div>Hyperion</div>
+                    <div>Ifrit</div>
+                    <div>Ixion</div>
+                    <div>Jenova</div>
+                    <div>Kujata</div>
+                    <div>Lamia</div>
+                    <div>Leviathan</div>
+                    <div>Lich</div>
+                    <div>Louisoix</div>
+                    <div>Malboro</div>
+                    <div>Mandragora</div>
+                    <div>Masamune</div>
+                    <div>Mateus</div>
+                    <div>Midgardsormr</div>
+                    <div>Moogle</div>
+                    <div>Odin</div>
+                    <div>Omega</div>
+                    <div>Pandaemonium</div>
+                    <div>Phoenix</div>
+                    <div>Ragnarok</div>
+                    <div>Ramuh</div>
+                    <div>Ridill</div>
+                    <div>Sargatanas</div>
+                    <div>Shinryu</div>
+                    <div>Shiva</div>
+                    <div>Siren</div>
+                    <div>Tiamat</div>
+                    <div>Titan</div>
+                    <div>Tonberry</div>
+                    <div>Typhon</div>
+                    <div>Ultima</div>
+                    <div>Ultros</div>
+                    <div>Unicorn</div>
+                    <div>Valefor</div>
+                    <div>Yojimbo</div>
+                    <div>Zalera</div>
+                    <div>Zeromus</div>
+                    <div>Zodiark</div>
+                    <div>Spriggan</div>
+                    <div>Twintania</div>
+                    <div>HongYuHai</div>
+                    <div>ShenYiZhiDi</div>
+                    <div>LaNuoXiYa</div>
+                    <div>HuanYingQunDao</div>
+                    <div>MengYaChi</div>
+                    <div>YuZhouHeYin</div>
+                    <div>WoXianXiRan</div>
+                    <div>ChenXiWangZuo</div>
+                    <div>BaiYinXiang</div>
+                    <div>BaiJinHuanXiang</div>
+                    <div>ShenQuanHen</div>
+                    <div>ChaoFengTing</div>
+                    <div>LvRenZhanQiao</div>
+                    <div>FuXiaoZhiJian</div>
+                    <div>Longchaoshendian</div>
+                    <div>MengYuBaoJing</div>
+                    <div>ZiShuiZhanQiao</div>
+                    <div>YanXia</div>
+                    <div>JingYuZhuangYuan</div>
+                    <div>MoDuNa</div>
+                    <div>HaiMaoChaWu</div>
+                    <div>RouFengHaiWan</div>
+                    <div>HuPoYuan</div>
+                </div>
+            </div>
             <input
                 type="text"
-                className="text-box searchbar__component"
+                className="searchbar__text-box"
                 placeholder="Name"
                 value={name}
                 onChange={onChange}
                 name="name"
-            >
-            </input>
-            <button className="searchbar__component searchbar__button">
+                autoFocus="on"
+                style={{width: "12rem"}}
+            />
+            <div className="underline" />
+            <button className="searchbar__search-button" title="Search">
                 <FaSearch />
             </button>
+            <Link to="/settings" title="Settings" style={{display: "flex", alignItems: "center"}}>
+                <button><VscSettings className="navbar__icon" /></button>
+            </Link>
         </form>
     );
 }

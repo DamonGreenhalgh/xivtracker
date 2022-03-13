@@ -91,6 +91,73 @@ button:hover {
   src: url('fonts/Comfortaa.ttf');
 }
 
+.select {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 2.75rem;
+  width: 12rem;
+  background-color: var(--c-accent);
+  border-radius: .25rem;
+  color: white;
+}
+
+.select::selection {
+  background-color: transparent;
+}
+
+.select--dropdown {
+  border-radius: .25rem .25rem 0 0;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+  position: absolute;
+  overflow: scroll;
+  scrollbar-width: none;
+  width: 12rem;
+  top: 2.75rem;
+  left: 0;
+  background-color: var(--c-content-background);
+  border-radius: 0 0 .25rem .25rem;
+  box-shadow: 0 .5rem 1rem var(--c-shadow);
+  color: var(--c-minor-text);
+}
+
+.options--serverlist {
+  height: 15rem;
+}
+
+.options div {
+  padding: .5rem 1rem;
+}
+
+.options div:hover {
+  cursor: pointer;
+  background-color: var(--c-accent);
+  color: white;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-family: 'Comfortaa';
+  font-weight: bold;
+  color: var(--c-minor-text);
+  border-bottom: 1px solid transparent;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--c-accent)
+}
+
 .column {
   display: flex;
   flex-direction: column;

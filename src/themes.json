@@ -1,6 +1,7 @@
 {
-    "0": {
+    "light": {
         "name": "Light",
+        "id": 0,
         "colors": {
             "--c-background": "#e6e6e6",
             "--c-content-background": "#f3f2f2",
@@ -13,8 +14,9 @@
             "--c-shadow": "rgba(0, 0, 0, 0.1)"
         }
     },
-    "1": {
+    "dark": {
         "name": "Dark",
+        "id": 1,
         "colors": {
             "--c-background": "#151618",
             "--c-content-background": "#1d1d20",

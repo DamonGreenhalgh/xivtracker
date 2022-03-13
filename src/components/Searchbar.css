@@ -3,30 +3,4 @@
     justify-content: space-between;
     width: 30rem;
     margin-left: auto;
-    overflow: hidden;
-}
-
-.searchbar__component {
-    border: none;
-    background-color: transparent;
-    font-size: 1rem;
-    padding: .75rem;
-    font-family: 'Comfortaa';
-    font-weight: bold;
-}
-
-.searchbar__component:focus {
-  outline: none;
-}
-
-.searchbar__server-list {
-    cursor: pointer;
-    background-color: var(--c-accent);
-    color: white;
-    border-radius: .25rem;
-}
-
-.text-box {
-    width: 100%;
-    color: var(--c-major-text);
 }
