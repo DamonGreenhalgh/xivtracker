@@ -39,10 +39,6 @@ p {
   font-size: .8rem;
 }
 
-br {
-  line-height: 200%;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -149,7 +145,7 @@ input {
   font-size: 1rem;
   font-family: 'Comfortaa';
   font-weight: bold;
-  color: var(--c-minor-text);
+  color: var(--c-mid-text);
   border-bottom: 1px solid transparent;
 }
 
@@ -191,7 +187,7 @@ input:focus {
   border-radius: 100%;
 }
 
-.icon {
+.icon { 
   height: 1rem;
 }
 
@@ -222,16 +218,16 @@ input:focus {
   max-width: 2rem;
 }
 
-.icon--home {
-  object-fit: contain;
-  width: var(--home-width);
-  height: 10rem;
-}
-
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100vh;
+}
+
+.splash {
+  z-index: -1;
+  position: fixed;
   height: 100vh;
 }

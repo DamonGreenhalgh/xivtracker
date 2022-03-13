@@ -7,3 +7,11 @@
     width: var(--home-width);
     gap: 2rem;
 }
+
+.home__brand {
+    z-index: -2;
+    object-fit: contain;
+    width: var(--home-width);
+    height: 10rem;
+}
+

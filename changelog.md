@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Settings page
 - Glamour icon indicator on items with glamour applied.
 - Remembers previously set theme. 
+- Added settings button on homepage.
+- Added splash image for homepage, random selection.
 
 ### Changed 
 

@@ -6,7 +6,8 @@ const Footer = (props) => {
     <div className="footer-wrapper">
       <div className={props.isHome ? "footer" : "footer footer--character"}>
         <p className="footer__text">
-          <i>XIV Tracker</i> is Designed and Developed by Damon Greenhalgh.<br />
+          Illustrations by Yusuke Mogi.<br/>
+          <i>XIV Tracker</i> is Designed and Developed by Damon Greenhalgh.<br/>
           FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.
         </p>
         <button>

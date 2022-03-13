@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import Searchbar from '../components/Searchbar';
 import Footer from '../components/Footer';
 import Banner from '../components/Banner';
-import '../components/Banner.css';
 import './Home.css';
 import brandIcon from '../images/brand-extended.png';
 import loadingIcon from '../images/loading.svg';
 import Notice from '../components/Notice';
+import Splash from '../components/Splash';
 
 const Home = () =>  {
 
@@ -65,9 +65,10 @@ const Home = () =>  {
     return (
         <>  
             <div className="home">
+                <Splash />
                 <img 
                     src={brandIcon}
-                    className="icon--home interactable"
+                    className="home__brand interactable"
                     alt="Brand Logo" 
                     onClick={() => window.location.reload(false)}
                 />
