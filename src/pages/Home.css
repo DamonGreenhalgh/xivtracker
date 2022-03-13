@@ -3,15 +3,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: calc((100vh - 24.875rem) / 2) auto;
+    margin: calc((100vh - 36.875rem) / 2) auto;
+    margin-left: 50vw;
     width: var(--home-width);
     gap: 2rem;
 }
 
 .home__brand {
-    z-index: -2;
     object-fit: contain;
     width: var(--home-width);
     height: 10rem;
 }
 
+.expansion-banner {
+    width: var(--home-width);
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    text-align: end;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(150deg, transparent 40%, var(--color-expansion)), url("../images/endwalker.png");
+    color: white;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    transition: transform .5s;
+    padding: 1rem;
+}
+
+.expansion-banner h2 {
+    color: white;
+}

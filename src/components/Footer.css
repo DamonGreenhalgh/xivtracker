@@ -6,15 +6,16 @@
 
 .footer {
   width: var(--home-width);
-  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  margin-left: 50vw;
 }
 
 .footer--character {
   width: var(--character-width);
+  margin: auto;
 }
 
 .footer__text {

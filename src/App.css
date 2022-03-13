@@ -5,6 +5,7 @@
   --color-completed: #30bb65; 
   --color-health: #5d9c22;
   --color-mana: #be2c9f;
+  --color-expansion: #184377;
 
   --margin-global: calc((100vw - 30rem) / 2);
   --character-width: 70rem;
@@ -230,4 +231,7 @@ input:focus {
   z-index: -1;
   position: fixed;
   height: 100vh;
+  pointer-events: none;
+  right: 50vw;
+  top: 0;
 }

@@ -83,6 +83,10 @@ const Home = () =>  {
                     text={<p className="notice-text">{textContent}</p>}
                     show={showNotice}
                 />
+                <a className="expansion-banner interactable" href="https://na.finalfantasyxiv.com/endwalker/">
+                    <h2>ENDWALKER</h2>
+                    <p>Current Expansion</p>
+                </a>
             </div>
             <Footer isHome={true}/>
         </>
