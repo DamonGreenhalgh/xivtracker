@@ -1,5 +1,5 @@
-import reaperSplash from '../images/art/reaper.png';
-import sageSplash from '../images/art/sage.png';
+import reaperSplash from '../images/splash/reaper.png';
+import sageSplash from '../images/splash/sage.png';
 
 const splashes = [
     reaperSplash,

@@ -7,6 +7,7 @@ import brandIcon from '../images/brand-extended.png';
 import loadingIcon from '../images/loading.svg';
 import Notice from '../components/Notice';
 import Splash from '../components/Splash';
+import Featured from '../components/Featured';
 
 
 const Home = () =>  {
@@ -62,11 +63,11 @@ const Home = () =>  {
         if (urlName !== null) { searchCharacter(urlName, urlServer); }
 
         // localStorage.clear();
-        var i;
-        console.log("local storage");
-        for (i = 0; i < localStorage.length; i++)   {
-            console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-        }
+        // var i;
+        // console.log("local storage");
+        // for (i = 0; i < localStorage.length; i++)   {
+        //     console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+        // }
 
     }, []);
 
@@ -91,18 +92,7 @@ const Home = () =>  {
                     text={<p className="notice-text">{textContent}</p>}
                     show={showNotice}
                 />
-                <a className="expansion-banner expansion interactable" href="https://na.finalfantasyxiv.com/endwalker/">
-                    <div className="banner-content">
-                        <p>Current Expansion</p>
-                        <h2>6.0 ENDWALKER</h2>
-                    </div>
-                </a>
-                <a className="expansion-banner patch interactable" href="https://na.finalfantasyxiv.com/endwalker/patch_6_1/">
-                    <div className="banner-content">
-                        <p>Upcoming Patch</p>
-                        <h2>6.1 NEWFOUND ADVENTURE</h2>
-                    </div>
-                </a>
+                <Featured />
             </div>
             <Footer isHome={true}/>
         </>

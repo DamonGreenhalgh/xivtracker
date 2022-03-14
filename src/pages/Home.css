@@ -3,8 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: calc((100vh - 38.875rem) / 2);
-    margin-bottom: calc((100vh - 58.875rem) / 2);
+    margin-top: calc((100vh - 36.75rem) / 2);
+    margin-bottom: calc((100vh - 46.75rem) / 2);
     margin-left: 50vw;
     width: var(--home-width);
     gap: 2rem;
@@ -14,50 +14,5 @@
     object-fit: contain;
     width: var(--home-width);
     height: 10rem;
-}
-
-.expansion-banner {
-    position: relative;
-    overflow: hidden;
-    width: var(--home-width);
-    height: 10rem;
-    background-position: center;
-    background-size: cover;
-    color: white;
-    border-radius: .5rem;
-    transition: box-shadow .5s;
-}
-
-.expansion {
-    background-image: url("../images/endwalker.png");
-}
-
-.patch {
-    background-image: url("../images/newfound-adventure.png");
-}
-
-.banner-content {
-    position: absolute;
-    text-align: end;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: var(--home-width);
-    height: 10rem;   
-    padding: 1rem;
-    bottom: -10rem;
-    background-image: linear-gradient(170deg, transparent 50%, var(--color-news));
-    transition: bottom .5s ease-in-out;
-}
-
-.expansion-banner:hover {
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
-}
-
-.expansion-banner:hover .banner-content {
-    bottom: 0;
-}
-
-.expansion-banner h2 {
-    color: white;
+    gap: 1rem;
 }

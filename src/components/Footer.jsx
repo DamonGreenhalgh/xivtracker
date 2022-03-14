@@ -12,7 +12,7 @@ const Footer = (props) => {
         </p>
         <button>
           <a href="https://github.com/DamonGreenhalgh/xivtracker">
-            <FaGithub size="1.5em" />
+            <FaGithub size="1.25em" />
           </a>
         </button>
       </div>

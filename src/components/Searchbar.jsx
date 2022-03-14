@@ -1,8 +1,7 @@
 import './Searchbar.css';
 import { useState, useEffect  }  from 'react';
 import { Link } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
-import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import { FaChevronDown, FaChevronUp, FaSearch } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 import { VscSettings } from 'react-icons/vsc';
 
@@ -13,11 +12,6 @@ const Searchbar = (props) => {
     const [server, setServer] = useState("Server");
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const [recent, setRecent] = useState(null);
-
-    const onChange = (event) => {
-        const value = event.target.value;
-        setName(value);
-    }
 
     const callbackMethod = (event) => {
         event.preventDefault();
@@ -30,14 +24,13 @@ const Searchbar = (props) => {
         if (recentSearches !== null) {
             setRecent(recentSearches.map(char => {
                 return(
-                    <Link to={"/character/" + char.id}>
+                    <Link to={"/character/" + char.id} key={char.id}>
                         <div className="recent__profile interactable">
                             <img src={char.avatar} className="rounded recent__avatar" />
                             <div>
                                 <p><b>{char.name}</b></p>
                                 <p style={{fontSize: ".6rem"}}>{char.server}</p>
                             </div>
-                            
                         </div>
                     </Link>
                 );
@@ -53,7 +46,7 @@ const Searchbar = (props) => {
         >
             <div className={displayDropdown ? "select select--dropdown" : "select"} onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
                 {server}
-                {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}
+                {displayDropdown ? <FaChevronUp /> : <FaChevronDown />}
                 <div className={displayDropdown ? "options options--serverlist" : "disabled"} onClick={(e) => setServer(e.target.innerText)}>
                     <div>Server</div>
                     <div>Adamantoise</div>
@@ -154,7 +147,7 @@ const Searchbar = (props) => {
                 className="searchbar__text-box"
                 placeholder="Name"
                 value={name}
-                onChange={onChange}
+                onChange={(e) => setName(e.target.value)}
                 name="name"
                 style={{width: "12rem"}}
                 onClick={() => {setDisplayRecent(true); setDisplayDropdown(false)}}
