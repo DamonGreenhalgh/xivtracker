@@ -1,6 +1,50 @@
 .searchbar {
+    position: relative;
     display: flex;
     justify-content: space-between;
     width: 30rem;
     margin-left: auto;
+}
+
+.recent {
+    z-index: 1;
+    top: calc(100% + 1rem);
+    position: absolute;
+    width: var(--home-width);
+    background-color: var(--c-content-background);
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.recent__tab {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recent__collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+
+}
+
+.recent__profile {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem;
+    border-radius: .25rem;
+}
+
+.recent__profile:hover {
+    background-color: var(--c-accent);
+    color: white;
+}
+
+.recent__avatar {
+    height: 2.5rem;
 }

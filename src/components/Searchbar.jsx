@@ -1,15 +1,18 @@
-import { useState }  from 'react';
 import './Searchbar.css';
-import { FaSearch } from 'react-icons/fa';
-import { BsChevronDown } from 'react-icons/bs';
+import { useState, useEffect  }  from 'react';
 import { Link } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import { MdClose } from 'react-icons/md';
 import { VscSettings } from 'react-icons/vsc';
 
 const Searchbar = (props) => {
 
+    const [displayRecent, setDisplayRecent] = useState(false);
     const [name, setName] = useState("");
     const [server, setServer] = useState("Server");
     const [displayDropdown, setDisplayDropdown] = useState(false);
+    const [recent, setRecent] = useState(null);
 
     const onChange = (event) => {
         const value = event.target.value;
@@ -18,14 +21,39 @@ const Searchbar = (props) => {
 
     const callbackMethod = (event) => {
         event.preventDefault();
+        setDisplayRecent(false);
         props.search(name, server);
     }
 
+    useEffect(() => {
+        const recentSearches = JSON.parse(localStorage.getItem("recent"));
+        if (recentSearches !== null) {
+            setRecent(recentSearches.map(char => {
+                return(
+                    <Link to={"/character/" + char.id}>
+                        <div className="recent__profile interactable">
+                            <img src={char.avatar} className="rounded recent__avatar" />
+                            <div>
+                                <p><b>{char.name}</b></p>
+                                <p style={{fontSize: ".6rem"}}>{char.server}</p>
+                            </div>
+                            
+                        </div>
+                    </Link>
+                );
+            }))
+        }
+    }, [])
+
     return (
-        <form className={props.isSearching ? "disabled" : "searchbar"} onSubmit={callbackMethod} autoComplete="off">
-            <div className={displayDropdown ? "select select--dropdown" : "select"} onClick={() => setDisplayDropdown(displayDropdown ? false : true)}>
+        <form 
+            className={props.isSearching ? "disabled" : "searchbar"} 
+            onSubmit={callbackMethod} 
+            autoComplete="off"
+        >
+            <div className={displayDropdown ? "select select--dropdown" : "select"} onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
                 {server}
-                <BsChevronDown />
+                {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}
                 <div className={displayDropdown ? "options options--serverlist" : "disabled"} onClick={(e) => setServer(e.target.innerText)}>
                     <div>Server</div>
                     <div>Adamantoise</div>
@@ -128,16 +156,25 @@ const Searchbar = (props) => {
                 value={name}
                 onChange={onChange}
                 name="name"
-                autoFocus="on"
                 style={{width: "12rem"}}
+                onClick={() => {setDisplayRecent(true); setDisplayDropdown(false)}}
             />
-            <div className="underline" />
             <button className="searchbar__search-button" title="Search">
                 <FaSearch />
             </button>
             <Link to="/settings" title="Settings" style={{display: "flex", alignItems: "center"}}>
                 <button><VscSettings className="navbar__icon" /></button>
             </Link>
+            <div className={displayRecent ? "recent" : "disabled"}>
+                <div className="recent__tab">
+                    <h4>Recently Viewed</h4>
+                    <MdClose className="interactable" onClick={() => setDisplayRecent(false)}/>
+                </div>
+                <div className='divider--horizontal' />
+                <div className="recent__collection">
+                    {recent}
+                </div>             
+            </div>
         </form>
     );
 }

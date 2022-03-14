@@ -25,7 +25,6 @@ const App = () => {
 
   // Load stored settings from local storage.
   useEffect(() => {
-    console.log(localStorage.getItem("theme"));
     if (localStorage.getItem("theme") === null) {
       localStorage.setItem("theme", "light");
     } else {

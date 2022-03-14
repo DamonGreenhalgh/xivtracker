@@ -23,6 +23,44 @@ const Character = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 
+    const storeRecent = (data) => {
+
+        // Define new character object.
+        const character = {
+            name: data.Name,
+            avatar: data.Avatar,
+            id: data.ID,
+            server: data.Server
+        }
+
+        // Retrieve 'recent' variable from local storage.
+        let recent = JSON.parse(localStorage.getItem("recent"));
+
+        // First time user, create recent array.
+        if (recent === null) {
+            recent = [];
+        }
+
+        // Check if the character is in the recent array, if it is, remove it.
+        for (let i = 0; i < recent.length; i++) {
+            if (recent[i].id == character.id) {
+                recent.splice(i, 1);
+            }
+        }
+
+        // Add character to the front of the array. Indicates most recently
+        // viewed character.
+        recent.unshift(character);
+
+        // If recent array is at max capacity, remove the last element.
+        if (recent.length > 6) {
+            recent.pop();
+        }
+
+        // Store 'recent' back into local storage.
+        localStorage.setItem("recent", JSON.stringify(recent));
+    }
+
     // On mount, fetch character data, update component props with retrieved data.
     useEffect(async () => {
         
@@ -38,6 +76,9 @@ const Character = () => {
 
         // Set window title to 'XIV Tracker | {character name}'
         document.title = "XIV Tracker | " + characterData.Name;
+
+        // Add character to recently viewed list.
+        storeRecent(characterData);
 
         // Update the respective props with the newly aquired data.
         setBannerProps({
@@ -68,18 +109,23 @@ const Character = () => {
                 avatar: freeCompanyData.Crest
             })
         }
+
         setJobsProps({
             type: "jobs",
             jobs: characterData.ClassJobs
         });
+
         setAttributeProps({
             content: characterData.GearSet.Attributes
         });
+
         setQuestsProps ({
             id: characterData.ID
         });
 
+        // Completed loading, update.
         setIsLoading(false);
+
     }, []);
 
     return (
