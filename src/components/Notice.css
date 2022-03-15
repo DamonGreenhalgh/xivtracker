@@ -8,6 +8,7 @@
     width: 100%;
     border-radius: .5rem;
     background-color: var(--c-notice-background);
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
     color: var(--c-background);
 }
   

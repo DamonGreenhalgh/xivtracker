@@ -4,10 +4,10 @@ import Footer from '../components/Footer';
 import Banner from '../components/Banner';
 import './Home.css';
 import brandIcon from '../images/brand-extended.png';
-import loadingIcon from '../images/loading.svg';
 import Notice from '../components/Notice';
 import Splash from '../components/Splash';
 import Featured from '../components/Featured';
+import Loading from '../components/Loading';
 
 
 const Home = () =>  {
@@ -83,11 +83,7 @@ const Home = () =>  {
                 />
                 <Searchbar search={searchCharacter} isHome={true} isSearching={isLoading} />
                 {results}
-                <img
-                    src={loadingIcon}
-                    className={isLoading ? "icon--loading" : "disabled"}
-                    alt="Loading Icon"
-                />
+                <Loading show={isLoading} />
                 <Notice
                     text={<p className="notice-text">{textContent}</p>}
                     show={showNotice}

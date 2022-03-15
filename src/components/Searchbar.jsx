@@ -47,7 +47,7 @@ const Searchbar = (props) => {
             <div className={displayDropdown ? "select select--dropdown" : "select"} onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
                 {server}
                 {displayDropdown ? <FaChevronUp /> : <FaChevronDown />}
-                <div className={displayDropdown ? "options options--serverlist" : "disabled"} onClick={(e) => setServer(e.target.innerText)}>
+                <div className={"options" + (displayDropdown ? " options--serverlist" : "")} onClick={(e) => setServer(e.target.innerText)}>
                     <div>Server</div>
                     <div>Adamantoise</div>
                     <div>Aegis</div>

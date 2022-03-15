@@ -5,7 +5,7 @@
   --color-completed: #30bb65; 
   --color-health: #5d9c22;
   --color-mana: #be2c9f;
-  --color-news: #3f3b53;
+  --color-news: #252333;
 
   --margin-global: calc((100vw - 30rem) / 2);
   --character-width: 70rem;
@@ -119,17 +119,22 @@ button:hover {
   overflow: scroll;
   scrollbar-width: none;
   width: 12rem;
+  height: 0;
   top: 2.75rem;
   left: 0;
   background-color: var(--c-content-background);
-  border-radius: 0 0 .25rem .25rem;
+  border-radius: 0 0 .5rem .5rem;
   box-shadow: 0 .5rem 1rem var(--c-shadow);
   color: var(--c-minor-text);
-  transition: height 0.5s ease-in-out;
+  transition: height .25s ease-in-out;
 }
 
 .options--serverlist {
-  height: 15rem;
+  height: 17rem;
+}
+
+.options--settings {
+  height: auto;
 }
 
 .options div {

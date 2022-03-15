@@ -16,7 +16,7 @@ const Settings = (props) => {
                 <div className={displayDropdown ? "select select--dropdown" : "select"} name="Theme"  onClick={() => setDisplayDropdown(displayDropdown ? false : true)}>
                     {props.theme}
                     <BsChevronDown />
-                    <div className={displayDropdown ? "options" : "disabled"} onClick={(e) => props.setTheme(e.target.innerText)}>
+                    <div className={"options" + (displayDropdown ? " options--settings" : "")} onClick={(e) => props.setTheme(e.target.innerText)}>
                         <div>light</div>
                         <div>dark</div>
                     </div>

@@ -9,7 +9,7 @@ import Jobs from '../components/Jobs';
 import Collection from '../components/Collection';
 import Attributes from '../components/Attributes';
 import Quests from '../components/Quests';
-import loadingIcon from '../images/loading.svg';
+import Loading from '../components/Loading';
 import './Character.css';
 
 const Character = () => {
@@ -129,8 +129,8 @@ const Character = () => {
     }, []);
 
     return (
-        isLoading ?
-        <div className="loading"><img src={loadingIcon} className="icon--loading" /></div> :
+        isLoading ? 
+        <div className="loading"><Loading show={isLoading} /></div> :
         <>
             <Navbar 
             {...bannerProps} 
