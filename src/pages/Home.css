@@ -3,10 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: calc((100vh - 36.75rem) / 2);
-    margin-bottom: calc((100vh - 46.75rem) / 2);
     margin-left: 50vw;
     width: var(--home-width);
+    padding-top: 10rem;
     gap: 2rem;
 }
 

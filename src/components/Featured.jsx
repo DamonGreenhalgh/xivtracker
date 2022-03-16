@@ -5,33 +5,11 @@ import littleLadiesDayBanner from '../images/featured/little-ladies-day.png';
 import moogleTreasureTroveBanner from '../images/featured/moogle-treasure-trove.png';
 import { useState, useEffect, useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-
-const feature = {
-    0: {
-        title: "ENDWALKER",
-        prefix: "Latest Expansion",
-        link: "https://na.finalfantasyxiv.com/endwalker"
-    },
-    1: {
-        title: "NEWFOUND ADVENTURE",
-        prefix: "Upcoming Patch",
-        link: "https://na.finalfantasyxiv.com/endwalker/patch_6_1/"
-    },
-    2: {
-        title: "LITTLE LADIES' DAY",
-        prefix: "Live Event",
-        link: "https://na.finalfantasyxiv.com/lodestone/special/2022/Little_Ladies_Day/jsuk7gn8z4"
-    },
-    3: {
-        title: "MOOGLE TREASURE TROVE",
-        prefix: "Live Event",
-        link: "https://na.finalfantasyxiv.com/lodestone/special/mogmog-collection/202203/dceh8sj926"
-    }
-}
+import featureJSON from '../data/feature.json';
 
 const Featured = () => {
 
-    const length = Object.keys(feature).length;
+    const length = Object.keys(featureJSON).length;
     const backgroundContainer = useRef(null);
     const [index, setIndex] = useState(0);
     const [auto, setAuto] = useState(true);
@@ -71,9 +49,9 @@ const Featured = () => {
                 >
                     <FaChevronLeft />
                 </button>
-                <a className="text" href={feature[index].link}>
-                    <p>{feature[index].prefix}</p>
-                    <h2>{feature[index].title}</h2>
+                <a className="text" href={featureJSON[index].link}>
+                    <p>{featureJSON[index].prefix}</p>
+                    <h2>{featureJSON[index].title}</h2>
                 </a>
                 <button 
                     className="arrow" 

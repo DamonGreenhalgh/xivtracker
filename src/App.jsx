@@ -5,10 +5,10 @@ import Settings from './pages/Settings';
 import { 
   BrowserRouter,
   Routes,
-  Route
+  Route  
 } from 'react-router-dom'; 
 import { useEffect, useState } from 'react';
-import themesJSON from './themes.json';
+import themesJSON from './data/themes.json';
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -41,7 +41,7 @@ const App = () => {
     <BrowserRouter basename="/xivtracker">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/character/:id" element={<Character />} />
+        <Route exact path="/character/:id" element={<Character />} />
         <Route path="/settings" element={<Settings theme={theme} setTheme={setTheme} />} />
       </Routes>
     </BrowserRouter>  

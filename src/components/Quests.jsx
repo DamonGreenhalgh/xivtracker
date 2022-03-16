@@ -7,7 +7,7 @@ import highEndIcon from '../images/high-end-duty.png';
 import checkmarkIcon from '../images/checkmark.svg';
 import msqIcon from '../images/msq.svg';
 import { useEffect, useRef, useState } from 'react';
-import referenceData from '../reference.json';
+import achievementsJSON from '../data/achievements.json';
 import Header from './Header';
 
 
@@ -41,11 +41,11 @@ const Quests = (props) => {
                }
             });
 
-        const msqReferences = Object.values(referenceData.msq);
-        const dungeonReferences = Object.values(referenceData.dungeons);
-        const trialsReferences = Object.values(referenceData.trials);
-        const raidsReferences = Object.values(referenceData.raids);
-        const highendReferences = Object.values(referenceData.highend);
+        const msqReferences = Object.values(achievementsJSON.msq);
+        const dungeonReferences = Object.values(achievementsJSON.dungeons);
+        const trialsReferences = Object.values(achievementsJSON.trials);
+        const raidsReferences = Object.values(achievementsJSON.raids);
+        const highendReferences = Object.values(achievementsJSON.highend);
 
         const data = [
             [msqList, msqReferences, setMsqCompletion],

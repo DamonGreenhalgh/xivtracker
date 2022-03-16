@@ -9,7 +9,6 @@ import Splash from '../components/Splash';
 import Featured from '../components/Featured';
 import Loading from '../components/Loading';
 
-
 const Home = () =>  {
     const [results, setResults] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -57,6 +56,7 @@ const Home = () =>  {
     // On page load, check if there are url search parameters.
     // If they exist, use them for the search.
     useEffect(() => {
+        document.title = "XIV Tracker";
         const searchParams = new URLSearchParams(window.location.search);
         const urlName = searchParams.get('name');
         const urlServer = searchParams.get('server');
@@ -72,26 +72,24 @@ const Home = () =>  {
     }, []);
 
     return (
-        <>  
-            <div className="home">
-                <Splash />
-                <img 
-                    src={brandIcon}
-                    className="home__brand interactable"
-                    alt="Brand Logo" 
-                    onClick={() => window.location.reload(false)}
-                />
-                <Searchbar search={searchCharacter} isHome={true} isSearching={isLoading} />
-                {results}
-                <Loading show={isLoading} />
-                <Notice
-                    text={<p className="notice-text">{textContent}</p>}
-                    show={showNotice}
-                />
-                <Featured />
-            </div>
-            <Footer isHome={true}/>
-        </>
+        <div className="home">
+            <Splash />
+            <img 
+                src={brandIcon}
+                className="home__brand interactable"
+                alt="Brand Logo" 
+                onClick={() => window.location.reload(false)}
+            />
+            <Searchbar search={searchCharacter} isHome={true} isSearching={isLoading} />
+            {results}
+            <Loading show={isLoading} />
+            <Notice
+                text={<p className="notice-text">{textContent}</p>}
+                show={showNotice}
+            />
+            <Featured />
+            <Footer />
+        </div>
     );
 }
 

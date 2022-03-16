@@ -153,8 +153,8 @@ const Character = () => {
                     <Jobs {...jobsProps} />
                 </div>
                 <Quests {...questsProps}/>
+                <Footer />
             </div>
-            <Footer isHome={false}/>
         </>
     );
 }

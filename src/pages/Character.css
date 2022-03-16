@@ -2,14 +2,14 @@
     display: grid;
     justify-content: center;
     grid-template-columns: 30rem 37rem;
-    grid-template-rows: 1fr;
     grid-template-areas:
       "notice   notice"
       "side     main  "
       "quests   quests"
+      "footer   footer"
     ;
+    margin-top: 3rem;
     gap: 3rem;
-    margin: 3rem auto;
 }
 
 .section {

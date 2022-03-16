@@ -1,23 +1,12 @@
-.footer-wrapper {
-  display: flex;
+.footer {
+  grid-area: footer;
   width: 100%;
   height: 10rem;
-}
-
-.footer {
-  width: var(--home-width);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-left: 50vw;
 }
 
-.footer--character {
-  width: var(--character-width);
-  margin: auto;
-}
-
-.footer__text {
+.footer p {
   font-size: .6rem;
 }

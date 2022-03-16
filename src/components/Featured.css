@@ -5,6 +5,7 @@
     overflow: hidden;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
+    margin-bottom: calc(100vh - 53.75rem);
 }
 
 .featured__overlay {
