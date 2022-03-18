@@ -131,31 +131,26 @@ const Character = () => {
     return (
         isLoading ? 
         <div className="loading"><Loading show={isLoading} /></div> :
-        <>
+        <div className="character">
             <Navbar 
             {...bannerProps} 
             search={(name, server) => window.location.href = "../?name=" + name + "&server=" + server} 
             />
-            <div className="character">
-                <Notice
-                text={<p className="notice-text">Some XIV Tracker features may not function properly due to 
-                a dependency on Achievements being set to public. You can change 
-                these settings <a href="https://na.finalfantasyxiv.com/lodestone/my/setting/account/" style={{textDecoration: "underline"}}>here</a>.</p>}
-                show={true}
-                />
-                <div className="column">
+            <Notice type={2} show={true}/>
+            <div className="character__row">
+                <div className="character__column">
                     <Equipment {...equipmentProps} />
                     <Banner {...freeCompanyProps} />
                     <Collection id={id} />
                 </div>
-                <div className="column">
+                <div className="character__column">
                     <Attributes {...attributeProps} />
                     <Jobs {...jobsProps} />
                 </div>
-                <Quests {...questsProps}/>
-                <Footer />
             </div>
-        </>
+            <Quests {...questsProps}/>
+            <Footer />
+        </div>
     );
 }
 

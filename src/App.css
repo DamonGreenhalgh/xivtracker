@@ -6,14 +6,15 @@
   --color-health: #5d9c22;
   --color-mana: #be2c9f;
   --color-news: #252333;
-
   --margin-global: calc((100vw - 30rem) / 2);
   --character-width: 70rem;
   --home-width: 30rem;
-
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: var(--c-minor-text) transparent;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('fonts/Comfortaa.ttf');
 }
 
 body {
@@ -59,7 +60,7 @@ button {
   font-family: 'Comfortaa';
   background-color: transparent;
   color: var(--c-minor-text);
-  transition: background-color 0.25s, color 0.25s;
+  transition: color .5s, box-shadow .5s;
 }
 
 button:hover {
@@ -67,26 +68,19 @@ button:hover {
   color: var(--c-accent);
 }
 
-.section-button {
-  padding: 1rem;
-  border-radius: .5rem;
-  width: 100%;
-  background-color: var(--c-mid-background);
-}
-
-.section-button:hover {
-  background-color: var(--c-accent);
-  color: white;
-}
-
-.active {
-  background-color: var(--c-accent);
-  color: white;
-}
-
-@font-face {
+input {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
   font-family: 'Comfortaa';
-  src: url('fonts/Comfortaa.ttf');
+  font-weight: bold;
+  color: var(--c-mid-text);
+  border-bottom: 1px solid transparent;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--c-accent)
 }
 
 .select {
@@ -147,51 +141,6 @@ button:hover {
   color: white;
 }
 
-input {
-  border: none;
-  background-color: transparent;
-  font-size: 1rem;
-  font-family: 'Comfortaa';
-  font-weight: bold;
-  color: var(--c-mid-text);
-  border-bottom: 1px solid transparent;
-}
-
-input:focus {
-  outline: none;
-  border-bottom: 1px solid var(--c-accent)
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: 1rem;
-  outline: 1px solid var(--c-accent);
-}
-
-.checkbox__box {
-  width: 10px;
-  height: 10px;
-  transition: background-color .25s;
-}
-
-.checkbox__box--active {
-  background-color: var(--c-accent);
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.row {
-  display: flex;
-  gap: 2rem;
-}
-
 .divider--horizontal {
   width: 100%;
   height: 2px;
@@ -206,10 +155,6 @@ input:focus {
   position: absolute;
 }
 
-.relative {
-  position: relative;
-}
-
 .rounded {
   border-radius: 100%;
 }
@@ -221,7 +166,6 @@ input:focus {
 .icon--msq {
   margin-left: auto;
   max-height: 1.25rem;
-  filter: invert(74%) sepia(12%) saturate(143%) hue-rotate(184deg) brightness(86%) contrast(87%);
 }
 
 .icon--job-header {

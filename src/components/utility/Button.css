@@ -1,0 +1,40 @@
+.button {
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+    border-radius: .5rem;
+    color: var(--c-accent);
+    border: 1px solid var(--c-accent);
+    width: 100%;
+}
+
+.button--active {
+    color: white;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+}
+
+.button:hover .button__overlay {
+    right: 0;
+}
+
+.button:hover {
+    color: white;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+  }
+  
+.button__overlay {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--c-accent);
+    transition: right .5s;
+}
+
+.button__overlay--active {
+    right: 0;
+}
+  
+

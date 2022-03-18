@@ -3,7 +3,11 @@
     width: 3rem;
     height: 3rem;
     border-radius: .5rem;
+    transition: transform .5s;
+    /* animation: item 1s; */
 }
+
+
 
 .item:hover {
     cursor: pointer;

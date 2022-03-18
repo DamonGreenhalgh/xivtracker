@@ -5,7 +5,8 @@ import { useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import Footer from '../components/Footer';
 import Splash from '../components/Splash';
-import Checkbox from '../components/Checkbox';
+import Checkbox from '../components/utility/Checkbox';
+import Button from '../components/utility/Button';
 
 const Settings = (props) => {
     const [displayDropdown, setDisplayDropdown] = useState(false);
@@ -76,12 +77,7 @@ const Settings = (props) => {
                     <p>Disable Cookies</p>
                 </div>
             </form>
-            <button 
-                onClick={(e) => {navigate(-1); e.preventDefault() }}
-                className="settings__save-button"
-            >
-                Save
-            </button>
+            <Button content="Save" onClick={() => navigate(-1)} style={{width: "5rem"}} />
             <Footer />
         </div>
     );

@@ -1,17 +1,7 @@
 .quests {
-    grid-area: quests;
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    grid-column: span 2;
     position: relative;
-    width: 100%;
-    height: 45rem;
-}
-
-.quests:hover .quests__show-more {
-    transform: translate(0, -2rem);
-    opacity: 1;
 }
 
 .quests__header {
@@ -47,8 +37,6 @@
     align-items: center;
     gap: 2rem;
     margin: 1rem 0;
-    /* filter: invert(74%) sepia(12%) saturate(143%) hue-rotate(184deg) brightness(86%) contrast(87%); */
-
 }
 
 .completed {
@@ -60,4 +48,13 @@
 .quests__column {
     display: flex;
     flex-direction: column;
+}
+
+
+@media only screen and (max-width: 1050px) {
+    
+    .panel--quests {
+        flex-direction: column;
+    }
+    
 }

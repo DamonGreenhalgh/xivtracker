@@ -158,7 +158,7 @@ const Searchbar = (props) => {
             <Link to="/settings" title="Settings" style={{display: "flex", alignItems: "center"}}>
                 <button><VscSettings className="navbar__icon" /></button>
             </Link>
-            <div className={displayRecent ? "recent" : "disabled"}>
+            <div className={"recent" + (displayRecent ? " recent--active" : "")}>
                 <div className="recent__tab">
                     <h4>Recently Viewed</h4>
                     <MdClose className="interactable" onClick={() => setDisplayRecent(false)}/>

@@ -1,31 +1,32 @@
 .notice {
-    position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 1rem;
     padding: 1rem;
-    grid-area: notice;
+    height: 6rem;
     width: 100%;
     border-radius: .5rem;
     background-color: var(--c-notice-background);
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
     color: var(--c-background);
-}
-  
-.notice-text {
-    font-size: 1rem;
-    font-weight: bold;
-}
-  
-.notice__exit-button {
-    position: absolute;
-    top: .25rem;
-    right: .25rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+}   
+
+.notice--cookies {
+    position: fixed;
+    margin: 1rem;
+    width: var(--home-width);
+    animation: cookies 2s;
 }
 
 .notice__icon {
-    width: 4rem;
-    height: 4rem;
+    min-width: 2rem;
+    height: 2rem;
+}
+
+@keyframes cookies {
+    from {opacity: 0; transform: translate(0, -5rem); }
+    to {opacity: 1; }
+
+    
 }

@@ -31,16 +31,6 @@
 
 .settings__save-button {
     width: 5rem;
-    padding: 1rem;
-    border: 1px solid var(--c-accent);
-    color: var(--c-accent);
     border-radius: .25rem;
     margin-bottom: auto;
-    transition: background-color .25s, color .25s, box-shadow .25s;
-}
-
-.settings__save-button:hover {
-    background-color: var(--c-accent);
-    color: white;
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
 }

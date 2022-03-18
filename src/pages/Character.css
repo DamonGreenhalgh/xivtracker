@@ -1,15 +1,24 @@
 .character {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    width: var(--character-width);
+    gap: 2rem;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.character__column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: calc((100vw - 4rem) / 2);
+}
+
+.character__row {
+    display: flex;
     justify-content: center;
-    grid-template-columns: 30rem 37rem;
-    grid-template-areas:
-      "notice   notice"
-      "side     main  "
-      "quests   quests"
-      "footer   footer"
-    ;
-    margin-top: 3rem;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .section {
@@ -122,4 +131,20 @@
 
 .blur {
     filter: blur(5px);
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .character {
+        width: 100vw;
+    }
+
+    .character__row {
+        flex-direction: column;
+    }
+
+    .character__column {
+        width: 100%;
+    }
+
 }

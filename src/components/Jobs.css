@@ -7,7 +7,6 @@
 .job {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: .5rem;
 }
 
@@ -24,7 +23,6 @@
     margin-top: .25rem;
     position: relative;
     overflow: hidden;
-    width: 10rem;
     height: .8rem;
     border-radius: .5rem;
     background-color: var(--c-background);

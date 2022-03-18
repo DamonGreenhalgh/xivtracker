@@ -1,54 +1,31 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Item from './Item';
 import Header from './Header';
 import './Collection.css';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import Button from '../components/utility/Button';
 
 const Collection = (props) => {
 
-    const [currentPanel, setCurrentPanel] = useState(0);
-    const [mounts, setMounts] = useState(null);
-    const [minions, setMinions] = useState(null);
-    const [mountPage, setMountPage] = useState(1);
-    const [minionPage, setMinionPage] = useState(1);
-    const [maxPage, setMaxPage] = useState(null);
-    const mountsContainer = useRef(null);
-    const minionsContainer = useRef(null);
-    const capacity = 42;
+    const [displayMountMinion, setDisplayMountMinion] = useState(true);
+    const [mountPage, setMountPage] = useState(0);
+    const [minionPage, setMinionPage] = useState(0);
+    const [mountContent, setMountContent] = useState([]);
+    const [minionContent, setMinionContent] = useState([]);
+    const [maxMountPage, setMaxMountPage] = useState(0);
+    const [maxMinionPage, setMaxMinionPage] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const capacity = 48;
 
-    const onClick = (event) => {
-        setCurrentPanel(event.target.name);
+    const clamp = (min, max, value) => {
+        return Math.max(min, Math.min(value, max));
     }
 
-    const incrementMountPage = () => {
-        if (mountPage < maxPage[0]) {
-            setMountPage(mountPage + 1);
-            mountsContainer.current.childNodes[mountPage - 1].className = "collection__items disabled";
-            mountsContainer.current.childNodes[mountPage].className = "collection__items";
-        }
-    }
-
-    const decrementMountPage = () => {
-        if (mountPage > 1) {
-            setMountPage(mountPage - 1)
-            mountsContainer.current.childNodes[mountPage - 1].className = "collection__items disabled";
-            mountsContainer.current.childNodes[mountPage - 2].className = "collection__items";
-        }
-    }
-
-    const incrementMinionPage = () => {
-        if (minionPage < maxPage[1]) {
-            setMinionPage(minionPage + 1);
-            minionsContainer.current.childNodes[minionPage - 1].className = "collection__items disabled";
-            minionsContainer.current.childNodes[minionPage].className = "collection__items";
-        }
-    }
-
-    const decrementMinionPage = () => {
-        if (minionPage > 1) {
-            setMinionPage(minionPage - 1)
-            minionsContainer.current.childNodes[minionPage - 1].className = "collection__items disabled";
-            minionsContainer.current.childNodes[minionPage - 2].className = "collection__items";
+    const updatePage = (direction) => {
+        if (displayMountMinion) {
+            setMountPage(mountPage => clamp(0, maxMountPage - 1, mountPage + direction));
+        } else {
+            setMinionPage(minionPage => clamp(0, maxMinionPage - 1, minionPage + direction));
         }
     }
 
@@ -82,66 +59,72 @@ const Collection = (props) => {
         }
 
         if (mountData !== null && minionData !== null) {
-            setMounts(() => {
-                let mountContents = [];
+
+            setMaxMountPage(() => Math.ceil(mountData.length / capacity));
+            setMaxMinionPage(() => Math.ceil(minionData.length / capacity));
+
+            setMountContent(mountContent => {
                 for (let i = 0; i < Math.ceil(mountData.length / capacity); i++) {
-                    mountContents.push(
-                    <div className={"collection__items " + (mountPage == i + 1 ? "" : "disabled")} key={i}>
+                    mountContent.push(
+                    <div className="collection__items" key={i}>
                         {mountData.slice(i * capacity, (i + 1) * capacity).map((mount, index) => {
                             return <Item name={mount.Name} icon={mount.Icon} key={index} />
                         })}
                     </div>
                     ); 
                 }
-                return mountContents;
-            });
+                return mountContent;
+            })
 
-            setMinions(() => {
-                let minionContents = [];
+            setMinionContent(minionContent => {
                 for (let i = 0; i < Math.ceil(minionData.length / capacity); i++) {
-                    minionContents.push(
-                    <div className={"collection__items " + (minionPage == i + 1 ? "" : "disabled")} key={i}>
+                    minionContent.push(
+                    <div className="collection__items" key={i}>
                         {minionData.slice(i * capacity, (i + 1) * capacity).map((minion, index) => {
                             return <Item name={minion.Name} icon={minion.Icon} key={index} />
                         })}
                     </div>
                     ); 
                 }
-                return minionContents;
-            });
-            
-            setMaxPage([Math.ceil(mountData.length / capacity), Math.ceil(minionData.length / capacity)])    
+                return minionContent;   
+            })
         }
+        setLoading(false);
     }, []);
 
     return (
-        <> 
-            <div className="collection section">
-                <Header name="Collection" />
-                <div className="tab">
-                    <button name={0} onClick={onClick} className={"section-button  " + (currentPanel == 0 ? "active" : "")}>Mounts</button>
-                    <button name={1} onClick={onClick} className={"section-button  " + (currentPanel == 1 ? "active" : "")}>Minions</button>
-                </div>
-                <div className="panel">
-                    <div className={"panel__content " + (currentPanel == 0 ? "" : "disabled")} ref={mountsContainer}>
-                        {mounts}
-                        <div className="collection__button-container">
-                            <button onClick={decrementMountPage}><FaChevronLeft /></button>
-                            <h4 className="collection__page-text">{mountPage}</h4>
-                            <button onClick={incrementMountPage}><FaChevronRight /></button>
-                        </div>
-                    </div>
-                    <div className={"panel__content " + (currentPanel == 1 ? "" : "disabled")} ref={minionsContainer}>
-                        {minions}
-                        <div className="collection__button-container">
-                            <button onClick={decrementMinionPage}><FaChevronLeft /></button>
-                            <h4 className="collection__page-text">{minionPage}</h4>
-                            <button onClick={incrementMinionPage}><FaChevronRight /></button>
-                        </div>
-                    </div>
-                </div>
+        <div className="collection section">
+            <Header name="Collection" />
+            <div className="tab">
+                <Button 
+                    content="Mounts" 
+                    condition={displayMountMinion} 
+                    onClick={() => setDisplayMountMinion(true)}
+                />
+                <Button 
+                    content="Minions" 
+                    condition={!displayMountMinion} 
+                    onClick={() => setDisplayMountMinion(false)}
+                />
             </div>
-        </>
+            {
+                loading ?
+                null :
+                <>
+                    <div className={"panel__content " + (displayMountMinion ? "" : "disabled")}>
+                        {mountContent[mountPage]}
+                    </div>
+                    <div className={"panel__content " + (displayMountMinion ? "disabled" : "")}>
+                        {minionContent[minionPage]}
+                    </div>
+                </>
+            }            
+            <div className="collection__button-container">
+                <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
+                <h4 className="collection__page-text">{1 + (displayMountMinion ? mountPage : minionPage)}</h4>
+                <button onClick={() => updatePage(1)}><FaChevronRight /></button>
+            </div>
+        </div>
     );
 } 
 

@@ -8,17 +8,24 @@
 
 .recent {
     z-index: 3;
+    overflow: hidden;
     top: calc(100% + 2rem);
     position: absolute;
-    height: 15rem;
     width: var(--home-width);
+    height: 0;
     background-color: var(--c-content-background);
-    border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    padding: 1rem;
+    border-radius: .5rem;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    transition: height .5s, padding .5s;
+}
+
+.recent--active {
+    padding: 1rem;
+    height: 15rem;
 }
 
 .recent__tab {

@@ -7,26 +7,17 @@
 }
 
 .collection__items {
-    display: grid;
-    position: absolute;
-    grid-template-columns: repeat(7, 3rem);
-    grid-template-rows: repeat(6, 3rem);
+    display: flex;
+    flex-wrap: wrap;
     gap: .5rem;
-    height: 22.5rem;
-    border-radius: .5rem;
     padding-top: 2rem;
-    left: .8rem;
 }
 
 .collection__button-container {
-    position: absolute;
-    width: auto;
-    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    left: 8.5rem;
 }
 
 .collection__button {
