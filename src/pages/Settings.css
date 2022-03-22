@@ -33,6 +33,8 @@
 
     .settings {
         height: auto;
+        margin: auto;
+        padding-top: 1rem;
     }
 
 }
