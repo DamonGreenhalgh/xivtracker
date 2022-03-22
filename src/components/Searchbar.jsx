@@ -1,9 +1,10 @@
 import './Searchbar.css';
 import { useState, useEffect  }  from 'react';
 import { Link } from 'react-router-dom';
-import { FaChevronDown, FaChevronUp, FaSearch } from 'react-icons/fa';
+import { FaSearch, FaServer} from 'react-icons/fa';
+import { BsChevronDown, BsChevronUp} from 'react-icons/bs'
 import { MdClose } from 'react-icons/md';
-import { VscSettings } from 'react-icons/vsc';
+import Button from './utility/Button';
 
 const Searchbar = (props) => {
 
@@ -44,10 +45,29 @@ const Searchbar = (props) => {
             onSubmit={callbackMethod} 
             autoComplete="off"
         >
-            <div className={displayDropdown ? "select select--dropdown" : "select"} onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
+            <div className="select" onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
                 {server}
-                {displayDropdown ? <FaChevronUp /> : <FaChevronDown />}
-                <div className={"options" + (displayDropdown ? " options--serverlist" : "")} onClick={(e) => setServer(e.target.innerText)}>
+                <FaServer />
+                {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}
+            </div>
+            <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                name="name"
+                onClick={() => {setDisplayRecent(true); setDisplayDropdown(false)}}
+            />
+            <button title="Search">
+                <FaSearch />
+            </button>
+            <div className={"recent" + (displayDropdown ? " recent--active" : "")}>
+                <div className="recent__tab">
+                    <h4>Servers</h4>
+                    <MdClose className="interactable" onClick={() => setDisplayDropdown(false)}/>
+                </div>
+                <div className='divider--horizontal' />
+                <div className='recent__servers' onClick={(e) => setServer(e.target.innerText)}>
                     <div>Server</div>
                     <div>Adamantoise</div>
                     <div>Aegis</div>
@@ -142,22 +162,6 @@ const Searchbar = (props) => {
                     <div>HuPoYuan</div>
                 </div>
             </div>
-            <input
-                type="text"
-                className="searchbar__text-box"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                name="name"
-                style={{width: "12rem"}}
-                onClick={() => {setDisplayRecent(true); setDisplayDropdown(false)}}
-            />
-            <button className="searchbar__search-button" title="Search">
-                <FaSearch />
-            </button>
-            <Link to="/settings" title="Settings" style={{display: "flex", alignItems: "center"}}>
-                <button><VscSettings className="navbar__icon" /></button>
-            </Link>
             <div className={"recent" + (displayRecent ? " recent--active" : "")}>
                 <div className="recent__tab">
                     <h4>Recently Viewed</h4>

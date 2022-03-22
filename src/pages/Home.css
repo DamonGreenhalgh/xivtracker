@@ -3,9 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 50vw;
+    margin: auto;
+    margin-left: calc(50vw + 5rem);
     width: var(--home-width);
-    padding-top: 10rem;
     gap: 2rem;
 }
 
@@ -14,4 +14,19 @@
     width: var(--home-width);
     height: 10rem;
     gap: 1rem;
+    margin-top: calc(50vh - 20rem)
+}
+
+.home__settings {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .home {
+        margin: auto;
+    }
+
 }

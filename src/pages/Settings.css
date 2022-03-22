@@ -1,20 +1,14 @@
 .settings {
-    position: relative;
     display: flex;
     flex-direction: column;
-    margin-left: 50vw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-left: calc(50vw + 5rem);
+    padding-top: 10rem;
     width: var(--home-width);
     height: 100vh;
-    padding-top: 10rem;
     gap: 2rem;
-}
-
-.settings__return-arrow {
-    position: absolute;
-    top: 9.5rem;
-    right: calc(100% + 1rem);
-    height: 3rem;
-    width: 3rem;
 }
 
 .settings__form {
@@ -33,4 +27,12 @@
     width: 5rem;
     border-radius: .25rem;
     margin-bottom: auto;
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .settings {
+        height: auto;
+    }
+
 }

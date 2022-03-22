@@ -8,6 +8,8 @@ import Notice from '../components/Notice';
 import Splash from '../components/Splash';
 import Featured from '../components/Featured';
 import Loading from '../components/Loading';
+import { MdSettings } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Home = () =>  {
     const [results, setResults] = useState(null);
@@ -65,7 +67,10 @@ const Home = () =>  {
     return (
         <>
             <Notice type={0} show={true} />
-            <div className="home">
+            <Link to="/settings" title="Settings" className="home__settings">
+                <button><MdSettings className="navbar__icon" /></button>
+            </Link>
+            <div className="home" style={displayNotice ? {height: "auto"} : {height: '100vh'}}>
                 <Splash />
                 <img 
                     src={brandIcon}
@@ -74,9 +79,9 @@ const Home = () =>  {
                     onClick={() => window.location.reload(false)}
                 />
                 <Searchbar search={searchCharacter} isHome={true} isSearching={isLoading} />
-                {results}
                 <Loading show={isLoading} />
-                <Notice type={noticeType} show={displayNotice} />
+                {results}
+                <Notice type={noticeType} show={displayNotice} />                
                 <Featured />
                 <Footer />
             </div>

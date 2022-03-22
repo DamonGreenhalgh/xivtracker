@@ -1,7 +1,7 @@
 import './Settings.css';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import Footer from '../components/Footer';
 import Splash from '../components/Splash';
@@ -9,21 +9,36 @@ import Checkbox from '../components/utility/Checkbox';
 import Button from '../components/utility/Button';
 
 const Settings = (props) => {
+
     const [displayDropdown, setDisplayDropdown] = useState(false);
+    const [useSystemTheme, setUseSystemTheme] = useState(true);
     const [isSafeMode, setIsSafeMode] = useState(true);
-    const [useSystemTheme, setUseSystemTheme] = useState(false);
     const [disableCookies, setDisableCookies] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        
+        // Load settings from local storage.
+        const settings = JSON.parse(localStorage.getItem('settings'));
+        if (settings !== null) {
+            setUseSystemTheme(settings.useSystemTheme);
+            setIsSafeMode(settings.isSafeMode);
+            setDisableCookies(settings.disableCookies);
+        }
+    }, [])
+
+    const saveSettings = () => {
+        localStorage.setItem('settings', JSON.stringify({
+            'useSystemTheme': useSystemTheme,
+            'isSafeMode': isSafeMode,
+            'disableCookies': disableCookies
+        }))
+        navigate(-1)
+    }
+
     return(
         <div className="settings">
             <Splash />
-            <button 
-                onClick={() => navigate(-1)} 
-                className="settings__return-arrow"
-            >
-                <IoIosArrowRoundBack size="3em" />
-            </button>
-            <h1>Settings</h1>
             <form className="settings__form">
                 <h3>Theme</h3>
                 <p>Change the visual theme of XIV Tracker.</p>
@@ -46,7 +61,7 @@ const Settings = (props) => {
                         update={setUseSystemTheme} 
                         condition={useSystemTheme} 
                     />
-                    <p>Use System Theme</p>
+                    <p>Use System Theme (On by default)</p>
                 </div>
                 <h3>Spoilers</h3>
                 <p>
@@ -77,7 +92,7 @@ const Settings = (props) => {
                     <p>Disable Cookies</p>
                 </div>
             </form>
-            <Button content="Save" onClick={() => navigate(-1)} style={{width: "5rem"}} />
+            <Button content="Save" onClick={() => saveSettings()} style={{width: "5rem"}} />
             <Footer />
         </div>
     );

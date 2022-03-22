@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import themesJSON from './data/themes.json';
 
 const App = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState('light');
 
   // Function to set the theme of the web app.
   const applyTheme = () => {
@@ -23,13 +23,15 @@ const App = () => {
     localStorage.setItem("theme", theme);
   }
 
-  // Load stored settings from local storage.
-  useEffect(() => {
-    if (localStorage.getItem("theme") === null) {
-      localStorage.setItem("theme", "light");
-    } else {
-      setTheme(() => localStorage.getItem("theme"))
+  // Load settings from local storage
+  useEffect(() => {    
+
+    // Theme
+    const localTheme = JSON.parse(localStorage.getItem('themes'))
+    if (localTheme !== null) {
+      setTheme(localTheme)
     }
+    
   }, [])
 
   // Apply new theme when theme state variable is updated.

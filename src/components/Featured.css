@@ -1,17 +1,15 @@
 .featured {
     position: relative;
-    width: var(--home-width);
-    height: 15rem;
+    width: 30rem;
     overflow: hidden;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    margin-bottom: calc(100vh - 53.75rem);
 }
 
 .featured__overlay {
     color: white;
     width: 100%;
-    height: 15rem;
+    height: 100%;
     z-index: 2;
     position: absolute;
     display: flex;
@@ -70,5 +68,12 @@
 
 .featured__banners img {
     width: var(--home-width);
-    height: 15rem;
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .featured {
+        display: none;
+    }
+
 }

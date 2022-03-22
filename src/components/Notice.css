@@ -1,4 +1,5 @@
 .notice {
+    z-index: 3;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,7 +17,7 @@
     position: fixed;
     margin: 1rem;
     width: var(--home-width);
-    animation: cookies 2s;
+    animation: cookies 1s;
 }
 
 .notice__icon {
@@ -25,8 +26,14 @@
 }
 
 @keyframes cookies {
-    from {opacity: 0; transform: translate(0, -5rem); }
+    from {opacity: 0; transform: translate(0, 5rem); }
     to {opacity: 1; }
+}
 
-    
+@media only screen and (max-width: 1050px) {
+
+    .notice--cookies {
+        bottom: 0;
+    }
+
 }

@@ -3,7 +3,15 @@
     display: flex;
     justify-content: space-between;
     width: 30rem;
+    gap: 1rem;
     margin-left: auto;
+    width: var(--home-width);
+    padding-right: .5rem;
+    height: 3rem;
+
+    background-color: var(--c-content-background);
+    border-radius: .25rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
 .recent {
@@ -20,7 +28,7 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    transition: height .5s, padding .5s;
+    transition: height .25s, padding .5s;
 }
 
 .recent--active {
@@ -54,4 +62,32 @@
 
 .recent__avatar {
     height: 2.5rem;
+}
+
+.recent__servers {
+    height: 10rem;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+}
+
+.recent__servers div {
+    font-size: .8rem;
+    padding: .5rem;
+}
+
+.recent__servers div:hover {
+    cursor: pointer;
+    background-color: var(--c-accent);
+    color: white;
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .searchbar {
+        background-color: var(--c-content-background);
+        border-radius: .25rem;
+        box-shadow: 0 .5rem 1rem var(--c-shadow);
+    }
+
 }
