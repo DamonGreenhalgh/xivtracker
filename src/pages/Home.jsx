@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Searchbar from '../components/Searchbar';
-import Footer from '../components/Footer';
 import Banner from '../components/Banner';
 import './Home.css';
 import brandIcon from '../images/brand-extended.png';
@@ -8,8 +7,6 @@ import Notice from '../components/Notice';
 import Splash from '../components/Splash';
 import Featured from '../components/Featured';
 import Loading from '../components/Loading';
-import { MdSettings } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
 const Home = () =>  {
     const [results, setResults] = useState(null);
@@ -62,28 +59,25 @@ const Home = () =>  {
         const urlName = searchParams.get('name');
         const urlServer = searchParams.get('server');
         if (urlName !== null) { searchCharacter(urlName, urlServer); }
+        // Set new content width
+        document.documentElement.style.setProperty('--content-width', '30rem');
     }, []);
 
     return (
         <>
             <Notice type={0} show={true} />
-            <Link to="/settings" title="Settings" className="home__settings">
-                <button><MdSettings className="navbar__icon" /></button>
-            </Link>
             <div className="home" style={displayNotice ? {height: "auto"} : {height: '100vh'}}>
                 <Splash />
                 <img 
                     src={brandIcon}
-                    className="home__brand interactable"
+                    className="home__brand"
                     alt="Brand Logo" 
-                    onClick={() => window.location.reload(false)}
                 />
-                <Searchbar search={searchCharacter} isHome={true} isSearching={isLoading} />
+                <Searchbar search={searchCharacter} isSearching={isLoading} />
                 <Loading show={isLoading} />
                 {results}
                 <Notice type={noticeType} show={displayNotice} />                
                 <Featured />
-                <Footer />
             </div>
         </>
         

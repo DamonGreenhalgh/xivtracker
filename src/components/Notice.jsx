@@ -36,7 +36,7 @@ const Notice = (props) => {
         {notice[type].icon}
         {notice[type].text}
         <MdClose
-            className="notice__icon interactable"
+            className="notice__close interactable"
             onClick={() => setDisplayNotice(false)}
         />
     </div>

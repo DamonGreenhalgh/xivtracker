@@ -7,9 +7,7 @@
     left: 0;
     width: 100vw;
     height: 4rem;
-    padding: 1rem calc((100vw - var(--character-width) + 2rem) / 2);
-    background-color: var(--c-content-background);
-    box-shadow: 0 0 .5rem var(--c-shadow);
+    padding: 1rem;
     gap: 1rem;
 }
 

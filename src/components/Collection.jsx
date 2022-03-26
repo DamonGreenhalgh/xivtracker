@@ -66,7 +66,7 @@ const Collection = (props) => {
             setMountContent(mountContent => {
                 for (let i = 0; i < Math.ceil(mountData.length / capacity); i++) {
                     mountContent.push(
-                    <div className="collection__items" key={i}>
+                    <div className='collection' key={i}>
                         {mountData.slice(i * capacity, (i + 1) * capacity).map((mount, index) => {
                             return <Item name={mount.Name} icon={mount.Icon} key={index} />
                         })}
@@ -79,7 +79,7 @@ const Collection = (props) => {
             setMinionContent(minionContent => {
                 for (let i = 0; i < Math.ceil(minionData.length / capacity); i++) {
                     minionContent.push(
-                    <div className="collection__items" key={i}>
+                    <div className='collection' key={i}>
                         {minionData.slice(i * capacity, (i + 1) * capacity).map((minion, index) => {
                             return <Item name={minion.Name} icon={minion.Icon} key={index} />
                         })}
@@ -93,9 +93,9 @@ const Collection = (props) => {
     }, []);
 
     return (
-        <div className="collection section">
+        <div className="section">
             <Header name="Collection" />
-            <div className="tab">
+            <div className="row gap-lg">
                 <Button 
                     content="Mounts" 
                     condition={displayMountMinion} 
@@ -107,23 +107,23 @@ const Collection = (props) => {
                     onClick={() => setDisplayMountMinion(false)}
                 />
             </div>
+            <div className="row align-center justify-center gap-lg">
+                <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
+                <h4>{1 + (displayMountMinion ? mountPage : minionPage)}</h4>
+                <button onClick={() => updatePage(1)}><FaChevronRight /></button>
+            </div>
             {
                 loading ?
                 null :
                 <>
-                    <div className={"panel__content " + (displayMountMinion ? "" : "disabled")}>
+                    <div className={displayMountMinion ? "" : "disabled"}>
                         {mountContent[mountPage]}
                     </div>
-                    <div className={"panel__content " + (displayMountMinion ? "disabled" : "")}>
+                    <div className={displayMountMinion ? "disabled" : ""}>
                         {minionContent[minionPage]}
                     </div>
                 </>
             }            
-            <div className="collection__button-container">
-                <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
-                <h4 className="collection__page-text">{1 + (displayMountMinion ? mountPage : minionPage)}</h4>
-                <button onClick={() => updatePage(1)}><FaChevronRight /></button>
-            </div>
         </div>
     );
 } 

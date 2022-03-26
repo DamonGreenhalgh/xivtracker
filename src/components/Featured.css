@@ -1,6 +1,7 @@
 .featured {
     position: relative;
     width: 30rem;
+    height: 15rem;
     overflow: hidden;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
@@ -32,18 +33,6 @@
     width: 100%;
     height: 100%;
 }
-.arrow {
-    opacity: 0;
-    height: 100%;
-    width: 3rem;
-    color: white;
-    transition: opacity .5s, background-color .5s;
-}
-
-.arrow:hover {
-    color: white;
-    background-color: rgba(255, 255, 255, 0.25);
-}
 
 .text {
     z-index: 2;
@@ -67,10 +56,10 @@
 }
 
 .featured__banners img {
-    width: var(--home-width);
+    width: 30rem;
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 500px) {
 
     .featured {
         display: none;

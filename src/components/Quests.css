@@ -1,60 +1,64 @@
-.quests {
+.quests__collection {
     display: flex;
-    flex-direction: column;
-    position: relative;
+    justify-content: space-between;
 }
 
-.quests__header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.quests__header p {
+.quests__completion-rate {
+    background-color: var(--color-completed);
+    color: white;
+    padding: .5rem;
+    border-radius: .25rem;
     margin-left: auto;
-    color: black;
-    filter: invert(65%) sepia(21%) saturate(1424%) hue-rotate(90deg) brightness(90%) contrast(82%);
 }
 
 .quests__sub-header {
-    font-size: 1rem;
     padding: 1rem 3rem;
-    margin: 1rem 0;
-}
-
-.spoiler {
-    filter: blur(5px);
 }
 
 .quests__list {
-    font-size: .8rem;
-}
-
-.quests__list li {
-    width: 100%;
     display: flex;
-    align-items: center;
     gap: 2rem;
-    margin: 1rem 0;
-}
-
-.completed {
-    color: black;
-    filter: invert(65%) sepia(21%) saturate(1424%) hue-rotate(90deg) brightness(90%) contrast(82%);
-
+    font-size: .8rem;
+    width: 100%;
 }
 
 .quests__column {
     display: flex;
     flex-direction: column;
+    gap: .5rem;
+    width: 100%;
 }
 
+.quests__list a {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: .5rem;
+    height: 2rem;
+    border-radius: .25rem;
+}
+
+.quests__list a:hover {
+    color: white;
+    background-color: var(--color-completed);
+}
+
+.completed {
+    color: var(--color-completed);
+    background-color: var(--color-completed-transparent);
+    outline: 1px solid var(--color-completed);
+}
+
+.spoiler {
+    filter: blur(3px);
+    pointer-events: none;
+}
 
 @media only screen and (max-width: 1050px) {
     
-    .panel--quests {
+    .quests__list {
         flex-direction: column;
+        gap: 0;
     }
     
 }

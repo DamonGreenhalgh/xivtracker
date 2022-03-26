@@ -2,7 +2,7 @@
     overflow: hidden;
     position: relative;
     padding: 1rem;
-    border-radius: .5rem;
+    border-radius: .25rem;
     color: var(--c-accent);
     border: 1px solid var(--c-accent);
     width: 100%;
@@ -20,7 +20,7 @@
 .button:hover {
     color: white;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-  }
+}
   
 .button__overlay {
     z-index: -1;

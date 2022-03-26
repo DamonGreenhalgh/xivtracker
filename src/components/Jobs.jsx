@@ -21,7 +21,7 @@ const Jobs = (props) => {
     return (
         <div className="jobs section">
             <Header name="Jobs" />
-            <div className="tab">
+            <div className="row gap-lg">
                 <Button 
                     content="War / Magic" 
                     condition={displayJob} 

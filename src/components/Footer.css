@@ -1,11 +1,10 @@
 .footer {
-  grid-area: footer;
-  width: 100%;
+  width: var(--content-width);
+  margin: auto;
   height: 10rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: auto;
 }
 
 .footer p {

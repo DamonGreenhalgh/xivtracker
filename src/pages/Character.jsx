@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import Notice from '../components/Notice';
-import Footer from '../components/Footer';
 import Banner from '../components/Banner';
 import Equipment from '../components/Equipment';
 import Jobs from '../components/Jobs';
@@ -10,11 +8,11 @@ import Collection from '../components/Collection';
 import Attributes from '../components/Attributes';
 import Quests from '../components/Quests';
 import Loading from '../components/Loading';
+import Searchbar from '../components/Searchbar';
 import './Character.css';
 
 const Character = () => {
 
-    const [bannerProps, setBannerProps] = useState(null);
     const [equipmentProps, setEquipmentProps] = useState(null);
     const [freeCompanyProps, setFreeCompanyProps] = useState({isDisabled: true});
     const [jobsProps, setJobsProps] = useState(null);
@@ -77,19 +75,12 @@ const Character = () => {
         // Set window title to 'XIV Tracker | {character name}'
         document.title = "XIV Tracker | " + characterData.Name;
 
+        // Set new content width
+        document.documentElement.style.setProperty('--content-width', '70rem');
+
         // Add character to recently viewed list.
         storeRecent(characterData);
-
-        // Update the respective props with the newly aquired data.
-        setBannerProps({
-            isDisabled: false,
-            type: "profile",
-            name: characterData.Name,
-            title: characterData.Title.Name,
-            isPrefix: characterData.TitleTop,
-            avatar: characterData.Avatar,  
-            id: characterData.ID,
-        });   
+ 
         setEquipmentProps({
             portrait: characterData.Portrait,
             level: characterData.ActiveClassJob.Level,
@@ -132,24 +123,20 @@ const Character = () => {
         isLoading ? 
         <div className="loading"><Loading show={isLoading} /></div> :
         <div className="character">
-            <Navbar 
-            {...bannerProps} 
-            search={(name, server) => window.location.href = "../?name=" + name + "&server=" + server} 
-            />
+            <Searchbar search={(name, server) => window.location.href = "../?name=" + name + "&server=" + server} />
             <Notice type={2} show={true}/>
             <div className="character__row">
-                <div className="character__column">
+                <div className="col gap-lg max-width">
                     <Equipment {...equipmentProps} />
                     <Banner {...freeCompanyProps} />
                     <Collection id={id} />
                 </div>
-                <div className="character__column">
+                <div className="col gap-lg max-width">
                     <Attributes {...attributeProps} />
                     <Jobs {...jobsProps} />
                 </div>
             </div>
             <Quests {...questsProps}/>
-            <Footer />
         </div>
     );
 }

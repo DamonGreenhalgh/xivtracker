@@ -2,9 +2,8 @@ import './Searchbar.css';
 import { useState, useEffect  }  from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch, FaServer} from 'react-icons/fa';
-import { BsChevronDown, BsChevronUp} from 'react-icons/bs'
+import { BsChevronDown, BsChevronUp, BsPersonFill} from 'react-icons/bs'
 import { MdClose } from 'react-icons/md';
-import Button from './utility/Button';
 
 const Searchbar = (props) => {
 
@@ -45,18 +44,19 @@ const Searchbar = (props) => {
             onSubmit={callbackMethod} 
             autoComplete="off"
         >
-            <div className="select" onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
-                {server}
+            <div className="select select--searchbar" onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
                 <FaServer />
+                {server}
                 {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}
             </div>
+            <BsPersonFill className='searchbar__icon' />
             <input
                 type="text"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 name="name"
-                onClick={() => {setDisplayRecent(true); setDisplayDropdown(false)}}
+                onClick={() => {setDisplayRecent(displayRecent ? false : true); setDisplayDropdown(false)}}
             />
             <button title="Search">
                 <FaSearch />
@@ -137,29 +137,6 @@ const Searchbar = (props) => {
                     <div>Zodiark</div>
                     <div>Spriggan</div>
                     <div>Twintania</div>
-                    <div>HongYuHai</div>
-                    <div>ShenYiZhiDi</div>
-                    <div>LaNuoXiYa</div>
-                    <div>HuanYingQunDao</div>
-                    <div>MengYaChi</div>
-                    <div>YuZhouHeYin</div>
-                    <div>WoXianXiRan</div>
-                    <div>ChenXiWangZuo</div>
-                    <div>BaiYinXiang</div>
-                    <div>BaiJinHuanXiang</div>
-                    <div>ShenQuanHen</div>
-                    <div>ChaoFengTing</div>
-                    <div>LvRenZhanQiao</div>
-                    <div>FuXiaoZhiJian</div>
-                    <div>Longchaoshendian</div>
-                    <div>MengYuBaoJing</div>
-                    <div>ZiShuiZhanQiao</div>
-                    <div>YanXia</div>
-                    <div>JingYuZhuangYuan</div>
-                    <div>MoDuNa</div>
-                    <div>HaiMaoChaWu</div>
-                    <div>RouFengHaiWan</div>
-                    <div>HuPoYuan</div>
                 </div>
             </div>
             <div className={"recent" + (displayRecent ? " recent--active" : "")}>

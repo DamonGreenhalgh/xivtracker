@@ -3,15 +3,20 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+    height: 8rem;
+}
+
+.banner--free-company {
+    background-color: var(--color-free-company);
+    color: white;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem var(--c-shadow);
+    height: auto;
 }
 
 .banner--search {  
-    grid-area: banner;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 8rem;
-    padding: 1rem;
     border-radius: .5rem;
     transition: outline 0.25s, background-color 0.25s, box-shadow 0.25s;
 }
@@ -21,18 +26,7 @@
     box-shadow: 0 0 1rem var(--c-shadow);
 }
 
-.banner--free-company {
-    pointer-events: none;
-    background-color: var(--color-free-company);
-    color: #e6e6e6;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: .5rem;
-    box-shadow: 0 0 1rem var(--c-shadow);
-    height: auto;
-}
-
-.free-company__text {
+.banner--free-company h2 {
     color: white;
 }
 

@@ -1,18 +1,10 @@
 .character {
     display: flex;
     flex-direction: column;
-    width: var(--character-width);
+    width: var(--content-width);
     gap: 2rem;
-    padding: 1rem;
     margin: auto;
     margin-top: 5rem;
-}
-
-.character__column {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: calc((100vw - 4rem) / 2);
 }
 
 .character__row {
@@ -22,8 +14,11 @@
 }
 
 .section {
+    display: flex;
+    flex-direction: column;
     border-radius: .5rem;
     padding: 2rem;
+    gap: 2rem;
     background-color: var(--c-content-background);
     box-shadow: 0 0 .8rem var(--c-shadow);
 }
@@ -33,7 +28,6 @@
     justify-content: center;
     gap: 2rem;
     align-items: center;
-    margin: 0 0 3rem 0;
 }
 
 .section-header--minor {
@@ -50,29 +44,6 @@
 
 .section-header--cover {
     grid-column: span 2;
-}
-
-.tab {
-    display: flex;
-    gap: 2rem
-}
-  
-.panel {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.panel--quests {
-    display: flex;
-    justify-content: space-between;
-}
-  
-.panel__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
 }
   
 .panel__content--jobs {
@@ -121,30 +92,15 @@
     ;
 }
 
-.disabled {
-    display: none;
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-.blur {
-    filter: blur(5px);
-}
-
 @media only screen and (max-width: 1050px) {
 
     .character {
         width: 100vw;
+        padding: 0 1rem;
     }
 
     .character__row {
         flex-direction: column;
-    }
-
-    .character__column {
-        width: 100%;
     }
 
 }

@@ -3,7 +3,7 @@ import Header from './Header';
 
 const Attributes = (props) => {
     return (
-        <div className="attributes section">
+        <div className="section">
             <Header name="Attributes" />
             <ul className="attributes__list">
                 <div className="attributes__main">
@@ -17,7 +17,7 @@ const Attributes = (props) => {
                     <div className="attributes__bar mp" />
                 </div>
                 {Object.values(props.content).slice(0, -2).map(attribute =>
-                    <li className="attributes__item" key={attribute.Attribute.ID}>
+                    <li className="row justify-between gap-lg" key={attribute.Attribute.ID}>
                         <p>{attribute.Attribute.Name}</p>
                         <h4>{attribute.Value}</h4>
                     </li> 

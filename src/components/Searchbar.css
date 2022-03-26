@@ -2,24 +2,26 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 30rem;
+    align-items: center;
     gap: 1rem;
-    margin-left: auto;
-    width: var(--home-width);
-    padding-right: .5rem;
+    padding-right: 1rem;
     height: 3rem;
-
-    background-color: var(--c-content-background);
     border-radius: .25rem;
+    background-color: var(--c-content-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
+.searchbar__icon {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+}
+
 .recent {
-    z-index: 3;
+    z-index: 4;
     overflow: hidden;
     top: calc(100% + 2rem);
     position: absolute;
-    width: var(--home-width);
+    width: var(--content-width);
     height: 0;
     background-color: var(--c-content-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
@@ -44,7 +46,6 @@
 .recent__collection {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: .1rem 1rem;
 }
 
 .recent__profile {
@@ -80,14 +81,4 @@
     cursor: pointer;
     background-color: var(--c-accent);
     color: white;
-}
-
-@media only screen and (max-width: 1050px) {
-
-    .searchbar {
-        background-color: var(--c-content-background);
-        border-radius: .25rem;
-        box-shadow: 0 .5rem 1rem var(--c-shadow);
-    }
-
 }

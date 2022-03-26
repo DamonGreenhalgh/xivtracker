@@ -5,19 +5,20 @@
     align-items: center;
     margin: auto;
     margin-left: calc(50vw + 5rem);
-    width: var(--home-width);
+    width: var(--content-width);
     gap: 2rem;
 }
 
 .home__brand {
     object-fit: contain;
-    width: var(--home-width);
+    width: var(--content-width);
     height: 10rem;
     gap: 1rem;
     margin-top: calc(50vh - 20rem)
 }
 
 .home__settings {
+    z-index: 4;
     position: fixed;
     right: 1rem;
     top: 1rem;
