@@ -1,0 +1,14 @@
+.bar {
+    grid-area: bar;
+    position: relative;
+    overflow: hidden;
+    height: .5rem;
+    border-radius: 5px;
+    background-color: var(--c-background);
+}
+
+.bar__completion {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,19 @@
+.loading {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--c-background);
+}
+
+.loading__icon {
+    height: 46px;
+    width: 46px;
+}

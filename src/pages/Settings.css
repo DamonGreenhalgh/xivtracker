@@ -2,10 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: auto;
     margin-left: calc(50vw + 5rem);
-    padding-top: 10rem;
     width: var(--content-width);
+    height: calc(100vh - 14rem);
     gap: 2rem;
 }
 
@@ -24,7 +23,6 @@
 @media only screen and (max-width: 1050px) {
 
     .settings {
-        height: auto;
         margin: auto;
         padding-top: 1rem;
     }

@@ -18,7 +18,6 @@ const questIcon = [
     highEndIcon
 ]
 
-
 const Quests = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
@@ -66,7 +65,7 @@ const Quests = (props) => {
     return (
         <div className="section">
 
-            <Header name="Quests" isSpan={true} />
+            <Header name="Quests" />
 
             <div className="row align-center gap">
                 <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>

@@ -3,8 +3,7 @@
     flex-direction: column;
     width: var(--content-width);
     gap: 2rem;
-    margin: auto;
-    margin-top: 5rem;
+    margin: 3rem auto;
 }
 
 .character__row {
@@ -21,75 +20,6 @@
     gap: 2rem;
     background-color: var(--c-content-background);
     box-shadow: 0 0 .8rem var(--c-shadow);
-}
-
-.section-header {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-}
-
-.section-header--minor {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-}
-
-.section-header--minor-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.section-header--cover {
-    grid-column: span 2;
-}
-  
-.panel__content--jobs {
-    display: grid;
-    justify-content: space-around;
-    grid-auto-flow: column;
-    grid-template-columns: 10fr 10fr;
-    gap: 1rem 2rem;
-    padding-top: 2rem;    
-}
-
-.jobs--war-magic {
-    grid-template-rows: repeat(16, 2rem);
-    grid-template-areas: 
-        "Tank         Melee    "
-        "paladin      monk     "
-        "warrior      dragoon  "
-        "darkknight   ninja    "
-        "gunbreaker   samurai  "
-        ".            reaper   "
-        "Healer       Ranged   "
-        "whitemage    bard     "
-        "scholar      machinist"
-        "astrologian  dancer   "
-        "sage         .        "
-        ".            Magic    "
-        ".            blackmage"
-        ".            summoner "
-        ".            redmage  "
-        ".            bluemage "            
-    ;
-}
-
-.jobs--hand-land {
-    grid-template-rows: repeat(9, 2rem);
-    grid-template-areas:
-        "Hand           Land    "
-        "carpenter      miner   "
-        "blacksmith     botanist"
-        "armorer        fisher  "
-        "goldsmith      .       "
-        "leatherworker  .       "
-        "weaver         .       "
-        "alchemist      .       "
-        "culinarian     .       "
-    ;
 }
 
 @media only screen and (max-width: 1050px) {

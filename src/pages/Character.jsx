@@ -7,11 +7,10 @@ import Jobs from '../components/Jobs';
 import Collection from '../components/Collection';
 import Attributes from '../components/Attributes';
 import Quests from '../components/Quests';
-import Loading from '../components/Loading';
-import Searchbar from '../components/Searchbar';
+import Loading from '../components/utility/Loading';
 import './Character.css';
 
-const Character = () => {
+const Character = (props) => {
 
     const [equipmentProps, setEquipmentProps] = useState(null);
     const [freeCompanyProps, setFreeCompanyProps] = useState({isDisabled: true});
@@ -21,6 +20,9 @@ const Character = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 
+
+    // This function stores the currently viewed character in the recent list 
+    // for searchbar use.
     const storeRecent = (data) => {
 
         // Define new character object.
@@ -59,8 +61,12 @@ const Character = () => {
         localStorage.setItem("recent", JSON.stringify(recent));
     }
 
+
     // On mount, fetch character data, update component props with retrieved data.
     useEffect(async () => {
+
+        // Enable searchbar on navbar.
+        props.setShowSearchbar(true);
         
         let characterData, freeCompanyData;
 
@@ -101,30 +107,18 @@ const Character = () => {
             })
         }
 
-        setJobsProps({
-            type: "jobs",
-            jobs: characterData.ClassJobs
-        });
-
-        setAttributeProps({
-            content: characterData.GearSet.Attributes
-        });
-
-        setQuestsProps ({
-            id: characterData.ID
-        });
+        setJobsProps({jobs: characterData.ClassJobs});
+        setAttributeProps({content: characterData.GearSet.Attributes});
+        setQuestsProps ({id: characterData.ID});
 
         // Completed loading, update.
-        setIsLoading(false);
-
+        setIsLoading(() => false);
     }, []);
 
     return (
-        isLoading ? 
-        <div className="loading"><Loading show={isLoading} /></div> :
+        isLoading ?
+        <Loading /> :
         <div className="character">
-            <Searchbar search={(name, server) => window.location.href = "../?name=" + name + "&server=" + server} />
-            <Notice type={2} show={true}/>
             <div className="character__row">
                 <div className="col gap-lg max-width">
                     <Equipment {...equipmentProps} />
@@ -136,6 +130,7 @@ const Character = () => {
                     <Jobs {...jobsProps} />
                 </div>
             </div>
+            <Notice type={2} show={true}/>
             <Quests {...questsProps}/>
         </div>
     );

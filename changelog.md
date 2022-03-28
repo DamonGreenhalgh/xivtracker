@@ -17,13 +17,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added splash image on homepage, random selection.
 - Added **News** slideshow on homepage.
 - Added recently viewed feature.
+- Support for mobile.
 
 ### Changed 
 
 - Replaced many (if not all) icon assets with icons from the *'react-icons'* library.
 - Updated navbar, no longer displays avatar of current character. More traditional.
 - Creation of custom dropdown elements, mainly used for the serverlist and theme selection.
+- Introduction of utility classes. Overhaul on many CSS classes.
+- Updated quests section.
 
 ### Removed
 
 - Many assets now rendered obsolete with the use of *'react-icons'* library.
+- Obsolete CSS classes.

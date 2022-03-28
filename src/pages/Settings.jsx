@@ -1,6 +1,6 @@
 import './Settings.css';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import Splash from '../components/Splash';
 import Button from '../components/utility/Button';
@@ -9,6 +9,11 @@ const Settings = (props) => {
 
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Set new content width
+        document.documentElement.style.setProperty('--content-width', '30rem');
+    }, [])
 
     return(
         <div className="settings">

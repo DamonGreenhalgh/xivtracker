@@ -70,4 +70,8 @@
 .hidden {
     visibility: hidden;
 }
+
+.blur {
+    filter: blur(5px);
+}
   

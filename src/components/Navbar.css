@@ -1,13 +1,11 @@
 .navbar {
-    position: fixed;
     display: flex;
     align-items: center;
     z-index: 4;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 4rem;
-    padding: 1rem;
+    padding: 2rem; 
     gap: 1rem;
 }
 

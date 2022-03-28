@@ -18,6 +18,7 @@
     position: fixed;
     margin: 1rem;
     bottom: 0;
+    left: 0;
     width: var(--content-width);
     animation: cookies 1s;
 }

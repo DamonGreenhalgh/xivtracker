@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import Searchbar from '../components/Searchbar';
 import Banner from '../components/Banner';
-import './Home.css';
-import brandIcon from '../images/brand-extended.png';
 import Notice from '../components/Notice';
 import Splash from '../components/Splash';
 import Featured from '../components/Featured';
-import Loading from '../components/Loading';
+import Loading from '../components/utility/Loading';
+import brandIcon from '../images/brand-extended.png';
+import './Home.css';
 
-const Home = () =>  {
+const Home = (props) =>  {
     const [results, setResults] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
     const [noticeType, setNoticeType] = useState(0);
     const [displayNotice, setDisplayNotice] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     // Function to request a character search from xivapi.com.
     const searchCharacter = async (name, server) => {
@@ -59,28 +59,31 @@ const Home = () =>  {
         const urlName = searchParams.get('name');
         const urlServer = searchParams.get('server');
         if (urlName !== null) { searchCharacter(urlName, urlServer); }
+
         // Set new content width
         document.documentElement.style.setProperty('--content-width', '30rem');
+
+        // Disable searchbar on navbar.
+        props.setShowSearchbar(false);
+
     }, []);
 
     return (
-        <>
+        isLoading ?
+        <Loading /> :
+        <div className="home" style={displayNotice ? {height: "auto"} : {height: 'calc(100vh - 16rem)'}}>
             <Notice type={0} show={true} />
-            <div className="home" style={displayNotice ? {height: "auto"} : {height: '100vh'}}>
-                <Splash />
-                <img 
-                    src={brandIcon}
-                    className="home__brand"
-                    alt="Brand Logo" 
-                />
-                <Searchbar search={searchCharacter} isSearching={isLoading} />
-                <Loading show={isLoading} />
-                {results}
-                <Notice type={noticeType} show={displayNotice} />                
-                <Featured />
-            </div>
-        </>
-        
+            <Splash />
+            <img 
+                src={brandIcon}
+                className="home__brand"
+                alt="Brand Logo" 
+            />
+            <Searchbar search={searchCharacter} />
+            {results}
+            <Notice type={noticeType} show={displayNotice} />                
+            <Featured />
+        </div>
     );
 }
 

@@ -1,5 +1,6 @@
 import './Attributes.css';
 import Header from './Header';
+import Bar from './utility/Bar';
 
 const Attributes = (props) => {
     return (
@@ -9,12 +10,12 @@ const Attributes = (props) => {
                 <div className="attributes__main">
                     <p>{props.content.at(-2).Attribute.Name}</p>
                     <h4>{props.content.at(-2).Value}</h4>
-                    <div className="attributes__bar hp" />
+                    <Bar color="var(--color-health)" />
                 </div>
                 <div className="attributes__main">
                     <p>{props.content.at(-1).Attribute.Name}</p>
                     <h4>{props.content.at(-1).Value}</h4>
-                    <div className="attributes__bar mp" />
+                    <Bar color="var(--color-mana)" />
                 </div>
                 {Object.values(props.content).slice(0, -2).map(attribute =>
                     <li className="row justify-between gap-lg" key={attribute.Attribute.ID}>

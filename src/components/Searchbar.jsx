@@ -24,7 +24,7 @@ const Searchbar = (props) => {
         if (recentSearches !== null) {
             setRecent(recentSearches.map(char => {
                 return(
-                    <Link to={"/character/" + char.id} key={char.id}>
+                    <Link to={"/" + char.id + "/character"} key={char.id}>
                         <div className="recent__profile interactable">
                             <img src={char.avatar} className="rounded recent__avatar" alt="Avatar" />
                             <div>
@@ -40,11 +40,11 @@ const Searchbar = (props) => {
 
     return (
         <form 
-            className={props.isSearching ? "disabled" : "searchbar"} 
+            className="searchbar"
             onSubmit={callbackMethod} 
             autoComplete="off"
         >
-            <div className="select select--searchbar" onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
+            <div className="select" onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
                 <FaServer />
                 {server}
                 {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}

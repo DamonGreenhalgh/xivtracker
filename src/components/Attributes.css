@@ -4,17 +4,10 @@
         "type value"
         "bar  bar  "
     ;
-    margin-bottom: 2rem;
 }
 
 .attributes__main h4 {
     text-align: end;
-}
-
-.attributes__bar {
-    grid-area: bar;
-    height: .75rem;
-    border-radius: 5px;
 }
 
 .attributes__list {
@@ -22,10 +15,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem 2rem;
 }
-
-.hp { background-color: var(--color-health); }
-.mp { background-color: var(--color-mana); }
-
 
 @media only screen and (max-width: 1050px) {
 

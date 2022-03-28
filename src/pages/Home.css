@@ -3,15 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    margin-left: calc(50vw + 5rem);
+    margin: auto auto auto calc(50vw + 4rem);
     width: var(--content-width);
     gap: 2rem;
 }
 
 .home__brand {
     object-fit: contain;
-    width: var(--content-width);
+    width: 100%;
     height: 10rem;
     gap: 1rem;
     margin-top: calc(50vh - 20rem)
@@ -28,6 +27,7 @@
 
     .home {
         margin: auto;
+        padding: 0 calc((100vw - 32rem) / 2);
     }
 
 }

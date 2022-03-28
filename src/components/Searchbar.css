@@ -1,13 +1,13 @@
 .searchbar {
+    z-index: 4;
     position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    width: 30rem;
     padding-right: 1rem;
-    height: 3rem;
-    border-radius: .25rem;
     background-color: var(--c-content-background);
+    border-radius: .25rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
@@ -21,8 +21,8 @@
     overflow: hidden;
     top: calc(100% + 2rem);
     position: absolute;
-    width: var(--content-width);
     height: 0;
+    width: 100%;
     background-color: var(--c-content-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     border-radius: .5rem;
@@ -81,4 +81,18 @@
     cursor: pointer;
     background-color: var(--c-accent);
     color: white;
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .searchbar {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    .searchbar {
+        width: var(--content-width);
+    }
 }

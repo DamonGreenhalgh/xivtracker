@@ -1,20 +1,22 @@
 import brand from '../images/brand.png';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import { GoSettings } from 'react-icons/go';
-import { RiQuestionMark } from 'react-icons/ri';
+import { RiSettings3Line } from 'react-icons/ri';
+import Searchbar from './Searchbar';
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
         <nav className="navbar">
-            <Link to="/" title="Home" style={{marginRight: "auto"}}>
+            <Link to="/" title="Home">
                 <img src={brand} className="navbar__brand-icon" />
             </Link>
-            <Link to="/settings" title="Settings">
-                <button><GoSettings className="navbar__icon" /></button>
-            </Link>
-            <Link to="/settings" title="Settings">
-                <button><RiQuestionMark className="searchbar__icon" /></button>
+            {
+                props.showSearchbar ?
+                <Searchbar search={(name, server) => window.location.href = "../?name=" + name + "&server=" + server} /> : 
+                null
+            }
+            <Link to="/settings" title="Settings" style={{marginLeft: "auto"}}>
+                <button><RiSettings3Line className="navbar__icon" /></button>
             </Link>
         </nav>
     );

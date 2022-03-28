@@ -5,7 +5,7 @@ const Banner = (props) => {
     return (
         props.isDisabled ?
         null :
-        <Link className={"banner banner--" + props.type} to={"/character/" + props.id}>
+        <Link className={"banner banner--" + props.type} to={"/" + props.id + "/character"}>
             {
             props.isCrest ? 
             <div className="icon--mid relative">
