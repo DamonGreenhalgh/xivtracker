@@ -1,38 +1,33 @@
 .banner {
-    grid-area: banner;
     display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 1rem;
     width: 100%;
-    height: 8rem;
+    padding: 2rem;
+    gap: 1rem;
+    border-radius: .5rem;
 }
 
-.banner--free-company {
+.search:hover {
+    color: var(--c-accent);
+    background-color: var(--c--accent-transparent);
+    outline: 1px solid var(--c-accent);
+}
+
+.free-company {
     background-color: var(--color-free-company);
-    color: white;
-    border-radius: .5rem;
-    box-shadow: 0 0 1rem var(--c-shadow);
-    height: auto;
-}
-
-.banner--search {  
-    border-radius: .5rem;
-    transition: outline 0.25s, background-color 0.25s, box-shadow 0.25s;
-}
-
-.banner--search:hover {
-    background-color: var(--c-content-background);
+    color: rgb(202, 206, 209);
     box-shadow: 0 0 1rem var(--c-shadow);
 }
 
-.banner--free-company h2 {
+.free-company h2 {
     color: white;
 }
 
-.banner__server {
-    min-width: 4rem;
-    align-self: flex-start;
-    text-align: end;
-    margin-left: auto;
+.reference {
+    border-radius: .25rem;
+    font-size: .8rem;
+    padding: .5rem;
+    height: 4rem;
+    color: var(--c-accent);
+    background-color: var(--c--accent-transparent);
+    outline: 1px solid var(--c-accent);
 }

@@ -35,13 +35,11 @@ const Home = (props) =>  {
                     // Create character banners for each valid returned character.
                     setResults([data.Results.map(result => (
                         <Banner 
-                        isDisabled={false}
-                        type="search"
+                        type='search'
                         name={result.Name}
-                        isPrefix={false}
                         title={result.Server}
-                        avatar={result.Avatar}
-                        id={result.ID}
+                        avatar={<img src={result.Avatar} className='rounded' />}
+                        link={"/" + result.ID + "/character"}
                         key={result.ID}
                         />
                     ))])

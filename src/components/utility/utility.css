@@ -52,6 +52,14 @@
     padding: 2rem;
 }
 
+.radius-sm {
+    border-radius: .25rem;
+}
+
+.radius {
+    border-radius: .5rem;
+}
+
 .rounded {
     border-radius: 100%;
 }
@@ -83,4 +91,3 @@
 .text-end {
     text-align: end;
 }
-  

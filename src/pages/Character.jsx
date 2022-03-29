@@ -8,9 +8,8 @@ import Collection from '../components/Collection';
 import Attributes from '../components/Attributes';
 import Quests from '../components/Quests';
 import Loading from '../components/utility/Loading';
-import './Character.css';
 import Divider from '../components/utility/Divider';
-import CharacterBanner from '../components/CharacterBanner';
+import './Character.css';
 
 const Character = (props) => {
 
@@ -95,10 +94,10 @@ const Character = (props) => {
             
         setData(characterData);
         setCharacterProps({
+            avatar: <img src={characterData.Avatar} className='rounded' />,
             name: characterData.Name,
             title: characterData.Title.Name,
-            avatar: characterData.Avatar,
-            server: characterData.Server
+            misc: characterData.Server
         })
 
 
@@ -112,13 +111,18 @@ const Character = (props) => {
         // a free company.
         if (freeCompanyData !== null) {
             setFreeCompanyProps({
-                type: "free-company",
+                type: 'free-company',
+                avatar: 
+                <div className="icon--mid relative">
+                    <img src={freeCompanyData.Crest[0]} className="icon--mid absolute" />
+                    <img src={freeCompanyData.Crest[1]} className="icon--mid absolute" />
+                    <img src={freeCompanyData.Crest[2]} className="icon--mid absolute" />
+                </div>
+                ,
+                fc: freeCompanyData.Crest,
                 name: freeCompanyData.Name,
-                title: freeCompanyData.Slogan,
-                isPrefix: false,
-                server: "Rank: " + freeCompanyData.Rank,
-                isCrest: true,
-                avatar: freeCompanyData.Crest
+                content: freeCompanyData.Slogan,
+                misc: "Rank: " + freeCompanyData.Rank
             })
         }
 
@@ -134,7 +138,7 @@ const Character = (props) => {
         isLoading ?
         <Loading /> :
         <div className="character">
-        <CharacterBanner {...characterProps} />
+        <Banner {...characterProps} />
         <Divider />
             <div className="character__row">
                 <div className="col gap-lg max-width">
