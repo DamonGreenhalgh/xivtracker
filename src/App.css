@@ -7,13 +7,17 @@
   --color-health: #5d9c22;
   --color-mana: #be2c9f;
   --color-news: #252333;
-  --margin-global: calc((100vw - 30rem) / 2);
   box-sizing: border-box;
 }
 
 @font-face {
   font-family: 'Comfortaa';
   src: url('fonts/Comfortaa.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat.ttf');
 }
 
 body {
@@ -30,6 +34,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 h1, h2 {
+  font-family: 'Montserrat';
   color: var(--c-major-text);
 }
 

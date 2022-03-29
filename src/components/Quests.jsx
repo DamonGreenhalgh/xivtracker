@@ -70,7 +70,7 @@ const Quests = (props) => {
             <div className="row align-center gap">
                 <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
                 <img src={questIcon[panel]} className="icon--quests" alt={achievementsJSON[panel].name  + " Icon"} />
-                <h3>{achievementsJSON[panel].name}</h3>
+                <h2>{achievementsJSON[panel].name}</h2>
                 <h3 className="quests__completion-rate">{totals[panel][0]}/{totals[panel][1]}</h3>
                 <button onClick={() => updatePage(1)}><FaChevronRight /></button>
             </div>

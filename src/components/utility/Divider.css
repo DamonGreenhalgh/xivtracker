@@ -1,5 +1,5 @@
 .divider {
-    min-height: 2px;
+    min-height: 1px;
     width: 100%;
     background-color: var(--c-mid-background);
 }

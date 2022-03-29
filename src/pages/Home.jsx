@@ -65,7 +65,6 @@ const Home = (props) =>  {
 
         // Disable searchbar on navbar.
         props.setShowSearchbar(false);
-
     }, []);
 
     return (

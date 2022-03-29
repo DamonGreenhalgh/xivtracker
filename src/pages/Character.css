@@ -3,7 +3,7 @@
     flex-direction: column;
     width: var(--content-width);
     gap: 2rem;
-    margin: 3rem auto;
+    margin: 6rem auto;
 }
 
 .character__row {
@@ -33,4 +33,15 @@
         flex-direction: column;
     }
 
+}
+
+
+
+
+
+
+
+
+.character__banner {
+    
 }

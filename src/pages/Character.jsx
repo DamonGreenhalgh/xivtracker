@@ -9,6 +9,8 @@ import Attributes from '../components/Attributes';
 import Quests from '../components/Quests';
 import Loading from '../components/utility/Loading';
 import './Character.css';
+import Divider from '../components/utility/Divider';
+import CharacterBanner from '../components/CharacterBanner';
 
 const Character = (props) => {
 
@@ -17,8 +19,12 @@ const Character = (props) => {
     const [jobsProps, setJobsProps] = useState(null);
     const [attributeProps, setAttributeProps] = useState(null);
     const [questsProps, setQuestsProps] = useState(null);
+    const [characterProps, setCharacterProps] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
+
+
+    const [data, setData] = useState(null);
 
 
     // This function stores the currently viewed character in the recent list 
@@ -86,7 +92,16 @@ const Character = (props) => {
 
         // Add character to recently viewed list.
         storeRecent(characterData);
- 
+            
+        setData(characterData);
+        setCharacterProps({
+            name: characterData.Name,
+            title: characterData.Title.Name,
+            avatar: characterData.Avatar,
+            server: characterData.Server
+        })
+
+
         setEquipmentProps({
             portrait: characterData.Portrait,
             level: characterData.ActiveClassJob.Level,
@@ -119,6 +134,8 @@ const Character = (props) => {
         isLoading ?
         <Loading /> :
         <div className="character">
+        <CharacterBanner {...characterProps} />
+        <Divider />
             <div className="character__row">
                 <div className="col gap-lg max-width">
                     <Equipment {...equipmentProps} />

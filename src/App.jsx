@@ -13,6 +13,7 @@ import './components/utility/utility.css';
 const App = () => {
   const [theme, setTheme] = useState('light');
   const [showSearchbar, setShowSearchbar] = useState(false);
+  const [referenceCharacter, setReferenceCharacter] = useState(null);
 
   // This function applies a color theme to the application.
   const applyTheme = () => {
@@ -24,8 +25,6 @@ const App = () => {
     localStorage.setItem("theme", theme);
   }
 
-  applyTheme()
-
   useEffect(() => {   
     
     // Load theme saved in local storage if it exists.
@@ -33,16 +32,26 @@ const App = () => {
     if (localTheme !== null) {
       setTheme(localTheme)
     }
+
+    // Load reference character
+    const referenceCharacter = localStorage.getItem('reference');
+    if (referenceCharacter !== null) {
+      setReferenceCharacter(JSON.parse(referenceCharacter))
+    }
     
   }, [])
 
+  useEffect(() => {
+    applyTheme();
+  }, [theme])
+
   return (
     <BrowserRouter basename="/xivtracker">
-      <Navbar showSearchbar={showSearchbar} />
+      <Navbar showSearchbar={showSearchbar} referenceCharacter={referenceCharacter} />
       <Routes>
         <Route path="/" element={<Home setShowSearchbar={setShowSearchbar} />} />
         <Route exact path="/:id/character" element={<Character setShowSearchbar={setShowSearchbar} />} />
-        <Route path="/settings" element={<Settings theme={theme} setTheme={setTheme} />} />
+        <Route path="/settings" element={<Settings theme={theme} setTheme={setTheme} setShowSearchbar={setShowSearchbar} setReferenceCharacter={setReferenceCharacter}/>} />
       </Routes>
       <Footer />
     </BrowserRouter>  

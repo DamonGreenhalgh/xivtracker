@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaSearch, FaServer} from 'react-icons/fa';
 import { BsChevronDown, BsChevronUp, BsPersonFill} from 'react-icons/bs'
 import { MdClose } from 'react-icons/md';
+import Divider from './utility/Divider';
 
 const Searchbar = (props) => {
 
@@ -66,7 +67,7 @@ const Searchbar = (props) => {
                     <h4>Servers</h4>
                     <MdClose className="interactable" onClick={() => setDisplayDropdown(false)}/>
                 </div>
-                <div className='divider--horizontal' />
+                <Divider />
                 <div className='recent__servers' onClick={(e) => setServer(e.target.innerText)}>
                     <div>Server</div>
                     <div>Adamantoise</div>
@@ -144,7 +145,7 @@ const Searchbar = (props) => {
                     <h4>Recently Viewed</h4>
                     <MdClose className="interactable" onClick={() => setDisplayRecent(false)}/>
                 </div>
-                <div className='divider--horizontal' />
+                <Divider />
                 <div className="recent__collection">
                     {recent}
                 </div>             
