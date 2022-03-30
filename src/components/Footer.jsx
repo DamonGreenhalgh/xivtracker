@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <div className="footer">
       <p className="footer__text">
-        Illustrations by Yusuke Mogi.<br/>
         <i>XIV Tracker</i> is Designed and Developed by Damon Greenhalgh.<br/>
         FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.
       </p>

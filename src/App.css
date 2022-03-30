@@ -163,15 +163,6 @@ input:focus {
   max-width: 2rem;
 }
 
-.splash {
-  z-index: -1;
-  position: fixed;
-  height: 100vh;
-  pointer-events: none;
-  left: calc(50vw + 10rem);
-  top: 0;
-}
-
 .arrow {
   color: white;
   padding: 1rem;
@@ -188,10 +179,6 @@ input:focus {
 
   * {
     --content-width: calc(100vw - 2rem)
-  }
-
-  .splash {
-    display: none;
   }
 
 }

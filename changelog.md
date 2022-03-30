@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Banner component refactor.
 
+### Removed
+
+- Splash art component. Issues with the theme clashing.
 
 ## Released
 

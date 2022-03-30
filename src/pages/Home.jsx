@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Searchbar from '../components/Searchbar';
 import Banner from '../components/Banner';
 import Notice from '../components/Notice';
-import Splash from '../components/Splash';
 import Featured from '../components/Featured';
 import Loading from '../components/utility/Loading';
 import brandIcon from '../images/brand-extended.png';
@@ -69,7 +68,6 @@ const Home = (props) =>  {
         
         <div className="home" style={displayNotice ? {height: "auto"} : {height: 'calc(100vh - 16rem)'}}>
             <Notice type={0} show={true} />
-            <Splash />
             <img 
                 src={brandIcon}
                 className="home__brand"
