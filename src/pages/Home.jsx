@@ -66,8 +66,7 @@ const Home = (props) =>  {
     }, []);
 
     return (
-        isLoading ?
-        <Loading /> :
+        
         <div className="home" style={displayNotice ? {height: "auto"} : {height: 'calc(100vh - 16rem)'}}>
             <Notice type={0} show={true} />
             <Splash />
@@ -76,7 +75,11 @@ const Home = (props) =>  {
                 className="home__brand"
                 alt="Brand Logo" 
             />
-            <Searchbar search={searchCharacter} />
+            {
+                isLoading ?
+                <Loading /> :
+                <Searchbar search={searchCharacter} />
+            }
             {results}
             <Notice type={noticeType} show={displayNotice} />                
             <Featured />

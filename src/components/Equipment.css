@@ -1,7 +1,7 @@
 .equipment {
     display: grid;
-    grid-template-columns: 3rem 1fr 3rem;
-    grid-template-rows: 0 repeat(8, 3rem) 0;
+    grid-template-columns: 3rem 20rem 3rem;
+    grid-template-rows: .5rem repeat(7, 3rem) .5rem;
     grid-template-areas:
         ".         portrait  .          "
         "MainHand  portrait  OffHand    "
@@ -10,10 +10,10 @@
         "Hands     portrait  Bracelets  "
         "Legs      portrait  Ring1      "
         "Feet      portrait  Ring2      "
-        "switch    portrait  SoulCrystal"
-        ".         portrait  .          "
+        ".         portrait  SoulCrystal"
         ".         portrait  .          "
     ;
+    margin: 0 auto;
     gap: 1rem;
 }
 
@@ -23,16 +23,23 @@
     background-position: center;
     background-size: cover;
     border-radius: .5rem;
-    height: 100%;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
 .equipment__level {
     position: absolute;
-    background-color: var(--c-background);
-    color: var(--c-major-text);
+    background-color: var(--c-showcase-background);
+    color: #f3f2f2;
     padding: .5rem;
-    border-radius: .5rem;
+    border-radius: .25rem;
     bottom: 1rem;
     left: 1rem;
+}
+
+.equipment__job {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 3rem;
+    height: 3rem;
 }

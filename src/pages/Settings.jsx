@@ -5,11 +5,14 @@ import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import Button from '../components/utility/Button';
 import Banner from '../components/Banner';
 import Divider from '../components/utility/Divider';
+import Loading from '../components/utility/Loading';
 
 const Settings = (props) => {
 
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const [referenceBanner, setReferenceBanner] = useState(null);
+    const [isSearching, setIsSearching] = useState(false);
+    const [statusText, setStatusText] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,32 +35,46 @@ const Settings = (props) => {
         }
     }, [])
 
+    const requestData = async(id) => {
+
+        setIsSearching(true);
+        let referenceCharacter;
+
+        await fetch("https://xivapi.com/character/" + id + "?extended=1", {mode: 'cors'})
+            .then(response => response.json())
+            .then(data => referenceCharacter = data.Character)
+        
+        console.log(referenceCharacter);
+        
+        if (referenceCharacter !== undefined) {
+            localStorage.setItem('reference', JSON.stringify(referenceCharacter))
+            props.setReferenceCharacter(referenceCharacter);
+            setReferenceBanner(() => 
+                <Banner 
+                    type='reference'
+                    avatar={<img src={referenceCharacter.Avatar} className='rounded' />}
+                    name={referenceCharacter.Name}
+                    title={referenceCharacter.Title.Name}
+                    misc={referenceCharacter.Server}
+                    link={"/" + id + "/character"}
+                />
+            )
+            setStatusText("");
+        } else {
+            setStatusText("Character with ID: " + id + " does not exist.");
+        }  
+
+        setIsSearching(false);
+    }
+
     const updateReference = (e) => {
+
         const id = e.target.value;
+
+        // If the number of digits is correct, request character from xivapi.
         if (id.length == 8) {
-            console.log("searching");
-            let referenceCharacter;
-            const requestData = async(id) => {
-                await fetch("https://xivapi.com/character/" + id + "?extended=1", {mode: 'cors'})
-                    .then(response => response.json())
-                    .then(data => referenceCharacter = data.Character)
-                
-                console.log(referenceCharacter);
-                
-                if (referenceCharacter !== null) {
-                    localStorage.setItem('reference', JSON.stringify(referenceCharacter))
-                    props.setReferenceCharacter(referenceCharacter);
-                    setReferenceBanner(() => 
-                        <Banner 
-                            type='reference'
-                            avatar={<img src={referenceCharacter.Avatar} className='rounded' />}
-                            name={referenceCharacter.Name}
-                            title={referenceCharacter.Title.Name}
-                            misc={referenceCharacter.Server}
-                        />
-                    )
-                }   
-            }
+
+            setIsSearching(true);
             requestData(id);
         }
     }
@@ -85,8 +102,14 @@ const Settings = (props) => {
                 </div>
                 <h3>Character</h3>
                 <p>Select a reference character. Character progress will determine what information is hidden to you. This is to avoid spoilers.</p>
-                <input type='text' placeholder="Lodestone ID e.g. 38592216" onChange={(e) => updateReference(e)} />
+                {
+                    isSearching ?
+                    <Loading /> :
+                    <input type='text' placeholder="Lodestone ID e.g. 38592216" onChange={(e) => updateReference(e)} />
+                }
+                
                 {referenceBanner}
+                <p>{statusText}</p>
                
             </div>
             <Button content="Save" onClick={() => navigate(-1)} style={{width: "5rem"}} />

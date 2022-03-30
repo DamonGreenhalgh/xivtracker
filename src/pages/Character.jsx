@@ -8,7 +8,6 @@ import Collection from '../components/Collection';
 import Attributes from '../components/Attributes';
 import Quests from '../components/Quests';
 import Loading from '../components/utility/Loading';
-import Divider from '../components/utility/Divider';
 import './Character.css';
 
 const Character = (props) => {
@@ -21,10 +20,6 @@ const Character = (props) => {
     const [characterProps, setCharacterProps] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
-
-
-    const [data, setData] = useState(null);
-
 
     // This function stores the currently viewed character in the recent list 
     // for searchbar use.
@@ -92,7 +87,6 @@ const Character = (props) => {
         // Add character to recently viewed list.
         storeRecent(characterData);
             
-        setData(characterData);
         setCharacterProps({
             avatar: <img src={characterData.Avatar} className='rounded' />,
             name: characterData.Name,
@@ -100,11 +94,11 @@ const Character = (props) => {
             misc: characterData.Server
         })
 
-
         setEquipmentProps({
             portrait: characterData.Portrait,
             level: characterData.ActiveClassJob.Level,
-            gear: characterData.GearSet.Gear
+            gear: characterData.GearSet.Gear,
+            icon: characterData.ActiveClassJob.Job.Icon
         });
 
         // Only update free company props if the character belongs to
@@ -136,22 +130,21 @@ const Character = (props) => {
 
     return (
         isLoading ?
-        <Loading /> :
+        <Loading full={true} /> :
         <div className="character">
-        <Banner {...characterProps} />
-        <Divider />
+            <Banner {...characterProps} />
             <div className="character__row">
+                <div className="decoration" />
                 <div className="col gap-lg max-width">
                     <Equipment {...equipmentProps} />
-                    <Banner {...freeCompanyProps} />
                     <Collection id={id} />
+                    <Banner {...freeCompanyProps} />
                 </div>
                 <div className="col gap-lg max-width">
                     <Attributes {...attributeProps} />
                     <Jobs {...jobsProps} />
                 </div>
             </div>
-            <Notice type={2} show={true}/>
             <Quests {...questsProps}/>
         </div>
     );

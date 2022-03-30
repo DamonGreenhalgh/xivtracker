@@ -1,11 +1,10 @@
 import './Attributes.css';
-import Header from './Header';
 import Bar from './utility/Bar';
 
 const Attributes = (props) => {
     return (
-        <div className="section">
-            <Header name="Attributes" />
+        <div className="attributes">
+            <h2 className='text-center'>Attributes</h2>
             <ul className="attributes__list">
                 <div className="attributes__main">
                     <p>{props.content.at(-2).Attribute.Name}</p>

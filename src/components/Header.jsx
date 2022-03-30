@@ -1,8 +1,7 @@
 import Divider from './utility/Divider';
 const Header = (props) => {
     return (
-        <div className="row justify-center align-center gap-lg">
-            <Divider />
+        <div className="col align-center gap-lg">
             <h2>{props.name}</h2>
             <Divider />
         </div>

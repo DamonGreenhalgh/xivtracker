@@ -2,6 +2,7 @@ import './Item.css'
 import itemFrame from '../images/item-frame.png';
 import { useState, useEffect } from 'react';
 import glamourIcon from '../images/glamour.png';
+import Divider from './utility/Divider';
 
 const Item = (props) => {
     const [hasContent, setHasContent] = useState(null);
@@ -28,28 +29,38 @@ const Item = (props) => {
             <img src={itemFrame} className="item__icon absolute" />
             <div className="tooltip">
                 <h4>{props.name}</h4>
-                <div className={hasContent ? "divider--horizontal" : "disabled"} />
-                {isGlamour ?
-                <>
-                    <h5>Glamour</h5>
-                    <div className="tooltip__icon-container">
-                        <img src={"https://xivapi.com" + props.glamour.Icon} className="tooltip__icon" />  
-                        <img src={itemFrame} className="tooltip__icon absolute" />
-                        <p>{props.glamour.Name}</p>
-                    </div>
-                </> :
-                null}
-                {isMateria ? 
-                <>
-                    <h5>Materia</h5>
-                    {props.materia.map((mat, index) => 
-                    <div className="tooltip__icon-container" key={index}>
-                        <img src={"https://xivapi.com" + mat.Icon} className="tooltip__icon" />  
-                        <img src={itemFrame} className="tooltip__icon absolute" />
-                        <p>{mat.Name}</p>
-                    </div>)}
-                </> :
-                null}
+                {
+                    hasContent ?
+                    <>
+                        <Divider />
+                        {
+                            isGlamour ?
+                            <>
+                                <h5>Glamour</h5>
+                                <div className="tooltip__icon-container">
+                                    <img src={"https://xivapi.com" + props.glamour.Icon} className="tooltip__icon" />  
+                                    <img src={itemFrame} className="tooltip__icon absolute" />
+                                    <p>{props.glamour.Name}</p>
+                                </div>
+                            </> :
+                            null
+                        }
+                        {
+                            isMateria ? 
+                            <>
+                                <h5>Materia</h5>
+                                {props.materia.map((mat, index) => 
+                                <div className="tooltip__icon-container" key={index}>
+                                    <img src={"https://xivapi.com" + mat.Icon} className="tooltip__icon" />  
+                                    <img src={itemFrame} className="tooltip__icon absolute" />
+                                    <p>{mat.Name}</p>
+                                </div>)}
+                            </> :
+                            null
+                        }
+                    </> :
+                    null
+                }
             </div>
         </div>
     );
