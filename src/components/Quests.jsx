@@ -49,12 +49,14 @@ const Quests = (props) => {
         
         let completedArray = []
         for (let i = 0; i < achievementsJSON.length; i++) {
+
             let completed = 0;
-            const reference = Object.values(achievementsJSON[i].id);
+            const ids = Object.values(achievementsJSON[i].id);
             const elements = msqRef.current.children[i].querySelectorAll('a');
+
             for (let j = 0; j < achievementIds.length; j++) {
-                if (achievementIds.includes(reference[j])) {
-                    if (refAchievementIds.includes(reference[j])) {
+                if (achievementIds.includes(ids[j])) {
+                    if (refAchievementIds.includes(ids[j])) {
 
                         // Both reference character and character has completed quest/encounter.
                         elements[j].setAttribute('class', 'eorzeadb_link completed');
@@ -68,7 +70,7 @@ const Quests = (props) => {
                     completed++;
                 }
             }
-            completedArray.push([completed, reference.length]);
+            completedArray.push([completed, ids.length]);
         }
         setTotals(completedArray)
         setIsLoading(false);

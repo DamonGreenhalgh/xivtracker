@@ -18,6 +18,7 @@ const Equipment = (props) => {
                     icon={("https://xivapi.com" + item.Item.Icon).slice(0, -4) + "_hr1.png"}
                     materia={item.Materia}
                     glamour={item.Mirage}
+                    id={item.Item.ID}
                     key={item.Item.ID} 
                 />
             )}
