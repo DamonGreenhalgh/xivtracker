@@ -47,11 +47,38 @@ const App = () => {
 
   return (
     <BrowserRouter basename="/xivtracker">
-      <Navbar showSearchbar={showSearchbar} referenceCharacter={referenceCharacter} />
+      <Navbar 
+        showSearchbar={showSearchbar} 
+        referenceCharacter={referenceCharacter} 
+      />
       <Routes>
-        <Route path="/" element={<Home setShowSearchbar={setShowSearchbar} />} />
-        <Route exact path="/:id/character" element={<Character setShowSearchbar={setShowSearchbar} />} />
-        <Route path="/settings" element={<Settings theme={theme} setTheme={setTheme} setShowSearchbar={setShowSearchbar} setReferenceCharacter={setReferenceCharacter}/>} />
+        <Route 
+          path="/" 
+          element={
+            <Home 
+              setShowSearchbar={setShowSearchbar} 
+            />
+          } 
+        />
+        <Route 
+          path="/:id/character" 
+          element={
+            <Character 
+              setShowSearchbar={setShowSearchbar} 
+            />
+          } 
+        />
+        <Route 
+          path="/settings" 
+          element={
+            <Settings 
+              theme={theme} 
+              setTheme={setTheme} 
+              setShowSearchbar={setShowSearchbar} 
+              setReferenceCharacter={setReferenceCharacter}
+            />
+          } 
+        />
       </Routes>
       <Footer />
     </BrowserRouter>  

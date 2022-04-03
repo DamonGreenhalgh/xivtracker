@@ -32,29 +32,45 @@ const Quests = (props) => {
             .then(response => response.json())
             .then(data => achievementData = data.Achievements.List);
         
-        // Find and collect all achievement ids
+        // Collect all character achievement ids
         const achievementIds = []
         for (let i = 0; i < achievementData.length; i++) {
             achievementIds.push(achievementData[i].ID);
         }
 
-        let completed_array = []
+        // Collect up all reference character achivement ids
+        const refAchievementIds = []
+        const referenceCharacter = JSON.parse(localStorage.getItem('reference'))
+        if (referenceCharacter !== null) {
+            for (let i = 0; i < referenceCharacter.Achievements.List.length; i++) {
+                refAchievementIds.push(referenceCharacter.Achievements.List[i].ID)
+            }
+        }
+        
+        let completedArray = []
         for (let i = 0; i < achievementsJSON.length; i++) {
             let completed = 0;
             const reference = Object.values(achievementsJSON[i].id);
             const elements = msqRef.current.children[i].querySelectorAll('a');
             for (let j = 0; j < achievementIds.length; j++) {
                 if (achievementIds.includes(reference[j])) {
-                    completed++;
-                    elements[j].setAttribute('class', 'eorzeadb_link completed');
+                    if (refAchievementIds.includes(reference[j])) {
+
+                        // Both reference character and character has completed quest/encounter.
+                        elements[j].setAttribute('class', 'eorzeadb_link completed');
+                    } else {
+
+                        // Reference character has not completed quest/encounter, but character has.
+                        elements[j].setAttribute('class', elements[j].className + ' completed');
+                    }
+                    // Show checkmark
                     elements[j].children[0].setAttribute('class', 'icon');
+                    completed++;
                 }
             }
-            completed_array.push([completed, reference.length]);
+            completedArray.push([completed, reference.length]);
         }
-
-        setTotals(completed_array)
-
+        setTotals(completedArray)
         setIsLoading(false);
     }, []);
 

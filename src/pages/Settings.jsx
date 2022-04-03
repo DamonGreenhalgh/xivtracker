@@ -26,10 +26,10 @@ const Settings = (props) => {
             setReferenceBanner(() => 
                 <Banner 
                     type='reference'
-                    avatar={<img src={referenceCharacter.Avatar} className='rounded' />}
-                    name={referenceCharacter.Name}
-                    title={referenceCharacter.Title.Name}
-                    misc={referenceCharacter.Server}
+                    avatar={<img src={referenceCharacter.Character.Avatar} className='rounded' />}
+                    name={referenceCharacter.Character.Name}
+                    title={referenceCharacter.Character.Title.Name}
+                    misc={referenceCharacter.Character.Server}
                 />
             )
         }
@@ -40,9 +40,9 @@ const Settings = (props) => {
         setIsSearching(true);
         let referenceCharacter;
 
-        await fetch("https://xivapi.com/character/" + id + "?extended=1", {mode: 'cors'})
+        await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {mode: 'cors'})
             .then(response => response.json())
-            .then(data => referenceCharacter = data.Character)
+            .then(data => referenceCharacter = data)
         
         console.log(referenceCharacter);
         
@@ -52,10 +52,10 @@ const Settings = (props) => {
             setReferenceBanner(() => 
                 <Banner 
                     type='reference'
-                    avatar={<img src={referenceCharacter.Avatar} className='rounded' />}
-                    name={referenceCharacter.Name}
-                    title={referenceCharacter.Title.Name}
-                    misc={referenceCharacter.Server}
+                    avatar={<img src={referenceCharacter.Character.Avatar} className='rounded' />}
+                    name={referenceCharacter.Character.Name}
+                    title={referenceCharacter.Character.Title.Name}
+                    misc={referenceCharacter.Character.Server}
                     link={"/" + id + "/character"}
                 />
             )

@@ -22,8 +22,12 @@ const Navbar = (props) => {
 
             {
                 activeChar ? 
-                <Link to={"/" + props.referenceCharacter.ID + "/character"}>
-                    <img src={props.referenceCharacter.Avatar} className="navbar__profile-icon rounded interactable" title={props.referenceCharacter.Name}/>
+                <Link to={"/" + props.referenceCharacter.Character.ID + "/character"}>
+                    <img 
+                        src={props.referenceCharacter.Character.Avatar} 
+                        className="navbar__profile-icon rounded interactable" 
+                        title={props.referenceCharacter.Character.Name}
+                    />
                 </Link> :
                 null   
             }
