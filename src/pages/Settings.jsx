@@ -43,9 +43,7 @@ const Settings = (props) => {
         await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {mode: 'cors'})
             .then(response => response.json())
             .then(data => referenceCharacter = data)
-        
-        console.log(referenceCharacter);
-        
+                
         if (referenceCharacter !== undefined) {
             localStorage.setItem('reference', JSON.stringify(referenceCharacter))
             props.setReferenceCharacter(referenceCharacter);

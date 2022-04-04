@@ -5,7 +5,6 @@ import { RiSettings3Line } from 'react-icons/ri';
 import Searchbar from './Searchbar';
 
 const Navbar = (props) => {
-    const activeChar = props.referenceCharacter == null ? false : true;
     return (
         <nav className="navbar">
             <Link to="/" title="Home">
@@ -19,9 +18,8 @@ const Navbar = (props) => {
             <Link to="/settings" title="Settings" style={{marginLeft: "auto"}}>
                 <button><RiSettings3Line className="navbar__icon" /></button>
             </Link>
-
             {
-                activeChar ? 
+                props.referenceCharacter !== null ?
                 <Link to={"/" + props.referenceCharacter.Character.ID + "/character"}>
                     <img 
                         src={props.referenceCharacter.Character.Avatar} 
@@ -29,9 +27,8 @@ const Navbar = (props) => {
                         title={props.referenceCharacter.Character.Name}
                     />
                 </Link> :
-                null   
+                null
             }
-            
         </nav>
     );
 }

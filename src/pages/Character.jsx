@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Notice from '../components/Notice';
 import Banner from '../components/Banner';
 import Equipment from '../components/Equipment';
 import Jobs from '../components/Jobs';
@@ -131,14 +130,15 @@ const Character = (props) => {
     return (
         isLoading ?
         <Loading full={true} /> :
+
         <div className="character">
             <Banner {...characterProps} />
             <div className="character__row">
                 <div className="decoration" />
                 <div className="col gap-lg max-width">
                     <Equipment {...equipmentProps} />
-                    <Collection id={id} />
                     <Banner {...freeCompanyProps} />
+                    <Collection id={id} />
                 </div>
                 <div className="col gap-lg max-width">
                     <Attributes {...attributeProps} />

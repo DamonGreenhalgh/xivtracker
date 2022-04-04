@@ -18,10 +18,10 @@
 }
 
 .tooltip {
+    z-index: 3;
     display: flex;
     gap: .5rem;
     flex-direction: column;
-    z-index: 3;
     position: absolute;
     visibility: hidden;
     white-space: nowrap;

@@ -25,7 +25,7 @@ const App = () => {
     localStorage.setItem("theme", theme);
   }
 
-  useEffect(() => {   
+  useEffect(() => { 
     
     // Load theme saved in local storage if it exists.
     const localTheme = localStorage.getItem('theme')
