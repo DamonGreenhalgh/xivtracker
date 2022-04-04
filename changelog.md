@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added job icon to portrait image.
 - Added contrast background element.
 - Added arrow on tooltip component.
+- Added stats to tooltip component.
 
 ### Changed
 
@@ -21,6 +22,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Removed
 
 - Splash art component. Issues with the theme clashing.
+
+### Fixed
+
+- Fixed completion bars being full when at 0% completion.
 
 ## Released
 

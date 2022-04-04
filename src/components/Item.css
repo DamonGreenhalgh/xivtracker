@@ -19,7 +19,7 @@
 
 .tooltip {
     display: flex;
-    gap: 1rem;
+    gap: .5rem;
     flex-direction: column;
     z-index: 3;
     position: absolute;
@@ -27,11 +27,27 @@
     white-space: nowrap;
     left: 4rem;
     padding: 1rem;
-    font-weight: bold;
-    color: var(--c-major-text);
     background-color: var(--c-content-background);
     box-shadow: 0 .5rem 2rem var(--c-shadow);
     border-radius: .5rem;
+    transition: width .5s, height .5s;
+}
+
+.tooltip__header {
+    display: grid;
+    grid-template-columns: 3rem;
+    grid-template-areas: 
+        "icon name name "
+        "icon type level"
+    ;
+    height: 3rem;
+    gap: 0 1rem;
+}
+
+.tooltip__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
 }
 
 .tooltip__arrow {
@@ -47,7 +63,6 @@
     border-top: .4rem solid transparent;
     border-right: .6rem solid var(--c-content-background);
     border-bottom: .4rem solid transparent;
-
 }
 
 .item:hover .tooltip {
@@ -55,6 +70,6 @@
 }
 
 .tooltip__icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }

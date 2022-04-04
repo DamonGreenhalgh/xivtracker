@@ -13,7 +13,7 @@ const Equipment = (props) => {
             </div>
             {Object.values(props.gear).map((item, index) => 
                 <Item 
-                    gridArea={equipmentNames[index]}
+                    type={equipmentNames[index]}
                     name={item.Item.Name}
                     icon={("https://xivapi.com" + item.Item.Icon).slice(0, -4) + "_hr1.png"}
                     materia={item.Materia}

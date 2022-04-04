@@ -1,74 +1,121 @@
 import { useState, useEffect } from 'react';
 import Divider from './utility/Divider';
+import Loading from './utility/Loading';
 import itemFrame from '../images/item-frame.png';
 import glamourIcon from '../images/glamour.png';
 import './Item.css'
 
+const mainStatReference = ['DamagePhys', 'DamageMag', 'DefensePhys', 'DefenseMag', 'Block', 'BlockRate', 'DelayMs']
+const statName = ['Physical Damage', 'Magic Damage', 'Defense', 'Magic Defense', 'Block Strength', 'Block Rate', 'Delay']
+
 const Item = (props) => {
-    const [hasContent, setHasContent] = useState(null);
-    const[isGlamour, setIsGlamour] = useState(false);
-    const[isMateria, setIsMateria] = useState(false);
+    const [isGlamour, setIsGlamour] = useState(false);
+    const [itemLevel, setItemLevel] = useState(null);
+    const [stats, setStats] = useState(null);
+    const [glamour, setGlamour] = useState(null);
+    const [materia, setMateria] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // On mount, determine if glamour or materia content is available,
     // if it is, add to tooltip. 
     useEffect(() => {
         if (props.glamour !== null && props.glamour !== undefined) {
             setIsGlamour(true);
-            setHasContent(true);
+            setGlamour(
+                <>
+                    <h5>Glamour</h5>
+                    <div className="row align-center gap">
+                        <img src={"https://xivapi.com" + props.glamour.Icon} className="tooltip__icon" alt='' />  
+                        <img src={itemFrame} className="tooltip__icon absolute" alt='' />
+                        <p>{props.glamour.Name}</p>
+                    </div>
+                </>
+            )
         }
         if (props.materia !== undefined && props.materia.length > 0) {
-            setIsMateria(true);
-            setHasContent(true);
+            setMateria(
+                <>
+                    <h5>Materia</h5>
+                    {props.materia.map((mat, index) => 
+                    <div className="row align-center gap" key={index}>
+                        <img src={"https://xivapi.com" + mat.Icon} className="tooltip__icon" alt='' />  
+                        <img src={itemFrame} className="tooltip__icon absolute" alt='' />
+                        <p>{mat.Name}</p>
+                    </div>)}
+                </>
+            )
         }
     }, [])
 
     const fetchData = async () => {
         if (props.id !== undefined) {
+            let itemData;
             await fetch("https://xivapi.com/item/" + props.id, {mode: 'cors'})
                 .then(response => response.json())
-                .then(data => console.log(data))
-        }
-    }
-    
-    return (
-        <div className="item interactable" style={{gridArea: props.gridArea}} onMouseEnter={fetchData}>
-            <img src={glamourIcon} className={isGlamour ? "glamour-icon absolute"  : "disabled"} alt="Glamour Indicator"/>
-            <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
-            <img src={itemFrame} className="item__icon absolute" alt=''/>
-            <div className="tooltip">
-                <div className='tooltip__arrow' />
-                <h4>{props.name}</h4>
-                {
-                    hasContent ?
+                .then(data => itemData = data);
+
+            setItemLevel("Level " + itemData.LevelItem);
+            if (props.type !== 'SoulCrystal') {
+                setStats(
                     <>
                         <Divider />
                         {
-                            isGlamour ?
-                            <>
-                                <h5>Glamour</h5>
-                                <div className="row align-center gap">
-                                    <img src={"https://xivapi.com" + props.glamour.Icon} className="tooltip__icon" alt='' />  
-                                    <img src={itemFrame} className="tooltip__icon absolute" alt='' />
-                                    <p>{props.glamour.Name}</p>
-                                </div>
-                            </> :
-                            null
+                            <div className='row gap justify-end'>
+                                {
+                                    mainStatReference.map((stat, index) =>
+                                        itemData[stat] !== 0 ?
+                                        <div className='col gap' key={index}>
+                                            <p>{statName[index]}</p>
+                                            <h5 className='text-end'>{itemData[stat]}</h5>
+                                        </div> :
+                                        null
+                                    )
+                                }
+                            </div>
                         }
-                        {
-                            isMateria ? 
-                            <>
-                                <h5>Materia</h5>
-                                {props.materia.map((mat, index) => 
-                                <div className="row align-center gap" key={index}>
-                                    <img src={"https://xivapi.com" + mat.Icon} className="tooltip__icon" alt='' />  
-                                    <img src={itemFrame} className="tooltip__icon absolute" alt='' />
-                                    <p>{mat.Name}</p>
-                                </div>)}
-                            </> :
-                            null
-                        }
-                    </> :
-                    null
+                        <h5>Bonuses</h5>
+                        <div className='tooltip__stats'>
+                            {
+                                Object.keys(itemData.Stats).map(stat => 
+                                    <div className='row justify-between gap' key={itemData.Stats[stat].ID}>
+                                        <p>{stat}</p>
+                                        <h5>{itemData.Stats[stat].NQ}</h5>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </>
+                )
+            }
+        }
+        setLoading(false);
+    }
+    
+    return (
+        <div className="item interactable" style={{gridArea: props.type}} onMouseEnter={loading ? fetchData : null}>
+            <img src={glamourIcon} className={isGlamour ? "glamour-icon absolute"  : "disabled"} alt="Glamour Indicator"/>
+            <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
+            <img src={itemFrame} className="item__icon absolute" alt=''/>
+  
+            <div className="tooltip">
+                <div className='tooltip__arrow' />
+                {
+                    loading ?
+                    <Loading /> :
+                    <>
+                        <div className='tooltip__header'>
+                            <div style={{gridArea: 'icon'}}>
+                                <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
+                                <img src={itemFrame} className="item__icon absolute" alt=''/>
+                            </div>
+                            <h4 style={{gridArea: 'name', color: 'var(--c-major-text)'}}>{props.name}</h4>
+                            <p style={{gridArea: 'type'}}>{props.type}</p>
+                            <p style={{gridArea: 'level', textAlign: 'end'}}>{itemLevel}</p>
+                        </div>
+                        {stats}
+                        {materia}
+                        {glamour}
+                    </>
                 }
             </div>
         </div>

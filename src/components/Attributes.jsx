@@ -9,12 +9,12 @@ const Attributes = (props) => {
                 <div className="attributes__main">
                     <p>{props.content.at(-2).Attribute.Name}</p>
                     <h4>{props.content.at(-2).Value}</h4>
-                    <Bar color="var(--color-health)" />
+                    <Bar color="var(--color-health)" width="100%" />
                 </div>
                 <div className="attributes__main">
                     <p>{props.content.at(-1).Attribute.Name}</p>
                     <h4>{props.content.at(-1).Value}</h4>
-                    <Bar color="var(--color-mana)" />
+                    <Bar color="var(--color-mana)" width="100%" />
                 </div>
                 {Object.values(props.content).slice(0, -2).map(attribute =>
                     <li className="row justify-between gap-lg" key={attribute.Attribute.ID}>
