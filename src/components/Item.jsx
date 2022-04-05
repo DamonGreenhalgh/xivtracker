@@ -45,54 +45,64 @@ const Item = (props) => {
                 </>
             )
         }
+
+        // Fetch attribute data if the item is an equipment piece.
+        if (props.id !== undefined) {
+            fetchData();
+        }
     }, [])
 
     const fetchData = async () => {
-        if (props.id !== undefined) {
-            let itemData;
-            await fetch("https://xivapi.com/item/" + props.id, {mode: 'cors'})
-                .then(response => response.json())
-                .then(data => itemData = data);
+        /*
+        This function fetches the data for a particular equipment item. 
+        Updates the item level, main stats, and bonus stats of the tooltip.
+        */
 
-            setItemLevel("Level " + itemData.LevelItem);
-            if (props.type !== 'SoulCrystal') {
-                setStats(
-                    <>
-                        <Divider />
-                        {
-                            <div className='row gap justify-end'>
-                                {
-                                    mainStatReference.map((stat, index) =>
-                                        itemData[stat] !== 0 ?
-                                        <div className='col gap' key={index}>
-                                            <p>{statName[index]}</p>
-                                            <h5 className='text-end'>{itemData[stat]}</h5>
-                                        </div> :
-                                        null
-                                    )
-                                }
-                            </div>
-                        }
-                        <h5>Bonuses</h5>
-                        <div className='tooltip__stats'>
+        // Fetch data
+        let itemData;
+        await fetch("https://xivapi.com/item/" + props.id, {mode: 'cors'})
+            .then(response => response.json())
+            .then(data => itemData = data);
+
+        // Update state with data
+        setItemLevel("Level " + itemData.LevelItem);
+        if (props.type !== 'SoulCrystal') {    // Soul Crystals do not have any stats.
+            setStats(
+                <>
+                    <Divider />
+                    {
+                        <div className='row gap justify-end'>
                             {
-                                Object.keys(itemData.Stats).map(stat => 
-                                    <div className='row justify-between gap' key={itemData.Stats[stat].ID}>
-                                        <p>{stat}</p>
-                                        <h5>{itemData.Stats[stat].NQ}</h5>
-                                    </div>
+                                mainStatReference.map((stat, index) =>
+                                    itemData[stat] !== 0 ?
+                                    <div className='col gap' key={index}>
+                                        <p>{statName[index]}</p>
+                                        <h5 className='text-end'>{itemData[stat]}</h5>
+                                    </div> :
+                                    null
                                 )
                             }
                         </div>
-                    </>
-                )
-            }
+                    }
+                    <h5>Bonuses</h5>
+                    <div className='tooltip__stats'>
+                        {
+                            Object.keys(itemData.Stats).map(stat => 
+                                <div className='row justify-between gap' key={itemData.Stats[stat].ID}>
+                                    <p>{stat}</p>
+                                    <h5>{itemData.Stats[stat].NQ}</h5>
+                                </div>
+                            )
+                        }
+                    </div>
+                </>
+            )
         }
         setLoading(false);
     }
     
     return (
-        <div className="item interactable" style={{gridArea: props.type}} onMouseEnter={loading ? fetchData : null}>
+        <div className="item interactable" style={{gridArea: props.type}}>
             <img src={glamourIcon} className={isGlamour ? "glamour-icon absolute"  : "disabled"} alt="Glamour Indicator"/>
             <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
             <img src={itemFrame} className="item__icon absolute" alt=''/>
