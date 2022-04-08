@@ -53,15 +53,7 @@ const App = () => {
       />
       <Routes>
         <Route 
-          path="/" 
-          element={
-            <Home 
-              setShowSearchbar={setShowSearchbar} 
-            />
-          } 
-        />
-        <Route 
-          path="/:id/character" 
+          exact path="/:id" 
           element={
             <Character 
               setShowSearchbar={setShowSearchbar} 
@@ -76,6 +68,14 @@ const App = () => {
               setTheme={setTheme} 
               setShowSearchbar={setShowSearchbar} 
               setReferenceCharacter={setReferenceCharacter}
+            />
+          } 
+        />
+        <Route 
+          path="/" 
+          element={
+            <Home 
+              setShowSearchbar={setShowSearchbar} 
             />
           } 
         />

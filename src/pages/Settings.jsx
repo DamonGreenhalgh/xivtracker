@@ -54,7 +54,7 @@ const Settings = (props) => {
                     name={referenceCharacter.Character.Name}
                     title={referenceCharacter.Character.Title.Name}
                     misc={referenceCharacter.Character.Server}
-                    link={"/" + id + "/character"}
+                    link={"/" + id}
                 />
             )
             setStatusText("");

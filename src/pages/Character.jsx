@@ -63,6 +63,7 @@ const Character = (props) => {
 
     // On mount, fetch character data, update component props with retrieved data.
     useEffect(async () => {
+        setIsLoading(true);
 
         // Enable searchbar on navbar.
         props.setShowSearchbar(true);
@@ -125,7 +126,7 @@ const Character = (props) => {
 
         // Completed loading, update.
         setIsLoading(() => false);
-    }, []);
+    }, [id]);
 
     return (
         isLoading ?

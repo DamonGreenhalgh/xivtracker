@@ -25,7 +25,7 @@ const Searchbar = (props) => {
         if (recentSearches !== null) {
             setRecent(recentSearches.map(char => {
                 return(
-                    <Link to={"/" + char.id + "/character"} key={char.id}>
+                    <Link to={"/" + char.id} key={char.id}>
                         <div className="recent__profile interactable">
                             <img src={char.avatar} className="rounded recent__avatar" alt="Avatar" />
                             <div>
@@ -140,7 +140,7 @@ const Searchbar = (props) => {
                     <div>Twintania</div>
                 </div>
             </div>
-            <div className={"recent" + (displayRecent ? " recent--active" : "")}>
+            <div className={"recent" + (displayRecent ? " recent--active" : "")} onClick={() => setDisplayRecent(false)}>
                 <div className="recent__tab">
                     <h4>Recently Viewed</h4>
                     <MdClose className="interactable" onClick={() => setDisplayRecent(false)}/>

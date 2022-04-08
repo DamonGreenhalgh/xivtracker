@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Divider from './utility/Divider';
-import Loading from './utility/Loading';
 import itemFrame from '../images/item-frame.png';
 import glamourIcon from '../images/glamour.png';
 import './Item.css'
@@ -14,7 +13,6 @@ const Item = (props) => {
     const [stats, setStats] = useState(null);
     const [glamour, setGlamour] = useState(null);
     const [materia, setMateria] = useState(null);
-    const [loading, setLoading] = useState(true);
 
     // On mount, determine if glamour or materia content is available,
     // if it is, add to tooltip. 
@@ -98,7 +96,6 @@ const Item = (props) => {
                 </>
             )
         }
-        setLoading(false);
     }
     
     return (
@@ -109,24 +106,18 @@ const Item = (props) => {
   
             <div className="tooltip">
                 <div className='tooltip__arrow' />
-                {
-                    loading ?
-                    <Loading /> :
-                    <>
-                        <div className='tooltip__header'>
-                            <div style={{gridArea: 'icon'}}>
-                                <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
-                                <img src={itemFrame} className="item__icon absolute" alt=''/>
-                            </div>
-                            <h4 style={{gridArea: 'name', color: 'var(--c-major-text)'}}>{props.name}</h4>
-                            <p style={{gridArea: 'type'}}>{props.type}</p>
-                            <p style={{gridArea: 'level', textAlign: 'end'}}>{itemLevel}</p>
-                        </div>
-                        {stats}
-                        {materia}
-                        {glamour}
-                    </>
-                }
+                <div className='tooltip__header'>
+                    <div style={{gridArea: 'icon'}}>
+                        <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
+                        <img src={itemFrame} className="item__icon absolute" alt=''/>
+                    </div>
+                    <h4 style={{gridArea: 'name', color: 'var(--c-major-text)'}}>{props.name}</h4>
+                    <p style={{gridArea: 'type'}}>{props.type}</p>
+                    <p style={{gridArea: 'level', textAlign: 'end'}}>{itemLevel}</p>
+                </div>
+                {stats}
+                {materia}
+                {glamour}
             </div>
         </div>
     );

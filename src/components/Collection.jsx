@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import Item from './Item';
 import Header from './Header';
-import './Collection.css';
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import Button from '../components/utility/Button';
+import Loading from '../components/utility/Loading';
+import './Collection.css';
 
 const Collection = (props) => {
 
@@ -114,7 +115,7 @@ const Collection = (props) => {
             </div>
             {
                 loading ?
-                null :
+                <Loading /> :
                 <>
                     <div className={displayMountMinion ? "" : "disabled"}>
                         {mountContent[mountPage]}

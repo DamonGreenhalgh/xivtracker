@@ -20,7 +20,7 @@ const Navbar = (props) => {
             </Link>
             {
                 props.referenceCharacter !== null ?
-                <Link to={"/" + props.referenceCharacter.Character.ID + "/character"}>
+                <Link to={"/" + props.referenceCharacter.Character.ID}>
                     <img 
                         src={props.referenceCharacter.Character.Avatar} 
                         className="navbar__profile-icon rounded interactable" 

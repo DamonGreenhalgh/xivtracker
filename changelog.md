@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - Fixed completion bars being full when at 0% completion.
+- Fixed page not loading to a new character when selected from the recent panel while on the character page.
 
 ## Released
 

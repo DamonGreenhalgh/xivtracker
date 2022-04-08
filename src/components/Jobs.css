@@ -3,23 +3,6 @@
     text-align: center;
 }
 
-.max { color: var(--color-max-level); }
-
-.job__level-bar {
-    position: relative;
-    overflow: hidden;
-    height: .5rem;
-    border-radius: .5rem;
-    background-color: var(--c-background);
-}
-
-.job__level-bar__completed {
-    position: absolute;
-    height: 100%;
-    background-color: var(--color-experience);
-}
-
-
 .jobs__collection {
     display: grid;
     grid-auto-flow: column;

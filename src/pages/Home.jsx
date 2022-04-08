@@ -38,7 +38,7 @@ const Home = (props) =>  {
                         name={result.Name}
                         title={result.Server}
                         avatar={<img src={result.Avatar} className='rounded' />}
-                        link={"/" + result.ID + "/character"}
+                        link={"/" + result.ID}
                         key={result.ID}
                         />
                     ))])

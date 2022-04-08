@@ -20,7 +20,6 @@ const questIcon = [
 
 const Quests = (props) => {
 
-    const [isLoading, setIsLoading] = useState(true);
     const eorzeadbBaseUrl = "https://na.finalfantasyxiv.com/lodestone/playguide/db/";
     const [panel, setPanel] = useState(0);
     const [totals, setTotals] = useState([[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]);
@@ -73,7 +72,6 @@ const Quests = (props) => {
             completedArray.push([completed, ids.length]);
         }
         setTotals(completedArray)
-        setIsLoading(false);
     }, []);
 
     const updatePage = (direction) => {
@@ -93,7 +91,7 @@ const Quests = (props) => {
                 <button onClick={() => updatePage(1)}><FaChevronRight /></button>
             </div>
 
-            <div className={"column" + (isLoading ? " blur" : "")} ref={msqRef}>
+            <div className="column" ref={msqRef}>
 
                 {/* Main Scenario */}
                 <ol className={"quests__list" + (panel==0 ? "" : " disabled")}>
