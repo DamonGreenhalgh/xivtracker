@@ -39,16 +39,16 @@ const Quests = (props) => {
 
         // Collect up all reference character achivement ids
         const refAchievementIds = []
-        const referenceCharacter = JSON.parse(localStorage.getItem('reference'))
-        if (referenceCharacter !== null) {
-            for (let i = 0; i < referenceCharacter.Achievements.List.length; i++) {
-                refAchievementIds.push(referenceCharacter.Achievements.List[i].ID)
+        if (props.referenceCharacter !== null) {
+            for (let i = 0; i < props.referenceCharacter.Achievements.List.length; i++) {
+                refAchievementIds.push(props.referenceCharacter.Achievements.List[i].ID)
             }
         }
-        
+
+        // Determine what quests have been completed, and what to show relative 
+        // to reference character.
         let completedArray = []
         for (let i = 0; i < achievementsJSON.length; i++) {
-
             let completed = 0;
             const ids = Object.values(achievementsJSON[i].id);
             const elements = msqRef.current.children[i].querySelectorAll('a');
@@ -82,13 +82,17 @@ const Quests = (props) => {
         <div className="section">
 
             <Header name="Quests" />
+            
+            <div className='completion-rate'>
+                <h4>{totals[panel][0] + " / " + totals[panel][1]}</h4>
+                <h3>{Math.round(totals[panel][0] / totals[panel][1] * 100)} %</h3> 
+            </div>
 
             <div className="row align-center gap">
                 <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
                 <img src={questIcon[panel]} className="icon--quests" alt={achievementsJSON[panel].name  + " Icon"} />
-                <h2>{achievementsJSON[panel].name}</h2>
-                <h3 className="quests__completion-rate">{totals[panel][0]}/{totals[panel][1]}</h3>
-                <button onClick={() => updatePage(1)}><FaChevronRight /></button>
+                <h3>{achievementsJSON[panel].name}</h3>
+                <button onClick={() => updatePage(1)} style={{marginLeft: "auto"}}><FaChevronRight /></button>
             </div>
 
             <div className="column" ref={msqRef}>
@@ -130,12 +134,11 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "quest/90de78eeddc/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Reflections in Crystal</a>
                         <a href={eorzeadbBaseUrl + "quest/a424070bc4c/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Futures Rewritten</a>
                         <a href={eorzeadbBaseUrl + "quest/964cf0528f1/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Death Unto Dawn</a>
-                    </div>
 
-                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Endwalker</h3>
                         <a href={eorzeadbBaseUrl + "quest/52a65d1961d/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Endwalker</a>
                     </div>
+
                 </ol>
 
                 {/* Dungeons */}
@@ -176,8 +179,6 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/7c11b0ba080/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Wanderer's Palace (Hard)</a>
                         <a href={eorzeadbBaseUrl + "duty/a4288ecf826/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Amdapor Keep (Hard)</a>
 
-                    </div>
-                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Heavensward</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/eed0add7a62/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Sohm Al<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -199,6 +200,8 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/bc72ef27ade/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Baelsar's Wall<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/9bd9004a140/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Sohm Al (Hard)</a>
 
+                    </div>
+                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Stormblood</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/471227e1ee7/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Sirensong Sea<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -216,9 +219,7 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/c8608c977a6/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Burn<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/25cf070eeb4/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Saint Mocianne's Arboretum (Hard)</a>
                         <a href={eorzeadbBaseUrl + "duty/33a05f144e4/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Ghimlyt Dark<img src={msqIcon} className="icon--msq" alt="" /></a>
-                    </div>
 
-                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Shadowbringers</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/a6165958a5c/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Holminster Switch<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -301,8 +302,6 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/16e9780d10e/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Castrum Marinum</a>
                         <a href={eorzeadbBaseUrl + "duty/c4a2acf0912/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Cloud Deck</a>
 
-                    </div>
-                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Endwalker</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/f40a8f14d6d/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Zodiark's Fall<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -368,12 +367,10 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/889b8d8cfa4/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Puppets' Bunker</a>
                         <a href={eorzeadbBaseUrl + "duty/f1a29897772/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Tower at Paradigm's Breach</a>
                     </div>
-                    <div className='quests__column'></div>
                 </ol>  
 
                 {/* High End */}
                 <ol className={"quests__list" + (panel==4 ? "" : " disabled")}>
-
                     <div className='quests__column'>
                         <h3 className="quests__sub-header">Savage</h3>
 
@@ -400,7 +397,6 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/e6c2c586ba6/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Weapon's Refrain</a>
                         <a href={eorzeadbBaseUrl + "duty/b56710190e9/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Epic of Alexander</a>
                     </div>
-                    <div className='quests__column'></div>
                 </ol>
 
             </div>

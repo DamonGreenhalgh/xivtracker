@@ -1,6 +1,21 @@
 .collection {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(5, 3rem);
+    grid-template-rows: repeat(5, 3rem);
+    width: 17rem;
+    height: 17rem;
     gap: .5rem;
+    margin: auto;
+}
+
+@media only screen and (max-width: 1050px) {
+
+    .collection {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        height: auto;
+        justify-content: center;
+    }
+
 }

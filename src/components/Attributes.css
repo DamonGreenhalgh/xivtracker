@@ -1,20 +1,3 @@
-.attributes {
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    height: 30rem;
-    padding: 2rem;
-    gap: 2rem;
-}
-
-.attributes h2 {
-    color: #f3f2f2;
-}
-
-.attributes h4 {
-    color: #d0d2d4;
-} 
-
 .attributes__main {
     display: grid;
     grid-template-areas: 
@@ -31,6 +14,23 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem 2rem;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.profile li {
+    display: flex;
+    align-items: center;
+    margin: .5rem 0 1rem 2rem;
+    gap: .5rem;
+}
+
+.profile img {
+    max-height: 2rem;
 }
 
 @media only screen and (max-width: 1050px) {

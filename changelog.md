@@ -14,10 +14,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added contrast background element.
 - Added arrow on tooltip component.
 - Added stats to tooltip component.
+- Added completion metric to mounts, minions and jobs.
+- Added decorative diamond to server text.
+- Added splash background art.
+- Added custom checkbox component.
+- Added profile information.
 
 ### Changed
 
 - Banner component refactor.
+- Changed job items to show current / max experience points.
 
 ### Removed
 
@@ -27,6 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Fixed completion bars being full when at 0% completion.
 - Fixed page not loading to a new character when selected from the recent panel while on the character page.
+- Fixed job level text not displaying the correct colour when at max level.
 
 ## Released
 

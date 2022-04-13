@@ -3,14 +3,6 @@
     justify-content: space-between;
 }
 
-.quests__completion-rate {
-    background-color: var(--color-completed);
-    color: white;
-    padding: .5rem;
-    border-radius: .25rem;
-    margin-left: auto;
-}
-
 .quests__sub-header {
     padding: 1rem 3rem;
 }
@@ -36,11 +28,6 @@
     padding: .5rem;
     height: 2rem;
     border-radius: .25rem;
-}
-
-.quests__list a:hover {
-    color: white;
-    background-color: var(--color-completed);
 }
 
 .spoiler {

@@ -1,5 +1,7 @@
 * {
   --c--accent-transparent: #585ad511;
+  --c-error: #cc2727;
+  --c-error-hover: #ec4b4b;
   --color-experience: #cfb671;
   --color-max-level: #f09744;
   --color-free-company: #404040;
@@ -106,6 +108,12 @@ input:focus {
   border-radius: .25rem;
 }
 
+.select--disabled {
+  cursor: default;
+  background-color: var(--c-mid-background);
+  color: var(--c-minor-text);
+}
+
 .select::selection {
   background-color: transparent;
 }
@@ -118,10 +126,12 @@ input:focus {
   overflow: scroll;
   scrollbar-width: none;
   width: 100%;
-  top: 3rem;
+  top: 4rem;
   left: 0;
   background-color: var(--c-content-background);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
+  border: 1px solid var(--c-mid-background);
+  border-radius: .5rem;
   color: var(--c-minor-text);
   transition: height .25s ease-in-out;
 }
@@ -132,8 +142,8 @@ input:focus {
 
 .options div:hover {
   cursor: pointer;
-  background-color: var(--c-accent);
-  color: white;
+  background-color: var(--c--accent-transparent);
+  color: var(--c-mid-text);
 }
 
 .icon { 

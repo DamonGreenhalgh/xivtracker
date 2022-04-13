@@ -32,6 +32,10 @@
     width: 100%;
 }
 
+.gap-xsm {
+    gap: .25rem;
+}
+
 .gap-sm {
     gap: .5rem
 }

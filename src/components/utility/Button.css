@@ -2,39 +2,37 @@
     overflow: hidden;
     position: relative;
     padding: 1rem;
+    color: var(--c-minor-text);
+    border: 1px solid var(--c-mid-background);
     border-radius: .25rem;
-    color: var(--c-accent);
-    border: 1px solid var(--c-accent);
     width: 100%;
+    transition: color .25s;
 }
 
 .button--active {
     color: white;
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
-}
-
-.button:hover .button__overlay {
-    right: 0;
 }
 
 .button:hover {
     color: white;
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
   
 .button__overlay {
     z-index: -1;
     position: absolute;
-    top: 0;
-    right: 100%;
+    bottom: 100%;
     width: 100%;
     height: 100%;
     background-color: var(--c-accent);
-    transition: right .5s;
+    transition: bottom .25s;
 }
 
 .button__overlay--active {
-    right: 0;
+    bottom: 0;
+}
+
+.button:hover .button__overlay {
+    bottom: 0;
 }
   
 

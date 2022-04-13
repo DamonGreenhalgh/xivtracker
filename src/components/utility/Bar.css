@@ -2,7 +2,7 @@
     grid-area: bar;
     position: relative;
     overflow: hidden;
-    height: .5rem;
+    height: .25rem;
     border-radius: 5px;
     background-color: var(--c-background);
 }

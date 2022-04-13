@@ -29,8 +29,8 @@
     padding: 1rem;
     background-color: var(--c-content-background);
     box-shadow: 0 .5rem 2rem var(--c-shadow);
+    border: 1px solid var(--c-mid-background);
     border-radius: .5rem;
-    transition: width .5s, height .5s;
 }
 
 .tooltip__header {

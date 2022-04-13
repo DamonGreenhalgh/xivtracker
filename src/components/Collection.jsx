@@ -15,8 +15,15 @@ const Collection = (props) => {
     const [minionContent, setMinionContent] = useState([]);
     const [maxMountPage, setMaxMountPage] = useState(0);
     const [maxMinionPage, setMaxMinionPage] = useState(0);
+    const [numMounts, setNumMounts] = useState(0);
+    const [numMinions, setNumMinions] = useState(0);
     const [loading, setLoading] = useState(true);
-    const capacity = 48;
+    const capacity = 25;
+
+    // Will have to manually update these numbers after every major patch.
+    const totalMounts = 300;
+    const totalMinions = 447;
+
 
     const clamp = (min, max, value) => {
         return Math.max(min, Math.min(value, max));
@@ -41,6 +48,7 @@ const Collection = (props) => {
 
         storedData = JSON.parse(localStorage.getItem("storedData"));
 
+        // Fetch character mounts and minions
         await fetch("https://xivapi.com/character/" + props.id + "?data=MIMO", {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
@@ -63,6 +71,9 @@ const Collection = (props) => {
 
             setMaxMountPage(() => Math.ceil(mountData.length / capacity));
             setMaxMinionPage(() => Math.ceil(minionData.length / capacity));
+
+            setNumMounts(() => mountData.length);
+            setNumMinions(() => minionData.length);
 
             setMountContent(mountContent => {
                 for (let i = 0; i < Math.ceil(mountData.length / capacity); i++) {
@@ -96,6 +107,22 @@ const Collection = (props) => {
     return (
         <div className="section">
             <Header name="Collection" />
+            <div className='completion-rate'>
+                <h4>
+                    {
+                        displayMountMinion
+                        ? numMounts + " / " + totalMounts
+                        : numMinions + " / " + totalMinions
+                    }
+                </h4>  
+                <h3>
+                    {
+                        displayMountMinion 
+                        ? Math.round(numMounts / totalMounts * 100) + " %"
+                        : Math.round(numMinions / totalMinions * 100) + " %"
+                    }
+                </h3>                 
+            </div>
             <div className="row gap-lg">
                 <Button 
                     content="Mounts" 
@@ -108,9 +135,9 @@ const Collection = (props) => {
                     onClick={() => setDisplayMountMinion(false)}
                 />
             </div>
-            <div className="row align-center justify-center gap-lg">
+            <div className="row align-center justify-center gap">
                 <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
-                <h4>{1 + (displayMountMinion ? mountPage : minionPage)}</h4>
+                <h4>{1 + (displayMountMinion ? mountPage : minionPage)}</h4> 
                 <button onClick={() => updatePage(1)}><FaChevronRight /></button>
             </div>
             {
@@ -124,7 +151,7 @@ const Collection = (props) => {
                         {minionContent[minionPage]}
                     </div>
                 </>
-            }            
+            } 
         </div>
     );
 } 

@@ -88,6 +88,7 @@ const Character = (props) => {
         storeRecent(characterData);
             
         setCharacterProps({
+            type: '',
             avatar: <img src={characterData.Avatar} className='rounded' />,
             name: characterData.Name,
             title: characterData.Title.Name,
@@ -98,6 +99,8 @@ const Character = (props) => {
             portrait: characterData.Portrait,
             level: characterData.ActiveClassJob.Level,
             gear: characterData.GearSet.Gear,
+            name: characterData.ActiveClassJob.Job.Name,
+            exp: [characterData.ActiveClassJob.ExpLevel, characterData.ActiveClassJob.ExpLevelMax],
             icon: characterData.ActiveClassJob.Job.Icon
         });
 
@@ -121,8 +124,11 @@ const Character = (props) => {
         }
 
         setJobsProps({jobs: characterData.ClassJobs});
-        setAttributeProps({content: characterData.GearSet.Attributes});
-        setQuestsProps ({id: characterData.ID});
+        setAttributeProps({data: characterData});
+        setQuestsProps ({
+            id: characterData.ID, 
+            referenceCharacter: props.referenceCharacter
+        });
 
         // Completed loading, update.
         setIsLoading(() => false);
@@ -131,22 +137,20 @@ const Character = (props) => {
     return (
         isLoading ?
         <Loading full={true} /> :
-
         <div className="character">
             <Banner {...characterProps} />
             <div className="character__row">
-                <div className="decoration" />
-                <div className="col gap-lg max-width">
+                <div className="sidebar">
                     <Equipment {...equipmentProps} />
                     <Banner {...freeCompanyProps} />
                     <Collection id={id} />
                 </div>
-                <div className="col gap-lg max-width">
+                <div className="mainbar">
                     <Attributes {...attributeProps} />
                     <Jobs {...jobsProps} />
+                    <Quests {...questsProps}/>
                 </div>
             </div>
-            <Quests {...questsProps}/>
         </div>
     );
 }

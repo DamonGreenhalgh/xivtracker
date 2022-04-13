@@ -1,4 +1,5 @@
 .banner {
+    position: relative;
     z-index: 2;
     display: flex;
     width: 100%;
@@ -31,4 +32,13 @@
     color: var(--c-accent);
     background-color: var(--c--accent-transparent);
     outline: 1px solid var(--c-accent);
+}
+
+.misc {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    position: absolute;
+    top: 1rem;
+    right: .75rem;
 }

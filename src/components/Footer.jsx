@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className='footer'>
       <p className="footer__text">
         <i>XIV Tracker</i> is Designed and Developed by Damon Greenhalgh.<br/>
         FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.

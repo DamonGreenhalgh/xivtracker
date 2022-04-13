@@ -36,7 +36,7 @@ const Home = (props) =>  {
                         <Banner 
                         type='search'
                         name={result.Name}
-                        title={result.Server}
+                        misc={result.Server}
                         avatar={<img src={result.Avatar} className='rounded' />}
                         link={"/" + result.ID}
                         key={result.ID}

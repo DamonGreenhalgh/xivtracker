@@ -18,28 +18,12 @@
 }
 
 .equipment__portrait {
-    position: relative;
+    padding: .5rem;
+    display: flex;
+    align-items: flex-end;
     grid-area: portrait;
     background-position: center;
     background-size: cover;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-}
-
-.equipment__level {
-    position: absolute;
-    background-color: var(--c-showcase-background);
-    color: #f3f2f2;
-    padding: .5rem;
-    border-radius: .25rem;
-    bottom: 1rem;
-    left: 1rem;
-}
-
-.equipment__job {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    width: 3rem;
-    height: 3rem;
 }

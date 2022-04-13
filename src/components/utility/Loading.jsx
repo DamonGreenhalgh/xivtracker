@@ -10,8 +10,7 @@ const Loading = (props) => {
                 alt="Loading Icon"
             />
             <p>Fetching data from Lodestone ...</p>
-        </div>
-        
+        </div>        
     );
 }
 

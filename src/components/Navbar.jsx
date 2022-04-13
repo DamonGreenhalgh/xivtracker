@@ -6,7 +6,7 @@ import Searchbar from './Searchbar';
 
 const Navbar = (props) => {
     return (
-        <nav className="navbar">
+        <nav className='navbar'>
             <Link to="/" title="Home">
                 <img src={brand} className="navbar__brand-icon" />
             </Link>
