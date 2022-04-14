@@ -28,7 +28,6 @@ const Settings = (props) => {
 
     const [displayDropdown, setDisplayDropdown] = useState(-1);
     const [referenceBanner, setReferenceBanner] = useState(null);
-    const [useRefForBackground, setUseRefForBackground] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
     const [statusText, setStatusText] = useState("");
     const navigate = useNavigate();
@@ -43,12 +42,12 @@ const Settings = (props) => {
 
         // Load reference character if it exists.
         if (props.referenceCharacter !== null) {
-            if (props.referenceCharacter.Character.ID !== null && useRefForBackground) {
+            if (props.referenceCharacter.Character.ID !== null && props.personalized) {
                 requestData(props.referenceCharacter.Character.ID);
             }
         }
 
-    }, [useRefForBackground])
+    }, [props.personalized])
 
     const requestData = async(id) => {
 
@@ -78,7 +77,7 @@ const Settings = (props) => {
                     )
         
                     // Set background splash according to reference character.
-                    if (useRefForBackground) {
+                    if (props.personalized) {
                         let breakpoint = 0;
                         for (let i = 0; i < data.Achievements.List.length; i++) {
                             if (storyBreakpointsId.includes(data.Achievements.List[i].ID)) {
@@ -93,6 +92,15 @@ const Settings = (props) => {
                 }  
             })
         setIsSearching(false);
+    }
+
+    const saveSettings = () => {
+        localStorage.setItem('settings', JSON.stringify({
+            "theme": props.theme,
+            "splash": props.splash,
+            "personalized": props.personalized 
+        }));
+        navigate(-1);
     }
 
     return(
@@ -123,9 +131,9 @@ const Settings = (props) => {
                         <h3>Splash</h3>
                         <p>Select the background splash art to display.</p>
                         <div 
-                            className={"select" + (useRefForBackground ? ' select--disabled' : '')}
+                            className={"select" + (props.personalized ? ' select--disabled' : '')}
                             onClick={() => 
-                                useRefForBackground
+                                props.personalized
                                 ? null
                                 : setDisplayDropdown(displayDropdown == 1 ? -1 : 1)
                             }
@@ -135,7 +143,7 @@ const Settings = (props) => {
                             <div 
                                 className={displayDropdown == 1 ? "options" : "disabled"}
                                 onClick={(e) => 
-                                    useRefForBackground
+                                    props.personalized
                                     ? null
                                     : props.setSplash(Array.from(e.target.parentNode.children).indexOf(e.target))
                                 }
@@ -149,7 +157,7 @@ const Settings = (props) => {
                             </div>
                         </div>
                         <div className='row align-center gap'>
-                            <Checkbox condition={useRefForBackground} update={setUseRefForBackground} />
+                            <Checkbox type='square' condition={props.personalized} update={props.setPersonalized} />
                             <p>Use reference character to determine splash</p>
                         </div>
                     </div>
@@ -164,9 +172,7 @@ const Settings = (props) => {
                             <div className='row'>
                                 <input style={{flex: '3'}} type='text' placeholder="Lodestone ID e.g. 38592216" />
                                 <Button style={{flex: '1'}} onClick={(e) => requestData((e.target.parentNode.firstChild.value))} content="Search"/>
-
                             </div>
-
                         }
                         {referenceBanner}
                         <p>{statusText}</p>
@@ -174,7 +180,7 @@ const Settings = (props) => {
                     </div>
                 </div>       
             </div>
-            <Button content="Save" onClick={() => navigate(-1)} style={{width: "5rem"}} />
+            <Button content="Save" onClick={saveSettings} style={{width: "5rem"}} />
         </div>
     );
 }

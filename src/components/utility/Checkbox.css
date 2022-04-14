@@ -6,9 +6,11 @@
     padding: .25rem;
     width: 1.5rem;
     height: 1.5rem;
-    /* border-radius: 100%; */
     outline: 1px solid var(--c-mid-background);
     transition: outline .25s;
+  }
+  .checkbox--circle {
+    border-radius: 100%;
   }
   
   .checkbox:hover {
@@ -18,13 +20,16 @@
   .checkbox--active {
     outline: 1px solid var(--c-accent);
   }
-  
+
   .checkbox__box {
-    /* border-radius: 100%; */
     background-color: var(--c-accent);
     width: 0;
     height: 0;
     transition: width .25s, height .25s;
+  }
+
+  .checkbox__box--circle {
+    border-radius: 100%;
   }
   
   .checkbox__box--active {

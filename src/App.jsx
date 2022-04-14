@@ -9,42 +9,46 @@ import Footer from './components/Footer';
 import Splash from './components/Splash';
 import Loading from './components/utility/Loading';
 import themesJSON from './data/themes.json';
+import settingsJSON from './data/settings.json';
 import './App.css';
 import './components/utility/utility.css';
 
 const App = () => {
-  const [theme, setTheme] = useState('light');
-  const [splash, setSplash] = useState(5);
   const [showSearchbar, setShowSearchbar] = useState(false);
   const [referenceCharacter, setReferenceCharacter] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Settings
+  const [theme, setTheme] = useState(settingsJSON.theme);
+  const [splash, setSplash] = useState(settingsJSON.splash);
+  const [personalized, setPersonalized] = useState(settingsJSON.personalized);
+
   // Mount
-  useEffect(async () => { 
+  useEffect(() => { 
 
     // Local storage display for testing.
     for (let i = 0; i < localStorage.length; i++)   {
       console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
     }
 
-    // Load theme saved in local storage if it exists.
-    const localTheme = localStorage.getItem('theme')
-    if (localTheme !== null) {
-      setTheme(localTheme);
+    // Load settings
+    const localSettings = JSON.parse(localStorage.getItem('settings'));
+    if (localSettings !== null) {
+      setTheme(localSettings.theme);
+      setSplash(localSettings.splash);
+      setPersonalized(localSettings.personalized);
     }
 
-    // Load splash
-    const localSplash = localStorage.getItem('splash');
-    if (localSplash !== null) {
-      setSplash(localSplash);
-    }
-
-    // Load referenceCharacter id, request data for character.
-    const id = localStorage.getItem('id');
-    if (id !== null) {
+    const fetchData = async (id) => {
       await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {mode: 'cors'})
         .then(response => response.json())
         .then(data => setReferenceCharacter(data));
+    }
+
+    // Load reference character.
+    const id = localStorage.getItem('id');
+    if (id !== null) {
+      fetchData(id);
     }
     
     setLoading(false);
@@ -98,6 +102,8 @@ const App = () => {
                   setReferenceCharacter={setReferenceCharacter}
                   splash={splash}
                   setSplash={setSplash}
+                  personalized={personalized}
+                  setPersonalized={setPersonalized}
                 />
               } 
             />
