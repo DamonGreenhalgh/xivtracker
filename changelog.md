@@ -11,22 +11,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added character banner at the beggining of the page.
 - Added reference feature. This feature allows the user to save a reference character. Spoiler content will be hidden based on the reference character progress.
 - Added job icon to portrait image.
-- Added contrast background element.
 - Added stats to tooltip component.
-- Added completion metric to mounts, minions and jobs.
+- Added completion metric to mounts, minions, job and achievements(uses points).
 - Added decorative diamond to server text.
 - Added splash background art.
 - Added custom checkbox component.
 - Added profile information.
+- Added achievements section.
 
 ### Changed
 
 - Banner component refactor.
 - Changed job items to show current / max experience points.
-
-### Removed
-
-- Splash art component. Issues with the theme clashing.
+- Changed profile page layout.
 
 ### Fixed
 

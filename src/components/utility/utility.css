@@ -32,6 +32,10 @@
     justify-content: space-around;
 }
 
+.margin {
+    margin: auto;
+}
+
 .max-width {
     width: 100%;
 }

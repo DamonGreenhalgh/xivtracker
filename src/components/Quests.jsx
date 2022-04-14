@@ -8,7 +8,9 @@ import msqIcon from '../images/meteor.png';
 import { useEffect, useState, useRef } from 'react';
 import achievementsJSON from '../data/achievements.json';
 import Header from './Header';
-import { FaCheck, FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import { FaCheck } from 'react-icons/fa';
+import Navigator from './utility/Navigator';
+import Divider from './utility/Divider';
 
 const questIcon = [
     meteorIcon,
@@ -24,6 +26,7 @@ const Quests = (props) => {
     const [panel, setPanel] = useState(0);
     const [totals, setTotals] = useState([[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]);
     const msqRef = useRef(null);
+    const maxPanel = 4;
 
     useEffect(async () => {
         let achievementData;
@@ -74,10 +77,6 @@ const Quests = (props) => {
         setTotals(completedArray)
     }, []);
 
-    const updatePage = (direction) => {
-        setPanel(panel => Math.max(0, Math.min(panel + direction, 4)))
-    }
-
     return (
         <div className="section">
 
@@ -88,12 +87,20 @@ const Quests = (props) => {
                 <h3>{Math.round(totals[panel][0] / totals[panel][1] * 100)} %</h3> 
             </div>
 
-            <div className="row align-center gap">
-                <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
+            
+
+            <div className='row gap align-center'>
                 <img src={questIcon[panel]} className="icon--quests" alt={achievementsJSON[panel].name  + " Icon"} />
-                <h3>{achievementsJSON[panel].name}</h3>
-                <button onClick={() => updatePage(1)} style={{marginLeft: "auto"}}><FaChevronRight /></button>
+                <h2>{achievementsJSON[panel].name}</h2>
+                <Navigator 
+                    update={setPanel}
+                    current={panel}
+                    min={0}
+                    max={maxPanel}
+                    style={{marginLeft: 'auto'}}
+                />
             </div>
+            
 
             <div className="column" ref={msqRef}>
 

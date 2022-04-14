@@ -1,0 +1,14 @@
+.achievements__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.achievement {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: .25rem;
+    border: 1px solid var(--c-mid-background);
+}

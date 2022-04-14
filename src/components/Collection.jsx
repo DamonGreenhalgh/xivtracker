@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import Item from './Item';
 import Header from './Header';
 import Loading from '../components/utility/Loading';
+import Navigator from './utility/Navigator';
 import './Collection.css';
 
 const Collection = (props) => {
@@ -14,17 +14,11 @@ const Collection = (props) => {
     const [maxMountPage, setMaxMountPage] = useState(0);
     const [maxMinionPage, setMaxMinionPage] = useState(0);
     const [loading, setLoading] = useState(true);
-    const capacity = 25;
-
     const [numCollected, setNumCollected] = useState(0);
+    const capacity = 25;
 
     // Will have to manually update these numbers after every major patch.
     const totalCollection = 747
-
-
-    const clamp = (max, value) => {
-        return Math.max(0, Math.min(value, max));
-    }
 
     useEffect(async () => {
 
@@ -108,20 +102,24 @@ const Collection = (props) => {
                     <>
                         <div className='col gap-lg'>
                             {mountContent[mountPage]}
-                            <div className="row align-center justify-center gap">
-                                <button onClick={() => setMountPage(mountPage => clamp(mountPage - 1, maxMountPage))}><FaChevronLeft /></button>
-                                <h4>{mountPage + 1}</h4> 
-                                <button onClick={() => setMountPage(mountPage => clamp(mountPage + 1, maxMountPage))}><FaChevronRight /></button>
-                            </div>
+                            <Navigator 
+                                update={setMountPage} 
+                                current={mountPage} 
+                                min={0} 
+                                max={maxMountPage} 
+                                style={{margin: 'auto'}}
+                            />
                         </div>
                         
                         <div className='col gap-lg'>
                             {minionContent[minionPage]}
-                            <div className="row align-center justify-center gap">
-                                <button onClick={() => setMinionPage(minionPage => clamp(minionPage - 1, maxMinionPage))}><FaChevronLeft /></button>
-                                <h4>{minionPage + 1}</h4> 
-                                <button onClick={() => setMinionPage(minionPage => clamp(minionPage + 1, maxMinionPage))}><FaChevronRight /></button>
-                            </div>
+                            <Navigator 
+                                update={setMinionPage} 
+                                current={minionPage} 
+                                min={0} 
+                                max={maxMinionPage} 
+                                style={{margin: 'auto'}}
+                            />
                         </div>
                     </>
                 }

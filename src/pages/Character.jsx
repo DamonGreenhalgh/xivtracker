@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'; 
 import { useParams } from 'react-router-dom';
 import Banner from '../components/Banner';
 import Equipment from '../components/Equipment';
@@ -7,6 +6,7 @@ import Jobs from '../components/Jobs';
 import Collection from '../components/Collection';
 import Attributes from '../components/Attributes';
 import Quests from '../components/Quests';
+import Achievements from '../components/Achievements';
 import Loading from '../components/utility/Loading';
 import './Character.css';
 
@@ -19,6 +19,7 @@ const Character = (props) => {
     const [jobsProps, setJobsProps] = useState(null);
     const [attributeProps, setAttributeProps] = useState(null);
     const [questsProps, setQuestsProps] = useState(null);
+    const [achievementProps, setAchievementProps] = useState(null);
     const [characterProps, setCharacterProps] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [activePanel, setActivePanel] = useState(0);
@@ -133,6 +134,7 @@ const Character = (props) => {
             id: characterData.ID, 
             referenceCharacter: props.referenceCharacter
         });
+        setAchievementProps({data: characterData});
 
         // Completed loading, update.
         setIsLoading(() => false);
@@ -171,6 +173,12 @@ const Character = (props) => {
                     onClick={() => setActivePanel(3)} 
                     condition={activePanel == 3} 
                 />
+                <Button 
+                    content="Achievements" 
+                    type='nav' 
+                    onClick={() => setActivePanel(4)} 
+                    condition={activePanel == 4} 
+                />
             </nav>
 
             <div className={'character__panel' + (activePanel == 0 ? '' : ' disabled')}>
@@ -191,6 +199,10 @@ const Character = (props) => {
 
             <div className={'character__panel' + (activePanel == 3 ? '' : ' disabled')}>
                 <Quests {...questsProps}/>
+            </div>
+
+            <div className={'character__panel' + (activePanel == 4 ? '' : ' disabled')}>
+                <Achievements {...achievementProps}/>
             </div>
 
         </div>
