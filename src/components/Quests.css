@@ -24,6 +24,8 @@
 .quests__list a {
     display: flex;
     align-items: center;
+    background-color: var(--c-content-background-opaque);
+    border: 1px solid var(--c-mid-background);
     gap: 2rem;
     padding: .5rem;
     height: 2rem;
@@ -37,7 +39,7 @@
 
 .completed {
     color: var(--color-completed);
-    background-color: var(--color-completed-transparent);
+    background-color: var(--color-completed-transparent) !important;
     outline: 1px solid var(--color-completed);
 }
 

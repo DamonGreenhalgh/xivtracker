@@ -11,10 +11,11 @@
 }
 
 .current-job {
-    background-color: var(--c-content-background);
+    background-color: var(--c-content-background-opaque);
     padding: 1rem;
     border-radius: .25rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
+    border: 1px solid var(--c-mid-background);
 }
 
 .war-magic {

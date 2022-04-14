@@ -126,7 +126,7 @@ input:focus {
   width: 100%;
   top: 4rem;
   left: 0;
-  background-color: var(--c-content-background);
+  background-color: var(--c-content-background-opaque);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
   border: 1px solid var(--c-mid-background);
   border-radius: .5rem;

@@ -20,7 +20,7 @@
     position: absolute;
     height: 0;
     width: 100%;
-    background-color: var(--c-content-background);
+    background-color: var(--c-content-background-opaque);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     border-radius: .5rem;
     padding: 0 1rem;
@@ -33,6 +33,7 @@
 .recent--active {
     padding: 1rem;
     height: 15rem;
+    border: 1px solid var(--c-mid-background);
 }
 
 .recent__tab {

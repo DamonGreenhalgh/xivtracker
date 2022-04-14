@@ -27,9 +27,8 @@ const storyBreakpointsId = [
 const Settings = (props) => {
 
     const [displayDropdown, setDisplayDropdown] = useState(-1);
-    const [safeMode, setSafeMode] = useState(true);
     const [referenceBanner, setReferenceBanner] = useState(null);
-    const [useRefForBackground, setUseRefForBackground] = useState(true);
+    const [useRefForBackground, setUseRefForBackground] = useState(false);
     const [isSearching, setIsSearching] = useState(false);
     const [statusText, setStatusText] = useState("");
     const navigate = useNavigate();
@@ -171,11 +170,6 @@ const Settings = (props) => {
                         }
                         {referenceBanner}
                         <p>{statusText}</p>
-                        <h3>Spoilers</h3>
-                        <div className='row align-center gap'>
-                            <Checkbox condition={safeMode} update={setSafeMode} />
-                            <p>Enable spoiler safe mode</p>
-                        </div>
                         
                     </div>
                 </div>       
