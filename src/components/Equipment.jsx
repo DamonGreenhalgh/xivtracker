@@ -26,6 +26,7 @@ const Equipment = (props) => {
                     materia={item.Materia}
                     glamour={item.Mirage}
                     id={item.Item.ID}
+                    key={index}
                 />
             )}
         </div>

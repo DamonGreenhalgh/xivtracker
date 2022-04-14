@@ -8,6 +8,10 @@
     border-radius: .5rem;
 }
 
+.search {
+    border: 1px solid var(--c-mid-background);
+}
+
 .search:hover {
     color: var(--c-accent);
     background-color: var(--c--accent-transparent);

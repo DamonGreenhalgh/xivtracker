@@ -11,7 +11,7 @@
             "--c-mid-text": "#526074",
             "--c-major-text": "#3d4250",
             "--c-accent": "#585bd5",
-            "--c-shadow": "rgba(0, 0, 0, 0.1)",
+            "--c-shadow": "rgba(0, 0, 0, 0.05)",
             "--c-showcase-background": "#1b1c22"
         }
     },

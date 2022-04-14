@@ -105,7 +105,6 @@ const Item = (props) => {
             <img src={itemFrame} className="item__icon absolute" alt=''/>
   
             <div className="tooltip">
-                <div className='tooltip__arrow' />
                 <div className='tooltip__header'>
                     <div style={{gridArea: 'icon'}}>
                         <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>

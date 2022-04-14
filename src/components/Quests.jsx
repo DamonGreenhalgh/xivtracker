@@ -108,7 +108,7 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "quest/e31b1481e7a/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Defenders of Eorzea</a>
                         <a href={eorzeadbBaseUrl + "quest/48e85c94175/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Dreams of Ice</a>
                         <a href={eorzeadbBaseUrl + "quest/7be5b6453e1/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Before the Fall</a>
-
+                    
                         <h3 className="quests__sub-header">Heavensward</h3>
                         <a href={eorzeadbBaseUrl + "quest/29fa56153f5/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Heavensward</a>
                         <a href={eorzeadbBaseUrl + "quest/02f039d7119/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />As Goes Light, So Goes Darkness</a>
@@ -134,7 +134,9 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "quest/90de78eeddc/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Reflections in Crystal</a>
                         <a href={eorzeadbBaseUrl + "quest/a424070bc4c/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Futures Rewritten</a>
                         <a href={eorzeadbBaseUrl + "quest/964cf0528f1/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Death Unto Dawn</a>
+                    </div>
 
+                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Endwalker</h3>
                         <a href={eorzeadbBaseUrl + "quest/52a65d1961d/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Endwalker</a>
                     </div>
@@ -178,7 +180,8 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/5e75d2059af/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Keeper of the Lake<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/7c11b0ba080/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Wanderer's Palace (Hard)</a>
                         <a href={eorzeadbBaseUrl + "duty/a4288ecf826/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Amdapor Keep (Hard)</a>
-
+                    </div>
+                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Heavensward</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/eed0add7a62/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Sohm Al<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -200,8 +203,6 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/bc72ef27ade/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Baelsar's Wall<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/9bd9004a140/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Sohm Al (Hard)</a>
 
-                    </div>
-                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Stormblood</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/471227e1ee7/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Sirensong Sea<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -220,6 +221,9 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/25cf070eeb4/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Saint Mocianne's Arboretum (Hard)</a>
                         <a href={eorzeadbBaseUrl + "duty/33a05f144e4/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Ghimlyt Dark<img src={msqIcon} className="icon--msq" alt="" /></a>
 
+                    </div>
+
+                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Shadowbringers</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/a6165958a5c/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Holminster Switch<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -290,7 +294,7 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/628e9a05d34/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Hells' Kier</a>
                         <a href={eorzeadbBaseUrl + "duty/c79d50c803d/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Wreath of Snakes</a>
                         <a href={eorzeadbBaseUrl + "duty/bad56c435a5/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Kugane Ohashi</a>
-
+                    
                         <h3 className="quests__sub-header">Shadowbringers</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/bad53f19540/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Dancing Plague<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -301,7 +305,8 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/841d3f69efd/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Memoria Misera</a>
                         <a href={eorzeadbBaseUrl + "duty/16e9780d10e/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Castrum Marinum</a>
                         <a href={eorzeadbBaseUrl + "duty/c4a2acf0912/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Cloud Deck</a>
-
+                    </div>
+                    <div className='quests__column'>
                         <h3 className="quests__sub-header">Endwalker</h3>
 
                         <a href={eorzeadbBaseUrl + "duty/f40a8f14d6d/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Zodiark's Fall<img src={msqIcon} className="icon--msq" alt="" /></a>
@@ -367,6 +372,7 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/889b8d8cfa4/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Puppets' Bunker</a>
                         <a href={eorzeadbBaseUrl + "duty/f1a29897772/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Tower at Paradigm's Breach</a>
                     </div>
+                    <div className='quests__column'></div>
                 </ol>  
 
                 {/* High End */}
@@ -397,6 +403,7 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/e6c2c586ba6/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Weapon's Refrain</a>
                         <a href={eorzeadbBaseUrl + "duty/b56710190e9/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Epic of Alexander</a>
                     </div>
+                    <div className='quests__column'></div>
                 </ol>
 
             </div>

@@ -2,20 +2,23 @@
     display: grid;
     grid-template-columns: repeat(5, 3rem);
     grid-template-rows: repeat(5, 3rem);
-    width: 17rem;
-    height: 17rem;
     gap: .5rem;
+    padding: 1rem;
+    border-radius: .25rem;
+    border: 1px solid var(--c-mid-background);
     margin: auto;
 }
 
-@media only screen and (max-width: 1050px) {
+.collection__content {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
 
-    .collection {
-        display: flex;
-        flex-wrap: wrap;
-        width: auto;
-        height: auto;
-        justify-content: center;
+@media only screen and (max-width: 750px) {
+
+    .collection__content {
+        flex-direction: column;
     }
 
 }

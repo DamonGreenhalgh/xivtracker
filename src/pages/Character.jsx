@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'; 
 import { useParams } from 'react-router-dom';
 import Banner from '../components/Banner';
 import Equipment from '../components/Equipment';
@@ -9,6 +10,8 @@ import Quests from '../components/Quests';
 import Loading from '../components/utility/Loading';
 import './Character.css';
 
+import Button from '../components/utility/Button';
+
 const Character = (props) => {
 
     const [equipmentProps, setEquipmentProps] = useState(null);
@@ -18,6 +21,7 @@ const Character = (props) => {
     const [questsProps, setQuestsProps] = useState(null);
     const [characterProps, setCharacterProps] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [activePanel, setActivePanel] = useState(0);
     const { id } = useParams();
 
     // This function stores the currently viewed character in the recent list 
@@ -137,20 +141,58 @@ const Character = (props) => {
     return (
         isLoading ?
         <Loading full={true} /> :
+
         <div className="character">
+
             <Banner {...characterProps} />
-            <div className="character__row">
-                <div className="sidebar">
+
+            <nav className='character__nav'>
+                <Button 
+                    content="Equipment" 
+                    type='nav' 
+                    onClick={() => setActivePanel(0)} 
+                    condition={activePanel == 0} 
+                />
+                <Button 
+                    content="Jobs" 
+                    type='nav' 
+                    onClick={() => setActivePanel(1)} 
+                    condition={activePanel == 1} 
+                />
+                <Button 
+                    content="Collection" 
+                    type='nav'
+                    onClick={() => setActivePanel(2)} 
+                    condition={activePanel == 2} 
+                />
+                <Button 
+                    content="Quests" 
+                    type='nav' 
+                    onClick={() => setActivePanel(3)} 
+                    condition={activePanel == 3} 
+                />
+            </nav>
+
+            <div className={'character__panel' + (activePanel == 0 ? '' : ' disabled')}>
+                <Attributes {...attributeProps} />
+                <div className='col gap-lg'>
                     <Equipment {...equipmentProps} />
                     <Banner {...freeCompanyProps} />
-                    <Collection id={id} />
-                </div>
-                <div className="mainbar">
-                    <Attributes {...attributeProps} />
-                    <Jobs {...jobsProps} />
-                    <Quests {...questsProps}/>
                 </div>
             </div>
+
+            <div className={'character__panel' + (activePanel == 1 ? '' : ' disabled')}>
+                <Jobs {...jobsProps} />
+            </div>
+
+            <div className={'character__panel' + (activePanel == 2 ? '' : ' disabled')}>
+                <Collection id={id} />
+            </div>
+
+            <div className={'character__panel' + (activePanel == 3 ? '' : ' disabled')}>
+                <Quests {...questsProps}/>
+            </div>
+
         </div>
     );
 }

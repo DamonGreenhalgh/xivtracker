@@ -12,7 +12,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added reference feature. This feature allows the user to save a reference character. Spoiler content will be hidden based on the reference character progress.
 - Added job icon to portrait image.
 - Added contrast background element.
-- Added arrow on tooltip component.
 - Added stats to tooltip component.
 - Added completion metric to mounts, minions and jobs.
 - Added decorative diamond to server text.

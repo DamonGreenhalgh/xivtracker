@@ -2,39 +2,28 @@ import { useState, useEffect } from 'react';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import Item from './Item';
 import Header from './Header';
-import Button from '../components/utility/Button';
 import Loading from '../components/utility/Loading';
 import './Collection.css';
 
 const Collection = (props) => {
 
-    const [displayMountMinion, setDisplayMountMinion] = useState(true);
     const [mountPage, setMountPage] = useState(0);
     const [minionPage, setMinionPage] = useState(0);
     const [mountContent, setMountContent] = useState([]);
     const [minionContent, setMinionContent] = useState([]);
     const [maxMountPage, setMaxMountPage] = useState(0);
     const [maxMinionPage, setMaxMinionPage] = useState(0);
-    const [numMounts, setNumMounts] = useState(0);
-    const [numMinions, setNumMinions] = useState(0);
     const [loading, setLoading] = useState(true);
     const capacity = 25;
 
+    const [numCollected, setNumCollected] = useState(0);
+
     // Will have to manually update these numbers after every major patch.
-    const totalMounts = 300;
-    const totalMinions = 447;
+    const totalCollection = 747
 
 
-    const clamp = (min, max, value) => {
-        return Math.max(min, Math.min(value, max));
-    }
-
-    const updatePage = (direction) => {
-        if (displayMountMinion) {
-            setMountPage(mountPage => clamp(0, maxMountPage - 1, mountPage + direction));
-        } else {
-            setMinionPage(minionPage => clamp(0, maxMinionPage - 1, minionPage + direction));
-        }
+    const clamp = (max, value) => {
+        return Math.max(0, Math.min(value, max));
     }
 
     useEffect(async () => {
@@ -69,11 +58,9 @@ const Collection = (props) => {
 
         if (mountData !== null && minionData !== null) {
 
-            setMaxMountPage(() => Math.ceil(mountData.length / capacity));
-            setMaxMinionPage(() => Math.ceil(minionData.length / capacity));
-
-            setNumMounts(() => mountData.length);
-            setNumMinions(() => minionData.length);
+            setMaxMountPage(Math.ceil(mountData.length / capacity) - 1);
+            setMaxMinionPage(Math.ceil(minionData.length / capacity) - 1);
+            setNumCollected(mountData.length + minionData.length);
 
             setMountContent(mountContent => {
                 for (let i = 0; i < Math.ceil(mountData.length / capacity); i++) {
@@ -106,52 +93,39 @@ const Collection = (props) => {
 
     return (
         <div className="section">
+
             <Header name="Collection" />
+
             <div className='completion-rate'>
-                <h4>
-                    {
-                        displayMountMinion
-                        ? numMounts + " / " + totalMounts
-                        : numMinions + " / " + totalMinions
-                    }
-                </h4>  
-                <h3>
-                    {
-                        displayMountMinion 
-                        ? Math.round(numMounts / totalMounts * 100) + " %"
-                        : Math.round(numMinions / totalMinions * 100) + " %"
-                    }
-                </h3>                 
+                <h4>{numCollected + " / " + totalCollection}</h4>  
+                <h3>{Math.round(numCollected / totalCollection * 100) + " %"}</h3>                 
             </div>
-            <div className="row gap-lg">
-                <Button 
-                    content="Mounts" 
-                    condition={displayMountMinion} 
-                    onClick={() => setDisplayMountMinion(true)}
-                />
-                <Button 
-                    content="Minions" 
-                    condition={!displayMountMinion} 
-                    onClick={() => setDisplayMountMinion(false)}
-                />
+
+            <div className='collection__content'>
+                {
+                    loading ?
+                    <Loading /> :
+                    <>
+                        <div className='col gap-lg'>
+                            {mountContent[mountPage]}
+                            <div className="row align-center justify-center gap">
+                                <button onClick={() => setMountPage(mountPage => clamp(mountPage - 1, maxMountPage))}><FaChevronLeft /></button>
+                                <h4>{mountPage + 1}</h4> 
+                                <button onClick={() => setMountPage(mountPage => clamp(mountPage + 1, maxMountPage))}><FaChevronRight /></button>
+                            </div>
+                        </div>
+                        
+                        <div className='col gap-lg'>
+                            {minionContent[minionPage]}
+                            <div className="row align-center justify-center gap">
+                                <button onClick={() => setMinionPage(minionPage => clamp(minionPage - 1, maxMinionPage))}><FaChevronLeft /></button>
+                                <h4>{minionPage + 1}</h4> 
+                                <button onClick={() => setMinionPage(minionPage => clamp(minionPage + 1, maxMinionPage))}><FaChevronRight /></button>
+                            </div>
+                        </div>
+                    </>
+                }
             </div>
-            <div className="row align-center justify-center gap">
-                <button onClick={() => updatePage(-1)}><FaChevronLeft /></button>
-                <h4>{1 + (displayMountMinion ? mountPage : minionPage)}</h4> 
-                <button onClick={() => updatePage(1)}><FaChevronRight /></button>
-            </div>
-            {
-                loading ?
-                <Loading /> :
-                <>
-                    <div className={displayMountMinion ? "" : "disabled"}>
-                        {mountContent[mountPage]}
-                    </div>
-                    <div className={displayMountMinion ? "disabled" : ""}>
-                        {minionContent[minionPage]}
-                    </div>
-                </>
-            } 
         </div>
     );
 } 

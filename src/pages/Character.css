@@ -6,28 +6,21 @@
     margin: 3rem auto;
 }
 
-.character__row {
-    position: relative;
+.character__nav {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    border: 1px solid var(--c-mid-background);
+    border-radius: .5rem;
+    background-color: var(--c-content-background);
+    height: 4rem;
 }
 
-.sidebar {
-    width: 28rem;
+.character__panel {
     display: flex;
-    flex-direction: column;
     gap: 2rem;
-}
-
-.mainbar {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 100%;
 }
 
 .section {
+    width: 100%;
     position: relative;
     z-index: 2;
     display: flex;
@@ -59,6 +52,7 @@
 .completion-rate h4 {
     color: var(--color-completed);
 }
+
 
 @media only screen and (max-width: 1050px) {
 
