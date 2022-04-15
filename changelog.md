@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed completion bars being full when at 0% completion.
 - Fixed page not loading to a new character when selected from the recent panel while on the character page.
 - Fixed job level text not displaying the correct colour when at max level.
+- Fixed splash element extending beyond the page.
 
 ## Released
 

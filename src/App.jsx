@@ -6,12 +6,41 @@ import Character from './pages/Character';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Splash from './components/Splash';
 import Loading from './components/utility/Loading';
 import themesJSON from './data/themes.json';
 import settingsJSON from './data/settings.json';
 import './App.css';
 import './components/utility/utility.css';
+
+import darkARealmRebornSplash from './images/splash/dark/a-realm-reborn.png';
+import darkHeavenswardSplash from './images/splash/dark/heavensward.png';
+import darkStormbloodSplash from './images/splash/dark/stormblood.png';
+import darkShadowbringersSplash from './images/splash/dark/shadowbringers.png';
+import darkEndwalkerSplash from './images/splash/dark/endwalker.png';
+import lightARealmRebornSplash from './images/splash/light/a-realm-reborn.png';
+import lightHeavenswardSplash from './images/splash/light/heavensward.png';
+import lightStormbloodSplash from './images/splash/light/stormblood.png';
+import lightShadowbringersSplash from './images/splash/light/shadowbringers.png';
+import lightEndwalkerSplash from './images/splash/light/endwalker.png';
+
+const splashes = {
+  'dark': [
+    '',
+    darkARealmRebornSplash,
+    darkHeavenswardSplash,
+    darkStormbloodSplash,
+    darkShadowbringersSplash,
+    darkEndwalkerSplash
+  ],
+  'light': [
+    '',
+    lightARealmRebornSplash,
+    lightHeavenswardSplash,
+    lightStormbloodSplash,
+    lightShadowbringersSplash,
+    lightEndwalkerSplash
+  ]
+}
 
 const App = () => {
   const [showSearchbar, setShowSearchbar] = useState(false);
@@ -58,6 +87,8 @@ const App = () => {
 
   // Update
   useEffect(() => {
+
+    document.body.style.backgroundImage = "url(" + splashes[theme][splash] + ")";
 
     localStorage.setItem("theme", theme);
     localStorage.setItem('splash', splash);
@@ -119,7 +150,6 @@ const App = () => {
           <Footer/>
         </>
       }
-      <Splash index={splash} />
     </BrowserRouter>  
   );
 }
