@@ -4,27 +4,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-## [1.1.1] - 2022-03-28
+## [1.2.0] - 2022-03-28
+
+Support for **Final Fantasy XIV** patch 6.1 *Newfound Adventure*.
 
 ### Added
 
-- Added character banner at the beggining of the page.
-- Added reference feature. This feature allows the user to save a reference character. Spoiler content will be hidden based on the reference character progress.
-- Added job icon to portrait image.
-- Added stats to tooltip component.
-- Added completion metric to mounts, minions, job and achievements(uses points).
-- Added decorative diamond to server text.
-- Added splash background art.
+- Added '**Reference Character**' feature. This feature allows users to reference a character. Some systems change their behaviour based on the progress the reference character has made within the game.
+    - Content that the reference character has not completed will be blurred.
+    - Current splash art will be associated with reference character expansion progress.
+- Added **Achievements** feature. This feature allows users to view a character's achievements within the game.
+- Added *completion* metric to mounts, minions, job and achievements(points).
+- Added **Splash Art** background.
 - Added custom checkbox component.
-- Added profile information.
-- Added achievements section.
-- Added OCE servers to server list.
+- Reintroduced character banner at the top of the character page.
+- Reintroduced **Profile** feature.
+- Added **OCE** servers to server list.
 
 ### Changed
 
 - Banner component refactor.
-- Changed job items to show current / max experience points.
+- Job item refactor.
+- Changed tooltips to now display item level, main stats and bonuses.
+- Changed profile to now include currently active job, experience and level.
+- Changed job items to show current/max experience points.
 - Changed profile page layout.
+- Featured component now displays time relevant content (duration/release date)
+- Changed server text to now display a diamond next to it.
 
 ### Fixed
 

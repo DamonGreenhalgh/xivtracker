@@ -44,13 +44,13 @@ const splashes = {
 
 const App = () => {
   const [showSearchbar, setShowSearchbar] = useState(false);
-  const [referenceCharacter, setReferenceCharacter] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // Settings
   const [theme, setTheme] = useState(settingsJSON.theme);
   const [splash, setSplash] = useState(settingsJSON.splash);
   const [personalized, setPersonalized] = useState(settingsJSON.personalized);
+  const [referenceCharacter, setReferenceCharacter] = useState(null);
 
   // Mount
   useEffect(() => { 
@@ -60,24 +60,13 @@ const App = () => {
     //   console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
     // }
 
-    // Load settings
+    // Load settings from local storage if they exist
     const localSettings = JSON.parse(localStorage.getItem('settings'));
     if (localSettings !== null) {
       setTheme(localSettings.theme);
       setSplash(localSettings.splash);
       setPersonalized(localSettings.personalized);
-    }
-
-    const fetchData = async (id) => {
-      await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {mode: 'cors'})
-        .then(response => response.json())
-        .then(data => setReferenceCharacter(data));
-    }
-
-    // Load reference character.
-    const id = localStorage.getItem('id');
-    if (id !== null) {
-      fetchData(id);
+      setReferenceCharacter(localSettings.referenceData);
     }
     
     setLoading(false);
@@ -89,17 +78,20 @@ const App = () => {
   useEffect(() => {
 
     document.body.style.backgroundImage = "url(" + splashes[theme][splash] + ")";
-
-    localStorage.setItem("theme", theme);
-    localStorage.setItem('splash', splash);
-
     const keys = Object.keys(themesJSON[theme].colors);
     const values = Object.values(themesJSON[theme].colors);
     for (let i = 0; i < keys.length; i++) {
       document.documentElement.style.setProperty(keys[i], values[i]);
     }
 
-  }, [theme, splash])
+    localStorage.setItem('settings', JSON.stringify({
+      "theme": theme,
+      "splash": splash,
+      "personalized": personalized,
+      "referenceData": referenceCharacter
+    }));
+
+  }, [theme, splash, referenceCharacter])
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>

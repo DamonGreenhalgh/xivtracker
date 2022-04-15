@@ -29,7 +29,6 @@ const Settings = (props) => {
     const [displayDropdown, setDisplayDropdown] = useState(-1);
     const [referenceBanner, setReferenceBanner] = useState(null);
     const [isSearching, setIsSearching] = useState(false);
-    const [statusText, setStatusText] = useState("");
     const navigate = useNavigate();
 
     // Mount
@@ -40,26 +39,14 @@ const Settings = (props) => {
         props.setShowSearchbar(false);
         document.title = "XIV Tracker | Settings";
 
-        // Load reference character if it exists.
-        if (props.referenceCharacter !== null) {
-            if (props.referenceCharacter.Character.ID !== null && props.personalized) {
-                requestData(props.referenceCharacter.Character.ID);
-            }
-        }
-
-    }, [props.personalized])
+    }, [])
 
     const requestData = async(id) => {
-
         setIsSearching(true);
-
         await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 if (data !== undefined) {
-
-                    // Save id to local storage.
-                    localStorage.setItem('id', data.Character.ID)
                     
                     // Update reference character.
                     props.setReferenceCharacter(data);
@@ -86,21 +73,9 @@ const Settings = (props) => {
                         }
                         props.setSplash(breakpoint + 1)
                     }
-                    setStatusText("");
-                } else {
-                    setStatusText("Character with ID: " + id + " does not exist.");
-                }  
+                }
             })
         setIsSearching(false);
-    }
-
-    const saveSettings = () => {
-        localStorage.setItem('settings', JSON.stringify({
-            "theme": props.theme,
-            "splash": props.splash,
-            "personalized": props.personalized 
-        }));
-        navigate(-1);
     }
 
     return(
@@ -174,13 +149,12 @@ const Settings = (props) => {
                                 <Button style={{flex: '1'}} onClick={(e) => requestData((e.target.parentNode.firstChild.value))} content="Search"/>
                             </div>
                         }
-                        {referenceBanner}
-                        <p>{statusText}</p>
-                        
+                        {referenceBanner}                        
                     </div>
+
                 </div>       
             </div>
-            <Button content="Save" onClick={saveSettings} style={{width: "5rem"}} />
+            <Button content="Save" onClick={() => navigate(-1)} style={{width: "5rem"}} />
         </div>
     );
 }

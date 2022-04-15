@@ -1,5 +1,6 @@
 {
     "theme": "dark",
     "splash": 5,
-    "personalized": false
+    "personalized": false,
+    "referenceData": {}
 }
