@@ -138,6 +138,11 @@ const Searchbar = (props) => {
                     <div>Zodiark</div>
                     <div>Spriggan</div>
                     <div>Twintania</div>
+                    <div>Bismarck</div>
+                    <div>Ravana</div>
+                    <div>Sephirot</div>
+                    <div>Sophia</div>
+                    <div>Zurvan</div>
                 </div>
             </div>
             <div className={"recent" + (displayRecent ? " recent--active" : "")} onClick={() => setDisplayRecent(false)}>

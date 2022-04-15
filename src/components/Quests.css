@@ -24,7 +24,6 @@
 .quests__list a {
     display: flex;
     align-items: center;
-    background-color: var(--c-content-background-opaque);
     border: 1px solid var(--c-mid-background);
     gap: 2rem;
     padding: .5rem;

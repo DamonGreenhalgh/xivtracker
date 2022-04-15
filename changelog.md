@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Added custom checkbox component.
 - Added profile information.
 - Added achievements section.
+- Added OCE servers to server list.
 
 ### Changed
 
