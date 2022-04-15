@@ -8,25 +8,15 @@
 }
 
 .featured__overlay {
-    color: white;
     width: 100%;
     height: 100%;
     z-index: 2;
     position: absolute;
     display: flex;
     justify-content: space-between;
-    background-image: linear-gradient(170deg, transparent 50%, var(--color-news));
     align-items: center;
     gap: .5rem;
-    transition: background-color .5s;
-}
-
-.featured__overlay:hover {
-    background-color: rgba(39, 41, 46, 0.25);
-}
-
-.featured__overlay:hover .arrow {
-    opacity: 1;
+    background-image: linear-gradient(170deg, #222229b2, transparent 30%, #212024);
 }
 
 .featured__overlay a {
@@ -34,19 +24,19 @@
     height: 100%;
 }
 
-.text {
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: .5rem;
-    padding-bottom: 1rem;
-    text-align: end;
+.featured__overlay h4 {
+    background-color: var(--color-completed);
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
     color: white;
+    border-radius: .25rem;
+    padding: .5rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
 }
 
-.text h2 {
-    color: white;
+.featured__overlay p {
+    color: #d9dfe4;
 }
 
 .featured__banners {

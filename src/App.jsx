@@ -56,9 +56,9 @@ const App = () => {
   useEffect(() => { 
 
     // Local storage display for testing.
-    for (let i = 0; i < localStorage.length; i++)   {
-      console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-    }
+    // for (let i = 0; i < localStorage.length; i++)   {
+    //   console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+    // }
 
     // Load settings
     const localSettings = JSON.parse(localStorage.getItem('settings'));

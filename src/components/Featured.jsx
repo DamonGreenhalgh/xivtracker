@@ -3,13 +3,22 @@ import endwalkerBanner from '../images/featured/endwalker.png';
 import newfoundAdventureBanner from '../images/featured/newfound-adventure.png';
 import littleLadiesDayBanner from '../images/featured/little-ladies-day.png';
 import moogleTreasureTroveBanner from '../images/featured/moogle-treasure-trove.png';
+import hatchingTideBanner from '../images/featured/hatching-tide.png';
 import { useState, useEffect, useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import featureJSON from '../data/feature.json';
 
+
+// Reference to currently live events/relevant content.
+const live = [
+    'event2',
+    '6.1',
+    '6.0'
+]
+
 const Featured = () => {
 
-    const length = Object.keys(featureJSON).length;
+    const length = live.length;
     const backgroundContainer = useRef(null);
     const [index, setIndex] = useState(0);
     const [auto, setAuto] = useState(true);
@@ -44,27 +53,34 @@ const Featured = () => {
         <div className="featured">
             <div className="featured__overlay">
                 <button 
-                    className="arrow" 
+                    className="arrow arrow--left" 
                     onClick={() => {updateIndex(-1); setAuto(false)}}
                 >
                     <FaChevronLeft />
                 </button>
-                <a className="text" href={featureJSON[index].link}>
-                    <p>{featureJSON[index].prefix}</p>
-                    <h2>{featureJSON[index].title}</h2>
-                </a>
+                <a href={featureJSON[live[index]].link} />                    
+                <h4>{featureJSON[live[index]].type}</h4>
+                <div className='col text-end' style={{
+                    position: 'absolute',
+                    bottom: '1rem',
+                    right: '1rem'
+                }}>
+                    <p>{featureJSON[live[index]].date}</p>
+                    <h2>{featureJSON[live[index]].title}</h2>
+
+                </div>
+                
                 <button 
-                    className="arrow" 
+                    className="arrow arrow--right" 
                     onClick={() => {updateIndex(1); setAuto(false)}}
                 >
                     <FaChevronRight />
                 </button>
             </div>
             <div className="featured__banners" ref={backgroundContainer} >
-                <img src={endwalkerBanner} />
+                <img src={hatchingTideBanner} />
                 <img src={newfoundAdventureBanner} />
-                <img src={littleLadiesDayBanner} />
-                <img src={moogleTreasureTroveBanner} />
+                <img src={endwalkerBanner} />
             </div>
         </div>
     );

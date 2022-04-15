@@ -87,8 +87,6 @@ const Quests = (props) => {
                 <h3>{Math.round(totals[panel][0] / totals[panel][1] * 100)} %</h3> 
             </div>
 
-            
-
             <div className='row gap align-center'>
                 <img src={questIcon[panel]} className="icon--quests" alt={achievementsJSON[panel].name  + " Icon"} />
                 <h2>{achievementsJSON[panel].name}</h2>
@@ -100,7 +98,6 @@ const Quests = (props) => {
                     style={{marginLeft: 'auto'}}
                 />
             </div>
-            
 
             <div className="column" ref={msqRef}>
 
@@ -146,6 +143,7 @@ const Quests = (props) => {
                     <div className='quests__column'>
                         <h3 className="quests__sub-header">Endwalker</h3>
                         <a href={eorzeadbBaseUrl + "quest/52a65d1961d/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Endwalker</a>
+                        <a href={eorzeadbBaseUrl + "quest/52a65d1961d/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />New Found Adventure</a>
                     </div>
 
                 </ol>
@@ -257,6 +255,7 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/ba59c193b71/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Dead Ends<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/175e6a7245d/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Smileton</a>
                         <a href={eorzeadbBaseUrl + "duty/25f8ec27427/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Stigma Dreamscape</a>
+                        <a href={eorzeadbBaseUrl + "duty/d56ff366a07"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Alzadaal's Legacy</a>
                     </div>
                 </ol>
 
@@ -273,9 +272,6 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/0850a8627aa/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Whorleater<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/4d8cae741db/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Striking Tree<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/5f786d57228/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Akh Afah Amphitheatre<img src={msqIcon} className="icon--msq" alt="" /></a>
-                        <a href={eorzeadbBaseUrl + "duty/2fac3746c16/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Chrysalis<img src={msqIcon} className="icon--msq" alt="" /></a>
-                        <a href={eorzeadbBaseUrl + "duty/f80af21461f/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Steps of Faith<img src={msqIcon} className="icon--msq" alt="" /></a>
-                        <a href={eorzeadbBaseUrl + "duty/cb876745bce/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Battle in the Big Keep</a>
                         <a href={eorzeadbBaseUrl + "duty/21d8c5bd54b/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Urth's Fount</a>
                     
                         <h3 className="quests__sub-header">Heavensward</h3>
@@ -300,7 +296,6 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/52328939737/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Great Hunt</a>
                         <a href={eorzeadbBaseUrl + "duty/628e9a05d34/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Hells' Kier</a>
                         <a href={eorzeadbBaseUrl + "duty/c79d50c803d/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Wreath of Snakes</a>
-                        <a href={eorzeadbBaseUrl + "duty/bad56c435a5/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Kugane Ohashi</a>
                     
                         <h3 className="quests__sub-header">Shadowbringers</h3>
 
@@ -318,7 +313,7 @@ const Quests = (props) => {
 
                         <a href={eorzeadbBaseUrl + "duty/f40a8f14d6d/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Zodiark's Fall<img src={msqIcon} className="icon--msq" alt="" /></a>
                         <a href={eorzeadbBaseUrl + "duty/0dbba05fd0f/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Hydaelyn's Call<img src={msqIcon} className="icon--msq" alt="" /></a>
-                        <a href={eorzeadbBaseUrl + "duty/7b4070f67f6/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />The Final Day<img src={msqIcon} className="icon--msq" alt="" /></a>
+                        <a href={eorzeadbBaseUrl + "duty/0c90d0fd67b/"} className="eorzeadb_link spoiler"><FaCheck className="icon hidden" />Endsinger Aria<img src={msqIcon} className="icon--msq" alt="" /></a>
                     </div>
                 </ol>
 
@@ -352,7 +347,7 @@ const Quests = (props) => {
 
                         <h3 className="quests__sub-header">Pandæmonium</h3>
 
-                        <a href={eorzeadbBaseUrl + "duty/d53631d5202/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Asphodelos</a>
+                        <a href={eorzeadbBaseUrl + "duty/8766feb6d35/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Asphodelos</a>
                     </div>
                     <div className='quests__column'>
                         <h3 className="quests__sub-header">Crystal Tower</h3>
@@ -378,6 +373,12 @@ const Quests = (props) => {
                         <a href={eorzeadbBaseUrl + "duty/ed86e5291b2/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Copied Factory</a>
                         <a href={eorzeadbBaseUrl + "duty/889b8d8cfa4/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Puppets' Bunker</a>
                         <a href={eorzeadbBaseUrl + "duty/f1a29897772/"} className="eorzeadb_link"><FaCheck className="icon hidden" />The Tower at Paradigm's Breach</a>
+
+                        <h3 className="quests__sub-header">Myths of the Realm</h3>
+
+                        <a href={eorzeadbBaseUrl + "duty/f1a29897772/"} className="eorzeadb_link"><FaCheck className="icon hidden" />Aglaia</a>
+
+
                     </div>
                     <div className='quests__column'></div>
                 </ol>  
