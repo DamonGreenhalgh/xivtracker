@@ -4,33 +4,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-## [1.2.0] - 2022-03-28
+## Released
 
-Support for **Final Fantasy XIV** patch 6.1 *Newfound Adventure*.
+## [1.2.0] - 2022-04-16
+
+This release contains various new features and support for **Final Fantasy XIV** patch **6.1** '*Newfound Adventure*'.
 
 ### Added
 
-- Added '**Reference Character**' feature. This feature allows users to reference a character. Some systems change their behaviour based on the progress the reference character has made within the game.
-    - Content that the reference character has not completed will be blurred.
-    - Current splash art will be associated with reference character expansion progress.
-- Added **Achievements** feature. This feature allows users to view a character's achievements within the game.
-- Added *completion* metric to mounts, minions, job and achievements(points).
-- Added **Splash Art** background.
-- Added custom checkbox component.
-- Reintroduced character banner at the top of the character page.
+- Added **Reference** feature. Users can select a character to reference. The following features can be applied with a valid reference character.
+    - ***Safe Mode*** - hide activities that the reference character has not yet completed.
+    - ***Background Parody*** - automatically select the appropriate background based on the reference character's progress in the story.
+- Added **Achievements** feature. Displays all achievements aquired by a character.
+- Added **Completion** metric to mounts, minions, job and achievements.
+- Added multiple **Splash Art** backgrounds to customize the appearance of the app.
 - Reintroduced **Profile** feature.
 - Added **OCE** servers to server list.
+- Added content support for **Final Fantasy XIV** patch **6.1** '*Newfound Adventure*'. New entries have been added to the **Quests** section.
+- Added content support for current live events.
 
 ### Changed
 
-- Banner component refactor.
-- Job item refactor.
-- Changed tooltips to now display item level, main stats and bonuses.
-- Changed profile to now include currently active job, experience and level.
-- Changed job items to show current/max experience points.
-- Changed profile page layout.
-- Featured component now displays time relevant content (duration/release date)
-- Changed server text to now display a diamond next to it.
+- Changed **Tooltips** to now display *item level, main stats* and *bonuses*.
+- Changed **Profile Display** to now include currently *active job, experience* and *level*.
+- Changed **Jobs** to show *current/max* experience points.
+- Changed **Page Layout**. Instead of a single page, content is contained within panels.
+- Changed **Featured** to now display time relevant content (duration/release date)
 
 ### Fixed
 
@@ -38,8 +37,6 @@ Support for **Final Fantasy XIV** patch 6.1 *Newfound Adventure*.
 - Fixed page not loading to a new character when selected from the recent panel while on the character page.
 - Fixed job level text not displaying the correct colour when at max level.
 - Fixed splash element extending beyond the page.
-
-## Released
 
 ## [1.1.0] - 2022-03-29
 

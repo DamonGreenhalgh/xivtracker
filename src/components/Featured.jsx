@@ -11,9 +11,9 @@ import featureJSON from '../data/feature.json';
 
 // Reference to currently live events/relevant content.
 const live = [
-    'event2',
-    '6.1',
-    '6.0'
+    'EVENT_2',
+    'PATCH_6.1',
+    'PATCH_6.0'
 ]
 
 const Featured = () => {
@@ -60,10 +60,9 @@ const Featured = () => {
                 </button>
                 <a href={featureJSON[live[index]].link} />                    
                 <h4>{featureJSON[live[index]].type}</h4>
-                <div className='col text-end' style={{
-                    position: 'absolute',
+                <div className='col absolute' style={{
                     bottom: '1rem',
-                    right: '1rem'
+                    left: '1rem'
                 }}>
                     <p>{featureJSON[live[index]].date}</p>
                     <h2>{featureJSON[live[index]].title}</h2>
