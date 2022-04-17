@@ -61,12 +61,12 @@ const Jobs = (props) => {
 
             <div className="row gap-lg">
                 <Button 
-                    content="War / Magic" 
+                    content="Combat" 
                     condition={displayJob} 
                     onClick={() => setDisplayJob(true)}
                 />
                 <Button 
-                    content="Hand / Land" 
+                    content="Profession" 
                     condition={!displayJob} 
                     onClick={() => setDisplayJob(false)}
                 />

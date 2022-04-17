@@ -4,6 +4,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+## [1.2.1] - 2022-04-17
+
+Cleaning up patch. Fixes and mobile support.
+
+### Changes
+
+- Added media queries for multiple components. Support for mobile.
+- Featured events link now open a new tab.
+
+### Fixed
+- Quests not appearing when reference character data was not updating.
+- Fixed failed search when using the searchbar within a character profile.
+
+
 ## Released
 
 ## [1.2.0] - 2022-04-16

@@ -14,6 +14,8 @@ const Searchbar = (props) => {
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const [recent, setRecent] = useState(null);
 
+    const [expanded, setExpanded] = useState(false);
+
     const callbackMethod = (event) => {
         event.preventDefault();
         setDisplayRecent(false);
@@ -41,7 +43,7 @@ const Searchbar = (props) => {
 
     return (
         <form 
-            className="searchbar"
+            className={"searchbar searchbar--" + props.type}
             onSubmit={callbackMethod} 
             autoComplete="off"
         >
@@ -62,7 +64,7 @@ const Searchbar = (props) => {
             <button title="Search">
                 <FaSearch />
             </button>
-            <div className={"recent" + (displayDropdown ? " recent--active" : "")}>
+            <div className={"recent recent--" + props.type + (displayDropdown ? " recent--active" : "")}>
                 <div className="recent__tab">
                     <h4>Servers</h4>
                     <MdClose className="interactable" onClick={() => setDisplayDropdown(false)}/>
@@ -145,7 +147,7 @@ const Searchbar = (props) => {
                     <div>Zurvan</div>
                 </div>
             </div>
-            <div className={"recent" + (displayRecent ? " recent--active" : "")} onClick={() => setDisplayRecent(false)}>
+            <div className={"recent recent--" + props.type + (displayRecent ? " recent--active" : "")} onClick={() => setDisplayRecent(false)}>
                 <div className="recent__tab">
                     <h4>Recently Viewed</h4>
                     <MdClose className="interactable" onClick={() => setDisplayRecent(false)}/>

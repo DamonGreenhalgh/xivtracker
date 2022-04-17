@@ -16,7 +16,6 @@ const Achievements = (props) => {
 
     // Mount
     useEffect(() => {
-        
         const fetchData = async () => {
             await fetch("https://xivapi.com/character/" + props.data.ID + "?extended=1&data=AC", {mode: 'cors'})
                 .then(response => response.json())
@@ -26,11 +25,8 @@ const Achievements = (props) => {
                     setMaxPage(Math.ceil(data.Achievements.List.length / capacity) - 1)
                     setLoading(false);
             });
-
         }
-        
         fetchData();
-
     }, [props.data.ID]);
 
     // Update
@@ -57,7 +53,7 @@ const Achievements = (props) => {
         <div className='section'>
             <Header name="Achievements" />
             <div className='completion-rate'>
-                <h4>Total Points</h4>
+                <h4>Points</h4>
                 <h3>{points}</h3>
             </div>
             {

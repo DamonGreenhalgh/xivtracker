@@ -58,7 +58,7 @@ const Featured = () => {
                 >
                     <FaChevronLeft />
                 </button>
-                <a href={featureJSON[live[index]].link} />                    
+                <a href={featureJSON[live[index]].link} target="_blank" />                    
                 <h4>{featureJSON[live[index]].type}</h4>
                 <div className='col absolute' style={{
                     bottom: '1rem',

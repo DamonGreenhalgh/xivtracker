@@ -87,19 +87,12 @@ const Quests = (props) => {
                 <h3>{Math.round(totals[panel][0] / totals[panel][1] * 100)} %</h3> 
             </div>
 
-            <div className='row gap align-center'>
+            <div className='row gap'>
                 <img src={questIcon[panel]} className="icon--quests" alt={achievementsJSON[panel].name  + " Icon"} />
                 <h2>{achievementsJSON[panel].name}</h2>
-                <Navigator 
-                    update={setPanel}
-                    current={panel}
-                    min={0}
-                    max={maxPanel}
-                    style={{marginLeft: 'auto'}}
-                />
             </div>
 
-            <div className="column" ref={msqRef}>
+            <div className="col" ref={msqRef}>
 
                 {/* Main Scenario */}
                 <ol className={"quests__list" + (panel==0 ? "" : " disabled")}>
@@ -415,6 +408,14 @@ const Quests = (props) => {
                 </ol>
 
             </div>
+
+            <Navigator 
+                update={setPanel}
+                current={panel}
+                min={0}
+                max={maxPanel}
+                style={{margin: 'auto'}}
+            />
         </div>
     );
 }

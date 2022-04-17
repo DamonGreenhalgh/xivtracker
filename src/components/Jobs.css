@@ -54,3 +54,64 @@
         "culinarian     .       "
     ;
 }
+
+@media only screen and (max-width: 700px) {
+
+    .jobs__collection {
+        grid-template-columns: 1fr;
+    }
+
+    .war-magic {
+        grid-template-areas: 
+        "Tank        "
+        "paladin     "
+        "warrior     "
+        "darkknight  "
+        "gunbreaker  "
+        ".           "
+        "Healer      "
+        "whitemage   "
+        "scholar     "
+        "astrologian "
+        "sage        "
+        ".           "
+        "Melee       "
+        "monk        "
+        "dragoon     "
+        "ninja       "     
+        "samurai     "   
+        "reaper      " 
+        ".           "
+        "Ranged      "   
+        "bard        "
+        " machinist  "
+        " dancer     "
+        ".           "
+        " Magic      "
+        " blackmage  "
+        "summoner    "
+        "redmage     "
+        "bluemage    "
+        ;
+    }
+
+    .hand-land {
+        grid-template-areas:
+        "Hand          "
+        "carpenter     "
+        "blacksmith    "
+        "armorer       "
+        "goldsmith     "
+        "leatherworker "
+        "weaver        "
+        "alchemist     "
+        "culinarian    "
+        ".             "
+        "Land          "
+        "miner         "
+        "botanist      "
+        "fisher        "
+        ;
+    }
+
+}

@@ -186,7 +186,7 @@ input:focus {
   background-image: linear-gradient(-90deg, transparent, rgba(255, 255, 255, 0.25));
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1150px) {
 
   * {
     --content-width: calc(100vw - 2rem)

@@ -39,6 +39,11 @@ const Settings = (props) => {
         props.setShowSearchbar(false);
         document.title = "XIV Tracker | Settings";
 
+        // Update reference character data.
+        if (props.referenceCharacter !== null) {
+            requestData(props.referenceCharacter.Character.ID);
+        }
+
     }, [])
 
     const requestData = async(id) => {

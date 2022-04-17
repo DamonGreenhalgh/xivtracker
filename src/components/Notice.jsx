@@ -7,7 +7,7 @@ import { useState } from 'react';
 const notice = {
     0: {
         icon: <FaCookieBite className="notice__icon" />,
-        text: <p><b><i>XIV Tracker</i></b> uses <b>cookies (and cookie like systems)</b> to enhance user experience. Without cookies, many features may not function properly.</p>
+        text: <p><b>XIV Tracker</b> uses cookies (and cookie like systems) to enhance user experience.</p>
     },
     1: {
         icon: <MdError className="notice__icon" />,

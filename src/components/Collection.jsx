@@ -15,7 +15,7 @@ const Collection = (props) => {
     const [maxMinionPage, setMaxMinionPage] = useState(0);
     const [loading, setLoading] = useState(true);
     const [numCollected, setNumCollected] = useState(0);
-    const capacity = 25;
+    const capacity = 40;
 
     // Will have to manually update these numbers after every major patch.
     const totalCollection = 747

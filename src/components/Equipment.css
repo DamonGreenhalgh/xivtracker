@@ -27,3 +27,12 @@
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
+
+@media only screen and (max-width: 30rem) {
+
+    .equipment{
+        margin: 0;
+        grid-template-columns: 3rem 1fr 3rem;
+    }
+
+}
