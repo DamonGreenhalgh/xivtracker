@@ -1,50 +1,52 @@
 import './Featured.css';
+import { useState, useEffect, useRef } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import featureJSON from '../data/feature.json';
+
 import endwalkerBanner from '../images/featured/endwalker.png';
 import newfoundAdventureBanner from '../images/featured/newfound-adventure.png';
 import littleLadiesDayBanner from '../images/featured/little-ladies-day.png';
 import moogleTreasureTroveBanner from '../images/featured/moogle-treasure-trove.png';
 import hatchingTideBanner from '../images/featured/hatching-tide.png';
-import { useState, useEffect, useRef } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import featureJSON from '../data/feature.json';
 
-
-// Reference to currently live events/relevant content.
-const live = [
-    'EVENT_2',
-    'PATCH_6.1',
-    'PATCH_6.0'
+const banner = [
+    endwalkerBanner,
+    newfoundAdventureBanner,
+    littleLadiesDayBanner,
+    moogleTreasureTroveBanner,
+    hatchingTideBanner
 ]
 
 const Featured = () => {
 
-    const length = live.length;
     const backgroundContainer = useRef(null);
     const [index, setIndex] = useState(0);
-    const [auto, setAuto] = useState(true);
+    const [events, setEvents] = useState(Object.values(featureJSON));
+    const [banners, setBanners] = useState(null);
 
-    // Update index function to keep the index within [0, length]
-    const updateIndex = (direction) => {
-        setIndex(index => {
-            // If index would fall below 0, wrap around.
-            if (index + direction < 0) {
-                return length - 1;
-            }
-            return (index + direction) % length;
-        });
-    }
-
+    // Mount
     useEffect(() => {
-        const interval = setInterval(() => {
-            updateIndex(1);
-        }, 3500);
+        let startDate, endDate;
+        const currentDate = new Date().getTime();
+        let liveEvents = [];
+        let liveBanners = [];
 
-        // Disable auto scroll if the user has interacted with slideshow.
-        if (!auto) { clearInterval(interval) }
+        const event = Object.values(featureJSON);
+        for (let i = event.length - 1; i > -1; i--) {
+            startDate = new Date(event[i].start[0], event[i].start[1], event[i].start[2]).getTime();
+            endDate = new Date(event[i].end[0], event[i].end[1], event[i].end[2]).getTime();
+            if (startDate <= currentDate && currentDate <= endDate) {
+                liveEvents.push(event[i]);
+                liveBanners.push(<img src={banner[i]} alt='' key={i} />)
+            }
+        }
 
-        return () => clearInterval(interval);
-    }, [auto])
+        setEvents(liveEvents);
+        setBanners(liveBanners);
 
+    }, [])
+
+    // Update
     useEffect(() => {
         backgroundContainer.current.style.transform = "translate(-" + index * 30 + "rem, 0)";
     }, [index])
@@ -54,32 +56,29 @@ const Featured = () => {
             <div className="featured__overlay">
                 <button 
                     className="arrow arrow--left" 
-                    onClick={() => {updateIndex(-1); setAuto(false)}}
+                    onClick={() => setIndex(index => Math.max(0, index - 1))}
                 >
                     <FaChevronLeft />
                 </button>
-                <a href={featureJSON[live[index]].link} target="_blank" />                    
-                <h4>{featureJSON[live[index]].type}</h4>
+                <a href={events[index].link} target="_blank" rel="noreferrer" />                    
+                <h4>{events[index].type}</h4>
                 <div className='col absolute' style={{
                     bottom: '1rem',
                     left: '1rem'
                 }}>
-                    <p>{featureJSON[live[index]].date}</p>
-                    <h2>{featureJSON[live[index]].title}</h2>
+                    <p>{events[index].date}</p>
+                    <h2>{events[index].title}</h2>
 
                 </div>
-                
                 <button 
                     className="arrow arrow--right" 
-                    onClick={() => {updateIndex(1); setAuto(false)}}
+                    onClick={() => setIndex(index => Math.min(index + 1, events.length - 1))}
                 >
                     <FaChevronRight />
                 </button>
             </div>
             <div className="featured__banners" ref={backgroundContainer} >
-                <img src={hatchingTideBanner} />
-                <img src={newfoundAdventureBanner} />
-                <img src={endwalkerBanner} />
+                {banners}
             </div>
         </div>
     );

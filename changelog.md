@@ -6,12 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.2.1] - 2022-04-17
 
-Cleaning up patch. Fixes and mobile support.
+Cleaning up patch. Fixes to bugs. Support for mobile and Safari.
 
 ### Changes
 
 - Added media queries for multiple components. Support for mobile.
 - Featured events link now open a new tab.
+- Events will be displayed based on the current time.
 
 ### Fixed
 - Quests not appearing when reference character data was not updating.
