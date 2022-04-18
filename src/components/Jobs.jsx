@@ -87,7 +87,7 @@ const Jobs = (props) => {
                     name={job.Job.Name}
                     level={job.Level}
                     exp={[job.ExpLevel, job.ExpLevelMax]}
-                    hasLink={true}
+                    isCombat={false}
                     />
                 )}
 
@@ -104,6 +104,7 @@ const Jobs = (props) => {
                     name={job.Job.Name}
                     level={job.Level}
                     exp={[job.ExpLevel, job.ExpLevelMax]}
+                    isCombat={false}
                     />
                 )}
 
