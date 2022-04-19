@@ -1,0 +1,1352 @@
+{
+    "Main Scenario": {
+        "A Realm Reborn": [
+            {
+                "name": "A Realm Reborn",
+                "id": 788,
+                "link": "quest/3ab32cfebf8/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "A Realm Awoken",
+                "id": 898,
+                "link": "quest/defec516ba9/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Through the Maelstrom",
+                "id": 899,
+                "link": "quest/7f72ebda286/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Defenders of Eorzea",
+                "id": 1001,
+                "link": "quest/e31b1481e7a/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Dreams of Ice",
+                "id": 1029,
+                "link": "quest/48e85c94175/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Before the Fall",
+                "id": 1129,
+                "link": "quest/7be5b6453e1/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ],
+        "Heavensward": [
+            {
+                "name": "Heavensward",
+                "id": 1139,
+                "link": "quest/29fa56153f5/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "As Goes Light, So Goes Darkness",
+                "id": 1387,
+                "link": "quest/02f039d7119/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Gears of Change",
+                "id": 1493,
+                "link": "quest/64c819d8eb3/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }, 
+            {
+                "name": "Revenge of the Horde",
+                "id": 1594,
+                "link": "quest/36d55886b37/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Soul Surrender",
+                "id": 1630,
+                "link": "quest/723efddb90c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Far Edge of Fate",
+                "id": 1691,
+                "link": "quest/f024c2b6931/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ],
+        "Stormblood": [
+            {
+                "name": "Stormblood",
+                "id": 1794,
+                "link": "quest/08908744553/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Legend Returns",
+                "id": 1990,
+                "link": "quest/4b032f92080/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Rise of a New Sun",
+                "id": 2013,
+                "link": "quest/6ef50b6c9fe/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Under the Moonlight",
+                "id": 2098,
+                "link": "quest/82318efbb39/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Prelude in Violet",
+                "id": 2124,
+                "link": "quest/692bc7a1186/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "A Requiem for Heroes",
+                "id": 2233,
+                "link": "quest/4e3ff3ab391/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ],
+        "Shadowbringers": [
+            {
+                "name": "Shadowbringers",
+                "id": 2298,
+                "link": "quest/4ed1668d377/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Vows of Virtue, Deeds of Cruelty",
+                "id": 2424,
+                "link": "quest/fc70298b76f/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Echos of a Fallen Star",
+                "id": 2587,
+                "link": "quest/b7a00665b7b/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Reflections in Crystal",
+                "id": 2642,
+                "link": "quest/90de78eeddc/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Futures Rewritten",
+                "id": 2714,
+                "link": "quest/a424070bc4c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Death Unto Dawn",
+                "id": 2851,
+                "link": "quest/964cf0528f1/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ],
+        "Endwalker": [
+            {
+                "name": "Endwalker",
+                "id": 2958,
+                "link": "quest/52a65d1961d/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "New Found Adventure",
+                "id": 3075,
+                "link": "quest/52a65d1961d/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ]
+    },
+    "Dungeons": {
+        "A Realm Reborn": [
+            {
+                "name": "Sastasha",
+                "id": 663,
+                "link": "duty/b229b89b3a8/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Tam-Tara Deepcroft",
+                "id": 669,
+                "link": "duty/b229b89b3a8/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Copperbell Mines",
+                "id": 666,
+                "link": "duty/619923ac984/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Halatali",
+                "id": 667,
+                "link": "duty/98319325b98/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Thousand Maws of Toto-Rak",
+                "id": 673,
+                "link": "duty/cf7612fa294/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Haukke Manor",
+                "id": 670,
+                "link": "duty/e9740dde26c/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Brayflox's Longstop",
+                "id": 664,
+                "link": "duty/e371c7ab919/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Sunken Temple of Qarn",
+                "id": 668,
+                "link": "duty/b7a48152df9/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Cutter's Cry",
+                "id": 674,
+                "link": "duty/d601f85dc1e/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Stone Vigil",
+                "id": 672,
+                "link": "duty/b6491e1b508/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Dzemael Darkhold",
+                "id": 675,
+                "link": "duty/4a36cbca533/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Aurum Vale",
+                "id": 676,
+                "link": "duty/f507633618c/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Castrum Meridianum",
+                "id": 678,
+                "link": "duty/59c2b3b84fa/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Praetorium",
+                "id": 679,
+                "link": "duty/2407dbd0cae/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Wanderer's Palace",
+                "id": 665,
+                "link": "duty/3fd66be47b2/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Amdapor Keep",
+                "id": 671,
+                "link": "duty/a8dd3748467/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Pharos Sirius",
+                "id": 873,
+                "link": "duty/ae8a92122ec/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Copperbell Mines (Hard)",
+                "id": 871,
+                "link": "duty/a780ca9b970/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Haukke Manor (Hard)",
+                "id": 872,
+                "link": "duty/61c74c68e00/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Lost City of Amdapor",
+                "id": 897,
+                "link": "duty/87d3b951d3d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Halatali (Hard)",
+                "id": 895,
+                "link": "duty/87d3b951d3d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Brayflox's Longstop (Hard)",
+                "id": 896,
+                "link": "duty/40681f6c94a/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Hullbreaker Isle",
+                "id": 993,
+                "link": "duty/18aeffad7c5/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Stone Vigil (Hard)",
+                "id": 992,
+                "link": "duty/418628edfbf/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Tam-Tara Deepcroft (Hard)",
+                "id": 991,
+                "link": "duty/84d01fe5b6c/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Snowcloak",
+                "id": 1039,
+                "link": "duty/6f1778eb631/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Sastasha (Hard)",
+                "id": 1038,
+                "link": "duty/df38ed5c808/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Sunken Temple of Qarn (Hard)",
+                "id": 1037,
+                "link": "duty/6b35d4a1179/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Keeper of the Lake",
+                "id": 1072,
+                "link": "duty/5e75d2059af/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Wanderer's Palace (Hard)",
+                "id": 1071,
+                "link": "duty/7c11b0ba080/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Amdapor Keep (Hard)",
+                "id": 1070,
+                "link": "duty/a4288ecf826/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ],
+        "Heavensward": [
+            {
+                "name": "The Dusk Vigil",
+                "id": 1208,
+                "link": "duty/eed0add7a62/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Sohm Al",
+                "id": 1209,
+                "link": "duty/df5ab8bfd61/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Aery",
+                "id": 1210,
+                "link": "duty/339c4923556/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Vault",
+                "id": 1211,
+                "link": "duty/a62f7ee3718/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Great Gubal Library",
+                "id": 1212,
+                "link": "duty/f368b40c648/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Aetherochemical Research Facility",
+                "id": 1213,
+                "link": "duty/923e0a1d1d0/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Neverreap",
+                "id": 1214,
+                "link": "duty/618168354ea/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Fractal Continuum",
+                "id": 1215,
+                "link": "duty/c39cf50a6a5/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Saint Mocianne's Arboretum",
+                "id": 1402,
+                "link": "duty/cdad1cb65e8/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Pharos Sirius (Hard)",
+                "id": 1403,
+                "link": "duty/cd500c08682/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Antitower",
+                "id": 1486,
+                "link": "duty/36e172ff46c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Lost City of Amdapor (Hard)",
+                "id": 1487,
+                "link": "duty/193a96b0fa4/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Sohr Khai",
+                "id": 1599,
+                "link": "duty/a8c7c5c13bd/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Hullbreaker Isle (Hard)",
+                "id": 1600,
+                "link": "duty/313b1415d0f/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Xelphatol",
+                "id": 1637,
+                "link": "duty/1d95a773990/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Great Gubal Library (Hard)",
+                "id": 1638,
+                "link": "duty/d6e98e35e6f/",
+                "isSpoiler": true,
+                "isMainStory": false
+            },
+            {
+                "name": "Baelsar's Wall",
+                "id": 1686,
+                "link": "duty/bc72ef27ade/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Sohm Al (Hard)",
+                "id": 1687,
+                "link": "duty/9bd9004a140/",
+                "isSpoiler": true,
+                "isMainStory": false
+            }
+        ],
+        "Stormblood": [
+            {
+                "name": "The Sirensong Sea",
+                "id": 1883,
+                "link": "duty/471227e1ee7/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Shisui of the Violet Tides",
+                "id": 1884,
+                "link": "duty/39ba54ada1c/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Bardam's Mettle",
+                "id": 1885,
+                "link": "duty/53d7100d839/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Doma Castle",
+                "id": 1886,
+                "link": "duty/cd924bd8eac/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Castrum Abania",
+                "id": 1887,
+                "link": "duty/e635797754f/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Ala Mhigo",
+                "id": 1888,
+                "link": "duty/c71bb06e67b/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Kugane Castle",
+                "id": 1889,
+                "link": "duty/37d0e83919d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Temple of the Fist",
+                "id": 1890,
+                "link": "duty/23edcb0d626/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Drowned City of Skalla",
+                "id": 1988,
+                "link": "duty/47ef709fb04/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Hells' Lid",
+                "id": 2021,
+                "link": "duty/f9ab5899e9d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Fractal Continuum (Hard)",
+                "id": 2022,
+                "link": "duty/b8bea03880d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Swallow's Compass",
+                "id": 2057,
+                "link": "duty/35ed52cf463/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Burn",
+                "id": 2115,
+                "link": "duty/c8608c977a6/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Saint Mocianne's Arboretum (Hard)",
+                "id": 2116,
+                "link": "duty/25cf070eeb4/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Ghimlyt Dark",
+                "id": 2162,
+                "link": "duty/33a05f144e4/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ],
+        "Shadowbringers": [
+            {
+                "name": "Holminster Switch",
+                "id": 2377,
+                "link": "duty/a6165958a5c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Dohn Mheg",
+                "id": 2378,
+                "link": "duty/5f9f024b774/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Qitana Ravel",
+                "id": 2379,
+                "link": "duty/3aff2d6760c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Malikah's Well",
+                "id": 2380,
+                "link": "duty/f8fff809d77/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Mt. Gulg",
+                "id": 2381,
+                "link": "duty/72f2e86daba/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Amaurot",
+                "id": 2382,
+                "link": "duty/c5de427bfef/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Twinning",
+                "id": 2383,
+                "link": "duty/be6a14f45a6/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Akadaemia Anyder",
+                "id": 2384,
+                "link": "duty/d2b053e4e31/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Grand Cosmos",
+                "id": 2440,
+                "link": "duty/1f246825352/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Anamnesis Anyder",
+                "id": 2589,
+                "link": "duty/969e6501eb7/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Heroes' Gauntlet",
+                "id": 2618,
+                "link": "duty/44073b7449c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Matoya's Relict",
+                "id": 2717,
+                "link": "duty/5a30eb6b20d/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Paglth'an",
+                "id": 2849,
+                "link": "duty/81f08141768/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ],
+        "Endwalker": [
+            {
+                "name": "The Tower of Zot",
+                "id": 2980,
+                "link": "duty/9c317b74e3a/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Tower of Babil",
+                "id": 2981,
+                "link": "duty/3297718033f/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Vanaspati",
+                "id": 2982,
+                "link": "duty/dadcd891cc1/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Ktisis Hyperboreia",
+                "id": 2983,
+                "link": "duty/8514a64c969/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Aitiascope",
+                "id": 2984,
+                "link": "duty/fd65b266f55/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Dead Ends",
+                "id": 2985,
+                "link": "duty/ba59c193b71/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Smileton",
+                "id": 2987,
+                "link": "duty/175e6a7245d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Stigma Dreamscape",
+                "id": 2986,
+                "link": "duty/25f8ec27427/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Alzadaal’s Legacy",
+                "id": 3070,
+                "link": "duty/d56ff366a07/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ]
+    },
+    "Trials": {
+        "A Realm Reborn": [
+            {
+                "name": "The Bowl of Embers",
+                "id": 856,
+                "link": "duty/6af1a94ccca/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Navel",
+                "id": 857,
+                "link": "duty/589c727302e/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Howling Eye",
+                "id": 855,
+                "link": "duty/7c17ae70cc6/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Thornmarch",
+                "id": 894,
+                "link": "duty/b7c47c44490/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Whorleater",
+                "id": 893,
+                "link": "duty/0850a8627aa/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Striking Tree",
+                "id": 994,
+                "link": "duty/4d8cae741db/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Akh Afah Amphitheatre",
+                "id": 1045,
+                "link": "duty/5f786d57228/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Urth's Fount",
+                "id": 1064,
+                "link": "duty/21d8c5bd54b/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ],
+        "Heavensward": [
+            {
+                "name": "Thok ask Thok",
+                "id": 1221,
+                "link": "duty/83f028575c8/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Limitless Blue",
+                "id": 1220,
+                "link": "duty/e9bb63551a4/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Thordan's Reign",
+                "id": 1400,
+                "link": "duty/a8a4860068c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Containment Bay S1T7",
+                "id": 1485,
+                "link": "duty/e05c982993d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Nidhogg's Rage",
+                "id": 1601,
+                "link": "duty/0e880006330/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Containment Bay P1T6",
+                "id": 1636,
+                "link": "duty/212ceb19a34/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Containment Bay Z1T9",
+                "id": 1685,
+                "link": "duty/26a86785be9/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ],
+        "Stormblood": [
+            {
+                "name": "The Pool of Tribute",
+                "id": 1902,
+                "link": "duty/b28f61e6212/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Emanation",
+                "id": 1901,
+                "link": "duty/7de6a27d145/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Shinryu's Domain",
+                "id": 1989,
+                "link": "duty/8c829b8dd8c/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Jade Stoa",
+                "id": 2023,
+                "link": "duty/44fc4abc0eb/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Tsukuyomi's Pain",
+                "id": 2060,
+                "link": "duty/0919d2674e0/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "The Great Hunt",
+                "id": 2109,
+                "link": "duty/52328939737/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Hell's Kier",
+                "id": 2117,
+                "link": "duty/628e9a05d34/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Wreath of Snakes",
+                "id": 2165,
+                "link": "duty/c79d50c803d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ],
+        "Shadowbringers": [
+            {
+                "name": "The Dancing Plague",
+                "id": 2385,
+                "link": "duty/bad53f19540/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Crown of the Immaculate",
+                "id": 2386,
+                "link": "duty/55504d0495f/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Hade's Elegy",
+                "id": 2441,
+                "link": "duty/b2e08d16bce/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Cinder Drift",
+                "id": 2590,
+                "link": "duty/b388be5eb05/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Seat of Sacrifice",
+                "id": 2621,
+                "link": "duty/1543e03ff37/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Memoria Misera",
+                "id": 2586,
+                "link": "duty/841d3f69efd/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Castrum Marinum",
+                "id": 2718,
+                "link": "duty/16e9780d10e/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Cloud Deck",
+                "id": 2846,
+                "link": "duty/c4a2acf0912/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ],
+        "Endwalker": [
+            {
+                "name": "Zodiark's Fall",
+                "id": 2988,
+                "link": "duty/f40a8f14d6d/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Hydaelyn's Call",
+                "id": 2989,
+                "link": "duty/0dbba05fd0f/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Endsinger's Aria",
+                "id": 3072,
+                "link": "duty/0c90d0fd67b/",
+                "isSpoiler": true,
+                "isMainStory": true
+            }
+        ]
+    },
+    "Raids": {
+        "Normal": [
+            {
+                "name": "The Binding Coil of Bahamut",
+                "id": 747,
+                "link": "duty/7134211f501/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Second Coil of Bahamut",
+                "id": 887,
+                "link": "duty/1fed5f286f0/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Final Coil of Bahamut",
+                "id": 1040,
+                "link": "duty/f086f0517d0/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Alexander: Gordias",
+                "id": 1228,
+                "link": "duty/0e9dbcd3e88/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Alexander: Midas",
+                "id": 1476,
+                "link": "duty/d3146ecb9f8/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Alexander: The Creator",
+                "id": 1639,
+                "link": "duty/5516e8fd14f/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Omega: Deltascape",
+                "id": 1895,
+                "link": "duty/76f228004f2/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Omega: Sigmascape",
+                "id": 2024,
+                "link": "duty/f6bdf734a4a/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Omega: Alpahscape",
+                "id": 2118,
+                "link": "duty/6164ec419fe/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Eden's Gate",
+                "id": 2409,
+                "link": "duty/b2a4cb98763/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Eden's Verse",
+                "id": 2591,
+                "link": "duty/2024c23c039/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Eden's Promise",
+                "id": 2719,
+                "link": "duty/d53631d5202/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Asphodelos",
+                "id": 3035,
+                "link": "duty/8766feb6d35/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ],
+        "Alliance": [
+            {
+                "name": "Labyrinth of the Ancients",
+                "id": 883,
+                "link": "duty/d9f4e986d0e/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Syrcus Tower",
+                "id": 995,
+                "link": "duty/47eb1d018b6/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The World of Darkness",
+                "id": 1068,
+                "link": "duty/7f0a3551ab6/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Void Ark",
+                "id": 1399,
+                "link": "duty/07fc9cb5bc8/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Weeping City of Mhach",
+                "id": 1574,
+                "link": "duty/b0a1515fd3d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Dun Scaith",
+                "id": 1689,
+                "link": "duty/35a8825ed8e/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Royal City of Rabanastre",
+                "id": 1992,
+                "link": "duty/56209386296/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Ridorana Lighthouse",
+                "id": 2106,
+                "link": "duty/390fb10fd68/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Orbonne Monastery",
+                "id": 2164,
+                "link": "duty/95dbcc947db/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Copied Factory",
+                "id": 2443,
+                "link": "duty/ed86e5291b2/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Puppet's Bunker",
+                "id": 2622,
+                "link": "duty/889b8d8cfa4/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Tower at Paradigm's Breach",
+                "id": 2847,
+                "link": "duty/f1a29897772/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Aglaia",
+                "id": 3073,
+                "link": "duty/f1a29897772/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ]
+    },
+    "High End": {
+        "Savage": [
+            {
+                "name": "The Second Coil of Bahamut",
+                "id": 1000,
+                "link": "duty/0065196fbe4/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Alexander: Gordias",
+                "id": 1231,
+                "link": "duty/fd7aa157f29/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Alexander: Midas",
+                "id": 1479,
+                "link": "duty/f93d68d7d3c/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Alexander: The Creator",
+                "id": 1642,
+                "link": "duty/def61a894af/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Omega: Deltascape",
+                "id": 1898,
+                "link": "duty/0b519d7fd00/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Omega: Sigmascape",
+                "id": 2027,
+                "link": "duty/28d9a03c886/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Omega: Alpahscape",
+                "id": 2121,
+                "link": "duty/33360b27f26/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Eden's Gate",
+                "id": 2412,
+                "link": "duty/3f2c9ddbe05/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Eden's Verse",
+                "id": 2594,
+                "link": "duty/46c4d21a738/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Eden's Promise",
+                "id": 2722,
+                "link": "duty/6a038f0d5ef/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Asphodelos",
+                "id": 3038,
+                "link": "duty/6a038f0d5ef/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ],
+        "Ultimate": [
+            {
+                "name": "The Unending Coils of Bahamut",
+                "id": 1993,
+                "link": "duty/1a863f1ea3b/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Weapon's Refrain",
+                "id": 2107,
+                "link": "duty/e6c2c586ba6/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Epic of Alexander",
+                "id": 2444,
+                "link": "duty/b56710190e9/",
+                "isSpoiler": false,
+                "isMainStory": false
+            }
+        ]
+    }
+}
