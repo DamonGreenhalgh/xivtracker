@@ -7,9 +7,17 @@
     padding: 1rem 3rem;
 }
 
-.quests__list {
+/* .quests__list {
     display: flex;
     gap: 2rem;
+    font-size: .8rem;
+    width: 100%;
+} */
+
+.quests__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem 2rem;
     font-size: .8rem;
     width: 100%;
 }
@@ -45,8 +53,15 @@
 @media only screen and (max-width: 1150px) {
     
     .quests__list {
-        flex-direction: column;
-        gap: 0;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
+
+@media only screen and (max-width: 800px) {
+
+    .quests__list {
+        grid-template-columns: 1fr;
     }
     
 }

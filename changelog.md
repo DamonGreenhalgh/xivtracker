@@ -8,11 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Cleaning up patch. Fixes to bugs. Support for mobile and Safari.
 
+
+### Added
+
+- Added guide links to profession jobs.
+
 ### Changes
 
 - Added media queries for multiple components. Support for mobile.
 - Featured events link now open a new tab.
 - Events will be displayed based on the current time.
+- Quests system refactor. Improved maintainability and reduced overhead.
 
 ### Fixed
 - Quests not appearing when reference character data was not updating.
