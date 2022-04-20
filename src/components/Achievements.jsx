@@ -33,7 +33,7 @@ const Achievements = (props) => {
     useEffect(() => {
         if (!loading) {
             setAchievementsContent(
-                <ul className='achievements__content'>
+                <ul className='col gap'>
                     {(data.slice(achievementsPage * capacity, (achievementsPage + 1) * capacity)).map(achievement => 
                         <Achievement 
                             name={achievement.Name}
@@ -51,11 +51,11 @@ const Achievements = (props) => {
 
     return (
         <div className='section'>
-            <Header name="Achievements" />
-            <div className='completion-rate'>
-                <h4>Points</h4>
-                <h3>{points}</h3>
-            </div>
+            <Header 
+                name='Achievements'
+                minor='Points'
+                major={points}
+            />
             {
                 loading ?
                 <Loading /> :

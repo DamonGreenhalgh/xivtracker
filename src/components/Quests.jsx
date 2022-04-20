@@ -110,12 +110,11 @@ const Quests = (props) => {
     return (
         <div className="section">
 
-            <Header name="Quests" />
-
-            <div className='completion-rate'>
-                <h4>{completion[0] + " / " + completion[1]}</h4>
-                <h3>{Math.round(completion[0] / completion[1] * 100) +  " %"}</h3>
-            </div>
+            <Header 
+                name="Quests" 
+                minor={completion[0] + " / " + completion[1]}
+                major={Math.round(completion[0] / completion[1] * 100) +  " %"}
+            />
 
             {content[panel]}
 

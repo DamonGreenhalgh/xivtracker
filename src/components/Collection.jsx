@@ -81,19 +81,18 @@ const Collection = (props) => {
                 }
                 return minionContent;   
             })
-        }
+        }   
         setLoading(false);
     }, []);
 
     return (
         <div className="section">
 
-            <Header name="Collection" />
-
-            <div className='completion-rate'>
-                <h4>{numCollected + " / " + totalCollection}</h4>  
-                <h3>{Math.round(numCollected / totalCollection * 100) + " %"}</h3>                 
-            </div>
+            <Header 
+                name="Collection" 
+                minor={numCollected + " / " + totalCollection}
+                major={Math.round(numCollected / totalCollection * 100) + " %"}
+            />
 
             <div className='collection__content'>
                 {

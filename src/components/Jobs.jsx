@@ -52,12 +52,11 @@ const Jobs = (props) => {
     return (
         <div className="section">
 
-            <Header name="Jobs" />
-
-            <div className='completion-rate'>
-                <h4>{completion[0]}</h4>
-                <h3>{completion[1]}</h3>
-            </div>
+            <Header 
+                name="Jobs"
+                minor={completion[0]}
+                major={completion[1]}
+            />
 
             <div className="row gap-lg">
                 <Button 

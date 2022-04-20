@@ -32,26 +32,6 @@
     box-shadow: 0 0 .8rem var(--c-shadow);
 }
 
-.completion-rate {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    position: absolute;
-    top: 1.75rem;
-    right: 2rem;
-}
-
-.completion-rate h3 {
-    background-color: var(--color-completed);
-    color: white;
-    padding: .5rem;
-    border-radius: .25rem;
-}
-
-.completion-rate h4 {
-    color: var(--color-completed);
-}
-
 
 @media only screen and (max-width: 1150px) {
 

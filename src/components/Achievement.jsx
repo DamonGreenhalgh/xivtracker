@@ -23,9 +23,9 @@ const Achievement = (props) => {
         <li className='achievement'>
             <Item icon={"https://xivapi.com" + props.icon}/>
             <div className='col gap-sm'>
-                <div className='row gap'>
+                <div className='achievement__header'>
                     <h4>{props.name}</h4>
-                    <p>{type}</p>
+                    <p style={{color: 'var(--color-experience)'}}>{type}</p>
                 </div>
                 <p>{description}</p>
             </div>
