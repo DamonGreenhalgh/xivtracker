@@ -69,10 +69,8 @@ const Character = (props) => {
     // On mount, fetch character data, update component props with retrieved data.
     useEffect(async () => {
         setIsLoading(true);
-
-        // Enable searchbar on navbar.
         props.setShowSearchbar(true);
-        
+        document.documentElement.style.setProperty('--content-width', '70rem');
         let characterData, freeCompanyData;
 
         // Get extended character data from xivapi.com
@@ -86,8 +84,7 @@ const Character = (props) => {
         // Set window title to 'XIV Tracker | {character name}'
         document.title = "XIV Tracker | " + characterData.Name;
 
-        // Set new content width
-        document.documentElement.style.setProperty('--content-width', '70rem');
+        
 
         // Add character to recently viewed list.
         storeRecent(characterData);

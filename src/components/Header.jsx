@@ -8,7 +8,7 @@ const Header = (props) => {
                 <div className='completion-rate'>
                     <h4>{props.minor}</h4>
                     <h3>{props.major}</h3>
-                </div>
+                </div> 
             </div>
             <Divider />
         </div>

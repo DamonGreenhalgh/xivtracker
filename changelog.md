@@ -6,16 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.2.1] - 2022-04-17
 
-Cleaning up patch. Fixes to bugs. Support for mobile and Safari.
-
-
 ### Added
 
 - Added guide links to profession jobs.
 
 ### Changes
 
-- Added media queries for multiple components. Support for mobile.
+- Added media queries for multiple components.
 - Featured events link now open a new tab.
 - Events will be displayed based on the current time.
 - Quests system refactor. Improved maintainability and reduced overhead.
@@ -23,7 +20,6 @@ Cleaning up patch. Fixes to bugs. Support for mobile and Safari.
 ### Fixed
 - Quests not appearing when reference character data was not updating.
 - Fixed failed search when using the searchbar within a character profile.
-
 
 ## Released
 
