@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import Searchbar from '../components/Searchbar';
 import Banner from '../components/Banner';
-import Notice from '../components/Notice';
 import Featured from '../components/Featured';
 import Loading from '../components/utility/Loading';
 import brandIcon from '../images/brand-extended.png';
@@ -9,8 +8,6 @@ import './Home.css';
 
 const Home = (props) =>  {
     const [results, setResults] = useState(null);
-    const [noticeType, setNoticeType] = useState(0);
-    const [displayNotice, setDisplayNotice] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
 
     // Function to request a character search from xivapi.com.
@@ -26,24 +23,17 @@ const Home = (props) =>  {
         await fetch("https://xivapi.com/character/search?name="+ name + "&server=" + currentServer, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
-                setDisplayNotice(true);
-                if (data.Results.length == 0) {
-                    setNoticeType(3);
-                } else {
-
-                    // Create character banners for each valid returned character.
-                    setResults([data.Results.map(result => (
-                        <Banner 
-                        type='search'
-                        name={result.Name}
-                        misc={result.Server}
-                        avatar={<img src={result.Avatar} className='rounded' />}
-                        link={"/" + result.ID}
-                        key={result.ID}
-                        />
-                    ))])
-                    setNoticeType(1);
-                }
+                // Create character banners for each valid returned character.
+                setResults([data.Results.map(result => (
+                    <Banner 
+                    type='search'
+                    name={result.Name}
+                    misc={result.Server}
+                    avatar={<img src={result.Avatar} className='rounded' />}
+                    link={"/" + result.ID}
+                    key={result.ID}
+                    />
+                ))])
             });
             setIsLoading(false);
     }
@@ -62,12 +52,11 @@ const Home = (props) =>  {
 
         // Disable searchbar on navbar.
         props.setShowSearchbar(false);
+        console.log(results==null);
     }, []);
 
     return (
-        
-        <div className="home" style={displayNotice ? {height: "auto"} : {height: 'calc(100vh - 16rem)'}}>
-            <Notice type={0} show={true} />
+        <div className="home" style={results==null ? {height: 'calc(100vh - 16rem)'} : {height: "auto"}}>
             <img 
                 src={brandIcon}
                 className="home__brand"
@@ -79,7 +68,6 @@ const Home = (props) =>  {
                 <Searchbar search={searchCharacter} />
             }
             {results}
-            <Notice type={noticeType} show={displayNotice} />                
             <Featured />
         </div>
     );

@@ -16,7 +16,7 @@
 .recent {
     z-index: 4;
     overflow: hidden;
-    top: calc(100% + 1rem);
+    top: calc(100% + 2rem);
     position: absolute;
     height: 0;
     width: 100%;

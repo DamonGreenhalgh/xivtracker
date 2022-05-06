@@ -5,7 +5,7 @@
     align-items: center;
     margin: auto;
     width: var(--content-width);
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .home__brand {
