@@ -24,17 +24,6 @@
     height: 100%;
 }
 
-.featured__overlay h4 {
-    background-color: var(--color-completed);
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
-    color: white;
-    border-radius: .25rem;
-    padding: .5rem;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-}
-
 .featured__overlay p {
     color: #d9dfe4;
 }

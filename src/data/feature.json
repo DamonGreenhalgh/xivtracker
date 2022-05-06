@@ -1,15 +1,13 @@
 {
     "PATCH_6.0": {
-        "title": "ENDWALKER",
-        "type": "New Expansion",
+        "title": "6.0 ENDWALKER",
         "date": "December 19th 2021",
         "start": [2021, 11, 19],
         "end": [2023, 11, 19],
         "link": "https://na.finalfantasyxiv.com/endwalker"
     },
     "PATCH_6.1": {
-        "title": "NEWFOUND ADVENTURE",
-        "type": "Patch 6.1",
+        "title": "6.1 NEWFOUND ADVENTURE",
         "date": "April 12th 2022",
         "start": [2022, 3, 12],
         "end": [2022, 7, 12],
@@ -17,7 +15,6 @@
     },
     "EVENT_0": {
         "title": "LITTLE LADIES' DAY",
-        "type": "Live Event",
         "date": "March 14 - March 31",
         "start": [2022, 2, 14],
         "end": [2022, 2, 31],
@@ -25,7 +22,6 @@
     },
     "EVENT_1": {
         "title": "MOOGLE TREASURE TROVE",
-        "type": "Live Event",
         "date": "March 14 - April 12",
         "start": [2022, 2, 14],
         "end": [2022, 3, 12],
@@ -33,7 +29,6 @@
     },
     "EVENT_2": {
         "title": "HATCHING TIDE",
-        "type": "Live Event",
         "date": "April 13 - April 27",
         "start": [2022, 3, 13],
         "end": [2022, 3, 27],

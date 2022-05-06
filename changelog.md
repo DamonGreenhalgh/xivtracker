@@ -9,6 +9,7 @@ Moved from **Github Pages** to **AWS Amplify** as pages has problems with single
 
 ### Added
 
+- Added help page.
 - Added guide links to profession jobs.
 
 ### Changes

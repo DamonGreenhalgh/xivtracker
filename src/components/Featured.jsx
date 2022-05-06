@@ -61,14 +61,12 @@ const Featured = () => {
                     <FaChevronLeft />
                 </button>
                 <a href={events[index].link} target="_blank" rel="noreferrer" />                    
-                <h4>{events[index].type}</h4>
                 <div className='col absolute' style={{
                     bottom: '1rem',
                     left: '1rem'
                 }}>
                     <p>{events[index].date}</p>
                     <h2>{events[index].title}</h2>
-
                 </div>
                 <button 
                     className="arrow arrow--right" 
