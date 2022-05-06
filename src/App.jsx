@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Character from './pages/Character';
 import Settings from './pages/Settings';
+import Help from './pages/Help';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loading from './components/utility/Loading';
@@ -129,6 +130,14 @@ const App = () => {
                   setPersonalized={setPersonalized}
                 />
               } 
+            />
+            <Route 
+              path="/help"
+              element={
+                <Help 
+                  setShowSearchbar={setShowSearchbar} 
+                />
+              }
             />
             <Route 
               path="/" 
