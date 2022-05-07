@@ -11,12 +11,13 @@ Moved from **Github Pages** to **AWS Amplify** as pages has problems with single
 
 - Added help page.
 - Added guide links to profession jobs.
+- Added useFetchData custom hook, replaces the useEffect nested async function pattern.
 
 ### Changes
 
 - Added media queries for multiple components.
-- Featured events link now open a new tab.
-- Events will be displayed based on the current time.
+- Featured events link will now open a new tab.
+- Events will be displayed based on the current date.
 - Quests system refactor. Improved maintainability and reduced overhead.
 
 ### Fixed

@@ -14,8 +14,6 @@ const Searchbar = (props) => {
     const [displayDropdown, setDisplayDropdown] = useState(false);
     const [recent, setRecent] = useState(null);
 
-    const [expanded, setExpanded] = useState(false);
-
     const callbackMethod = (event) => {
         event.preventDefault();
         setDisplayRecent(false);

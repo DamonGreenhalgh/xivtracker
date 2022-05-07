@@ -13,11 +13,6 @@
     background-color: var(--c-content-background);
 }
 
-.character__panel {
-    display: flex;
-    gap: 2rem;
-}
-
 .section {
     width: 100%;
     position: relative;
@@ -32,6 +27,11 @@
     box-shadow: 0 0 .8rem var(--c-shadow);
 }
 
+.profile__content {
+    display: flex;
+    gap: 2rem;
+}
+
 
 @media only screen and (max-width: 1150px) {
 
@@ -40,7 +40,7 @@
         padding: 0 1rem;
     }
 
-    .character__panel {
+    .profile__content {
         flex-direction: column;
     }
 
@@ -50,7 +50,6 @@
 
     .character__nav {
         flex-direction: column;
-    }
-
+    } 
 
 }

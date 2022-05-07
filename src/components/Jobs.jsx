@@ -1,5 +1,5 @@
 import './Jobs.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './Header';
 import Button from '../components/utility/Button';
 import JobItem from './JobItem';
@@ -13,8 +13,6 @@ import rangedIcon from '../images/ranged.png';
 import magicIcon from '../images/magic.png';
 import handIcon from '../images/hand.png';
 import landIcon from '../images/land.png';
-import { useEffect } from 'react';
-
 
 const Jobs = (props) => {
 
@@ -50,7 +48,7 @@ const Jobs = (props) => {
     }, [])
     
     return (
-        <div className="section">
+        <div className={"section" + (props.display ? '' : ' disabled')}>
 
             <Header 
                 name="Jobs"

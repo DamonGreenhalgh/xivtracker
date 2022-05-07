@@ -108,7 +108,7 @@ const Quests = (props) => {
     }, []);
 
     return (
-        <div className="section">
+        <div className={'section' + (props.display ? '' : ' disabled')}>
 
             <Header 
                 name="Quests" 

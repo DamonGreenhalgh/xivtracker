@@ -165,7 +165,7 @@ input:focus {
 }
 
 .icon--mid {
-  height: 4rem;
+  min-height: 4rem;
   min-width: 4rem;
 }
 
