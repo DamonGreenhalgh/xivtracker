@@ -6,6 +6,11 @@
     gap: 1rem;
     width: 30rem;
     padding-right: 1rem;
+
+    background-color: var(--c-content-background-opaque);
+    outline: 1px solid var(--c-mid-background);
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    border-radius: .25rem;
 }
 
 .searchbar__icon {
@@ -96,10 +101,6 @@
         position: fixed;
         bottom: 1rem;
         left: 1rem;
-        background-color: var(--c-content-background-opaque);
-        border: 1px solid var(--c-mid-background);
-        box-shadow: 0 .5rem 1rem var(--c-shadow);
-        border-radius: .5rem;
     }
 
     .recent--character {
