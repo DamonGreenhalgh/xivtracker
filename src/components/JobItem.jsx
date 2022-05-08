@@ -1,13 +1,13 @@
 import Bar from './utility/Bar';
 const JobItem = (props) => {
-    const link = "https://na.finalfantasyxiv.com/jobguide/";
+    const link = "https://na.finalfantasyxiv.com/" + (props.isCombat ? "jobguide/" : "crafting_gathering_guide/");
     let nameNoGap = (props.name).replace(/\s/g, '');
     const name = nameNoGap.charAt(0).toUpperCase() + nameNoGap.slice(1);
     return (
         <a 
             className={"row align-center gap-sm max-width" + (props.currentJob ? " current-job" : null)}
             style={{gridArea: nameNoGap}} 
-            href={props.hasLink ? link + nameNoGap : null}
+            href={link + nameNoGap}
         >
             <img src={"https://xivapi.com" + props.icon} className="icon--job" />
             <h2 

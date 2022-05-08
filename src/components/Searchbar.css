@@ -81,16 +81,29 @@
     color: white;
 }
 
-@media only screen and (max-width: 1050px) {
-
-    .searchbar {
-        margin: 0 auto;
-    }
-}
-
 @media only screen and (max-width: 500px) {
 
     .searchbar {
         width: var(--content-width);
+    }
+    
+}
+
+@media only screen and (max-width: 750px) {
+
+    .searchbar--character {
+        width: var(--content-width);
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        background-color: var(--c-content-background-opaque);
+        border: 1px solid var(--c-mid-background);
+        box-shadow: 0 .5rem 1rem var(--c-shadow);
+        border-radius: .5rem;
+    }
+
+    .recent--character {
+        bottom: 4rem;
+        top: auto;
     }
 }

@@ -1,5 +1,5 @@
 import './Jobs.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './Header';
 import Button from '../components/utility/Button';
 import JobItem from './JobItem';
@@ -13,8 +13,6 @@ import rangedIcon from '../images/ranged.png';
 import magicIcon from '../images/magic.png';
 import handIcon from '../images/hand.png';
 import landIcon from '../images/land.png';
-import { useEffect } from 'react';
-
 
 const Jobs = (props) => {
 
@@ -50,23 +48,22 @@ const Jobs = (props) => {
     }, [])
     
     return (
-        <div className="section">
+        <div className={"section" + (props.display ? '' : ' disabled')}>
 
-            <Header name="Jobs" />
-
-            <div className='completion-rate'>
-                <h4>{completion[0]}</h4>
-                <h3>{completion[1]}</h3>
-            </div>
+            <Header 
+                name="Jobs"
+                minor={completion[0]}
+                major={completion[1]}
+            />
 
             <div className="row gap-lg">
                 <Button 
-                    content="War / Magic" 
+                    content="Combat" 
                     condition={displayJob} 
                     onClick={() => setDisplayJob(true)}
                 />
                 <Button 
-                    content="Hand / Land" 
+                    content="Profession" 
                     condition={!displayJob} 
                     onClick={() => setDisplayJob(false)}
                 />
@@ -87,7 +84,7 @@ const Jobs = (props) => {
                     name={job.Job.Name}
                     level={job.Level}
                     exp={[job.ExpLevel, job.ExpLevelMax]}
-                    hasLink={true}
+                    isCombat={false}
                     />
                 )}
 
@@ -104,6 +101,7 @@ const Jobs = (props) => {
                     name={job.Job.Name}
                     level={job.Level}
                     exp={[job.ExpLevel, job.ExpLevelMax]}
+                    isCombat={false}
                     />
                 )}
 

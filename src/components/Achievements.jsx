@@ -1,44 +1,35 @@
+// Hooks
 import { useEffect, useState } from 'react';
-import Header from './Header';
+import { useFetchData } from '../hooks/useFetchData';
+
+// Components
 import Achievement from './Achievement';
 import Loading from './utility/Loading';
-import './Achievements.css';
+import Header from './Header';
 import Navigator from './utility/Navigator';
 
+// Style
+import './Achievements.css';
+
+/**
+ * @name Achievements
+ * @description Container for character achievements.
+ * @param {*} props 
+ * @returns 
+ */
 const Achievements = (props) => {
-    const [points, setPoints] = useState(0);
-    const [achivementsContent, setAchievementsContent] = useState(null);
-    const [achievementsPage, setAchievementsPage] = useState(0);
-    const [maxPage, setMaxPage] = useState(0);
-    const [loading, setLoading] = useState(true);
-    const [data, setData] = useState(null);
+
     const capacity = 8;
-
-    // Mount
-    useEffect(() => {
-        
-        const fetchData = async () => {
-            await fetch("https://xivapi.com/character/" + props.data.ID + "?extended=1&data=AC", {mode: 'cors'})
-                .then(response => response.json())
-                .then(data => {
-                    setPoints(data.Achievements.Points);
-                    setData(data.Achievements.List);
-                    setMaxPage(Math.ceil(data.Achievements.List.length / capacity) - 1)
-                    setLoading(false);
-            });
-
-        }
-        
-        fetchData();
-
-    }, [props.data.ID]);
+    const {data, loading} = useFetchData("https://xivapi.com/character/" + props.data.ID + "?extended=1&data=AC");
+    const [content, setContent] = useState(null);
+    const [index, setIndex] = useState(0);
 
     // Update
     useEffect(() => {
         if (!loading) {
-            setAchievementsContent(
-                <ul className='achievements__content'>
-                    {(data.slice(achievementsPage * capacity, (achievementsPage + 1) * capacity)).map(achievement => 
+            setContent(
+                <ul className='col gap'>
+                    {(data.Achievements.List.slice(index * capacity, (index + 1) * capacity)).map(achievement => 
                         <Achievement 
                             name={achievement.Name}
                             icon={achievement.Icon}
@@ -50,26 +41,28 @@ const Achievements = (props) => {
                 </ul>
             )
         }
-        
-    }, [achievementsPage, data, loading]) 
+    }, [index, loading]) 
 
     return (
-        <div className='section'>
-            <Header name="Achievements" />
-            <div className='completion-rate'>
-                <h4>Total Points</h4>
-                <h3>{points}</h3>
-            </div>
+        loading ?
+        null :
+
+        <div className={'section' + (props.display ? '' : ' disabled')}>
+            <Header 
+                name='Achievements'
+                minor='Points'
+                major={data.Achievements.Points}
+            />
             {
                 loading ?
                 <Loading /> :
-                achivementsContent
+                content
             }
             <Navigator 
-                update={setAchievementsPage} 
-                current={achievementsPage} 
+                update={setIndex} 
+                current={index} 
                 min={0} 
-                max={maxPage}
+                max={Math.ceil(data.Achievements.List.length / capacity) - 1}
                 style={{margin: 'auto'}} 
             />
         </div>

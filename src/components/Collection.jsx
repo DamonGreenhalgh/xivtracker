@@ -1,128 +1,87 @@
+// Hooks
 import { useState, useEffect } from 'react';
+import { useFetchData } from '../hooks/useFetchData';
+
+// Components
 import Item from './Item';
 import Header from './Header';
-import Loading from '../components/utility/Loading';
 import Navigator from './utility/Navigator';
+
+// Style
 import './Collection.css';
 
+/**
+ * @name Collection
+ * @description Collection container for mount and minion items.
+ * @param {*} props 
+ * @returns 
+ */
 const Collection = (props) => {
 
-    const [mountPage, setMountPage] = useState(0);
-    const [minionPage, setMinionPage] = useState(0);
-    const [mountContent, setMountContent] = useState([]);
-    const [minionContent, setMinionContent] = useState([]);
-    const [maxMountPage, setMaxMountPage] = useState(0);
-    const [maxMinionPage, setMaxMinionPage] = useState(0);
-    const [loading, setLoading] = useState(true);
-    const [numCollected, setNumCollected] = useState(0);
-    const capacity = 25;
-
-    // Will have to manually update these numbers after every major patch.
+    // Will have to manually update these numbers after every patch.
     const totalCollection = 747
 
-    useEffect(async () => {
+    const capacity = 40;
+    const {data, loading} = useFetchData("https://xivapi.com/character/" + props.id + "?data=MIMO");
+    const [mountPage, setMountPage] = useState(0);
+    const [minionPage, setMinionPage] = useState(0);
+    const [mountContent, setMountContent] = useState(null);
+    const [minionContent, setMinionContent] = useState(null);
 
-        let mountData, minionData;
-        let storedData = localStorage.getItem("storedData");
-
-        if (storedData == null) {
-            localStorage.setItem("storedData", "{}");
-        }
-
-        storedData = JSON.parse(localStorage.getItem("storedData"));
-
-        // Fetch character mounts and minions
-        await fetch("https://xivapi.com/character/" + props.id + "?data=MIMO", {mode: 'cors'})
-            .then(response => response.json())
-            .then(data => {
-                mountData = data.Mounts;
-                minionData = data.Minions;
-            });
-
-        // Determine if we need to retrieve data from localStorage.
-        if (mountData == null || minionData == null) {
-            if (storedData[props.id] != null) {
-                minionData = storedData[props.id].Minions;
-                mountData = storedData[props.id].Mounts;
-            }
-        } else {
-            storedData[props.id] = {"Minions": minionData, "Mounts": mountData};
-            localStorage.setItem("storedData", JSON.stringify(storedData));
-        }
-
-        if (mountData !== null && minionData !== null) {
-
-            setMaxMountPage(Math.ceil(mountData.length / capacity) - 1);
-            setMaxMinionPage(Math.ceil(minionData.length / capacity) - 1);
-            setNumCollected(mountData.length + minionData.length);
-
-            setMountContent(mountContent => {
-                for (let i = 0; i < Math.ceil(mountData.length / capacity); i++) {
-                    mountContent.push(
-                    <div className='collection' key={i}>
-                        {mountData.slice(i * capacity, (i + 1) * capacity).map((mount, index) => {
+    useEffect(() => {
+        if (!loading) {
+            if (data.Mounts !== null) {
+                setMountContent(
+                    <div className='collection'>
+                        {data.Mounts.slice(mountPage * capacity, (mountPage + 1) * capacity).map((mount, index) => {
                             return <Item name={mount.Name} icon={mount.Icon} key={index} />
                         })}
                     </div>
-                    ); 
-                }
-                return mountContent;
-            })
-
-            setMinionContent(minionContent => {
-                for (let i = 0; i < Math.ceil(minionData.length / capacity); i++) {
-                    minionContent.push(
-                    <div className='collection' key={i}>
-                        {minionData.slice(i * capacity, (i + 1) * capacity).map((minion, index) => {
+                )
+            }
+            if (data.Minions !== null) {
+                setMinionContent(
+                    <div className='collection'>
+                        {data.Minions.slice(minionPage * capacity, (minionPage + 1) * capacity).map((minion, index) => {
                             return <Item name={minion.Name} icon={minion.Icon} key={index} />
                         })}
-                    </div>
-                    ); 
-                }
-                return minionContent;   
-            })
-        }
-        setLoading(false);
-    }, []);
+                    </div>                    
+                )
+            }
+        }   
+    }, [data, loading, mountPage, minionPage]);
 
     return (
-        <div className="section">
+        loading ?
+        null :
 
-            <Header name="Collection" />
-
-            <div className='completion-rate'>
-                <h4>{numCollected + " / " + totalCollection}</h4>  
-                <h3>{Math.round(numCollected / totalCollection * 100) + " %"}</h3>                 
-            </div>
-
+        <div className={"section" + (props.display ? '' : ' disabled')}>
+            <Header 
+                name="Collection" 
+                minor={Math.round((data.Mounts.length + data.Minions.length)) + " / " + totalCollection}
+                major={Math.round((data.Mounts.length + data.Minions.length) / totalCollection * 100) + " %"}
+            />
             <div className='collection__content'>
-                {
-                    loading ?
-                    <Loading /> :
-                    <>
-                        <div className='col gap-lg'>
-                            {mountContent[mountPage]}
-                            <Navigator 
-                                update={setMountPage} 
-                                current={mountPage} 
-                                min={0} 
-                                max={maxMountPage} 
-                                style={{margin: 'auto'}}
-                            />
-                        </div>
-                        
-                        <div className='col gap-lg'>
-                            {minionContent[minionPage]}
-                            <Navigator 
-                                update={setMinionPage} 
-                                current={minionPage} 
-                                min={0} 
-                                max={maxMinionPage} 
-                                style={{margin: 'auto'}}
-                            />
-                        </div>
-                    </>
-                }
+                <div className='col gap-lg'>
+                    {mountContent}
+                    <Navigator 
+                        update={setMountPage} 
+                        current={mountPage} 
+                        min={0} 
+                        max={Math.ceil(data.Mounts.length / capacity) - 1} 
+                        style={{margin: 'auto'}}
+                    />
+                </div>
+                <div className='col gap-lg'>
+                    {minionContent}
+                    <Navigator 
+                        update={setMinionPage} 
+                        current={minionPage} 
+                        min={0} 
+                        max={Math.ceil(data.Minions.length / capacity) - 1} 
+                        style={{margin: 'auto'}}
+                    />
+                </div>
             </div>
         </div>
     );

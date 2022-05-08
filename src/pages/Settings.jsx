@@ -1,5 +1,4 @@
 import './Settings.css';
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import Button from '../components/utility/Button';
@@ -7,6 +6,7 @@ import Banner from '../components/Banner';
 import Divider from '../components/utility/Divider';
 import Loading from '../components/utility/Loading';
 import Checkbox from '../components/utility/Checkbox';
+import Return from '../components/utility/Return';
 
 const splashName = [
     'None',
@@ -29,7 +29,6 @@ const Settings = (props) => {
     const [displayDropdown, setDisplayDropdown] = useState(-1);
     const [referenceBanner, setReferenceBanner] = useState(null);
     const [isSearching, setIsSearching] = useState(false);
-    const navigate = useNavigate();
 
     // Mount
     useEffect(() => {
@@ -38,6 +37,11 @@ const Settings = (props) => {
         document.documentElement.style.setProperty('--content-width', '70rem');
         props.setShowSearchbar(false);
         document.title = "XIV Tracker | Settings";
+
+        // Update reference character data.
+        if (props.referenceCharacter !== null) {
+            requestData(props.referenceCharacter.Character.ID);
+        }
 
     }, [])
 
@@ -83,6 +87,7 @@ const Settings = (props) => {
             <div className="settings__form">
                 <h1>Settings</h1>
                 <Divider />
+                <Return />
                 <div className='settings__row'>
 
                     <div className='col gap max-width'>
@@ -154,7 +159,6 @@ const Settings = (props) => {
 
                 </div>       
             </div>
-            <Button content="Save" onClick={() => navigate(-1)} style={{width: "5rem"}} />
         </div>
     );
 }

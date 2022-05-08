@@ -1,33 +1,26 @@
-import { useEffect, useState } from "react";
+import { useFetchData } from "../hooks/useFetchData";
 import Item from "./Item";
+
+/**
+ * @name Achievement
+ * @description The achievement component to be displayed.
+ * @param {*} props 
+ * @returns 
+ */
 const Achievement = (props) => {
-
-    const [description, setDescription] = useState(null);
-    const [type, setType] = useState(null);
-
-    useEffect(() => {
-
-        const fetchData = async () => {
-            await fetch("https://xivapi.com/achievement/" + props.id, {mode: 'cors'})
-                .then(response => response.json())
-                .then(data => {
-                    setDescription(data.Description);
-                    setType(data.AchievementCategory.Name);
-            });
-        }
-
-        fetchData();
-
-    }, [])
+    const {data, loading} = useFetchData("https://xivapi.com/achievement/" + props.id)
     return (
+        loading ?
+        null : 
+
         <li className='achievement'>
             <Item icon={"https://xivapi.com" + props.icon}/>
             <div className='col gap-sm'>
-                <div className='row gap'>
+                <div className='achievement__header'>
                     <h4>{props.name}</h4>
-                    <p>{type}</p>
+                    <p style={{color: 'var(--color-experience)'}}>{data.AchievementCategory.Name}</p>
                 </div>
-                <p>{description}</p>
+                <p>{data.Description}</p>
             </div>
             <h3 style={{marginLeft: 'auto', color: 'var(--color-completed)'}}>{props.points}</h3>
         </li>

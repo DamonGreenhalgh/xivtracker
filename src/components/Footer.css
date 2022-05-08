@@ -1,8 +1,10 @@
 .footer {
+  position: relative;
   width: var(--content-width);
   margin: auto;
   height: 10rem;
   display: flex;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
 }

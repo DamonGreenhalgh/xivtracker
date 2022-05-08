@@ -4,6 +4,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+## [1.2.1] - 2022-04-17
+Moved from **Github Pages** to **AWS Amplify** as pages has problems with single page web applications.
+
+### Added
+
+- Added help page.
+- Added guide links to profession jobs.
+- Added useFetchData custom hook, replaces the useEffect nested async function pattern.
+
+### Changes
+
+- Added media queries for multiple components.
+- Featured events link will now open a new tab.
+- Events will be displayed based on the current date.
+- Quests system refactor. Improved maintainability and reduced overhead.
+
+### Fixed
+- Quests not appearing when reference character data was not updating.
+- Fixed failed search when using the searchbar within a character profile.
+
 ## Released
 
 ## [1.2.0] - 2022-04-16
