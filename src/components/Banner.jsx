@@ -1,4 +1,4 @@
-import './Banner.css';
+import '../styles/Banner.css';
 import { Link } from 'react-router-dom';
 import { ImDiamonds } from 'react-icons/im';
 

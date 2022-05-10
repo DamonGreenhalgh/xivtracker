@@ -14,12 +14,12 @@
 
 @font-face {
   font-family: 'Comfortaa';
-  src: url('fonts/Comfortaa.ttf');
+  src: url('../fonts/Comfortaa.ttf');
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('fonts/Montserrat.ttf');
+  src: url('../fonts/Montserrat.ttf');
 }
 
 body {

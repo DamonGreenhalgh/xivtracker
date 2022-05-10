@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import Divider from './utility/Divider';
+import Divider from './Divider';
 import itemFrame from '../images/item-frame.png';
 import glamourIcon from '../images/glamour.png';
-import './Item.css'
+import '../styles/Item.css'
 
 const mainStatReference = ['DamagePhys', 'DamageMag', 'DefensePhys', 'DefenseMag', 'Block', 'BlockRate', 'DelayMs']
 const statName = ['Physical Damage', 'Magic Damage', 'Defense', 'Magic Defense', 'Block Strength', 'Block Rate', 'Delay']

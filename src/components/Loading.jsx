@@ -1,5 +1,5 @@
-import loadingIcon from '../../images/loading.svg';
-import './Loading.css';
+import loadingIcon from '../images/loading.svg';
+import '../styles/Loading.css';
 
 const Loading = (props) => {
     return(

@@ -1,4 +1,4 @@
-import Divider from './utility/Divider';
+import Divider from './Divider';
 const JobHeader = (props) => {
     return (
         <div className="col gap-xsm" style={{gridArea: props.name}}>

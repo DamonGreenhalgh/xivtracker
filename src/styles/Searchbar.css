@@ -10,7 +10,7 @@
     background-color: var(--c-content-background-opaque);
     outline: 1px solid var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .25rem;
+    border-radius: .5rem;
 }
 
 .searchbar__icon {

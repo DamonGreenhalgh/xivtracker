@@ -1,15 +1,25 @@
-import './Quests.css';
+
+// Hooks
+import { useEffect, useState} from 'react';
+
+// Components
+import Header from '../components/Header';
+import Navigator from '../components/Navigator';
+
+// Data
+import questsJSON from '../data/quests.json';
+
+// Assets
+import { FaCheck } from 'react-icons/fa';
 import meteorIcon from '../images/meteor.png';
 import dungeonIcon from '../images/dungeons.png';
 import trialIcon from '../images/trials.png';
 import raidIcon from '../images/raids.png';
 import highEndIcon from '../images/high-end-duty.png';
 import msqIcon from '../images/meteor.png';
-import { useEffect, useState} from 'react';
-import Header from './Header';
-import { FaCheck } from 'react-icons/fa';
-import Navigator from './utility/Navigator';
-import questsJSON from '../data/quests.json';
+
+// Styles
+import '../styles/Quests.css';
 
 const questIcon = [
     meteorIcon,
@@ -19,6 +29,12 @@ const questIcon = [
     highEndIcon
 ]
 
+/**
+ * @name Quests
+ * @description Container to hold quests.
+ * @param {*} props 
+ * @returns 
+ */
 const Quests = (props) => {
 
     const [panel, setPanel] = useState(0);

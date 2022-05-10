@@ -1,13 +1,19 @@
-import './Featured.css';
+// Hooks
 import { useState, useEffect, useRef } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+// Data
 import featureJSON from '../data/feature.json';
 
+// Assets
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import endwalkerBanner from '../images/featured/endwalker.png';
 import newfoundAdventureBanner from '../images/featured/newfound-adventure.png';
 import littleLadiesDayBanner from '../images/featured/little-ladies-day.png';
 import moogleTreasureTroveBanner from '../images/featured/moogle-treasure-trove.png';
 import hatchingTideBanner from '../images/featured/hatching-tide.png';
+
+// Styles
+import '../styles/Featured.css';
 
 const banner = [
     endwalkerBanner,
@@ -65,8 +71,8 @@ const Featured = () => {
                     bottom: '1rem',
                     left: '1rem'
                 }}>
-                    <p>{events[index].date}</p>
-                    <h2>{events[index].title}</h2>
+                    <p style={{color: '#d9dfe4'}}>{events[index].date}</p>
+                    <h2 style={{color: '#f3f5f7'}}>{events[index].title}</h2>
                 </div>
                 <button 
                     className="arrow arrow--right" 

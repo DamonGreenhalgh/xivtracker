@@ -1,5 +1,5 @@
 import brand from '../images/brand.png';
-import './Navbar.css';
+import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
 import { RiSettings3Line } from 'react-icons/ri';
 import { BiHelpCircle } from 'react-icons/bi';

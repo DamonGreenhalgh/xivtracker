@@ -1,12 +1,19 @@
-import './Settings.css';
+// Hooks
 import { useState, useEffect } from 'react';
+
+// Assets
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
-import Button from '../components/utility/Button';
+
+// Components
+import Button from '../components/Button';
 import Banner from '../components/Banner';
-import Divider from '../components/utility/Divider';
-import Loading from '../components/utility/Loading';
-import Checkbox from '../components/utility/Checkbox';
-import Return from '../components/utility/Return';
+import Divider from '../components/Divider';
+import Loading from '../components/Loading';
+import Checkbox from '../components/Checkbox';
+import Return from '../components/Return';
+
+// Styles
+import '../styles/Settings.css';
 
 const splashName = [
     'None',

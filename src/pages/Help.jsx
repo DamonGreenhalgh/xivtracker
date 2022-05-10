@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Divider from "../components/utility/Divider";
-import Return from "../components/utility/Return";
+import Divider from "../components/Divider";
+import Return from "../components/Return";
 
 const Help = (props) => {
 

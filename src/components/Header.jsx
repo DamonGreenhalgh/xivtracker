@@ -1,5 +1,5 @@
-import Divider from './utility/Divider';
-import './Header.css';
+import Divider from './Divider';
+import '../styles/Header.css';
 const Header = (props) => {
     return (
         <div className="col gap-lg">

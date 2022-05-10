@@ -1,5 +1,8 @@
 
+// Hooks
 import { useEffect, useState } from 'react';
+
+// Components
 import { BrowserRouter, Routes, Route} from 'react-router-dom'; 
 import Home from './pages/Home';
 import Character from './pages/Character';
@@ -7,12 +10,17 @@ import Settings from './pages/Settings';
 import Help from './pages/Help';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Loading from './components/utility/Loading';
+import Loading from './components/Loading';
+
+// Data
 import themesJSON from './data/themes.json';
 import settingsJSON from './data/settings.json';
-import './App.css';
-import './components/utility/utility.css';
 
+// Styles
+import './styles/App.css';
+import './styles/utility.css';
+
+// Assets
 import darkARealmRebornSplash from './images/splash/dark/a-realm-reborn.png';
 import darkHeavenswardSplash from './images/splash/dark/heavensward.png';
 import darkStormbloodSplash from './images/splash/dark/stormblood.png';
@@ -92,7 +100,7 @@ const App = () => {
       "referenceData": referenceCharacter
     }));
 
-  }, [theme, splash, referenceCharacter])
+  }, [theme, splash, referenceCharacter, personalized])
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>

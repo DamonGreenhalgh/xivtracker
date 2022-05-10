@@ -4,6 +4,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
+## [1.2.2] - 2022-05-08
+
+### Added
+
+### Changes
+
+- Changed directory structure.
+
+### Fixed
+
+- Fixed title not changing to **XIV Tracker |** `<Character Name>` when viewing character profile.
+
+
+
 ## Released
 
 ## [1.2.1] - 2022-05-08

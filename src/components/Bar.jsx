@@ -1,4 +1,4 @@
-import './Bar.css';
+import '../styles/Bar.css';
 const Bar = (props) => {
     return (
         <div className="bar">

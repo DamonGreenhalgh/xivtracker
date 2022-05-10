@@ -24,10 +24,6 @@
     height: 100%;
 }
 
-.featured__overlay p {
-    color: #d9dfe4;
-}
-
 .featured__banners {
     z-index: -1;
     display: flex;

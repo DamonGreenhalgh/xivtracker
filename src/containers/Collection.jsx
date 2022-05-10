@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import { useFetchData } from '../hooks/useFetchData';
 
 // Components
-import Item from './Item';
-import Header from './Header';
-import Navigator from './utility/Navigator';
+import Item from '../components/Item';
+import Header from '../components/Header';
+import Navigator from '../components/Navigator';
 
 // Style
-import './Collection.css';
+import '../styles/Collection.css';
 
 /**
  * @name Collection

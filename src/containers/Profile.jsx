@@ -3,19 +3,19 @@ import { useState } from 'react';
 
 // Components
 import Header from '../components/Header';
-import Divider from './utility/Divider';
-import Banner from './Banner';
-import Button from './utility/Button';
-import Bar from './utility/Bar';
-import Item from './Item';
-import JobItem from './JobItem';
+import Divider from '../components/Divider';
+import Banner from '../components/Banner';
+import Button from '../components/Button';
+import Bar from '../components/Bar';
+import Item from '../components/Item';
+import JobItem from '../components/JobItem';
 
 // Assets
 import maleIcon from '../images/male.png';
 import femaleIcon from '../images/female.png';
 
 // Style
-import './Profile.css';
+import '../styles/Profile.css';
 
 /**
  * @name Profile

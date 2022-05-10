@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import Searchbar from '../components/Searchbar';
 import Banner from '../components/Banner';
 import Featured from '../components/Featured';
-import Loading from '../components/utility/Loading';
+import Loading from '../components/Loading';
 import brandIcon from '../images/brand-extended.png';
-import './Home.css';
+import '../styles/Home.css';
 
 const Home = (props) =>  {
     const [results, setResults] = useState(null);

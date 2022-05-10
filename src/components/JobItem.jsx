@@ -1,4 +1,4 @@
-import Bar from './utility/Bar';
+import Bar from './Bar';
 const JobItem = (props) => {
     const link = "https://na.finalfantasyxiv.com/" + (props.isCombat ? "jobguide/" : "crafting_gathering_guide/");
     let nameNoGap = (props.name).replace(/\s/g, '');

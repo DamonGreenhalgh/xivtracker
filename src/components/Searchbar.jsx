@@ -1,10 +1,10 @@
-import './Searchbar.css';
+import '../styles/Searchbar.css';
 import { useState, useEffect  }  from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch, FaServer} from 'react-icons/fa';
 import { BsChevronDown, BsChevronUp, BsPersonFill} from 'react-icons/bs'
 import { MdClose } from 'react-icons/md';
-import Divider from './utility/Divider';
+import Divider from './Divider';
 
 const Searchbar = (props) => {
 

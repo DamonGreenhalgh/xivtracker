@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { useFetchData } from '../hooks/useFetchData';
 
 // Components
-import Achievement from './Achievement';
-import Loading from './utility/Loading';
-import Header from './Header';
-import Navigator from './utility/Navigator';
+import Achievement from '../components/Achievement';
+import Loading from '../components/Loading';
+import Header from '../components/Header';
+import Navigator from '../components/Navigator';
 
 // Style
-import './Achievements.css';
+import '../styles/Achievements.css';
 
 /**
  * @name Achievements
