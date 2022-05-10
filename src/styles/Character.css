@@ -8,9 +8,10 @@
 
 .character__nav {
     display: flex;
-    border: 1px solid var(--c-mid-background);
+    gap: 1rem;
+    /* border: 1px solid var(--c-mid-background);
     border-radius: .5rem;
-    background-color: var(--c-content-background);
+    background-color: var(--c-content-background); */
 }
 
 .section {

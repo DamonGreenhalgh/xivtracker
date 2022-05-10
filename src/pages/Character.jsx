@@ -98,31 +98,26 @@ const Character = (props) => {
             <nav className='character__nav'>
                 <Button 
                     content="Profile" 
-                    type='nav' 
                     onClick={() => setIndex(0)} 
                     condition={index === 0} 
                 />
                 <Button 
                     content="Jobs" 
-                    type='nav' 
                     onClick={() => setIndex(1)} 
                     condition={index === 1} 
                 />
                 <Button 
                     content="Collection" 
-                    type='nav'
                     onClick={() => setIndex(2)} 
                     condition={index === 2} 
                 />
                 <Button 
                     content="Quests" 
-                    type='nav' 
                     onClick={() => setIndex(3)} 
                     condition={index === 3} 
                 />
                 <Button 
                     content="Achievements" 
-                    type='nav' 
                     onClick={() => setIndex(4)} 
                     condition={index === 4} 
                 />

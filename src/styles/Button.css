@@ -4,6 +4,7 @@
     padding: 1rem;
     color: var(--c-minor-text);
     border: 1px solid var(--c-mid-background);
+    background-color: var(--c-content-background);
     border-radius: .25rem;
     width: 100%;
     transition: color .25s;
@@ -11,51 +12,28 @@
 
 .button--active {
     color: white;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
 .button:hover {
     color: white;
-}
-
-.button--nav:hover {
-    color: var(--c-major-text);
-}
-
-.button--active--nav {
-    color: var(--c-major-text);
-}
-
-.button--nav {
-    border-radius: 0;
-    border: none;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
   
 .button__overlay {
     z-index: -1;
     position: absolute;
-    top: 100%;
     width: 100%;
     height: 100%;
+    opacity: 0;
     background-color: var(--c-accent);
-    transition: top .25s;
+    transition: opacity .25s;
 }
 
 .button:hover .button__overlay {
-    top: 0;
+    opacity: 1;
 }
 
 .button__overlay--active {
-    top: 0;
-}
-
-.button__overlay--nav {
-    transition: top .1s;
-}
-
-.button:hover .button__overlay--nav {
-    top: calc(100% - 3px);
-}
-
-.button__overlay--active--nav {
-    top: calc(100% - 3px);
+    opacity: 1;
 }
