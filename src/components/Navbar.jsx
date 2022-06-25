@@ -3,6 +3,7 @@ import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
 import { RiSettings3Line } from 'react-icons/ri';
 import { BiHelpCircle } from 'react-icons/bi';
+import { CgProfile } from 'react-icons/cg';
 import Searchbar from './Searchbar';
 
 const Navbar = (props) => {
@@ -36,7 +37,18 @@ const Navbar = (props) => {
             <Link to="/settings" title="Settings">
                 <button><RiSettings3Line className="navbar__icon" /></button>
             </Link>
-            {profile}
+            {
+                props.referenceCharacter !== null ?
+                <Link to={"/" + props.referenceCharacter.Character.ID}>
+                    <img 
+                        src={props.referenceCharacter.Character.Avatar} 
+                        className="navbar__profile-icon rounded interactable" 
+                        title={props.referenceCharacter.Character.Name}
+                    />
+                </Link> :
+                <CgProfile className="navbar__icon" /> 
+            }
+            {/* {profile} */}
         </nav>
     );
 }
