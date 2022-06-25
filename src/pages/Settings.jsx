@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 // Assets
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import idHelp from '../images/id-help.png';
 
 // Components
 import Button from '../components/Button';
@@ -57,7 +58,7 @@ const Settings = (props) => {
         await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
-                if (data !== undefined) {
+                if (!data.Error) {
                     
                     // Update reference character.
                     props.setReferenceCharacter(data);
@@ -66,7 +67,7 @@ const Settings = (props) => {
                     setReferenceBanner(() => 
                         <Banner 
                             type='reference'
-                            avatar={<img src={data.Character.Avatar} className='rounded' />}
+                            avatar={<img src={data.Character.Avatar} className='rounded' alt="character avatar" />}
                             name={data.Character.Name}
                             title={data.Character.Title.Name}
                             misc={data.Character.Server}
@@ -103,12 +104,12 @@ const Settings = (props) => {
                         <p>Sets the visual theme of <b>XIV Tracker</b></p>
                         <div 
                             className="select"
-                            onClick={() => setDisplayDropdown(displayDropdown == 0 ? -1 : 0)}
+                            onClick={() => setDisplayDropdown(displayDropdown === 0 ? -1 : 0)}
                         >
                             {props.theme}
-                            {displayDropdown == 0 ? <BsChevronUp /> : <BsChevronDown />}
+                            {displayDropdown === 0 ? <BsChevronUp /> : <BsChevronDown />}
                             <div 
-                                className={displayDropdown == 0 ? "options" : "disabled"} 
+                                className={displayDropdown === 0 ? "options" : "disabled"} 
                                 onClick={(e) => props.setTheme(e.target.innerText)}
                             >
                                 <div>light</div>
@@ -122,13 +123,13 @@ const Settings = (props) => {
                             onClick={() => 
                                 props.personalized
                                 ? null
-                                : setDisplayDropdown(displayDropdown == 1 ? -1 : 1)
+                                : setDisplayDropdown(displayDropdown === 1 ? -1 : 1)
                             }
                         >
                             {splashName[props.splash]}
-                            {displayDropdown == 1 ? <BsChevronUp /> : <BsChevronDown />}
+                            {displayDropdown === 1 ? <BsChevronUp /> : <BsChevronDown />}
                             <div 
-                                className={displayDropdown == 1 ? "options" : "disabled"}
+                                className={displayDropdown === 1 ? "options" : "disabled"}
                                 onClick={(e) => 
                                     props.personalized
                                     ? null
@@ -152,7 +153,13 @@ const Settings = (props) => {
                     <div className='col gap max-width'>
                         <h2>Experience</h2>
                         <h3>Reference</h3>
-                        <p>Select a character to reference. XIV Tracker uses this character's data to improve the user experience.</p>
+                        <p>
+                            Select a character to reference. <b>XIV Tracker</b> uses this 
+                            character data to improve the user experience. The Lodestone 
+                            ID can be found by taking the digits after <i>xivtracker.gg/... </i> 
+                            for example, the id for the below character would be <b>38592216</b>.
+                        </p>
+                        <img src={idHelp} alt="lodestone id location help image" className="settings__id-help" />
                         {
                             isSearching ?
                             <Loading /> :
@@ -166,7 +173,7 @@ const Settings = (props) => {
                         {
                             referenceBanner !== null ?
                             <Button 
-                                content={"Forget"}
+                                content={"Forget Reference"}
                                 onClick={() => props.setReferenceCharacter(null)}
                             /> :
                             null
