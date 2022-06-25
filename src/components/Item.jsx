@@ -85,12 +85,14 @@ const Item = (props) => {
                     <h5>Bonuses</h5>
                     <div className='tooltip__stats'>
                         {
+                            itemData.Stats !== undefined ?
                             Object.keys(itemData.Stats).map(stat => 
                                 <div className='row justify-between gap' key={itemData.Stats[stat].ID}>
                                     <p>{stat}</p>
                                     <h5>{itemData.Stats[stat].NQ}</h5>
                                 </div>
-                            )
+                            ) :
+                            null
                         }
                     </div>
                 </>

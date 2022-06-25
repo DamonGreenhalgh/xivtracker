@@ -25,11 +25,6 @@
     gap: 2rem;
 }
 
-.settings__id-help {
-    width: 100%;
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
-}
-
 .settings__reference-close {
     position: absolute;
     right: -3rem;

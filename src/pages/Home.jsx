@@ -66,8 +66,8 @@ const Home = (props) =>  {
                 <Loading /> :
                 <Searchbar search={searchCharacter} />
             }
-            <div className="col max-width gap">{results}</div>
             <Featured />
+            <div className="col max-width gap">{results}</div>
         </div>
     );
 }

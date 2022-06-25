@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 // Assets
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import { IoClose } from 'react-icons/io5';
-import idHelp from '../images/id-help.png';
 
 // Components
 import Button from '../components/Button';
@@ -38,6 +37,7 @@ const Settings = (props) => {
     const [displayDropdown, setDisplayDropdown] = useState(-1);
     const [referenceBanner, setReferenceBanner] = useState(null);
     const [isSearching, setIsSearching] = useState(false);
+    const [error, setError] = useState("");
 
     // Mount
     useEffect(() => {
@@ -88,6 +88,10 @@ const Settings = (props) => {
                         }
                         props.setSplash(breakpoint + 1)
                     }
+
+                    setError("");
+                } else {
+                    setError('No character associated with Lodestone ID: "' + id + '"');
                 }
             })
         setIsSearching(false);
@@ -157,12 +161,11 @@ const Settings = (props) => {
                         <h2>Experience</h2>
                         <h3>Reference</h3>
                         <p>
-                            Select a character to reference. <b>XIV Tracker</b> uses this 
-                            character data to improve the user experience. The Lodestone 
-                            ID can be found by taking the digits after <i>xivtracker.gg/... </i> 
-                            for example, the id for the below character would be <b>38592216</b>.
+                            Allocating a reference character will show/hide content based on the story 
+                            progress of the character. This will prevent accidental spoilers when viewing 
+                            other characters who are further along the story. <b>XIV Tracker</b> requires 
+                            the Lodestone ID of the character to reference.
                         </p>
-                        <img src={idHelp} alt="lodestone id location help image" className="settings__id-help" />
                         {
                             props.referenceCharacter !== null ?
                             <div className="relative">
@@ -182,7 +185,8 @@ const Settings = (props) => {
                                 <input style={{flex: '3'}} type='text' placeholder="Lodestone ID e.g. 38592216" />
                                 <Button style={{flex: '1'}} onClick={(e) => requestData((e.target.parentNode.firstChild.value))} content="Search"/>
                             </div>
-                        }             
+                        }      
+                        <p style={{color: "red"}}>{error}</p>       
                     </div>
                 </div>       
             </div>

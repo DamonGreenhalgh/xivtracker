@@ -69,7 +69,7 @@ const Searchbar = (props) => {
             <div className={"recent recent--" + props.type + (displayDropdown ? " recent--active" : "")}>
                 <div className="recent__tab">
                     <h4>Servers</h4>
-                    <MdClose className="interactable" onClick={() => setDisplayDropdown(false)}/>
+                    <MdClose size="1.5em" className="interactable" onClick={() => setDisplayDropdown(false)}/>
                 </div>
                 <Divider />
                 <div className='recent__servers' onClick={(e) => setServer(e.target.innerText)}>
@@ -152,7 +152,7 @@ const Searchbar = (props) => {
             <div className={"recent recent--" + props.type + (displayRecent ? " recent--active" : "")} onClick={() => setDisplayRecent(false)}>
                 <div className="recent__tab">
                     <h4>Recently Viewed</h4>
-                    <MdClose className="interactable" onClick={() => setDisplayRecent(false)}/>
+                    <MdClose size="1.5em" className="interactable" onClick={() => setDisplayRecent(false)}/>
                 </div>
                 <Divider />
                 <div className="recent__collection">
