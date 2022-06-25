@@ -8,7 +8,6 @@ const Button = (props) => {
             style={props.style}
         >
             {props.content}
-            <div className={"button__overlay button__overlay--" + props.type + (props.condition ? " button__overlay--active button__overlay--active--" + props.type : "")} />
         </button>
     );
 }

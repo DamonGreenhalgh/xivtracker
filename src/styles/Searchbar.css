@@ -54,13 +54,13 @@
 .recent__profile {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 1rem;
     padding: .5rem;
     border-radius: .25rem;
 }
 
 .recent__profile:hover {
-    background-color: var(--c-accent);
+    background-color: var(--c-mid-background);
     color: white;
 }
 
@@ -82,7 +82,7 @@
 
 .recent__servers div:hover {
     cursor: pointer;
-    background-color: var(--c-accent);
+    background-color: var(--c-mid-background);
     color: white;
 }
 

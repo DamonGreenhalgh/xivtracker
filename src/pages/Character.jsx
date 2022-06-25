@@ -100,26 +100,31 @@ const Character = (props) => {
                     content="Profile" 
                     onClick={() => setIndex(0)} 
                     condition={index === 0} 
+                    type="nav"
                 />
                 <Button 
                     content="Jobs" 
                     onClick={() => setIndex(1)} 
                     condition={index === 1} 
+                    type="nav"
                 />
                 <Button 
                     content="Collection" 
                     onClick={() => setIndex(2)} 
                     condition={index === 2} 
+                    type="nav"
                 />
                 <Button 
                     content="Quests" 
                     onClick={() => setIndex(3)} 
                     condition={index === 3} 
+                    type="nav"
                 />
                 <Button 
                     content="Achievements" 
                     onClick={() => setIndex(4)} 
                     condition={index === 4} 
+                    type="nav"
                 />
             </nav>
             <Profile 

@@ -8,10 +8,12 @@
 
 .character__nav {
     display: flex;
-    gap: 1rem;
-    /* border: 1px solid var(--c-mid-background);
-    border-radius: .5rem;
-    background-color: var(--c-content-background); */
+    overflow: hidden;
+    padding: .5rem;
+    gap: .5rem;
+    border: 1px solid var(--c-mid-background);
+    border-radius: .25rem;
+    background-color: var(--c-content-background);
 }
 
 .section {

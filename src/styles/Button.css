@@ -1,39 +1,23 @@
 .button {
     overflow: hidden;
     position: relative;
-    padding: 1rem;
-    color: var(--c-minor-text);
-    border: 1px solid var(--c-mid-background);
-    background-color: var(--c-content-background);
     border-radius: .25rem;
+    padding: 1rem;
+    border: 1px solid var(--c-mid-background);
+    color: var(--c-minor-text);
     width: 100%;
-    transition: color .25s;
 }
 
 .button--active {
     color: white;
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    background-color: var(--c-mid-background) !important;
 }
 
 .button:hover {
     color: white;
-    box-shadow: 0 .5rem 1rem var(--c-shadow);
-}
-  
-.button__overlay {
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background-color: var(--c-accent);
-    transition: opacity .25s;
+    background-color: var(--c-mid-background);
 }
 
-.button:hover .button__overlay {
-    opacity: 1;
-}
-
-.button__overlay--active {
-    opacity: 1;
+.button--nav {
+    border: none;
 }

@@ -74,7 +74,6 @@ button {
   background-color: transparent;
   padding: 0;
   color: var(--c-minor-text);
-  transition: color .25s, box-shadow .25s;
 }
 
 button:hover {
