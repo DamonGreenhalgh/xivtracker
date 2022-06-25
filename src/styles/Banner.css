@@ -10,12 +10,7 @@
 
 .search {
     border: 1px solid var(--c-mid-background);
-}
-
-.search:hover {
-    color: var(--c-accent);
-    background-color: var(--c--accent-transparent);
-    outline: 1px solid var(--c-accent);
+    background-color: var(--c-content-background);
 }
 
 .free-company {
