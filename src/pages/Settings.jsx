@@ -161,7 +161,17 @@ const Settings = (props) => {
                                 <Button style={{flex: '1'}} onClick={(e) => requestData((e.target.parentNode.firstChild.value))} content="Search"/>
                             </div>
                         }
-                        {referenceBanner}                        
+                        {referenceBanner}     
+
+                        {
+                            referenceBanner !== null ?
+                            <Button 
+                                content={"Forget"}
+                                onClick={() => props.setReferenceCharacter(null)}
+                            /> :
+                            null
+                        }
+                                          
                     </div>
 
                 </div>       

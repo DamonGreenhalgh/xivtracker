@@ -3,9 +3,10 @@
     position: relative;
     border-radius: .25rem;
     padding: 1rem;
-    border: 1px solid var(--c-mid-background);
+    /* background-color: var(--c-content-background); */
     color: var(--c-minor-text);
     width: 100%;
+    transition: background-color .25s, color .25s, outline .25s;
 }
 
 .button--active {
