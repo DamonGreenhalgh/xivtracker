@@ -103,8 +103,9 @@ input:focus {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--c-accent);
-  color: white;
+  background-color: var(--c-content-background-opaque);
+  outline: 1px solid var(--c-mid-background);
+  color: var(--c-minor-text);
   border-radius: .25rem;
 }
 
@@ -131,7 +132,7 @@ input:focus {
   background-color: var(--c-content-background-opaque);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
   border: 1px solid var(--c-mid-background);
-  border-radius: .5rem;
+  border-radius: .25rem;
   color: var(--c-minor-text);
   transition: height .25s ease-in-out;
 }
@@ -142,7 +143,7 @@ input:focus {
 
 .options div:hover {
   cursor: pointer;
-  background-color: var(--c--accent-transparent);
+  background-color: var(--c-mid-background);
   color: var(--c-mid-text);
 }
 
@@ -173,7 +174,7 @@ input:focus {
 }
 
 .arrow {
-  color: white;
+  color: var(--c-major-text);
   padding: 1rem;
   height: 100%;
 }

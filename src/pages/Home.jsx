@@ -24,16 +24,16 @@ const Home = (props) =>  {
             .then(response => response.json())
             .then(data => {
                 // Create character banners for each valid returned character.
-                setResults([data.Results.map(result => (
+                setResults(data.Results.map(result => (
                     <Banner 
                     type='search'
                     name={result.Name}
-                    misc={result.Server}
+                    title={result.Server}
                     avatar={<img src={result.Avatar} className='rounded' />}
                     link={"/" + result.ID}
                     key={result.ID}
                     />
-                ))])
+                )))
             });
             setIsLoading(false);
     }
@@ -66,7 +66,7 @@ const Home = (props) =>  {
                 <Loading /> :
                 <Searchbar search={searchCharacter} />
             }
-            {results}
+            <div className="col max-width gap">{results}</div>
             <Featured />
         </div>
     );

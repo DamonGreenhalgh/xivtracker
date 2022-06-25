@@ -10,7 +10,7 @@
     background-color: var(--c-content-background-opaque);
     outline: 1px solid var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .5rem;
+    border-radius: .25rem;
 }
 
 .searchbar__icon {
@@ -27,7 +27,7 @@
     width: 100%;
     background-color: var(--c-content-background-opaque);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .5rem;
+    border-radius: .25rem;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@
 
 .recent__profile:hover {
     background-color: var(--c-mid-background);
-    color: white;
+    color: var(--c-major-text);
 }
 
 .recent__avatar {
@@ -83,7 +83,7 @@
 .recent__servers div:hover {
     cursor: pointer;
     background-color: var(--c-mid-background);
-    color: white;
+    color: var(--c-major-text);
 }
 
 @media only screen and (max-width: 500px) {

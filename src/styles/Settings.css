@@ -27,8 +27,13 @@
 
 .settings__id-help {
     width: 100%;
-    border-radius: .25rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
+}
+
+.settings__reference-close {
+    position: absolute;
+    right: -3rem;
+    top: 1rem;
 }
 
 @media only screen and (max-width: 1150px) {

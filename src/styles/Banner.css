@@ -5,12 +5,22 @@
     width: 100%;
     padding: 2rem;
     gap: 1rem;
-    border-radius: .5rem;
+    border-radius: .25rem;
 }
 
 .search {
+    border-radius: .5rem;
+    font-size: .8rem;
+    padding: .5rem 1rem;
+    height: 6rem;
     border: 1px solid var(--c-mid-background);
-    background-color: var(--c-content-background);
+    background-color: var(--c-content-background-opaque);
+    transition: background-color .25s, transform .25s;
+}
+
+.search:hover {
+    background-color: var(--c-mid-background);
+    transform: translate(0, -5px);
 }
 
 .free-company {
@@ -20,17 +30,16 @@
 }
 
 .free-company h2 {
-    color: white;
+    color: var(--c-major-text);
 }
 
 .reference {
     border-radius: .25rem;
     font-size: .8rem;
-    padding: .5rem;
+    padding: .5rem 1rem;
     height: 4rem;
-    color: var(--c-accent);
-    background-color: var(--c--accent-transparent);
-    outline: 1px solid var(--c-accent);
+    border: 1px solid var(--c-mid-background);
+    background-color: var(--c-content-background-opaque);
 }
 
 .misc {

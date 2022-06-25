@@ -45,7 +45,11 @@ const Searchbar = (props) => {
             onSubmit={callbackMethod} 
             autoComplete="off"
         >
-            <div className="select" onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
+            <div 
+                className="select" 
+                style={{outline: "none"}}
+                onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}
+            >
                 <FaServer />
                 {server}
                 {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}

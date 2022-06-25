@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 // Assets
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import { IoClose } from 'react-icons/io5';
 import idHelp from '../images/id-help.png';
 
 // Components
@@ -52,6 +53,8 @@ const Settings = (props) => {
         }
 
     }, [])
+
+
 
     const requestData = async(id) => {
         setIsSearching(true);
@@ -161,26 +164,26 @@ const Settings = (props) => {
                         </p>
                         <img src={idHelp} alt="lodestone id location help image" className="settings__id-help" />
                         {
+                            props.referenceCharacter !== null ?
+                            <div className="relative">
+                                {referenceBanner}     
+                                <button 
+                                    onClick={() => {props.setReferenceCharacter(null); setReferenceBanner(null)}} 
+                                    className="settings__reference-close">
+                                    <IoClose size="2em" />
+                                </button>
+                            </div> :
+                            null
+                        }
+                        {
                             isSearching ?
                             <Loading /> :
                             <div className='row'>
                                 <input style={{flex: '3'}} type='text' placeholder="Lodestone ID e.g. 38592216" />
                                 <Button style={{flex: '1'}} onClick={(e) => requestData((e.target.parentNode.firstChild.value))} content="Search"/>
                             </div>
-                        }
-                        {referenceBanner}     
-
-                        {
-                            referenceBanner !== null ?
-                            <Button 
-                                content={"Forget Reference"}
-                                onClick={() => props.setReferenceCharacter(null)}
-                            /> :
-                            null
-                        }
-                                          
+                        }             
                     </div>
-
                 </div>       
             </div>
         </div>

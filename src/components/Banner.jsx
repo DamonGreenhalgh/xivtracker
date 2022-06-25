@@ -11,7 +11,7 @@ const Banner = (props) => {
             <h3>{props.title}</h3>
             <p>{props.content}</p>
         </div>
-        <div className='misc' style={{color: 'var(--color-completed)', marginLeft: 'auto'}}>
+        <div className={"misc" + (props.misc === undefined ? " disabled" : "")} style={{color: 'var(--color-completed)', marginLeft: 'auto'}}>
             <p>{props.misc}</p>
             <ImDiamonds style={{minHeight: '1rem', minWidth: '1rem'}}/>
         </div>
