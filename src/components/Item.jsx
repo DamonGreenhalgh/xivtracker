@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import Divider from './utility/Divider';
+import Divider from './Divider';
 import itemFrame from '../images/item-frame.png';
 import glamourIcon from '../images/glamour.png';
-import './Item.css'
+import '../styles/Item.css'
 
 const mainStatReference = ['DamagePhys', 'DamageMag', 'DefensePhys', 'DefenseMag', 'Block', 'BlockRate', 'DelayMs']
 const statName = ['Physical Damage', 'Magic Damage', 'Defense', 'Magic Defense', 'Block Strength', 'Block Rate', 'Delay']
@@ -85,12 +85,14 @@ const Item = (props) => {
                     <h5>Bonuses</h5>
                     <div className='tooltip__stats'>
                         {
+                            itemData.Stats !== undefined ?
                             Object.keys(itemData.Stats).map(stat => 
                                 <div className='row justify-between gap' key={itemData.Stats[stat].ID}>
                                     <p>{stat}</p>
                                     <h5>{itemData.Stats[stat].NQ}</h5>
                                 </div>
-                            )
+                            ) :
+                            null
                         }
                     </div>
                 </>
@@ -101,13 +103,13 @@ const Item = (props) => {
     return (
         <div className="item interactable" style={{gridArea: props.type}}>
             <img src={glamourIcon} className={isGlamour ? "glamour-icon absolute"  : "disabled"} alt="Glamour Indicator"/>
-            <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
+            <img src={props.icon} className="item__icon absolute" alt={props.name}/>
             <img src={itemFrame} className="item__icon absolute" alt=''/>
   
             <div className="tooltip">
                 <div className='tooltip__header'>
                     <div style={{gridArea: 'icon'}}>
-                        <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
+                        <img src={props.icon} className="item__icon absolute" alt={props.name}/>
                         <img src={itemFrame} className="item__icon absolute" alt=''/>
                     </div>
                     <h4 style={{gridArea: 'name', color: 'var(--c-major-text)'}}>{props.name}</h4>

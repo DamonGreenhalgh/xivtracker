@@ -25,6 +25,12 @@
     gap: 2rem;
 }
 
+.settings__reference-close {
+    position: absolute;
+    right: -3rem;
+    top: 1rem;
+}
+
 @media only screen and (max-width: 1150px) {
 
     .settings {

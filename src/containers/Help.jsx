@@ -1,14 +1,16 @@
 import { useEffect } from "react";
-import Divider from "../components/utility/Divider";
-import Return from "../components/utility/Return";
+import Divider from "../components/Divider";
+import Return from "../components/Return";
+import idHelp from '../images/id-help.png';
 
 const Help = (props) => {
+    const { setShowSearchbar } = props;
 
     useEffect(() => {
         document.documentElement.style.setProperty('--content-width', '70rem');
-        props.setShowSearchbar(false);
+        setShowSearchbar(false);
         document.title = "XIV Tracker | Help";
-    }, [])
+    }, [setShowSearchbar])
 
     return(
         <div className="settings">
@@ -43,6 +45,16 @@ const Help = (props) => {
                         so XIV Tracker will not display updates to a character from the past 
                         12 hours.
                     </p>
+                    <h2>"How do I assign a reference character?"</h2>
+                    <p>
+                        The Lodestone ID can be found by taking the digits after <i>xivtracker.gg/... </i> 
+                        for example, the id for the below character would be <b>38592216</b>.
+                    </p>
+                    <img 
+                        src={idHelp} 
+                        style={{width: "100%", boxShadow: "0 .5rem 1rem var(--c-shadow)"}} 
+                        alt="lodestone id location help" 
+                    />
                 </div>
             </div>
         </div>

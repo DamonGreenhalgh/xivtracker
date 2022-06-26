@@ -1,0 +1,24 @@
+.button {
+    overflow: hidden;
+    position: relative;
+    border-radius: .25rem;
+    padding: 1rem;
+    color: var(--c-minor-text);
+    outline: 1px solid var(--c-mid-background);
+    width: 100%;
+    transition: background-color .25s, color .25s, outline .25s;
+}
+
+.button--active {
+    color: var(--c-major-text);
+    background-color: var(--c-mid-background) !important;
+}
+
+.button:hover {
+    color: var(--c-major-text);
+    background-color: var(--c-mid-background);
+}
+
+.button--nav {
+    outline: none;
+}

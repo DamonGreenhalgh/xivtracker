@@ -3,7 +3,7 @@
     width: 30rem;
     height: 15rem;
     overflow: hidden;
-    border-radius: .5rem;
+    border-radius: .25rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
@@ -22,10 +22,6 @@
 .featured__overlay a {
     width: 100%;
     height: 100%;
-}
-
-.featured__overlay p {
-    color: #d9dfe4;
 }
 
 .featured__banners {

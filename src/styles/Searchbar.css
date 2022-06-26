@@ -6,6 +6,11 @@
     gap: 1rem;
     width: 30rem;
     padding-right: 1rem;
+
+    background-color: var(--c-content-background-opaque);
+    outline: 1px solid var(--c-mid-background);
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    border-radius: .25rem;
 }
 
 .searchbar__icon {
@@ -22,7 +27,7 @@
     width: 100%;
     background-color: var(--c-content-background-opaque);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .5rem;
+    border-radius: .25rem;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
@@ -49,14 +54,14 @@
 .recent__profile {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 1rem;
     padding: .5rem;
     border-radius: .25rem;
 }
 
 .recent__profile:hover {
-    background-color: var(--c-accent);
-    color: white;
+    background-color: var(--c-mid-background);
+    color: var(--c-major-text);
 }
 
 .recent__avatar {
@@ -77,8 +82,8 @@
 
 .recent__servers div:hover {
     cursor: pointer;
-    background-color: var(--c-accent);
-    color: white;
+    background-color: var(--c-mid-background);
+    color: var(--c-major-text);
 }
 
 @media only screen and (max-width: 500px) {
@@ -96,10 +101,6 @@
         position: fixed;
         bottom: 1rem;
         left: 1rem;
-        background-color: var(--c-content-background-opaque);
-        border: 1px solid var(--c-mid-background);
-        box-shadow: 0 .5rem 1rem var(--c-shadow);
-        border-radius: .5rem;
     }
 
     .recent--character {

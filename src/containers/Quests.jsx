@@ -1,15 +1,25 @@
-import './Quests.css';
+
+// Hooks
+import { useEffect, useState} from 'react';
+
+// Components
+import Header from '../components/Header';
+import Navigator from '../components/Navigator';
+
+// Data
+import questsJSON from '../data/quests.json';
+
+// Assets
+import { FaCheck } from 'react-icons/fa';
 import meteorIcon from '../images/meteor.png';
 import dungeonIcon from '../images/dungeons.png';
 import trialIcon from '../images/trials.png';
 import raidIcon from '../images/raids.png';
 import highEndIcon from '../images/high-end-duty.png';
 import msqIcon from '../images/meteor.png';
-import { useEffect, useState} from 'react';
-import Header from './Header';
-import { FaCheck } from 'react-icons/fa';
-import Navigator from './utility/Navigator';
-import questsJSON from '../data/quests.json';
+
+// Styles
+import '../styles/Quests.css';
 
 const questIcon = [
     meteorIcon,
@@ -19,8 +29,19 @@ const questIcon = [
     highEndIcon
 ]
 
+/**
+ * @name Quests
+ * @description Container to hold quests.
+ * @param {*} props 
+ * @returns 
+ */
 const Quests = (props) => {
 
+    const {
+        display,
+        id,
+        referenceCharacter
+    } = props;
     const [panel, setPanel] = useState(0);
     const [content, setContent] = useState([]);
     const [completion, setCompletion] = useState([0, 0]);
@@ -29,7 +50,7 @@ const Quests = (props) => {
     useEffect(async () => {
 
         let achievementData;
-        await fetch("https://xivapi.com/character/" + props.id + "?data=AC", {mode: 'cors'})
+        await fetch("https://xivapi.com/character/" + id + "?data=AC", {mode: 'cors'})
             .then(response => response.json())
             .then(data => achievementData = data.Achievements.List);
         
@@ -41,9 +62,9 @@ const Quests = (props) => {
 
         // Collect up all reference character achivement ids
         const refAchievementIds = []
-        if (props.referenceCharacter !== null) {
-            for (let i = 0; i < props.referenceCharacter.Achievements.List.length; i++) {
-                refAchievementIds.push(props.referenceCharacter.Achievements.List[i].ID)
+        if (referenceCharacter !== null) {
+            for (let i = 0; i < referenceCharacter.Achievements.List.length; i++) {
+                refAchievementIds.push(referenceCharacter.Achievements.List[i].ID)
             }
         }
         
@@ -108,7 +129,7 @@ const Quests = (props) => {
     }, []);
 
     return (
-        <div className={'section' + (props.display ? '' : ' disabled')}>
+        <div className={'section' + (display ? '' : ' disabled')}>
 
             <Header 
                 name="Quests" 

@@ -1,13 +1,12 @@
-import './Searchbar.css';
+import '../styles/Searchbar.css';
 import { useState, useEffect  }  from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch, FaServer} from 'react-icons/fa';
 import { BsChevronDown, BsChevronUp, BsPersonFill} from 'react-icons/bs'
 import { MdClose } from 'react-icons/md';
-import Divider from './utility/Divider';
+import Divider from './Divider';
 
 const Searchbar = (props) => {
-
     const [displayRecent, setDisplayRecent] = useState(false);
     const [name, setName] = useState("");
     const [server, setServer] = useState("Server");
@@ -27,8 +26,8 @@ const Searchbar = (props) => {
                 return(
                     <Link to={"/" + char.id} key={char.id}>
                         <div className="recent__profile interactable">
-                            <img src={char.avatar} className="rounded recent__avatar" alt="Avatar" />
-                            <div>
+                            <img src={char.avatar} className="rounded recent__avatar" alt="character avatar" />
+                            <div className="col gap-xsm">
                                 <p><b>{char.name}</b></p>
                                 <p style={{fontSize: ".6rem"}}>{char.server}</p>
                             </div>
@@ -45,7 +44,11 @@ const Searchbar = (props) => {
             onSubmit={callbackMethod} 
             autoComplete="off"
         >
-            <div className="select" onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}>
+            <div 
+                className="select" 
+                style={{outline: "none"}}
+                onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}
+            >
                 <FaServer />
                 {server}
                 {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}
@@ -65,7 +68,7 @@ const Searchbar = (props) => {
             <div className={"recent recent--" + props.type + (displayDropdown ? " recent--active" : "")}>
                 <div className="recent__tab">
                     <h4>Servers</h4>
-                    <MdClose className="interactable" onClick={() => setDisplayDropdown(false)}/>
+                    <MdClose size="1.5em" className="interactable" onClick={() => setDisplayDropdown(false)}/>
                 </div>
                 <Divider />
                 <div className='recent__servers' onClick={(e) => setServer(e.target.innerText)}>
@@ -148,7 +151,7 @@ const Searchbar = (props) => {
             <div className={"recent recent--" + props.type + (displayRecent ? " recent--active" : "")} onClick={() => setDisplayRecent(false)}>
                 <div className="recent__tab">
                     <h4>Recently Viewed</h4>
-                    <MdClose className="interactable" onClick={() => setDisplayRecent(false)}/>
+                    <MdClose size="1.5em" className="interactable" onClick={() => setDisplayRecent(false)}/>
                 </div>
                 <Divider />
                 <div className="recent__collection">

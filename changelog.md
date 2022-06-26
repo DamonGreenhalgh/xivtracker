@@ -4,30 +4,54 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-## [1.2.1] - 2022-04-17
-Moved from **Github Pages** to **AWS Amplify** as pages has problems with single page web applications.
+## Released
 
-### Added
+## [1.2.2] - 2022-05-08
+This update focuses on polishing up existing features and fixing bugs.
 
-- Added help page.
-- Added guide links to profession jobs.
-- Added useFetchData custom hook, replaces the useEffect nested async function pattern.
+### Added 
+
+- Added help section for finding the **Lodestone ID** of a character.
+- Added the ability to remove the current reference character.
+- Added default profile icon when no reference character has been allocated.
 
 ### Changes
 
-- Added media queries for multiple components.
-- Featured events link will now open a new tab.
-- Events will be displayed based on the current date.
+- Changed directory structure.
+- Changed multiple component styles.
+- Changed the description of the reference character system for improved clarity.
+- Updated most components to use prop destructuring for better readability.
+- Updated `alt` text of `img` tags to be more descriptive.
+- Updated light theme.
+
+### Fixed
+
+- Fixed title not changing to **XIV Tracker |** `<Character Name>` when viewing character profile.
+- Fixed *Newfound Adventure* quest component displaying incorrect tooltip.
+- Fixed app crashing when viewing a character with unknown collection status.
+
+## [1.2.1] - 2022-05-08
+Moved from **Github Pages** to **AWS Amplify** as pages has problems with single page web applications. Maintainability update.
+
+### Added
+
+- Added **Help** page.
+- Added links to profession jobs.
+- Added `useFetchData` custom hook, replaces the `useEffect` nested async function pattern.
+- Added media queries for multiple components to improve responsiveness.
+
+### Changes
+
+- Changed most links to now open in a new tab.
+- Only valid events are displayed given the date.
 - Quests system refactor. Improved maintainability and reduced overhead.
 
 ### Fixed
-- Quests not appearing when reference character data was not updating.
-- Fixed failed search when using the searchbar within a character profile.
-
-## Released
+- Fixed quests not appearing when reference character data was not updating.
+- Fixed **404 error** when using the search-bar from a character page.
+- Fixed ***open in new tab*** resulting in a **404 error**.
 
 ## [1.2.0] - 2022-04-16
-
 This release contains various new features and support for **Final Fantasy XIV** patch **6.1** '*Newfound Adventure*'.
 
 ### Added

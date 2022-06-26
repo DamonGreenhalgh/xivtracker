@@ -1,10 +1,14 @@
-import Divider from './utility/Divider';
+import Divider from './Divider';
 const JobHeader = (props) => {
+    const {
+        name,
+        icon
+    } = props;
     return (
-        <div className="col gap-xsm" style={{gridArea: props.name}}>
+        <div className="col gap-xsm" style={{gridArea: name}}>
             <div className="row align-center gap-sm">
-                <img src={props.icon} />
-                <h4>{props.name}</h4>
+                <img src={icon} alt="" />
+                <h4>{name}</h4>
             </div>
             <Divider />
         </div>

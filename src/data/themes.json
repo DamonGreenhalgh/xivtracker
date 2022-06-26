@@ -3,17 +3,15 @@
         "name": "Light",
         "id": 0,
         "colors": {
-            "--c-background": "#e6e6e6",
-            "--c-content-background": "rgb(243, 242, 242, 0.5)",
-            "--c-content-background-opaque": "#ede8e7",
-            "--c-mid-background": "#d0d2d4",
-            "--c-notice-background": "#2c2e35",
-            "--c-minor-text": "#738094",
-            "--c-mid-text": "#526074",
-            "--c-major-text": "#3d4250",
+            "--c-background": "#ffffff",
+            "--c-content-background": "rgba(245, 244, 244, 0.815)",
+            "--c-content-background-opaque": "#f3f2f2",
+            "--c-mid-background": "#d1dae7",
+            "--c-minor-text": "#8c97a8",
+            "--c-mid-text": "#7389a5",
+            "--c-major-text": "#4a577e",
             "--c-accent": "#585bd5",
-            "--c-shadow": "rgba(0, 0, 0, 0.05)",
-            "--c-showcase-background": "#1b1c22"
+            "--c-shadow": "rgba(18, 18, 32, 0.1)"
         }
     },
     "dark": {
@@ -24,13 +22,11 @@
             "--c-content-background": "rgba(29, 29, 32, .75)",
             "--c-content-background-opaque": "#1d1d20",
             "--c-mid-background": "#2e2e33",
-            "--c-notice-background": "#ecf1f3",
             "--c-minor-text": "#85888d",
             "--c-mid-text": "#b9c2c4",
             "--c-major-text": "#ecf1f3",
             "--c-accent": "#585bd5",
-            "--c-shadow": "rgba(0, 0, 0, .25)",
-            "--c-showcase-background": "#151618"
+            "--c-shadow": "rgba(0, 0, 0, .25)"
         }
     }
 }

@@ -1,25 +1,19 @@
-* {
-  --c--accent-transparent: #585ad511;
+* {  
   --color-experience: #cfb671;
-  --color-max-level: #f09744;
-  --color-free-company: #404040;
   --color-completed: #30bb65; 
   --color-completed-transparent: #30bb6510; 
-  --color-health: #5d9c22;
-  --color-mana: #be2c9f;
-  --color-news: #252333;
   box-sizing: border-box;
   scrollbar-color: var(--c-mid-background) transparent;
 }
 
 @font-face {
   font-family: 'Comfortaa';
-  src: url('fonts/Comfortaa.ttf');
+  src: url('../fonts/Comfortaa.ttf');
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('fonts/Montserrat.ttf');
+  src: url('../fonts/Montserrat.ttf');
 }
 
 body {
@@ -74,7 +68,6 @@ button {
   background-color: transparent;
   padding: 0;
   color: var(--c-minor-text);
-  transition: color .25s, box-shadow .25s;
 }
 
 button:hover {
@@ -104,8 +97,9 @@ input:focus {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--c-accent);
-  color: white;
+  background-color: var(--c-content-background-opaque);
+  outline: 1px solid var(--c-mid-background);
+  color: var(--c-minor-text);
   border-radius: .25rem;
 }
 
@@ -132,7 +126,7 @@ input:focus {
   background-color: var(--c-content-background-opaque);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
   border: 1px solid var(--c-mid-background);
-  border-radius: .5rem;
+  border-radius: .25rem;
   color: var(--c-minor-text);
   transition: height .25s ease-in-out;
 }
@@ -143,7 +137,7 @@ input:focus {
 
 .options div:hover {
   cursor: pointer;
-  background-color: var(--c--accent-transparent);
+  background-color: var(--c-mid-background);
   color: var(--c-mid-text);
 }
 
@@ -174,7 +168,7 @@ input:focus {
 }
 
 .arrow {
-  color: white;
+  color: var(--c-major-text);
   padding: 1rem;
   height: 100%;
 }

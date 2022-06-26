@@ -1,29 +1,23 @@
 import brand from '../images/brand.png';
-import './Navbar.css';
+import '../styles/Navbar.css';
 import { Link } from 'react-router-dom';
 import { RiSettings3Line } from 'react-icons/ri';
 import { BiHelpCircle } from 'react-icons/bi';
+import { CgProfile } from 'react-icons/cg';
 import Searchbar from './Searchbar';
 
 const Navbar = (props) => {
-    let profile;
-    if (props.referenceCharacter !== null) {
-        profile = 
-        <Link to={"/" + props.referenceCharacter.Character.ID}>
-            <img 
-                src={props.referenceCharacter.Character.Avatar} 
-                className="navbar__profile-icon rounded interactable" 
-                title={props.referenceCharacter.Character.Name}
-            />
-        </Link>
-    }
+    const {
+        showSearchbar,
+        referenceCharacter
+    } = props;
     return (
         <nav className='navbar'>
             <Link to="/" title="Home">
-                <img src={brand} className="navbar__brand-icon" />
+                <img src={brand} className="navbar__brand-icon" alt="xiv tracker" />
             </Link>
             {
-                props.showSearchbar ?
+                showSearchbar ?
                 <Searchbar 
                     search={(name, server) => window.location.href = "./?name=" + name + "&server=" + server} 
                     type='character'
@@ -36,7 +30,18 @@ const Navbar = (props) => {
             <Link to="/settings" title="Settings">
                 <button><RiSettings3Line className="navbar__icon" /></button>
             </Link>
-            {profile}
+            {
+                referenceCharacter !== null ?
+                <Link to={"/" + referenceCharacter.Character.ID}>
+                    <img 
+                        src={referenceCharacter.Character.Avatar} 
+                        className="navbar__profile-icon rounded interactable" 
+                        title={referenceCharacter.Character.Name}
+                        alt="reference character"
+                    />
+                </Link> :
+                <CgProfile className="navbar__icon" /> 
+            }
         </nav>
     );
 }

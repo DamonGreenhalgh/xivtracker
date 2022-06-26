@@ -1,12 +1,20 @@
-import './Settings.css';
+// Hooks
 import { useState, useEffect } from 'react';
+
+// Assets
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
-import Button from '../components/utility/Button';
+import { IoClose } from 'react-icons/io5';
+
+// Components
+import Button from '../components/Button';
 import Banner from '../components/Banner';
-import Divider from '../components/utility/Divider';
-import Loading from '../components/utility/Loading';
-import Checkbox from '../components/utility/Checkbox';
-import Return from '../components/utility/Return';
+import Divider from '../components/Divider';
+import Loading from '../components/Loading';
+import Checkbox from '../components/Checkbox';
+import Return from '../components/Return';
+
+// Styles
+import '../styles/Settings.css';
 
 const splashName = [
     'None',
@@ -29,18 +37,30 @@ const Settings = (props) => {
     const [displayDropdown, setDisplayDropdown] = useState(-1);
     const [referenceBanner, setReferenceBanner] = useState(null);
     const [isSearching, setIsSearching] = useState(false);
+    const [error, setError] = useState("");
+    const {
+        setShowSearchbar,
+        theme,
+        setTheme,
+        referenceCharacter,
+        setReferenceCharacter,
+        splash,
+        setSplash,
+        personalized,
+        setPersonalized
+    } = props;
 
     // Mount
     useEffect(() => {
 
         // Set new content width
         document.documentElement.style.setProperty('--content-width', '70rem');
-        props.setShowSearchbar(false);
+        setShowSearchbar(false);
         document.title = "XIV Tracker | Settings";
 
         // Update reference character data.
-        if (props.referenceCharacter !== null) {
-            requestData(props.referenceCharacter.Character.ID);
+        if (referenceCharacter !== null) {
+            requestData(referenceCharacter.Character.ID);
         }
 
     }, [])
@@ -50,16 +70,16 @@ const Settings = (props) => {
         await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
-                if (data !== undefined) {
+                if (!data.Error) {
                     
                     // Update reference character.
-                    props.setReferenceCharacter(data);
+                    setReferenceCharacter(data);
                     
                     // Set banner.
                     setReferenceBanner(() => 
                         <Banner 
                             type='reference'
-                            avatar={<img src={data.Character.Avatar} className='rounded' />}
+                            avatar={<img src={data.Character.Avatar} className='rounded' alt="character avatar" />}
                             name={data.Character.Name}
                             title={data.Character.Title.Name}
                             misc={data.Character.Server}
@@ -68,15 +88,19 @@ const Settings = (props) => {
                     )
         
                     // Set background splash according to reference character.
-                    if (props.personalized) {
+                    if (personalized) {
                         let breakpoint = 0;
                         for (let i = 0; i < data.Achievements.List.length; i++) {
                             if (storyBreakpointsId.includes(data.Achievements.List[i].ID)) {
                                 breakpoint++;
                             }
                         }
-                        props.setSplash(breakpoint + 1)
+                        setSplash(breakpoint + 1)
                     }
+
+                    setError("");
+                } else {
+                    setError('No character associated with Lodestone ID: "' + id + '"');
                 }
             })
         setIsSearching(false);
@@ -96,13 +120,13 @@ const Settings = (props) => {
                         <p>Sets the visual theme of <b>XIV Tracker</b></p>
                         <div 
                             className="select"
-                            onClick={() => setDisplayDropdown(displayDropdown == 0 ? -1 : 0)}
+                            onClick={() => setDisplayDropdown(displayDropdown === 0 ? -1 : 0)}
                         >
-                            {props.theme}
-                            {displayDropdown == 0 ? <BsChevronUp /> : <BsChevronDown />}
+                            {theme}
+                            {displayDropdown === 0 ? <BsChevronUp /> : <BsChevronDown />}
                             <div 
-                                className={displayDropdown == 0 ? "options" : "disabled"} 
-                                onClick={(e) => props.setTheme(e.target.innerText)}
+                                className={displayDropdown === 0 ? "options" : "disabled"} 
+                                onClick={(e) => setTheme(e.target.innerText)}
                             >
                                 <div>light</div>
                                 <div>dark</div>
@@ -111,21 +135,21 @@ const Settings = (props) => {
                         <h3>Splash</h3>
                         <p>Select the background splash art to display.</p>
                         <div 
-                            className={"select" + (props.personalized ? ' select--disabled' : '')}
+                            className={"select" + (personalized ? ' select--disabled' : '')}
                             onClick={() => 
-                                props.personalized
+                                personalized
                                 ? null
-                                : setDisplayDropdown(displayDropdown == 1 ? -1 : 1)
+                                : setDisplayDropdown(displayDropdown === 1 ? -1 : 1)
                             }
                         >
-                            {splashName[props.splash]}
-                            {displayDropdown == 1 ? <BsChevronUp /> : <BsChevronDown />}
+                            {splashName[splash]}
+                            {displayDropdown === 1 ? <BsChevronUp /> : <BsChevronDown />}
                             <div 
-                                className={displayDropdown == 1 ? "options" : "disabled"}
+                                className={displayDropdown === 1 ? "options" : "disabled"}
                                 onClick={(e) => 
-                                    props.personalized
+                                    personalized
                                     ? null
-                                    : props.setSplash(Array.from(e.target.parentNode.children).indexOf(e.target))
+                                    : setSplash(Array.from(e.target.parentNode.children).indexOf(e.target))
                                 }
                             >
                                 <div>None</div>
@@ -137,7 +161,7 @@ const Settings = (props) => {
                             </div>
                         </div>
                         <div className='row align-center gap'>
-                            <Checkbox type='square' condition={props.personalized} update={props.setPersonalized} />
+                            <Checkbox type='square' condition={personalized} update={setPersonalized} />
                             <p>Use reference character to determine splash</p>
                         </div>
                     </div>
@@ -145,7 +169,24 @@ const Settings = (props) => {
                     <div className='col gap max-width'>
                         <h2>Experience</h2>
                         <h3>Reference</h3>
-                        <p>Select a character to reference. XIV Tracker uses this character's data to improve the user experience.</p>
+                        <p>
+                            Allocating a reference character will show/hide content based on the story 
+                            progress of the character. This will prevent accidental spoilers when viewing 
+                            other characters who are further along the story. <b>XIV Tracker</b> requires 
+                            the Lodestone ID of the character to reference.
+                        </p>
+                        {
+                            referenceCharacter !== null ?
+                            <div className="relative">
+                                {referenceBanner}     
+                                <button 
+                                    onClick={() => {setReferenceCharacter(null); setReferenceBanner(null)}} 
+                                    className="settings__reference-close">
+                                    <IoClose size="2em" />
+                                </button>
+                            </div> :
+                            null
+                        }
                         {
                             isSearching ?
                             <Loading /> :
@@ -153,10 +194,9 @@ const Settings = (props) => {
                                 <input style={{flex: '3'}} type='text' placeholder="Lodestone ID e.g. 38592216" />
                                 <Button style={{flex: '1'}} onClick={(e) => requestData((e.target.parentNode.firstChild.value))} content="Search"/>
                             </div>
-                        }
-                        {referenceBanner}                        
+                        }      
+                        <p style={{color: "red"}}>{error}</p>       
                     </div>
-
                 </div>       
             </div>
         </div>
