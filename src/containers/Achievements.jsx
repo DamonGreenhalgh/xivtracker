@@ -44,27 +44,46 @@ const Achievements = (props) => {
     }, [index, loading]) 
 
     return (
-        loading ?
-        null :
+        
 
         <div className={'section' + (props.display ? '' : ' disabled')}>
-            <Header 
-                name='Achievements'
-                minor='Points'
-                major={data.Achievements.Points}
-            />
             {
                 loading ?
-                <Loading /> :
-                content
+                <>
+                    <Header 
+                        name="Achievements"
+                        minor="Points"
+                        major="0"
+                    />
+                    <Loading /> 
+                </> :
+                <>
+                    <Header 
+                        name='Achievements'
+                        minor='Points'
+                        major={data.Achievements.Points}
+                    />
+                    <ul className='col gap'>
+                        {(data.Achievements.List.slice(index * capacity, (index + 1) * capacity)).map(achievement => 
+                            <Achievement 
+                                name={achievement.Name}
+                                icon={achievement.Icon}
+                                points={achievement.Points}
+                                id={achievement.ID}
+                                key={achievement.ID}
+                            />
+                        )}
+                    </ul>
+                    <Navigator 
+                        update={setIndex} 
+                        current={index} 
+                        min={0} 
+                        max={Math.ceil(data.Achievements.List.length / capacity) - 1}
+                        style={{margin: 'auto'}} 
+                     />
+                </>
             }
-            <Navigator 
-                update={setIndex} 
-                current={index} 
-                min={0} 
-                max={Math.ceil(data.Achievements.List.length / capacity) - 1}
-                style={{margin: 'auto'}} 
-            />
+            
         </div>
     );
 }
