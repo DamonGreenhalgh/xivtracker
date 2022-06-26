@@ -4,21 +4,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Unreleased
 
-## [1.2.2] - 2022-05-08
+## Released
 
-### Added
+## [1.2.2] - 2022-05-08
+This update focuses on polishing up existing features and fixing bugs.
+
+### Added 
+
+- Added help section for finding the **Lodestone ID** of a character.
+- Added the ability to remove the current reference character.
+- Added default profile icon when no reference character has been allocated.
 
 ### Changes
 
 - Changed directory structure.
+- Changed multiple component styles.
+- Changed the description of the reference character system for improved clarity.
+- Updated most components to use prop destructuring for better readability.
+- Updated `alt` text of `img` tags to be more descriptive.
+- Updated light theme.
 
 ### Fixed
 
 - Fixed title not changing to **XIV Tracker |** `<Character Name>` when viewing character profile.
-
-
-
-## Released
+- Fixed *Newfound Adventure* quest component displaying incorrect tooltip.
+- Fixed app crashing when viewing a character with unknown collection status.
 
 ## [1.2.1] - 2022-05-08
 Moved from **Github Pages** to **AWS Amplify** as pages has problems with single page web applications. Maintainability update.
