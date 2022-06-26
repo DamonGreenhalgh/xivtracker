@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Released
 
-## [1.2.2] - 2022-05-08
+## [1.2.2] - 2022-06-26
 This update focuses on polishing up existing features and fixing bugs.
 
 ### Added 
