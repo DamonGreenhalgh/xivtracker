@@ -37,6 +37,11 @@ const questIcon = [
  */
 const Quests = (props) => {
 
+    const {
+        display,
+        id,
+        referenceCharacter
+    } = props;
     const [panel, setPanel] = useState(0);
     const [content, setContent] = useState([]);
     const [completion, setCompletion] = useState([0, 0]);
@@ -45,7 +50,7 @@ const Quests = (props) => {
     useEffect(async () => {
 
         let achievementData;
-        await fetch("https://xivapi.com/character/" + props.id + "?data=AC", {mode: 'cors'})
+        await fetch("https://xivapi.com/character/" + id + "?data=AC", {mode: 'cors'})
             .then(response => response.json())
             .then(data => achievementData = data.Achievements.List);
         
@@ -57,9 +62,9 @@ const Quests = (props) => {
 
         // Collect up all reference character achivement ids
         const refAchievementIds = []
-        if (props.referenceCharacter !== null) {
-            for (let i = 0; i < props.referenceCharacter.Achievements.List.length; i++) {
-                refAchievementIds.push(props.referenceCharacter.Achievements.List[i].ID)
+        if (referenceCharacter !== null) {
+            for (let i = 0; i < referenceCharacter.Achievements.List.length; i++) {
+                refAchievementIds.push(referenceCharacter.Achievements.List[i].ID)
             }
         }
         
@@ -124,7 +129,7 @@ const Quests = (props) => {
     }, []);
 
     return (
-        <div className={'section' + (props.display ? '' : ' disabled')}>
+        <div className={'section' + (display ? '' : ' disabled')}>
 
             <Header 
                 name="Quests" 

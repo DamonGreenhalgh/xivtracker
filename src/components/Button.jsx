@@ -1,13 +1,20 @@
 import '../styles/Button.css';
 
 const Button = (props) => {
+    const {
+        type,
+        condition,
+        onClick,
+        style,
+        content
+    } = props;
     return(
         <button 
-            className={"button button--" + props.type + (props.condition ? " button--active button--active--" + props.type : "")} 
-            onClick={props.onClick} 
-            style={props.style}
+            className={"button button--" + type + (condition ? " button--active button--active--" + type : "")} 
+            onClick={onClick} 
+            style={style}
         >
-            {props.content}
+            {content}
         </button>
     );
 }

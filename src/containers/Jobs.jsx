@@ -21,10 +21,14 @@ import '../styles/Jobs.css';
 
 const Jobs = (props) => {
 
+    const {
+        display,
+        jobs
+    } = props;
     const [displayJob, setDisplayJob] = useState(true);
     const [completion, setCompletion] = useState([0, 0]);
-    const warMagicJobs = props.jobs.slice(0, 20);
-    const handLandJobs = props.jobs.slice(20);
+    const warMagicJobs = jobs.slice(0, 20);
+    const handLandJobs = jobs.slice(20);
 
     // This will change every expansion, will need to manually set.
     const maxLevel = 90;
@@ -34,26 +38,26 @@ const Jobs = (props) => {
         let numMaxLevel = 0;
         let sumOfLevels = 0;
 
-        for (let i = 0; i < props.jobs.length; i++) {
+        for (let i = 0; i < jobs.length; i++) {
 
             // If the job is at max level, increment.
-            if (props.jobs[i].Level == 90) {
+            if (jobs[i].Level === 90) {
                 numMaxLevel++;
             }
     
             // Add level to sum.
-            sumOfLevels += props.jobs[i].Level;
+            sumOfLevels += jobs[i].Level;
         }
 
         setCompletion(() => [
-            numMaxLevel + " / " + props.jobs.length,
-            Math.round(sumOfLevels / (maxLevel * props.jobs.length) * 100) + " %"
+            numMaxLevel + " / " + jobs.length,
+            Math.round(sumOfLevels / (maxLevel * jobs.length) * 100) + " %"
         ])
 
     }, [])
     
     return (
-        <div className={"section" + (props.display ? '' : ' disabled')}>
+        <div className={"section" + (display ? '' : ' disabled')}>
 
             <Header 
                 name="Jobs"

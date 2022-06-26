@@ -8,21 +8,27 @@ import Item from "./Item";
  * @returns 
  */
 const Achievement = (props) => {
-    const {data, loading} = useFetchData("https://xivapi.com/achievement/" + props.id)
+    const {
+        name,
+        icon,
+        points,
+        id
+    } = props;
+    const {data, loading} = useFetchData("https://xivapi.com/achievement/" + id)
     return (
         loading ?
         null : 
 
         <li className='achievement'>
-            <Item icon={"https://xivapi.com" + props.icon}/>
+            <Item icon={"https://xivapi.com" + icon}/>
             <div className='col gap-sm'>
                 <div className='achievement__header'>
-                    <h4>{props.name}</h4>
+                    <h4>{name}</h4>
                     <p style={{color: 'var(--color-experience)'}}>{data.AchievementCategory.Name}</p>
                 </div>
                 <p>{data.Description}</p>
             </div>
-            <h3 style={{marginLeft: 'auto', color: 'var(--color-completed)'}}>{props.points}</h3>
+            <h3 style={{marginLeft: 'auto', color: 'var(--color-completed)'}}>{points}</h3>
         </li>
     );
 }

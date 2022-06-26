@@ -27,6 +27,10 @@ const Character = (props) => {
     const { id } = useParams();
     const {data, loading} = useFetchData("https://xivapi.com/character/" + id + "?extended=1&data=FC");
     const [index, setIndex] = useState(0);
+    const {
+        setShowSearchbar,
+        referenceCharacter,
+    } = props;
 
     useEffect(() => {
 
@@ -74,7 +78,7 @@ const Character = (props) => {
             localStorage.setItem("recent", JSON.stringify(recent));
         }
 
-        props.setShowSearchbar(true);
+        setShowSearchbar(true);
         document.documentElement.style.setProperty('--content-width', '70rem');
         if (!loading) {
             document.title = "XIV Tracker | " + data.Character.Name;
@@ -142,11 +146,11 @@ const Character = (props) => {
             <Quests 
                 display={index === 3}
                 id={id}
-                referenceCharacter={props.referenceCharacter}
+                referenceCharacter={referenceCharacter}
             />
             <Achievements 
                 display={index === 4} 
-                data={data.Character}
+                id={data.Character.ID}
             />
         </div>
     );

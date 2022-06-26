@@ -4,12 +4,13 @@ import Return from "../components/Return";
 import idHelp from '../images/id-help.png';
 
 const Help = (props) => {
+    const { setShowSearchbar } = props;
 
     useEffect(() => {
         document.documentElement.style.setProperty('--content-width', '70rem');
-        props.setShowSearchbar(false);
+        setShowSearchbar(false);
         document.title = "XIV Tracker | Help";
-    }, [])
+    }, [setShowSearchbar])
 
     return(
         <div className="settings">
@@ -52,7 +53,7 @@ const Help = (props) => {
                     <img 
                         src={idHelp} 
                         style={{width: "100%", boxShadow: "0 .5rem 1rem var(--c-shadow)"}} 
-                        alt="lodestone id location help image" 
+                        alt="lodestone id location help" 
                     />
                 </div>
             </div>

@@ -1,11 +1,16 @@
 import '../styles/Checkbox.css';
 const Checkbox = (props) => {
+    const {
+        type,
+        condition,
+        update
+    } = props;
     return (
         <div 
-            className={'checkbox checkbox--' + props.type + (props.condition ? ' checkbox--active' : '')}
-            onClick={() => props.update(props.condition ? false : true)}
+            className={'checkbox checkbox--' + type + (condition ? ' checkbox--active' : '')}
+            onClick={() => update(condition ? false : true)}
         >
-            <div className={'checkbox__box checkbox__box--' + props.type + (props.condition ? ' checkbox__box--active' : '')} />
+            <div className={'checkbox__box checkbox__box--' + type + (condition ? ' checkbox__box--active' : '')} />
         </div>
     );
 }

@@ -7,13 +7,17 @@ import { CgProfile } from 'react-icons/cg';
 import Searchbar from './Searchbar';
 
 const Navbar = (props) => {
+    const {
+        showSearchbar,
+        referenceCharacter
+    } = props;
     return (
         <nav className='navbar'>
             <Link to="/" title="Home">
                 <img src={brand} className="navbar__brand-icon" alt="xiv tracker" />
             </Link>
             {
-                props.showSearchbar ?
+                showSearchbar ?
                 <Searchbar 
                     search={(name, server) => window.location.href = "./?name=" + name + "&server=" + server} 
                     type='character'
@@ -27,12 +31,12 @@ const Navbar = (props) => {
                 <button><RiSettings3Line className="navbar__icon" /></button>
             </Link>
             {
-                props.referenceCharacter !== null ?
-                <Link to={"/" + props.referenceCharacter.Character.ID}>
+                referenceCharacter !== null ?
+                <Link to={"/" + referenceCharacter.Character.ID}>
                     <img 
-                        src={props.referenceCharacter.Character.Avatar} 
+                        src={referenceCharacter.Character.Avatar} 
                         className="navbar__profile-icon rounded interactable" 
-                        title={props.referenceCharacter.Character.Name}
+                        title={referenceCharacter.Character.Name}
                         alt="reference character"
                     />
                 </Link> :

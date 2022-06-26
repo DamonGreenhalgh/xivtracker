@@ -19,14 +19,16 @@ import '../styles/Achievements.css';
  */
 const Achievements = (props) => {
 
+    const {
+        display,
+        id
+    } = props;
     const capacity = 8;
-    const {data, loading} = useFetchData("https://xivapi.com/character/" + props.data.ID + "?extended=1&data=AC");
+    const {data, loading} = useFetchData("https://xivapi.com/character/" + id + "?extended=1&data=AC");
     const [index, setIndex] = useState(0);
 
     return (
-        
-
-        <div className={'section' + (props.display ? '' : ' disabled')}>
+        <div className={'section' + (display ? '' : ' disabled')}>
             {
                 loading ?
                 <>

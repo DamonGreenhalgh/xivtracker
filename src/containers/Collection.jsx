@@ -19,15 +19,19 @@ import '../styles/Collection.css';
  */
 const Collection = (props) => {
 
+    const {
+        display,
+        id
+    } = props;
     // Will have to manually update these numbers after every patch.
     const totalCollection = 747
     const capacity = 40;
-    const {data, loading} = useFetchData("https://xivapi.com/character/" + props.id + "?data=MIMO");
+    const {data, loading} = useFetchData("https://xivapi.com/character/" + id + "?data=MIMO");
     const [mountPage, setMountPage] = useState(0);
     const [minionPage, setMinionPage] = useState(0);
 
     return (
-        <div className={"section" + (props.display ? '' : ' disabled')}>
+        <div className={"section" + (display ? '' : ' disabled')}>
             {
                 loading || data.Mounts === null || data.Minions === null ?
                 <>

@@ -119,7 +119,6 @@ const App = () => {
                 <Character 
                   setShowSearchbar={setShowSearchbar} 
                   referenceCharacter={referenceCharacter}
-                  setLoading={setLoading}
                 />
               } 
             />

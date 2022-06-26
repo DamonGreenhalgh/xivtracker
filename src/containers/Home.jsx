@@ -9,6 +9,7 @@ import '../styles/Home.css';
 const Home = (props) =>  {
     const [results, setResults] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const { setShowSearchbar } = props;
 
     // Function to request a character search from xivapi.com.
     const searchCharacter = async (name, server) => {
@@ -51,8 +52,8 @@ const Home = (props) =>  {
         document.documentElement.style.setProperty('--content-width', '30rem');
 
         // Disable searchbar on navbar.
-        props.setShowSearchbar(false);
-    }, []);
+        setShowSearchbar(false);
+    }, [setShowSearchbar]);
 
     return (
         <div className="home" style={results==null ? {height: 'calc(100vh - 16rem)'} : {height: "auto"}}>

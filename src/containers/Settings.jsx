@@ -38,23 +38,32 @@ const Settings = (props) => {
     const [referenceBanner, setReferenceBanner] = useState(null);
     const [isSearching, setIsSearching] = useState(false);
     const [error, setError] = useState("");
+    const {
+        setShowSearchbar,
+        theme,
+        setTheme,
+        referenceCharacter,
+        setReferenceCharacter,
+        splash,
+        setSplash,
+        personalized,
+        setPersonalized
+    } = props;
 
     // Mount
     useEffect(() => {
 
         // Set new content width
         document.documentElement.style.setProperty('--content-width', '70rem');
-        props.setShowSearchbar(false);
+        setShowSearchbar(false);
         document.title = "XIV Tracker | Settings";
 
         // Update reference character data.
-        if (props.referenceCharacter !== null) {
-            requestData(props.referenceCharacter.Character.ID);
+        if (referenceCharacter !== null) {
+            requestData(referenceCharacter.Character.ID);
         }
 
     }, [])
-
-
 
     const requestData = async(id) => {
         setIsSearching(true);
@@ -64,7 +73,7 @@ const Settings = (props) => {
                 if (!data.Error) {
                     
                     // Update reference character.
-                    props.setReferenceCharacter(data);
+                    setReferenceCharacter(data);
                     
                     // Set banner.
                     setReferenceBanner(() => 
@@ -79,14 +88,14 @@ const Settings = (props) => {
                     )
         
                     // Set background splash according to reference character.
-                    if (props.personalized) {
+                    if (personalized) {
                         let breakpoint = 0;
                         for (let i = 0; i < data.Achievements.List.length; i++) {
                             if (storyBreakpointsId.includes(data.Achievements.List[i].ID)) {
                                 breakpoint++;
                             }
                         }
-                        props.setSplash(breakpoint + 1)
+                        setSplash(breakpoint + 1)
                     }
 
                     setError("");
@@ -113,11 +122,11 @@ const Settings = (props) => {
                             className="select"
                             onClick={() => setDisplayDropdown(displayDropdown === 0 ? -1 : 0)}
                         >
-                            {props.theme}
+                            {theme}
                             {displayDropdown === 0 ? <BsChevronUp /> : <BsChevronDown />}
                             <div 
                                 className={displayDropdown === 0 ? "options" : "disabled"} 
-                                onClick={(e) => props.setTheme(e.target.innerText)}
+                                onClick={(e) => setTheme(e.target.innerText)}
                             >
                                 <div>light</div>
                                 <div>dark</div>
@@ -126,21 +135,21 @@ const Settings = (props) => {
                         <h3>Splash</h3>
                         <p>Select the background splash art to display.</p>
                         <div 
-                            className={"select" + (props.personalized ? ' select--disabled' : '')}
+                            className={"select" + (personalized ? ' select--disabled' : '')}
                             onClick={() => 
-                                props.personalized
+                                personalized
                                 ? null
                                 : setDisplayDropdown(displayDropdown === 1 ? -1 : 1)
                             }
                         >
-                            {splashName[props.splash]}
+                            {splashName[splash]}
                             {displayDropdown === 1 ? <BsChevronUp /> : <BsChevronDown />}
                             <div 
                                 className={displayDropdown === 1 ? "options" : "disabled"}
                                 onClick={(e) => 
-                                    props.personalized
+                                    personalized
                                     ? null
-                                    : props.setSplash(Array.from(e.target.parentNode.children).indexOf(e.target))
+                                    : setSplash(Array.from(e.target.parentNode.children).indexOf(e.target))
                                 }
                             >
                                 <div>None</div>
@@ -152,7 +161,7 @@ const Settings = (props) => {
                             </div>
                         </div>
                         <div className='row align-center gap'>
-                            <Checkbox type='square' condition={props.personalized} update={props.setPersonalized} />
+                            <Checkbox type='square' condition={personalized} update={setPersonalized} />
                             <p>Use reference character to determine splash</p>
                         </div>
                     </div>
@@ -167,11 +176,11 @@ const Settings = (props) => {
                             the Lodestone ID of the character to reference.
                         </p>
                         {
-                            props.referenceCharacter !== null ?
+                            referenceCharacter !== null ?
                             <div className="relative">
                                 {referenceBanner}     
                                 <button 
-                                    onClick={() => {props.setReferenceCharacter(null); setReferenceBanner(null)}} 
+                                    onClick={() => {setReferenceCharacter(null); setReferenceBanner(null)}} 
                                     className="settings__reference-close">
                                     <IoClose size="2em" />
                                 </button>

@@ -7,7 +7,6 @@ import { MdClose } from 'react-icons/md';
 import Divider from './Divider';
 
 const Searchbar = (props) => {
-
     const [displayRecent, setDisplayRecent] = useState(false);
     const [name, setName] = useState("");
     const [server, setServer] = useState("Server");
