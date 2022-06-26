@@ -49,7 +49,10 @@ const Help = (props) => {
                         The Lodestone ID can be found by taking the digits after <i>xivtracker.gg/... </i> 
                         for example, the id for the below character would be <b>38592216</b>.
                     </p>
-                    <img src={idHelp} alt="lodestone id location help image" style={{width: "100%", boxShadow: "0 .5rem 1rem var(--c-shadow)"}} />
+                    <img 
+                        src={idHelp} alt="lodestone id location help image" 
+                        style={{width: "100%", boxShadow: "0 .5rem 1rem var(--c-shadow)"}} 
+                    />
                 </div>
             </div>
         </div>
