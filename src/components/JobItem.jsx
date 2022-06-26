@@ -9,9 +9,9 @@ const JobItem = (props) => {
             style={{gridArea: nameNoGap}} 
             href={link + nameNoGap}
         >
-            <img src={"https://xivapi.com" + props.icon} className="icon--job" />
+            <img src={"https://xivapi.com" + props.icon} className="icon--job" alt="job icon" />
             <h2 
-                className="job__level-text" style={{color: props.level == 90 ? "var(--color-max-level)" : null}}>
+                className="job__level-text" style={{color: props.level === 90 ? "#f09744" : null}}>
                 {props.level}
             </h2>
 
@@ -19,7 +19,7 @@ const JobItem = (props) => {
                 <div className='row align-center justify-between'>
                     <p style={{color: "var(--c-mid-text)"}}>{name}</p>
                     <p style={{fontSize: '.6rem', textAlign: 'end'}}>
-                        {props.level == 90 ? "Max Level" : props.exp[0] + " / " + props.exp[1]}
+                        {props.level === 90 ? "Max Level" : props.exp[0] + " / " + props.exp[1]}
                     </p>
                 </div>
                 <Bar

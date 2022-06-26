@@ -27,7 +27,7 @@ const Searchbar = (props) => {
                 return(
                     <Link to={"/" + char.id} key={char.id}>
                         <div className="recent__profile interactable">
-                            <img src={char.avatar} className="rounded recent__avatar" alt="Avatar" />
+                            <img src={char.avatar} className="rounded recent__avatar" alt="character avatar" />
                             <div className="col gap-xsm">
                                 <p><b>{char.name}</b></p>
                                 <p style={{fontSize: ".6rem"}}>{char.server}</p>

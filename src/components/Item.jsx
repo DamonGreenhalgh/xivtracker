@@ -103,13 +103,13 @@ const Item = (props) => {
     return (
         <div className="item interactable" style={{gridArea: props.type}}>
             <img src={glamourIcon} className={isGlamour ? "glamour-icon absolute"  : "disabled"} alt="Glamour Indicator"/>
-            <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
+            <img src={props.icon} className="item__icon absolute" alt={props.name}/>
             <img src={itemFrame} className="item__icon absolute" alt=''/>
   
             <div className="tooltip">
                 <div className='tooltip__header'>
                     <div style={{gridArea: 'icon'}}>
-                        <img src={props.icon} className="item__icon absolute" alt={props.name + " Icon"}/>
+                        <img src={props.icon} className="item__icon absolute" alt={props.name}/>
                         <img src={itemFrame} className="item__icon absolute" alt=''/>
                     </div>
                     <h4 style={{gridArea: 'name', color: 'var(--c-major-text)'}}>{props.name}</h4>

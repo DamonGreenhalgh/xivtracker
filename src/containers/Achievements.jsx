@@ -1,5 +1,5 @@
 // Hooks
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useFetchData } from '../hooks/useFetchData';
 
 // Components
@@ -21,27 +21,7 @@ const Achievements = (props) => {
 
     const capacity = 8;
     const {data, loading} = useFetchData("https://xivapi.com/character/" + props.data.ID + "?extended=1&data=AC");
-    const [content, setContent] = useState(null);
     const [index, setIndex] = useState(0);
-
-    // Update
-    useEffect(() => {
-        if (!loading) {
-            setContent(
-                <ul className='col gap'>
-                    {(data.Achievements.List.slice(index * capacity, (index + 1) * capacity)).map(achievement => 
-                        <Achievement 
-                            name={achievement.Name}
-                            icon={achievement.Icon}
-                            points={achievement.Points}
-                            id={achievement.ID}
-                            key={achievement.ID}
-                        />
-                    )}
-                </ul>
-            )
-        }
-    }, [index, loading]) 
 
     return (
         

@@ -50,12 +50,12 @@ const Profile = (props) => {
                         <div className="attributes__main">
                             <p>{props.data.Character.GearSet.Attributes.at(-2).Attribute.Name}</p>
                             <h4>{props.data.Character.GearSet.Attributes.at(-2).Value}</h4>
-                            <Bar color="var(--color-health)" width="100%" />
+                            <Bar color="#5d9c22" width="100%" />
                         </div>
                         <div className="attributes__main">
                             <p>{props.data.Character.GearSet.Attributes.at(-1).Attribute.Name}</p>
                             <h4>{props.data.Character.GearSet.Attributes.at(-1).Value}</h4>
-                            <Bar color="var(--color-mana)" width="100%" />
+                            <Bar color="#be2c9f" width="100%" />
                         </div>
                         {Object.values(props.data.Character.GearSet.Attributes).slice(0, -2).map(attribute =>
                             <li className="row justify-between" key={attribute.Attribute.ID}>
@@ -78,7 +78,7 @@ const Profile = (props) => {
                                 <p>Grand Company</p>
                                 <Divider />
                                 <li>                 
-                                    <img src={baseUrl + props.data.Character.GrandCompany.Rank.Icon} />
+                                    <img src={baseUrl + props.data.Character.GrandCompany.Rank.Icon} alt="grand company rank icon" />
                                     <h5>{props.data.Character.GrandCompany.Company.Name + ", " + props.data.Character.GrandCompany.Rank.Name}</h5>
                                 </li>
                             </> :
@@ -87,13 +87,13 @@ const Profile = (props) => {
                         <p>Race / Clan / Gender</p>
                         <Divider />
                         <li>
-                            <img src={props.data.Character.Gender == 1 ? maleIcon : femaleIcon} style={{maxHeight: '1.5rem'}} />
-                            <h5>{props.data.Character.Race.Name + " / " + props.data.Character.Tribe.Name + " / " + (props.data.Character.Gender == 1 ? "Male" : "Female")}</h5>
+                            <img src={props.data.Character.Gender === 1 ? maleIcon : femaleIcon} style={{maxHeight: '1.5rem'}} alt="gender icon"/>
+                            <h5>{props.data.Character.Race.Name + " / " + props.data.Character.Tribe.Name + " / " + (props.data.Character.Gender === 1 ? "Male" : "Female")}</h5>
                         </li>
                         <p>City-state</p>
                         <Divider />
                         <li>
-                            <img src={baseUrl + props.data.Character.Town.Icon} />
+                            <img src={baseUrl + props.data.Character.Town.Icon} alt="town icon"/>
                             <h5>{props.data.Character.Town.Name}</h5>
                         </li>
                         <p>Nameday</p>
@@ -104,11 +104,11 @@ const Profile = (props) => {
                         <p>Guardian Diety</p>
                         <Divider />
                         <li>
-                            <img src={baseUrl + props.data.Character.GuardianDeity.Icon} />
+                            <img src={baseUrl + props.data.Character.GuardianDeity.Icon} alt="diety icon" />
                             <h5>{props.data.Character.GuardianDeity.Name}</h5>
                         </li>
                         {
-                            props.data.FreeCompany == null ?
+                            props.data.FreeCompany === null ?
                             null :
                             <>
                                 <p>Free Company</p>
@@ -117,9 +117,9 @@ const Profile = (props) => {
                                     type='free-company'
                                     avatar={
                                         <div className="icon--mid relative">
-                                            <img src={props.data.FreeCompany.Crest[0]} className="icon--mid absolute" />
-                                            <img src={props.data.FreeCompany.Crest[1]} className="icon--mid absolute" />
-                                            <img src={props.data.FreeCompany.Crest[2]} className="icon--mid absolute" />
+                                            <img src={props.data.FreeCompany.Crest[0]} className="icon--mid absolute" alt=""/>
+                                            <img src={props.data.FreeCompany.Crest[1]} className="icon--mid absolute" alt=""/>
+                                            <img src={props.data.FreeCompany.Crest[2]} className="icon--mid absolute" alt=""/>
                                         </div>
                                     }
                                     fc={props.data.FreeCompany.Crest}

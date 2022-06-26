@@ -43,7 +43,7 @@ const Featured = () => {
             endDate = new Date(event[i].end[0], event[i].end[1], event[i].end[2]).getTime();
             if (startDate <= currentDate && currentDate <= endDate) {
                 liveEvents.push(event[i]);
-                liveBanners.push(<img src={banner[i]} alt='' key={i} />)
+                liveBanners.push(<img src={banner[i]} key={i} alt="event banner" />)
             }
         }
 
@@ -66,7 +66,7 @@ const Featured = () => {
                 >
                     <FaChevronLeft />
                 </button>
-                <a href={events[index].link} target="_blank" rel="noreferrer" />                    
+                <a href={events[index].link} target="_blank" rel="noreferrer"> </a>                    
                 <div className='col absolute' style={{
                     bottom: '1rem',
                     left: '1rem'

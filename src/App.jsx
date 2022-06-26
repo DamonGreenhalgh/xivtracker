@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 
 // Components
 import { BrowserRouter, Routes, Route} from 'react-router-dom'; 
-import Home from './pages/Home';
-import Character from './pages/Character';
-import Settings from './pages/Settings';
-import Help from './pages/Help';
+import Home from './containers/Home';
+import Character from './containers/Character';
+import Settings from './containers/Settings';
+import Help from './containers/Help';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loading from './components/Loading';

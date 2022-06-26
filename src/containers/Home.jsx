@@ -26,12 +26,12 @@ const Home = (props) =>  {
                 // Create character banners for each valid returned character.
                 setResults(data.Results.map(result => (
                     <Banner 
-                    type='search'
-                    name={result.Name}
-                    title={result.Server}
-                    avatar={<img src={result.Avatar} className='rounded' />}
-                    link={"/" + result.ID}
-                    key={result.ID}
+                        type='search'
+                        name={result.Name}
+                        title={result.Server}
+                        avatar={<img src={result.Avatar} className='rounded' alt="character avatar" />}
+                        link={"/" + result.ID}
+                        key={result.ID}
                     />
                 )))
             });
@@ -59,7 +59,7 @@ const Home = (props) =>  {
             <img 
                 src={brandIcon}
                 className="home__brand"
-                alt="Brand Logo" 
+                alt="xiv tracker" 
             />
             {
                 isLoading ?

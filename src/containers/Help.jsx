@@ -50,8 +50,9 @@ const Help = (props) => {
                         for example, the id for the below character would be <b>38592216</b>.
                     </p>
                     <img 
-                        src={idHelp} alt="lodestone id location help image" 
+                        src={idHelp} 
                         style={{width: "100%", boxShadow: "0 .5rem 1rem var(--c-shadow)"}} 
+                        alt="lodestone id location help image" 
                     />
                 </div>
             </div>

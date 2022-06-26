@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 import { useFetchData } from '../hooks/useFetchData';
 
 // Components
-import Profile from '../containers/Profile';
-import Jobs from '../containers/Jobs';
-import Collection from '../containers/Collection';
-import Quests from '../containers/Quests';
-import Achievements from '../containers/Achievements';
+import Profile from './Profile';
+import Jobs from './Jobs';
+import Collection from './Collection';
+import Quests from './Quests';
+import Achievements from './Achievements';
 import Loading from '../components/Loading';
 import Banner from '../components/Banner';
 import Button from '../components/Button';
@@ -90,7 +90,7 @@ const Character = (props) => {
         <div className="character">
             <Banner
                 type=''
-                avatar={<img src={data.Character.Avatar} className='rounded' alt="Character Avatar"/>}
+                avatar={<img src={data.Character.Avatar} className='rounded' alt="character avatar"/>}
                 name={data.Character.Name}
                 title={data.Character.Title.Name}
                 misc={data.Character.Server}

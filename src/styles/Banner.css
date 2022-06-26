@@ -24,13 +24,13 @@
 }
 
 .free-company {
-    background-color: var(--color-free-company);
+    background-color: #404040;
     color: rgb(202, 206, 209);
     box-shadow: 0 0 1rem var(--c-shadow);
 }
 
 .free-company h2 {
-    color: var(--c-major-text);
+    color: white;
 }
 
 .reference {

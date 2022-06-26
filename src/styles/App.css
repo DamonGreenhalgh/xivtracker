@@ -1,13 +1,7 @@
-* {
-  --c--accent-transparent: #585ad511;
+* {  
   --color-experience: #cfb671;
-  --color-max-level: #f09744;
-  --color-free-company: #404040;
   --color-completed: #30bb65; 
   --color-completed-transparent: #30bb6510; 
-  --color-health: #5d9c22;
-  --color-mana: #be2c9f;
-  --color-news: #252333;
   box-sizing: border-box;
   scrollbar-color: var(--c-mid-background) transparent;
 }
