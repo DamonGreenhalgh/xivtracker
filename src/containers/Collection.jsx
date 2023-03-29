@@ -57,7 +57,12 @@ const Collection = (props) => {
                   .slice(mountPage * capacity, (mountPage + 1) * capacity)
                   .map((mount, index) => {
                     return (
-                      <Item name={mount.Name} icon={mount.Icon} key={index} />
+                      <Item
+                        name={mount.Name}
+                        icon={mount.Icon}
+                        collectionType={"Mount"}
+                        key={index}
+                      />
                     );
                   })}
               </div>
@@ -75,7 +80,12 @@ const Collection = (props) => {
                   .slice(minionPage * capacity, (minionPage + 1) * capacity)
                   .map((minion, index) => {
                     return (
-                      <Item name={minion.Name} icon={minion.Icon} key={index} />
+                      <Item
+                        name={minion.Name}
+                        icon={minion.Icon}
+                        collectionType={"Minion"}
+                        key={index}
+                      />
                     );
                   })}
               </div>
