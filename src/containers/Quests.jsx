@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // Components
 import Header from "../components/Header";
 import Navigator from "../components/Navigator";
+import FailToLoad from "../components/FailToLoad";
 
 // Data
 import questsJSON from "../data/quests.json";
@@ -123,15 +124,20 @@ const Quests = (props) => {
         major={Math.round((completion[0] / completion[1]) * 100) + " %"}
       />
 
-      {content[panel]}
-
-      <Navigator
-        update={setPanel}
-        current={panel}
-        min={0}
-        max={maxPanel}
-        style={{ margin: "auto" }}
-      />
+      {achievementsList.length === 0 ? (
+        <FailToLoad />
+      ) : (
+        <>
+          {content[panel]}
+          <Navigator
+            update={setPanel}
+            current={panel}
+            min={0}
+            max={maxPanel}
+            style={{ margin: "auto" }}
+          />
+        </>
+      )}
     </div>
   );
 };

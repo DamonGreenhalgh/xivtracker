@@ -1,0 +1,13 @@
+.failtoload {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .failtoload{
+        flex-direction: column;
+    }
+    
+}

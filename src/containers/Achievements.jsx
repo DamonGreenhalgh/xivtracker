@@ -5,6 +5,7 @@ import { useState } from "react";
 import Achievement from "../components/Achievement";
 import Header from "../components/Header";
 import Navigator from "../components/Navigator";
+import FailToLoad from "../components/FailToLoad";
 
 // Style
 import "../styles/Achievements.css";
@@ -23,26 +24,33 @@ const Achievements = (props) => {
   return (
     <div className={"section" + (display ? "" : " disabled")}>
       <Header name="Achievements" minor="Points" major={achievements.Points} />
-      <ul className="col gap">
-        {achievements.List.slice(index * capacity, (index + 1) * capacity).map(
-          (achievement) => (
-            <Achievement
-              name={achievement.Name}
-              icon={achievement.Icon}
-              points={achievement.Points}
-              id={achievement.ID}
-              key={achievement.ID}
-            />
-          )
-        )}
-      </ul>
-      <Navigator
-        update={setIndex}
-        current={index}
-        min={0}
-        max={Math.ceil(achievements.List.length / capacity) - 1}
-        style={{ margin: "auto" }}
-      />
+      {achievements.List.length === 0 ? (
+        <FailToLoad />
+      ) : (
+        <>
+          <ul className="col gap">
+            {achievements.List.slice(
+              index * capacity,
+              (index + 1) * capacity
+            ).map((achievement) => (
+              <Achievement
+                name={achievement.Name}
+                icon={achievement.Icon}
+                points={achievement.Points}
+                id={achievement.ID}
+                key={achievement.ID}
+              />
+            ))}
+          </ul>
+          <Navigator
+            update={setIndex}
+            current={index}
+            min={0}
+            max={Math.ceil(achievements.List.length / capacity) - 1}
+            style={{ margin: "auto" }}
+          />
+        </>
+      )}
     </div>
   );
 };
