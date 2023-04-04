@@ -9,6 +9,12 @@
 
 .loading__icon {
     margin: 0 auto;
-    height: 2rem;
-    width: 2rem;
+    height: 5rem;
+    width: 5rem;
+    animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
 }
