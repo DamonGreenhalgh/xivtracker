@@ -2,7 +2,6 @@ import "../styles/OverlayPanel.css";
 import JobItem from "./JobItem";
 import Item from "./Item";
 import Banner from "./Banner";
-import { Link } from "react-router-dom";
 import FailToLoad from "./FailToLoad";
 
 const equipmentNames = [

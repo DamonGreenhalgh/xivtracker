@@ -23,6 +23,204 @@ const statName = [
   "Delay",
 ];
 
+const materiaData = {
+  "Heavens' Eye Materia": {
+    attribute: "DHR",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 16,
+      VII: 8,
+      VIII: 24,
+      IX: 12,
+      X: 36,
+    },
+  },
+  "Savage Aim Materia": {
+    attribute: "CH",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 16,
+      VII: 8,
+      VIII: 24,
+      IX: 12,
+      X: 36,
+    },
+  },
+  "Savage Might Materia": {
+    attribute: "DET",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 16,
+      VII: 8,
+      VIII: 24,
+      IX: 12,
+      X: 36,
+    },
+  },
+  "Quickarm Materia": {
+    attribute: "SKS",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 16,
+      VII: 8,
+      VIII: 24,
+      IX: 12,
+      X: 36,
+    },
+  },
+  "Quicktongue Materia": {
+    attribute: "SPS",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 16,
+      VII: 8,
+      VIII: 24,
+      IX: 12,
+      X: 36,
+    },
+  },
+  "Battledance Materia": {
+    attribute: "TEN",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 16,
+      VII: 8,
+      VIII: 24,
+      IX: 12,
+      X: 36,
+    },
+  },
+  "Piety Materia": {
+    attribute: "PIE",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 16,
+      VII: 8,
+      VIII: 24,
+      IX: 12,
+      X: 36,
+    },
+  },
+  "Gathers' Grasp Materia": {
+    attribute: "GP",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 8,
+      VII: 7,
+      VIII: 9,
+      IX: 8,
+      X: 10,
+    },
+  },
+  "Gatherers' Guile Materia": {
+    attribute: "PER",
+    value: {
+      I: 3,
+      II: 4,
+      III: 5,
+      IV: 6,
+      V: 10,
+      VI: 15,
+      VII: 12,
+      VIII: 20,
+      IX: 14,
+      X: 25,
+    },
+  },
+  "Gatherers' Guerdon Materia": {
+    attribute: "GAT",
+    value: {
+      I: 3,
+      II: 4,
+      III: 5,
+      IV: 6,
+      V: 10,
+      VI: 15,
+      VII: 12,
+      VIII: 20,
+      IX: 14,
+      X: 25,
+    },
+  },
+  "Craftsmans' Cunning Materia": {
+    attribute: "CP",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 6,
+      VI: 8,
+      VII: 7,
+      VIII: 9,
+      IX: 8,
+      X: 10,
+    },
+  },
+  "Craftsmans' Command Materia": {
+    attribute: "CON",
+    value: {
+      I: 1,
+      II: 2,
+      III: 3,
+      IV: 4,
+      V: 7,
+      VI: 10,
+      VII: 9,
+      VIII: 13,
+      IX: 12,
+      X: 18,
+    },
+  },
+  "Craftsmans' Competence Materia": {
+    attribute: "CS",
+    value: {
+      I: 3,
+      II: 4,
+      III: 5,
+      IV: 6,
+      V: 11,
+      VI: 16,
+      VII: 14,
+      VIII: 21,
+      IX: 18,
+      X: 27,
+    },
+  },
+};
+
 const Item = (props) => {
   const [isGlamour, setIsGlamour] = useState(false);
   const [itemLevel, setItemLevel] = useState(null);
@@ -54,17 +252,39 @@ const Item = (props) => {
       setMateria(
         <>
           <h5>Materia</h5>
-          {props.materia.map((mat, index) => (
-            <div className="row align-center gap" key={index}>
-              <img
-                src={"https://xivapi.com" + mat.Icon}
-                className="tooltip__icon"
-                alt=""
-              />
-              <img src={itemFrame} className="tooltip__icon absolute" alt="" />
-              <p>{mat.Name}</p>
-            </div>
-          ))}
+          {props.materia.map((mat, index) => {
+            const splitIndex = mat.Name.lastIndexOf(" ");
+            const name = mat.Name.substring(0, splitIndex);
+            const grade = mat.Name.substring(splitIndex + 1);
+
+            return (
+              <div className="row align-center gap" key={index}>
+                <img
+                  src={"https://xivapi.com" + mat.Icon}
+                  className="tooltip__icon"
+                  alt=""
+                />
+                <img
+                  src={itemFrame}
+                  className="tooltip__icon absolute"
+                  alt=""
+                />
+                <p>{mat.Name}</p>
+                <p
+                  style={{
+                    color: "var(--color-completed)",
+                    marginLeft: "auto",
+                  }}
+                >
+                  {"( + " +
+                    materiaData[name].value[grade] +
+                    " " +
+                    materiaData[name].attribute +
+                    " )"}
+                </p>
+              </div>
+            );
+          })}
         </>
       );
     }
