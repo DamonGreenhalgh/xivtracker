@@ -270,7 +270,7 @@ const Item = (props) => {
                   alt=""
                 />
                 <p>{mat.Name}</p>
-                <p
+                <h5
                   style={{
                     color: "var(--color-completed)",
                     marginLeft: "auto",
@@ -281,7 +281,7 @@ const Item = (props) => {
                     " " +
                     materiaData[name].attribute +
                     " )"}
-                </p>
+                </h5>
               </div>
             );
           })}

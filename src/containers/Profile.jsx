@@ -6,13 +6,15 @@ import Header from "../components/Header";
 import Divider from "../components/Divider";
 import Banner from "../components/Banner";
 import Button from "../components/Button";
-import Bar from "../components/Bar";
 import Item from "../components/Item";
 import JobItem from "../components/JobItem";
+import Stats from "../components/Stats";
 
 // Assets
 import maleIcon from "../images/male.png";
 import femaleIcon from "../images/female.png";
+import { IoStatsChart } from "react-icons/io5";
+import { AiFillProfile } from "react-icons/ai";
 
 // Style
 import "../styles/Profile.css";
@@ -25,7 +27,7 @@ import "../styles/Profile.css";
  * @returns
  */
 const Profile = (props) => {
-  const { display, data } = props;
+  const { display, data, referenceCharacter } = props;
   const [contentToggle, setContentToggle] = useState(true);
   const baseUrl = "https://xivapi.com";
   const equipmentNames = Object.keys(data.Character.GearSet.Gear);
@@ -33,7 +35,7 @@ const Profile = (props) => {
   return (
     <div className={"section" + (display ? "" : " disabled")}>
       <Header name="Profile" />
-      <div className="profile__content">
+      <div className="row gap-lg">
         <div className="equipment">
           <div
             style={{
@@ -69,43 +71,23 @@ const Profile = (props) => {
           ))}
         </div>
         <div className="col gap-lg max-width">
-          <div className="row gap-lg">
+          <div className="row gap">
             <Button
-              content="Information"
+              content={<AiFillProfile />}
               condition={contentToggle}
               onClick={() => setContentToggle(true)}
             />
             <Button
-              content="Attributes"
+              content={<IoStatsChart />}
               condition={!contentToggle}
               onClick={() => setContentToggle(false)}
             />
           </div>
-          <ul
-            className={"attributes__list" + (contentToggle ? " disabled" : "")}
-          >
-            <div className="attributes__main">
-              <p>{data.Character.GearSet.Attributes.at(-2).Attribute.Name}</p>
-              <h4>{data.Character.GearSet.Attributes.at(-2).Value}</h4>
-              <Bar color="#5d9c22" width="100%" />
-            </div>
-            <div className="attributes__main">
-              <p>{data.Character.GearSet.Attributes.at(-1).Attribute.Name}</p>
-              <h4>{data.Character.GearSet.Attributes.at(-1).Value}</h4>
-              <Bar color="#be2c9f" width="100%" />
-            </div>
-            {Object.values(data.Character.GearSet.Attributes)
-              .slice(0, -2)
-              .map((attribute) => (
-                <li
-                  className="row justify-between"
-                  key={attribute.Attribute.ID}
-                >
-                  <p>{attribute.Attribute.Name}</p>
-                  <h4>{attribute.Value}</h4>
-                </li>
-              ))}
-          </ul>
+          <Stats
+            data={data}
+            referenceCharacter={referenceCharacter}
+            display={!contentToggle}
+          />
           <ul className={"profile" + (contentToggle ? "" : " disabled")}>
             <p>Name / Title</p>
             <Divider />

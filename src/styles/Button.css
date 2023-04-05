@@ -5,7 +5,7 @@
     padding: 1rem;
     color: var(--c-minor-text);
     outline: 1px solid var(--c-mid-background);
-    width: 100%;
+    /* width: 100%; */
     transition: background-color .25s, color .25s, outline .25s;
 }
 

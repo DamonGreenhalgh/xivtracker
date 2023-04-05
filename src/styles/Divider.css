@@ -1,5 +1,4 @@
 .divider {
-    grid-area: divider;
     min-height: 1px;
     max-height: 1px;
     width: 100%;

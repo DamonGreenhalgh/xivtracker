@@ -1,0 +1,30 @@
+.attributes__main {
+    display: grid;
+    grid-template-areas: 
+        "type value"
+        "bar  bar  "
+    ;
+    margin-bottom: 1rem;
+}
+
+.attributes__list {
+    min-width: 28rem;
+    display: grid;
+    grid-template-areas: 
+        "HP             MP"
+        "Strength       Intelligence"
+        "Dexterity      Mind"
+        "Vitality       blank1"
+        "divider1       divider1"
+        "CriticalHit    Defense"
+        "Determination  MagicDefense"
+        "DirectHitRate  blank2"
+        "divider2       divider2"
+        "AttackPower    AttackMagicPotency"
+        "SkillSpeed     HealingMagicPotency"
+        "blank3         SpellSpeed"
+        "divider3       divider3"
+        "Tenacity       Piety" 
+    ;
+    gap: 1rem 2rem;
+}

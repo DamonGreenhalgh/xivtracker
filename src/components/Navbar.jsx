@@ -5,12 +5,9 @@ import { RiSettings3Line } from "react-icons/ri";
 import { BiHelpCircle } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import Searchbar from "./Searchbar";
-import { useState } from "react";
-import OverlayPanel from "./OverlayPanel";
 
 const Navbar = (props) => {
   const { referenceCharacter } = props;
-  const [displayPanel, setDisplayPanel] = useState(false);
 
   return (
     <nav className="navbar">
@@ -33,23 +30,18 @@ const Navbar = (props) => {
           <RiSettings3Line className="navbar__icon" />
         </button>
       </Link>
-      <button
-        onClick={() => {
-          setDisplayPanel(displayPanel ? false : true);
-        }}
-      >
-        {referenceCharacter !== null ? (
+      {referenceCharacter !== null ? (
+        <Link to={referenceCharacter.Character.ID}>
           <img
             src={referenceCharacter.Character.Avatar}
             className="navbar__profile-icon rounded interactable"
             title={referenceCharacter.Character.Name}
             alt="reference character"
           />
-        ) : (
-          <CgProfile className="navbar__icon" />
-        )}
-      </button>
-      <OverlayPanel data={referenceCharacter} displayPanel={displayPanel} />
+        </Link>
+      ) : (
+        <CgProfile className="navbar__icon" />
+      )}
     </nav>
   );
 };
