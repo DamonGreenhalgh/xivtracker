@@ -5,7 +5,8 @@
     padding: 1rem;
     color: var(--c-minor-text);
     outline: 1px solid var(--c-mid-background);
-    /* width: 100%; */
+    background-color: var(--c-content-background);
+    backdrop-filter: blur(1rem);
     transition: background-color .25s, color .25s, outline .25s;
 }
 
@@ -17,8 +18,4 @@
 .button:hover {
     color: var(--c-major-text);
     background-color: var(--c-mid-background);
-}
-
-.button--nav {
-    outline: none;
 }
