@@ -1,12 +1,12 @@
 .searchbar {
     z-index: 4;
-    position: relative;
+    position: fixed;
+    left: calc(50% - 15rem);
     display: flex;
     align-items: center;
     gap: 1rem;
     width: 30rem;
     padding-right: 1rem;
-
     background-color: var(--c-content-background-opaque);
     outline: 1px solid var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);

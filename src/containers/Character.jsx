@@ -28,7 +28,7 @@ const Character = (props) => {
     "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO"
   );
   const [index, setIndex] = useState(0);
-  const { setShowSearchbar, referenceCharacter } = props;
+  const { referenceCharacter } = props;
 
   useEffect(() => {
     /**
@@ -74,7 +74,6 @@ const Character = (props) => {
       localStorage.setItem("recent", JSON.stringify(recent));
     };
 
-    setShowSearchbar(true);
     document.documentElement.style.setProperty("--content-width", "70rem");
     if (!loading) {
       document.title = "XIV Tracker | " + data.Character.Name;

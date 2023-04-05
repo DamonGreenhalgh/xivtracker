@@ -1,9 +1,10 @@
 .home {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: auto;
+    justify-content: center;
+    margin-top: 8rem;
+    height: calc(100vh - 18rem);
+    flex-direction: column;
     width: var(--content-width);
     gap: 2rem;
 }

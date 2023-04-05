@@ -1,6 +1,7 @@
 * {  
   --color-experience: #cfb671;
   --color-completed: #30bb65; 
+  --color-reference: #4f3cf8;
   --color-completed-transparent: #30bb6510; 
   box-sizing: border-box;
   scrollbar-color: var(--c-mid-background) transparent;

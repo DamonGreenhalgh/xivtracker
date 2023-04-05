@@ -3,14 +3,11 @@ import Divider from "../components/Divider";
 import Return from "../components/Return";
 import idHelp from "../images/id-help.png";
 
-const Help = (props) => {
-  const { setShowSearchbar } = props;
-
+const Help = () => {
   useEffect(() => {
     document.documentElement.style.setProperty("--content-width", "70rem");
-    setShowSearchbar(false);
     document.title = "XIV Tracker | Help";
-  }, [setShowSearchbar]);
+  }, []);
 
   return (
     <div className="settings">
