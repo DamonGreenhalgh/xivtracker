@@ -113,6 +113,7 @@ const OverlayPanel = (props) => {
             data={referenceCharacter}
             referenceCharacter={data}
             display={tabIndex === 1}
+            compare
           />
         </>
       ) : (

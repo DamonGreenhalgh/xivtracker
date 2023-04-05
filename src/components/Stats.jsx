@@ -2,7 +2,7 @@ import "../styles/Stats.css";
 import Bar from "./Bar";
 
 const Stats = (props) => {
-  const { referenceCharacter, data, display } = props;
+  const { referenceCharacter, data, display, compare } = props;
   return (
     <ul className={"attributes__list" + (display ? "" : " disabled")}>
       <div className="attributes__main">
@@ -35,7 +35,7 @@ const Stats = (props) => {
               }}
             >
               <p style={{ marginRight: "auto" }}>{attribute.Attribute.Name}</p>
-              {diff !== 0 ? (
+              {diff !== 0 && compare ? (
                 <h5
                   style={{
                     color:

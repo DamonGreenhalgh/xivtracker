@@ -87,6 +87,7 @@ const Profile = (props) => {
             data={data}
             referenceCharacter={referenceCharacter}
             display={!contentToggle}
+            compare={false}
           />
           <ul className={"profile" + (contentToggle ? "" : " disabled")}>
             <p>Name / Title</p>
