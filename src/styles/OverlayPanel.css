@@ -10,7 +10,8 @@
     overflow-y: scroll;
     scrollbar-width: none;
     height: 100vh;
-    width: 32rem;
+    max-width: 32rem;
+    min-width: 32rem;
     background-color: var(--c-content-background-opaque);
     border-left: 1px solid var(--c-mid-background);
     backdrop-filter: blur(1rem);

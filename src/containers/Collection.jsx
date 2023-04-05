@@ -1,15 +1,17 @@
 // Hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Components
 import Item from "../components/Item";
 import Header from "../components/Header";
-import Navigator from "../components/Navigator";
 
 // Style
 import "../styles/Collection.css";
 import FailToLoad from "../components/FailToLoad";
+import Button from "../components/Button";
+import { FaHorseHead, FaCat, FaSearch } from "react-icons/fa";
 
+const iconSize = "1em";
 /**
  * @name Collection
  * @description Collection container for mount and minion items.
@@ -19,10 +21,38 @@ import FailToLoad from "../components/FailToLoad";
 const Collection = (props) => {
   const { display, mounts, minions } = props;
   // Will have to manually update these numbers after every patch.
-  const totalCollection = 747;
-  const capacity = 40;
-  const [mountPage, setMountPage] = useState(0);
-  const [minionPage, setMinionPage] = useState(0);
+  const totalCollection = 248 + 465;
+  const [tabIndex, setTabIndex] = useState(0);
+  const [searchInput, setSearchInput] = useState("");
+  const [displayedMounts, setDisplayedMounts] = useState([]);
+  const [displayedMinions, setDisplayedMinions] = useState([]);
+
+  useEffect(() => {
+    setDisplayedMounts(
+      mounts.map((mount, index) =>
+        mount.Name.toLowerCase().includes(searchInput) ? (
+          <Item
+            name={mount.Name}
+            icon={mount.Icon}
+            collectionType={"Mount"}
+            key={index}
+          />
+        ) : null
+      )
+    );
+    setDisplayedMinions(
+      minions.map((minion, index) =>
+        minion.Name.toLowerCase().includes(searchInput) ? (
+          <Item
+            name={minion.Name}
+            icon={minion.Icon}
+            collectionType={"Minion"}
+            key={index}
+          />
+        ) : null
+      )
+    );
+  }, [searchInput]);
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
@@ -51,51 +81,32 @@ const Collection = (props) => {
             }
           />
           <div className="collection__content">
-            <div className="col gap-lg">
-              <div className="collection">
-                {mounts
-                  .slice(mountPage * capacity, (mountPage + 1) * capacity)
-                  .map((mount, index) => {
-                    return (
-                      <Item
-                        name={mount.Name}
-                        icon={mount.Icon}
-                        collectionType={"Mount"}
-                        key={index}
-                      />
-                    );
-                  })}
-              </div>
-              <Navigator
-                update={setMountPage}
-                current={mountPage}
-                min={0}
-                max={Math.ceil(mounts.length / capacity) - 1}
-                style={{ margin: "auto" }}
+            <div className="row gap align-center">
+              <Button
+                content={<FaHorseHead size={iconSize} />}
+                title="Mounts"
+                condition={tabIndex === 0}
+                onClick={() => setTabIndex(0)}
               />
+              <Button
+                content={<FaCat size={iconSize} />}
+                title="Minions"
+                condition={tabIndex === 1}
+                onClick={() => setTabIndex(1)}
+              />
+              <input
+                type="text"
+                placeholder="Search"
+                className="collection__searchbar"
+                onChange={(e) => setSearchInput(e.target.value)}
+              />
+              <FaSearch size={iconSize} />
             </div>
-            <div className="col gap-lg">
-              <div className="collection">
-                {minions
-                  .slice(minionPage * capacity, (minionPage + 1) * capacity)
-                  .map((minion, index) => {
-                    return (
-                      <Item
-                        name={minion.Name}
-                        icon={minion.Icon}
-                        collectionType={"Minion"}
-                        key={index}
-                      />
-                    );
-                  })}
-              </div>
-              <Navigator
-                update={setMinionPage}
-                current={minionPage}
-                min={0}
-                max={Math.ceil(minions.length / capacity) - 1}
-                style={{ margin: "auto" }}
-              />
+            <div className={"collection" + (tabIndex === 0 ? "" : " disabled")}>
+              {displayedMounts}
+            </div>
+            <div className={"collection" + (tabIndex === 1 ? "" : " disabled")}>
+              {displayedMinions}
             </div>
           </div>
         </>
