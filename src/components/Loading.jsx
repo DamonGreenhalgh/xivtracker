@@ -6,8 +6,8 @@ const descriptions = [
   "Fetching data from Lodestone",
   "Feeding carbuncle",
   "Applying materia to equipment",
-  "This is Thancred",
-  "Eating some archon loaf",
+  "This is Thancred!",
+  "Eating a slice of archon loaf",
   "Farming mounts",
   "Walking alone to the end",
 ];

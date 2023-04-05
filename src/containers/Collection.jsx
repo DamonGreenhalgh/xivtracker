@@ -5,10 +5,10 @@ import { useState } from "react";
 import Item from "../components/Item";
 import Header from "../components/Header";
 import Navigator from "../components/Navigator";
-import Loading from "../components/Loading";
 
 // Style
 import "../styles/Collection.css";
+import FailToLoad from "../components/FailToLoad";
 
 /**
  * @name Collection
@@ -33,7 +33,7 @@ const Collection = (props) => {
             minor={"0 / " + totalCollection}
             major={(0 / totalCollection) * 100 + " %"}
           />
-          <Loading />
+          <FailToLoad />
         </>
       ) : (
         <>
