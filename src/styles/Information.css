@@ -1,0 +1,17 @@
+.information {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    width: 100%;
+}
+
+.information li {
+    display: flex;
+    align-items: center;
+    margin: .5rem 0 1rem 2rem;
+    gap: .5rem;
+}
+
+.information img {
+    max-height: 2rem;
+}

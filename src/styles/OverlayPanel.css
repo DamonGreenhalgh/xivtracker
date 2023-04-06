@@ -40,3 +40,15 @@
     background-color: var(--c-mid-background);
     color: var(--c-major-text);
 }
+
+@media only screen and (max-width: 73rem) {
+
+    .overlay-panel{
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .overlay-panel--hide {
+        right: -100%;
+    }
+}

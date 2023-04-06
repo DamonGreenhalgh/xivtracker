@@ -31,14 +31,12 @@ const Navbar = (props) => {
         </button>
       </Link>
       {referenceCharacter !== null ? (
-        <Link to={referenceCharacter.Character.ID}>
-          <img
-            src={referenceCharacter.Character.Avatar}
-            className="navbar__profile-icon rounded interactable"
-            title={referenceCharacter.Character.Name}
-            alt="reference character"
-          />
-        </Link>
+        <img
+          src={referenceCharacter.Character.Avatar}
+          className="overlay-panel__avatar"
+          title={referenceCharacter.Character.Name}
+          alt="reference character"
+        />
       ) : (
         <CgProfile className="navbar__icon" />
       )}

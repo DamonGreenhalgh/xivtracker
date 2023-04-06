@@ -1,34 +1,22 @@
 import "../styles/OverlayPanel.css";
-import JobItem from "./JobItem";
-import Item from "./Item";
 import Banner from "./Banner";
 import FailToLoad from "./FailToLoad";
 import { IoStatsChart } from "react-icons/io5";
 import { GiBattleGear } from "react-icons/gi";
-import { MdWork } from "react-icons/md";
+import { MdWork, MdCompareArrows } from "react-icons/md";
 import { useState } from "react";
 import Stats from "./Stats";
 import Button from "./Button";
+import Equipment from "./Equipment";
+import { AiFillProfile } from "react-icons/ai";
+import Information from "./Information";
 
 const iconSize = "1em";
-const equipmentNames = [
-  "Body",
-  "Bracelets",
-  "Earrings",
-  "Feet",
-  "Hands",
-  "Head",
-  "Legs",
-  "MainHand",
-  "Necklace",
-  "OffHand",
-  "Ring1",
-  "Ring2",
-  "SoulCrystal",
-];
 const OverlayPanel = (props) => {
   const { data, referenceCharacter, displayPanel } = props;
   const [tabIndex, setTabIndex] = useState(0);
+  const [compare, setCompare] = useState(false);
+
   return (
     <div
       className={"overlay-panel overlay-panel--" + (displayPanel ? "" : "hide")}
@@ -49,6 +37,7 @@ const OverlayPanel = (props) => {
             misc={referenceCharacter.Character.Server}
             link={"/" + referenceCharacter.Character.ID}
           />
+
           <nav className="overlay-panel__tab-container">
             <Button
               content={<GiBattleGear size={iconSize} />}
@@ -63,58 +52,33 @@ const OverlayPanel = (props) => {
               title="Attributes"
             />
             <Button
-              content={<MdWork size={iconSize} />}
+              content={<AiFillProfile size={iconSize} />}
               condition={tabIndex === 2}
               onClick={() => setTabIndex(2)}
+              title="Information"
+            />
+            <Button
+              content={<MdWork size={iconSize} />}
+              condition={tabIndex === 3}
+              onClick={() => setTabIndex(3)}
               title="Jobs"
             />
+            <Button
+              style={{ marginLeft: "auto" }}
+              content={<MdCompareArrows size={iconSize} />}
+              condition={compare}
+              onClick={() => setCompare(compare ? false : true)}
+              title="Compare"
+            />
           </nav>
-          <div
-            className={"equipment" + (tabIndex === 0 ? "" : " disabled")}
-            onClick={() => setTabIndex(3)}
-          >
-            <div
-              style={{
-                backgroundImage:
-                  "url('" + referenceCharacter.Character.Portrait + "')",
-              }}
-              className="equipment__portrait"
-            >
-              <JobItem
-                name={referenceCharacter.Character.ActiveClassJob.Job.Name}
-                level={referenceCharacter.Character.ActiveClassJob.Level}
-                exp={[
-                  referenceCharacter.Character.ActiveClassJob.ExpLevel,
-                  referenceCharacter.Character.ActiveClassJob.ExpLevelMax,
-                ]}
-                icon={referenceCharacter.Character.ActiveClassJob.Job.Icon}
-                currentJob={true}
-                hasLink={true}
-              />
-            </div>
-            {Object.values(referenceCharacter.Character.GearSet.Gear).map(
-              (item, index) => (
-                <Item
-                  type={equipmentNames[index]}
-                  name={item.Item.Name}
-                  icon={
-                    ("https://xivapi.com" + item.Item.Icon).slice(0, -4) +
-                    "_hr1.png"
-                  }
-                  materia={item.Materia}
-                  glamour={item.Mirage}
-                  id={item.Item.ID}
-                  key={index}
-                />
-              )
-            )}
-          </div>
+          <Equipment data={referenceCharacter} display={tabIndex === 0} />
           <Stats
             data={referenceCharacter}
             referenceCharacter={data}
             display={tabIndex === 1}
-            compare
+            compare={compare}
           />
+          <Information data={referenceCharacter} display={tabIndex === 2} />
         </>
       ) : (
         <FailToLoad type={"referenceError"} />

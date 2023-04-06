@@ -5,13 +5,16 @@
     padding: 1rem;
     color: var(--c-minor-text);
     outline: 1px solid var(--c-mid-background);
-    background-color: var(--c-content-background);
+    width: min-content;
+    min-height: 3rem;
+    background-color: var(--c-content-background-opaque);
     backdrop-filter: blur(1rem);
-    transition: background-color .25s, color .25s, outline .25s;
+    transition: background-color .25s, color .25s, outline .25s, box-shadow .25s;
 }
 
 .button--active {
     color: var(--c-major-text);
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
     background-color: var(--c-mid-background) !important;
 }
 

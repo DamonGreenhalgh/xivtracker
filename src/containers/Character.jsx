@@ -16,13 +16,12 @@ import OverlayPanel from "../components/OverlayPanel";
 
 // Style
 import { MdWork, MdPets } from "react-icons/md";
-import { IoStatsChart } from "react-icons/io5";
-import { GiBattleGear, GiTiedScroll } from "react-icons/gi";
+import { GiBattleGear } from "react-icons/gi";
 import { FaScroll, FaMedal } from "react-icons/fa";
+import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
 import "../styles/Character.css";
 
 const iconSize = "1em";
-
 /**
  * @name Character
  * @description This component represents the character profile page.
@@ -96,14 +95,18 @@ const Character = (props) => {
       <button
         title="Show Reference Character"
         className={
-          "navbar__overlay-panel-toggle" +
-          (displayPanel ? "" : " navbar__overlay-panel-toggle--hide")
+          "overlay-panel__toggle" +
+          (displayPanel ? "" : " overlay-panel__toggle--hide")
         }
         onClick={() => {
           setDisplayPanel(displayPanel ? false : true);
         }}
       >
-        {displayPanel ? ">>" : "<<"}
+        {displayPanel ? (
+          <FiChevronsRight size={iconSize} />
+        ) : (
+          <FiChevronsLeft size={iconSize} />
+        )}
       </button>
       <OverlayPanel
         data={data}
@@ -123,8 +126,8 @@ const Character = (props) => {
         title={data.Character.Title.Name}
         misc={data.Character.Server}
       />
-      <div className="row gap-lg">
-        <nav className="col gap">
+      <div className="character__content">
+        <nav className="character__tab">
           <Button
             content={<GiBattleGear size={iconSize} />}
             onClick={() => setIndex(0)}
@@ -161,7 +164,11 @@ const Character = (props) => {
           data={data}
           referenceCharacter={referenceCharacter}
         />
-        <Jobs display={index === 1} jobs={data.Character.ClassJobs} />
+        <Jobs
+          display={index === 1}
+          jobs={data.Character.ClassJobs}
+          displayPanel={displayPanel}
+        />
         <Collection
           display={index === 2}
           mounts={data.Mounts}
