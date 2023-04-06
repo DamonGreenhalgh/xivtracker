@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 
 // Components
 import Item from "../components/Item";
-import Header from "../components/Header";
+import CompletionMetric from "../components/CompletionMetric";
+import Button from "../components/Button";
+import FailToLoad from "../components/FailToLoad";
+import Divider from "../components/Divider";
 
 // Style
 import "../styles/Collection.css";
-import FailToLoad from "../components/FailToLoad";
-import Button from "../components/Button";
 import { FaHorseHead, FaCat, FaSearch } from "react-icons/fa";
 
 const iconSize = "1em";
@@ -58,28 +59,19 @@ const Collection = (props) => {
     <div className={"section" + (display ? "" : " disabled")}>
       {mounts === null || minions === null ? (
         <>
-          <Header
-            name="Collection"
-            minor={"0 / " + totalCollection}
-            major={(0 / totalCollection) * 100 + " %"}
-          />
+          <h2>Collection</h2>
           <FailToLoad />
         </>
       ) : (
         <>
-          <Header
-            name="Collection"
-            minor={
-              Math.round(mounts.length + minions.length) +
-              " / " +
-              totalCollection
-            }
-            major={
-              Math.round(
-                ((mounts.length + minions.length) / totalCollection) * 100
-              ) + " %"
-            }
-          />
+          <div className="row justify-between">
+            <h2>Collection</h2>
+            <CompletionMetric
+              numerator={mounts.length + minions.length}
+              denominator={totalCollection}
+            />
+          </div>
+          <Divider />
           <div className="collection__content">
             <div className="row gap align-center">
               <Button

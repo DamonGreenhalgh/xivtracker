@@ -2,9 +2,10 @@
 import { useEffect, useState } from "react";
 
 // Components
-import Header from "../components/Header";
 import Navigator from "../components/Navigator";
 import FailToLoad from "../components/FailToLoad";
+import CompletionMetric from "../components/CompletionMetric";
+import Divider from "../components/Divider";
 
 // Data
 import questsJSON from "../data/quests.json";
@@ -118,12 +119,14 @@ const Quests = (props) => {
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <Header
-        name="Quests"
-        minor={completion[0] + " / " + completion[1]}
-        major={Math.round((completion[0] / completion[1]) * 100) + " %"}
-      />
-
+      <div className="row justify-between">
+        <h2>Quests</h2>
+        <CompletionMetric
+          numerator={completion[0]}
+          denominator={completion[1]}
+        />
+      </div>
+      <Divider />
       {achievementsList.length === 0 ? (
         <FailToLoad />
       ) : (

@@ -2,10 +2,11 @@
 import { useState, useEffect } from "react";
 
 // Components
-import Header from "../components/Header";
 import Button from "../components/Button";
 import JobItem from "../components/JobItem";
 import JobHeader from "../components/JobHeader";
+import CompletionMetric from "../components/CompletionMetric";
+import Divider from "../components/Divider";
 
 // Assets
 import tankIcon from "../images/tank.png";
@@ -46,15 +47,19 @@ const Jobs = (props) => {
       sumOfLevels += jobs[i].Level;
     }
 
-    setCompletion(() => [
-      numMaxLevel + " / " + jobs.length,
-      Math.round((sumOfLevels / (maxLevel * jobs.length)) * 100) + " %",
-    ]);
+    setCompletion(() => [numMaxLevel, jobs.length]);
   }, []);
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <Header name="Jobs" minor={completion[0]} major={completion[1]} />
+      <div className="row justify-between">
+        <h2>Jobs</h2>
+        <CompletionMetric
+          numerator={completion[0]}
+          denominator={completion[1]}
+        />
+      </div>
+      <Divider />
       <div className="row gap">
         <Button
           content={<GiBattleGear size={iconSize} />}

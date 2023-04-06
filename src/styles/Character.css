@@ -22,8 +22,8 @@
 }
 
 .character--side {
-    max-width: calc(100vw - 41rem) !important; 
-    min-width: calc(100vw - 41rem) !important; 
+    max-width: calc(100vw - 42rem) !important; 
+    min-width: calc(100vw - 42rem) !important; 
     left: 2rem !important;
 }
 

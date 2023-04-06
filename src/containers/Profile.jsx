@@ -2,11 +2,11 @@
 import { useState } from "react";
 
 // Components
-import Header from "../components/Header";
 import Button from "../components/Button";
 import Stats from "../components/Stats";
 import Information from "../components/Information";
 import Equipment from "../components/Equipment";
+import Divider from "../components/Divider";
 
 // Assets
 import { GiBattleGear } from "react-icons/gi";
@@ -30,8 +30,8 @@ const Profile = (props) => {
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <Header name="Profile" />
-
+      <h2>Profile</h2>
+      <Divider />
       <div className="col gap-lg max-width">
         <div className="row gap">
           <Button
