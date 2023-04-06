@@ -3,13 +3,23 @@ import Banner from "./Banner";
 import FailToLoad from "./FailToLoad";
 import { IoStatsChart } from "react-icons/io5";
 import { GiBattleGear } from "react-icons/gi";
-import { MdWork, MdCompareArrows } from "react-icons/md";
+import { MdWork, MdCompareArrows, MdPets } from "react-icons/md";
 import { useState } from "react";
 import Stats from "./Stats";
 import Button from "./Button";
 import Equipment from "./Equipment";
 import { AiFillProfile } from "react-icons/ai";
 import Information from "./Information";
+
+import tankIcon from "../images/tank.png";
+import healerIcon from "../images/healer.png";
+import meleeIcon from "../images/melee.png";
+import rangedIcon from "../images/ranged.png";
+import magicIcon from "../images/magic.png";
+import handIcon from "../images/hand.png";
+import landIcon from "../images/land.png";
+import JobItem from "../components/JobItem";
+import JobHeader from "../components/JobHeader";
 
 const iconSize = "1em";
 const OverlayPanel = (props) => {
@@ -36,6 +46,9 @@ const OverlayPanel = (props) => {
             title={referenceCharacter.Character.Title.Name}
             misc={referenceCharacter.Character.Server}
             link={"/" + referenceCharacter.Character.ID}
+            gender={referenceCharacter.Character.Gender}
+            race={referenceCharacter.Character.Race.Name}
+            tribe={referenceCharacter.Character.Tribe.Name}
           />
 
           <nav className="overlay-panel__tab-container">
@@ -64,6 +77,12 @@ const OverlayPanel = (props) => {
               title="Jobs"
             />
             <Button
+              content={<MdPets size={iconSize} />}
+              condition={tabIndex === 4}
+              onClick={() => setTabIndex(4)}
+              title="Jobs"
+            />
+            <Button
               style={{ marginLeft: "auto" }}
               content={<MdCompareArrows size={iconSize} />}
               condition={compare}
@@ -79,6 +98,39 @@ const OverlayPanel = (props) => {
             compare={compare}
           />
           <Information data={referenceCharacter} display={tabIndex === 2} />
+          <div
+            className={
+              "jobs__collection jobs__collection--single war-magic--single" +
+              (tabIndex === 3 ? "" : " disabled")
+            }
+          >
+            <JobHeader name="Tank" icon={tankIcon} />
+            <JobHeader name="Healer" icon={healerIcon} />
+            <JobHeader name="Melee" icon={meleeIcon} />
+            <JobHeader name="Ranged" icon={rangedIcon} />
+            <JobHeader name="Magic" icon={magicIcon} />
+            <JobHeader name="Hand" icon={handIcon} />
+            <JobHeader name="Land" icon={landIcon} />
+
+            {referenceCharacter.Character.ClassJobs.map((job, index) => (
+              <JobItem
+                key={referenceCharacter.Character.ClassJobs[index].Job.ID}
+                icon={referenceCharacter.Character.ClassJobs[index].Job.Icon}
+                name={referenceCharacter.Character.ClassJobs[index].Job.Name}
+                level={referenceCharacter.Character.ClassJobs[index].Level}
+                exp={[
+                  referenceCharacter.Character.ClassJobs[index].ExpLevel,
+                  referenceCharacter.Character.ClassJobs[index].ExpLevelMax,
+                ]}
+                isCombat={true}
+                diff={
+                  referenceCharacter.Character.ClassJobs[index].Level -
+                  data.Character.ClassJobs[index].Level
+                }
+                compare={compare}
+              />
+            ))}
+          </div>
         </>
       ) : (
         <FailToLoad type={"referenceError"} />

@@ -15,7 +15,7 @@ import Button from "../components/Button";
 import OverlayPanel from "../components/OverlayPanel";
 
 // Style
-import { MdWork, MdPets } from "react-icons/md";
+import { MdWork, MdPets, MdCompareArrows } from "react-icons/md";
 import { GiBattleGear } from "react-icons/gi";
 import { FaScroll, FaMedal } from "react-icons/fa";
 import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
@@ -34,8 +34,7 @@ const Character = (props) => {
     "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO"
   );
   const [index, setIndex] = useState(0);
-  const { referenceCharacter } = props;
-  const [displayPanel, setDisplayPanel] = useState(false);
+  const { referenceCharacter, displayPanel, setDisplayPanel } = props;
 
   useEffect(() => {
     /**
@@ -92,6 +91,11 @@ const Character = (props) => {
     <Loading full={true} />
   ) : (
     <div className={"character" + (displayPanel ? " character--side" : "")}>
+      <OverlayPanel
+        data={data}
+        referenceCharacter={referenceCharacter}
+        displayPanel={displayPanel}
+      />
       <button
         title="Show Reference Character"
         className={
@@ -108,11 +112,6 @@ const Character = (props) => {
           <FiChevronsLeft size={iconSize} />
         )}
       </button>
-      <OverlayPanel
-        data={data}
-        referenceCharacter={referenceCharacter}
-        displayPanel={displayPanel}
-      />
       <Banner
         type=""
         avatar={
@@ -125,7 +124,11 @@ const Character = (props) => {
         name={data.Character.Name}
         title={data.Character.Title.Name}
         misc={data.Character.Server}
+        gender={data.Character.Gender}
+        race={data.Character.Race.Name}
+        tribe={data.Character.Tribe.Name}
       />
+
       <div className="character__content">
         <nav className="character__tab">
           <Button

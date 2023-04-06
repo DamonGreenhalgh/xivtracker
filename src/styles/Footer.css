@@ -1,5 +1,5 @@
 .footer {
-  position: relative;
+  bottom: 0;
   width: var(--content-width);
   margin: auto;
   height: 10rem;

@@ -30,13 +30,14 @@ const Home = () => {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         // Create character banners for each valid returned character.
         setResults(
           data.Results.map((result) => (
             <Banner
               type="search"
               name={result.Name}
-              title={result.Server}
+              misc={result.Server}
               avatar={
                 <img
                   src={result.Avatar}
@@ -45,6 +46,7 @@ const Home = () => {
                 />
               }
               link={"/" + result.ID}
+              lang={result.Lang}
               key={result.ID}
             />
           ))

@@ -58,6 +58,7 @@ const App = () => {
   const [splash, setSplash] = useState(settingsJSON.splash);
   const [personalized, setPersonalized] = useState(settingsJSON.personalized);
   const [referenceCharacter, setReferenceCharacter] = useState(null);
+  const [displayPanel, setDisplayPanel] = useState(false);
 
   // Mount
   useEffect(() => {
@@ -105,12 +106,22 @@ const App = () => {
         <Loading full={true} />
       ) : (
         <>
-          <Navbar referenceCharacter={referenceCharacter} />
+          <Navbar
+            referenceCharacter={referenceCharacter}
+            displayPanel={displayPanel}
+            setDisplayPanel={setDisplayPanel}
+          />
           <Routes>
             <Route
               exact
               path="/:id"
-              element={<Character referenceCharacter={referenceCharacter} />}
+              element={
+                <Character
+                  referenceCharacter={referenceCharacter}
+                  displayPanel={displayPanel}
+                  setDisplayPanel={setDisplayPanel}
+                />
+              }
             />
             <Route
               path="/settings"

@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import Searchbar from "./Searchbar";
 
 const Navbar = (props) => {
-  const { referenceCharacter } = props;
+  const { referenceCharacter, displayPanel, setDisplayPanel } = props;
 
   return (
     <nav className="navbar">
@@ -30,16 +30,18 @@ const Navbar = (props) => {
           <RiSettings3Line className="navbar__icon" />
         </button>
       </Link>
-      {referenceCharacter !== null ? (
-        <img
-          src={referenceCharacter.Character.Avatar}
-          className="overlay-panel__avatar"
-          title={referenceCharacter.Character.Name}
-          alt="reference character"
-        />
-      ) : (
-        <CgProfile className="navbar__icon" />
-      )}
+      <button onClick={() => setDisplayPanel(displayPanel ? false : true)}>
+        {referenceCharacter !== null ? (
+          <img
+            src={referenceCharacter.Character.Avatar}
+            className="overlay-panel__avatar"
+            title={referenceCharacter.Character.Name}
+            alt="reference character"
+          />
+        ) : (
+          <CgProfile className="navbar__icon" />
+        )}
+      </button>
     </nav>
   );
 };
