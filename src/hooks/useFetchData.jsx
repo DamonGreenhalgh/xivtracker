@@ -11,16 +11,22 @@ export const useFetchData = (url) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
     const fetchData = async (url) => {
       setLoading(true);
 
-      await fetch(url, { mode: "cors" })
+      await fetch(url, { mode: "cors", signal: signal })
         .then((response) => response.json())
-        .then((responseJson) => setData(responseJson));
+        .then((responseJSON) => setData(responseJSON))
+        .catch((error) => console.error(error));
 
       setLoading(false);
     };
     setTimeout(() => fetchData(url), 100);
+
+    return () => controller.abort();
   }, [url]);
 
   return { data, loading };
