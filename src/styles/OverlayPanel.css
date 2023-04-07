@@ -5,14 +5,14 @@
     flex-direction: column;
     top: 0;
     right: 0;
-    gap: 2rem;
-    z-index: 3;
+    gap: 4rem;
+    z-index: 4;
     overflow-y: scroll;
     scrollbar-width: none;
     height: 100vh;
     max-width: 32rem;
     min-width: 32rem;
-    background-color: var(--c-content-background-opaque);
+    background-color: var(--c-shadow);
     border-left: 1px solid var(--c-mid-background);
     backdrop-filter: blur(1rem);
     padding: 8rem 2rem 2rem 2rem;
@@ -39,16 +39,4 @@
     box-shadow: 0 0 .8rem var(--c-shadow);
     background-color: var(--c-mid-background);
     color: var(--c-major-text);
-}
-
-@media only screen and (max-width: 73rem) {
-
-    .overlay-panel{
-        max-width: 100%;
-        min-width: 100%;
-    }
-
-    .overlay-panel--hide {
-        right: -100%;
-    }
 }

@@ -4,8 +4,10 @@
     display: flex;
     width: 100%;
     padding: 2rem;
-    gap: 1rem;
-    border-radius: .25rem;
+    gap: 2rem;
+    border-radius: .5rem;
+    background-color: var(--c-content-background-opaque);
+    border: 1px solid var(--c-mid-background);
 }
 
 .search {

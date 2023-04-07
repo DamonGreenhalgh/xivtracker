@@ -22,7 +22,6 @@ import "../styles/Jobs.css";
 import { GiBattleGear } from "react-icons/gi";
 import { FaFish } from "react-icons/fa";
 
-const iconSize = "1em";
 const Jobs = (props) => {
   const { display, jobs, displayPanel } = props;
   const [displayJob, setDisplayJob] = useState(true);
@@ -62,13 +61,13 @@ const Jobs = (props) => {
       <Divider />
       <div className="row gap">
         <Button
-          content={<GiBattleGear size={iconSize} />}
+          content={<GiBattleGear className="character__icon" />}
           condition={displayJob}
           onClick={() => setDisplayJob(true)}
           title="Combat"
         />
         <Button
-          content={<FaFish size={iconSize} />}
+          content={<FaFish className="character__icon" />}
           condition={!displayJob}
           onClick={() => setDisplayJob(false)}
           title="Profession"

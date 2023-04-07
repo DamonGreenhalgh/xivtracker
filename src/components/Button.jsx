@@ -15,6 +15,7 @@ const Button = (props) => {
       title={title}
     >
       {content}
+      <p style={{ marginLeft: "1rem" }}>{title}</p>
     </button>
   );
 };

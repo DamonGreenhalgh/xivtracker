@@ -3,22 +3,26 @@
     position: relative;
     border-radius: .25rem;
     padding: 1rem;
+    justify-content: start;
     color: var(--c-minor-text);
-    outline: 1px solid var(--c-mid-background);
+    border: 1px solid var(--c-mid-background);
     width: min-content;
     min-height: 3rem;
     background-color: var(--c-content-background-opaque);
     backdrop-filter: blur(1rem);
-    transition: background-color .25s, color .25s, outline .25s, box-shadow .25s;
+    max-width: 3rem;
+    transition: background-color .5s, color .5s, border .5s, box-shadow .5s, max-width .5s;
 }
 
 .button--active {
+    z-index: 3;
     color: var(--c-major-text);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    background-color: var(--c-mid-background) !important;
+    max-width: 10rem;
+    /* background-color: var(--c-mid-background) !important; */
 }
 
-.button:hover {
+/* .button:hover {
     color: var(--c-major-text);
     background-color: var(--c-mid-background);
-}
+} */

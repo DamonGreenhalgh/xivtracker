@@ -6,7 +6,6 @@ import { GiBattleGear } from "react-icons/gi";
 import { MdWork, MdCompareArrows, MdPets } from "react-icons/md";
 import { useState } from "react";
 import Stats from "./Stats";
-import Button from "./Button";
 import Equipment from "./Equipment";
 import { AiFillProfile } from "react-icons/ai";
 import Information from "./Information";
@@ -20,12 +19,12 @@ import handIcon from "../images/hand.png";
 import landIcon from "../images/land.png";
 import JobItem from "../components/JobItem";
 import JobHeader from "../components/JobHeader";
+import Divider from "./Divider";
 
-const iconSize = "1em";
 const OverlayPanel = (props) => {
   const { data, referenceCharacter, displayPanel } = props;
   const [tabIndex, setTabIndex] = useState(0);
-  const [compare, setCompare] = useState(false);
+  const [compare, setCompare] = useState(true);
 
   return (
     <div
@@ -50,60 +49,59 @@ const OverlayPanel = (props) => {
             race={referenceCharacter.Character.Race.Name}
             tribe={referenceCharacter.Character.Tribe.Name}
           />
+          <Divider />
 
-          <nav className="overlay-panel__tab-container">
+          {/* <nav className="overlay-panel__tab-container">
             <Button
-              content={<GiBattleGear size={iconSize} />}
+              content={<GiBattleGear className="character__icon" />}
               condition={tabIndex === 0}
               onClick={() => setTabIndex(0)}
               title="Gear"
             />
             <Button
-              content={<IoStatsChart size={iconSize} />}
+              content={<IoStatsChart className="character__icon" />}
               condition={tabIndex === 1}
               onClick={() => setTabIndex(1)}
               title="Attributes"
             />
             <Button
-              content={<AiFillProfile size={iconSize} />}
+              content={<AiFillProfile className="character__icon" />}
               condition={tabIndex === 2}
               onClick={() => setTabIndex(2)}
               title="Information"
             />
             <Button
-              content={<MdWork size={iconSize} />}
+              content={<MdWork className="character__icon" />}
               condition={tabIndex === 3}
               onClick={() => setTabIndex(3)}
               title="Jobs"
             />
             <Button
-              content={<MdPets size={iconSize} />}
+              content={<MdPets className="character__icon" />}
               condition={tabIndex === 4}
               onClick={() => setTabIndex(4)}
               title="Jobs"
             />
             <Button
               style={{ marginLeft: "auto" }}
-              content={<MdCompareArrows size={iconSize} />}
+              content={<MdCompareArrows className="character__icon" />}
               condition={compare}
               onClick={() => setCompare(compare ? false : true)}
               title="Compare"
             />
-          </nav>
-          <Equipment data={referenceCharacter} display={tabIndex === 0} />
+          </nav> */}
+
+          <Equipment data={referenceCharacter} display={true} />
+          <Divider />
           <Stats
             data={referenceCharacter}
             referenceCharacter={data}
-            display={tabIndex === 1}
+            display={true}
             compare={compare}
           />
-          <Information data={referenceCharacter} display={tabIndex === 2} />
-          <div
-            className={
-              "jobs__collection jobs__collection--single war-magic--single" +
-              (tabIndex === 3 ? "" : " disabled")
-            }
-          >
+          <Divider />
+          {/* <Information data={referenceCharacter} display={true} /> */}
+          <div className="jobs__collection jobs__collection--single job--ref ">
             <JobHeader name="Tank" icon={tankIcon} />
             <JobHeader name="Healer" icon={healerIcon} />
             <JobHeader name="Melee" icon={meleeIcon} />

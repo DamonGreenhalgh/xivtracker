@@ -12,7 +12,6 @@ import Divider from "../components/Divider";
 import "../styles/Achievements.css";
 import { FaSearch } from "react-icons/fa";
 
-const iconSize = "1em";
 const totalAchievements = 2864;
 const capacity = 8;
 /**
@@ -57,7 +56,7 @@ const Achievements = (props) => {
               className="collection__searchbar"
               onChange={(e) => setSearchInput(e.target.value)}
             />
-            <FaSearch size={iconSize} />
+            <FaSearch className="character__icon" />
           </div>
           <ul className="col gap">
             {possibleAchievements

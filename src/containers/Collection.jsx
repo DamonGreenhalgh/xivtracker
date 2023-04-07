@@ -12,7 +12,6 @@ import Divider from "../components/Divider";
 import "../styles/Collection.css";
 import { FaHorseHead, FaCat, FaSearch } from "react-icons/fa";
 
-const iconSize = "1em";
 /**
  * @name Collection
  * @description Collection container for mount and minion items.
@@ -75,13 +74,13 @@ const Collection = (props) => {
           <div className="collection__content">
             <div className="row gap align-center">
               <Button
-                content={<FaHorseHead size={iconSize} />}
+                content={<FaHorseHead className="character__icon" />}
                 title="Mounts"
                 condition={tabIndex === 0}
                 onClick={() => setTabIndex(0)}
               />
               <Button
-                content={<FaCat size={iconSize} />}
+                content={<FaCat className="character__icon" />}
                 title="Minions"
                 condition={tabIndex === 1}
                 onClick={() => setTabIndex(1)}
@@ -92,7 +91,7 @@ const Collection = (props) => {
                 className="collection__searchbar"
                 onChange={(e) => setSearchInput(e.target.value)}
               />
-              <FaSearch size={iconSize} />
+              <FaSearch className="character__icon" />
             </div>
             <div className={"collection" + (tabIndex === 0 ? "" : " disabled")}>
               {displayedMounts}

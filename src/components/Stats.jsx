@@ -21,11 +21,16 @@ const Stats = (props) => {
       {Object.values(data.Character.GearSet.Attributes)
         .slice(0, -2)
         .map((attribute, index) => {
-          const diff =
-            referenceCharacter !== null
-              ? attribute.Value -
-                referenceCharacter.Character.GearSet.Attributes[index].Value
-              : 0;
+          let diff = 0;
+          if (referenceCharacter !== null) {
+            for (const refAttribute of referenceCharacter.Character.GearSet
+              .Attributes) {
+              if (refAttribute.Attribute.Name === attribute.Attribute.Name) {
+                diff = attribute.Value - refAttribute.Value;
+              }
+            }
+            console.log(diff);
+          }
           return (
             <li
               className="row gap-sm align-center"

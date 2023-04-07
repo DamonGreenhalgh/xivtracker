@@ -13,7 +13,7 @@
 .current-job {
     background-color: var(--c-content-background-opaque);
     padding: 1rem;
-    border-radius: .25rem;
+    border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     border: 1px solid var(--c-mid-background);
 }
@@ -111,6 +111,57 @@
     "fisher        "
     ;
 }
+
+
+.job--ref {
+    grid-template-areas: 
+    "Tank        "
+    "paladin     "
+    "warrior     "
+    "darkknight  "
+    "gunbreaker  "
+    ".           "
+    "Healer      "
+    "whitemage   "
+    "scholar     "
+    "astrologian "
+    "sage        "
+    ".           "
+    "Melee       "
+    "monk        "
+    "dragoon     "
+    "ninja       "     
+    "samurai     "   
+    "reaper      " 
+    ".           "
+    "Ranged      "   
+    "bard        "
+    " machinist  "
+    " dancer     "
+    ".           "
+    " Magic      "
+    " blackmage  "
+    "summoner    "
+    "redmage     "
+    "bluemage    "
+    ".           "
+    "Hand          "
+    "carpenter     "
+    "blacksmith    "
+    "armorer       "
+    "goldsmith     "
+    "leatherworker "
+    "weaver        "
+    "alchemist     "
+    "culinarian    "
+    ".             "
+    "Land          "
+    "miner         "
+    "botanist      "
+    "fisher        "
+    ;
+}
+
 
 @media only screen and (max-width: 700px) {
 

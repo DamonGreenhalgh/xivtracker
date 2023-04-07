@@ -16,7 +16,6 @@ import { AiFillProfile } from "react-icons/ai";
 // Style
 import "../styles/Profile.css";
 
-const iconSize = "1em";
 /**
  * @name Profile
  * @description The profile container. Contains character equipment, attributes
@@ -32,35 +31,37 @@ const Profile = (props) => {
     <div className={"section" + (display ? "" : " disabled")}>
       <h2>Profile</h2>
       <Divider />
-      <div className="col gap-lg max-width">
-        <div className="row gap">
-          <Button
-            content={<GiBattleGear size={iconSize} />}
-            condition={tabIndex === 0}
-            onClick={() => setTabIndex(0)}
-            title="Gear"
+      <div className="row gap-lg">
+        <Equipment data={data} display={true} />
+        <div className="col gap-lg width-max">
+          <div className="row gap">
+            <Button
+              content={<GiBattleGear className="character__icon" />}
+              condition={tabIndex === 0}
+              onClick={() => setTabIndex(0)}
+              title="Gear"
+            />
+            <Button
+              content={<IoStatsChart className="character__icon" />}
+              condition={tabIndex === 1}
+              onClick={() => setTabIndex(1)}
+              title="Attributes"
+            />
+            <Button
+              content={<AiFillProfile className="character__icon" />}
+              condition={tabIndex === 2}
+              onClick={() => setTabIndex(2)}
+              title="Information"
+            />
+          </div>
+          <Stats
+            data={data}
+            referenceCharacter={referenceCharacter}
+            display={tabIndex === 1}
+            compare={false}
           />
-          <Button
-            content={<IoStatsChart size={iconSize} />}
-            condition={tabIndex === 1}
-            onClick={() => setTabIndex(1)}
-            title="Attributes"
-          />
-          <Button
-            content={<AiFillProfile size={iconSize} />}
-            condition={tabIndex === 2}
-            onClick={() => setTabIndex(2)}
-            title="Information"
-          />
+          <Information data={data} display={tabIndex === 2} />
         </div>
-        <Equipment data={data} display={tabIndex === 0} />
-        <Stats
-          data={data}
-          referenceCharacter={referenceCharacter}
-          display={tabIndex === 1}
-          compare={false}
-        />
-        <Information data={data} display={tabIndex === 2} />
       </div>
     </div>
   );

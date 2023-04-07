@@ -13,15 +13,19 @@ import Loading from "../components/Loading";
 import Banner from "../components/Banner";
 import Button from "../components/Button";
 import OverlayPanel from "../components/OverlayPanel";
+import Stats from "../components/Stats";
+import Equipment from "../components/Equipment";
+import Information from "../components/Information";
 
 // Style
 import { MdWork, MdPets, MdCompareArrows } from "react-icons/md";
-import { GiBattleGear } from "react-icons/gi";
 import { FaScroll, FaMedal } from "react-icons/fa";
 import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
+import { GiBattleGear } from "react-icons/gi";
+import { IoStatsChart } from "react-icons/io5";
+import { AiFillProfile } from "react-icons/ai";
 import "../styles/Character.css";
 
-const iconSize = "1em";
 /**
  * @name Character
  * @description This component represents the character profile page.
@@ -31,9 +35,10 @@ const iconSize = "1em";
 const Character = (props) => {
   const { id } = useParams();
   const { data, loading } = useFetchData(
-    "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO"
+    "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO,FR"
   );
   const [index, setIndex] = useState(0);
+  const [sideTabIndex, setSideTabIndex] = useState(0);
   const { referenceCharacter, displayPanel, setDisplayPanel } = props;
 
   useEffect(() => {
@@ -90,7 +95,7 @@ const Character = (props) => {
   return loading ? (
     <Loading full={true} />
   ) : (
-    <div className={"character" + (displayPanel ? " character--side" : "")}>
+    <div className="character">
       <OverlayPanel
         data={data}
         referenceCharacter={referenceCharacter}
@@ -107,9 +112,9 @@ const Character = (props) => {
         }}
       >
         {displayPanel ? (
-          <FiChevronsRight size={iconSize} />
+          <FiChevronsRight className="character__icon" />
         ) : (
-          <FiChevronsLeft size={iconSize} />
+          <FiChevronsLeft className="character__icon" />
         )}
       </button>
       <Banner
@@ -130,63 +135,93 @@ const Character = (props) => {
       />
 
       <div className="character__content">
-        <nav className="character__tab">
-          <Button
-            content={<GiBattleGear size={iconSize} />}
-            onClick={() => setIndex(0)}
-            condition={index === 0}
-            title="Profile"
+        <div className="character__side">
+          <nav className="character__tab">
+            <Button
+              content={<GiBattleGear className="character__icon" />}
+              condition={sideTabIndex === 0}
+              onClick={() => setSideTabIndex(0)}
+              title="Gear"
+              className="character__tab-btn"
+            />
+            <Button
+              content={<IoStatsChart className="character__icon" />}
+              condition={sideTabIndex === 1}
+              onClick={() => setSideTabIndex(1)}
+              title="Attributes"
+              className="character__tab-btn"
+            />
+            <Button
+              content={<AiFillProfile className="character__icon" />}
+              condition={sideTabIndex === 2}
+              onClick={() => setSideTabIndex(2)}
+              title="Information"
+              className="character__tab-btn"
+            />
+          </nav>
+          <div className="section">
+            <Equipment data={data} display={sideTabIndex === 0} />
+            <Stats
+              data={data}
+              referenceCharacter={referenceCharacter}
+              display={sideTabIndex === 1}
+              compare={false}
+            />
+            <Information data={data} display={sideTabIndex === 2} />
+          </div>
+        </div>
+        <div className="character__main">
+          <nav className="character__tab">
+            <Button
+              content={<MdWork className="character__icon" />}
+              onClick={() => setIndex(0)}
+              condition={index === 0}
+              title="Jobs"
+              className="character__tab-btn"
+            />
+            <Button
+              content={<MdPets className="character__icon" />}
+              onClick={() => setIndex(1)}
+              condition={index === 1}
+              title="Collection"
+              className="character__tab-btn"
+            />
+            <Button
+              content={<FaScroll className="character__icon" />}
+              onClick={() => setIndex(2)}
+              condition={index === 2}
+              title="Quests"
+              className="character__tab-btn"
+            />
+            <Button
+              content={<FaMedal className="character__icon" />}
+              onClick={() => setIndex(3)}
+              condition={index === 3}
+              title="Achievements"
+              className="character__tab-btn"
+            />
+          </nav>
+          <Jobs
+            display={index === 0}
+            jobs={data.Character.ClassJobs}
+            displayPanel={displayPanel}
           />
-          <Button
-            content={<MdWork size={iconSize} />}
-            onClick={() => setIndex(1)}
-            condition={index === 1}
-            title="Jobs"
+          <Collection
+            display={index === 1}
+            mounts={data.Mounts}
+            minions={data.Minions}
           />
-          <Button
-            content={<MdPets size={iconSize} />}
-            onClick={() => setIndex(2)}
-            condition={index === 2}
-            title="Collection"
+          <Quests
+            display={index === 2}
+            achievementsList={data.Achievements.List}
+            referenceCharacter={referenceCharacter}
           />
-          <Button
-            content={<FaScroll size={iconSize} />}
-            onClick={() => setIndex(3)}
-            condition={index === 3}
-            title="Quests"
+          <Achievements
+            display={index === 3}
+            achievements={data.Achievements}
+            id={data.Character.ID}
           />
-          <Button
-            content={<FaMedal size={iconSize} />}
-            onClick={() => setIndex(4)}
-            condition={index === 4}
-            title="Achievements"
-          />
-        </nav>
-        <Profile
-          display={index === 0}
-          data={data}
-          referenceCharacter={referenceCharacter}
-        />
-        <Jobs
-          display={index === 1}
-          jobs={data.Character.ClassJobs}
-          displayPanel={displayPanel}
-        />
-        <Collection
-          display={index === 2}
-          mounts={data.Mounts}
-          minions={data.Minions}
-        />
-        <Quests
-          display={index === 3}
-          achievementsList={data.Achievements.List}
-          referenceCharacter={referenceCharacter}
-        />
-        <Achievements
-          display={index === 4}
-          achievements={data.Achievements}
-          id={data.Character.ID}
-        />
+        </div>
       </div>
     </div>
   );
