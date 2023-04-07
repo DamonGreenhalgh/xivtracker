@@ -7,55 +7,28 @@ import femaleIcon from "../images/female.png";
 import { ImDiamonds } from "react-icons/im";
 
 const Banner = (props) => {
-  const {
-    type,
-    name,
-    title,
-    avatar,
-    link,
-    misc,
-    content,
-    gender,
-    race,
-    tribe,
-  } = props;
+  const { character } = props;
   return (
-    <Link className={"banner " + type} to={link}>
-      {avatar}
-      <div className="col justify-between gap-sm">
-        <h2>{name}</h2>
-        <h3>{title}</h3>
-        {gender !== undefined ? (
-          <div className="row gap-sm align-center">
-            <p>{tribe + " " + race}</p>
-          </div>
-        ) : null}
-        {content !== undefined ? <p>{content}</p> : null}
-      </div>
-      <div
-        className="col justify-between align-end"
-        style={{ marginLeft: "auto" }}
-      >
-        <div
-          className="row gap-sm align-center"
-          style={{ color: "var(--color-completed)" }}
-        >
-          <p>{misc}</p>
-          <ImDiamonds style={{ minHeight: "1rem", minWidth: "1rem" }} />
+    <Link className="banner" to={"/" + character.ID}>
+      <img src={character.Avatar} className="banner__avatar" />
+      <div className="banner__main-content">
+        <h2>{character.Name}</h2>
+        <h3>{character.Title.Name}</h3>
+        <div className="row gap-sm align-center" style={{ marginTop: "auto" }}>
+          <p>{character.Tribe.Name + " " + character.Race.Name}</p>
+          <img
+            src={character.Gender === 1 ? maleIcon : femaleIcon}
+            style={{ maxHeight: "1rem" }}
+            alt="gender"
+          />
         </div>
-        <img
-          src={gender === 1 ? maleIcon : femaleIcon}
-          style={{ maxHeight: "1rem" }}
-          alt="gender"
-        />
+      </div>
+      <div className="banner__server">
+        <p>{character.Server}</p>
+        <ImDiamonds style={{ minHeight: "1rem", minWidth: "1rem" }} />
       </div>
     </Link>
   );
-};
-
-Banner.defaultProps = {
-  link: "",
-  type: "disabled",
 };
 
 export default Banner;

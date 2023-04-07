@@ -32,23 +32,7 @@ const OverlayPanel = (props) => {
     >
       {referenceCharacter !== null ? (
         <>
-          <Banner
-            type=""
-            avatar={
-              <img
-                src={referenceCharacter.Character.Avatar}
-                className="rounded"
-                alt="character avatar"
-              />
-            }
-            name={referenceCharacter.Character.Name}
-            title={referenceCharacter.Character.Title.Name}
-            misc={referenceCharacter.Character.Server}
-            link={"/" + referenceCharacter.Character.ID}
-            gender={referenceCharacter.Character.Gender}
-            race={referenceCharacter.Character.Race.Name}
-            tribe={referenceCharacter.Character.Tribe.Name}
-          />
+          <Banner character={referenceCharacter.Character} />
           <Divider />
 
           {/* <nav className="overlay-panel__tab-container">

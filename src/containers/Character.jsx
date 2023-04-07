@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { useFetchData } from "../hooks/useFetchData";
 
 // Components
-import Profile from "./Profile";
 import Jobs from "./Jobs";
 import Collection from "./Collection";
 import Quests from "./Quests";
@@ -16,15 +15,18 @@ import OverlayPanel from "../components/OverlayPanel";
 import Stats from "../components/Stats";
 import Equipment from "../components/Equipment";
 import Information from "../components/Information";
+import Friends from "../components/Friends";
 
 // Style
-import { MdWork, MdPets, MdCompareArrows } from "react-icons/md";
-import { FaScroll, FaMedal } from "react-icons/fa";
+import { MdWork, MdPets } from "react-icons/md";
+import { FaScroll, FaMedal, FaUserFriends, FaFlag } from "react-icons/fa";
 import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
 import { GiBattleGear } from "react-icons/gi";
 import { IoStatsChart } from "react-icons/io5";
 import { AiFillProfile } from "react-icons/ai";
 import "../styles/Character.css";
+import Divider from "../components/Divider";
+import { ImDiamonds } from "react-icons/im";
 
 /**
  * @name Character
@@ -35,10 +37,11 @@ import "../styles/Character.css";
 const Character = (props) => {
   const { id } = useParams();
   const { data, loading } = useFetchData(
-    "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO,FR"
+    "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO,FR,FCM"
   );
   const [index, setIndex] = useState(0);
   const [sideTabIndex, setSideTabIndex] = useState(0);
+  const [socialTabIndex, setSocialTabIndex] = useState(0);
   const { referenceCharacter, displayPanel, setDisplayPanel } = props;
 
   useEffect(() => {
@@ -51,10 +54,10 @@ const Character = (props) => {
     const storeRecent = (data) => {
       // Define new character object.
       const character = {
-        name: data.Name,
-        avatar: data.Avatar,
-        id: data.ID,
-        server: data.Server,
+        Name: data.Name,
+        Avatar: data.Avatar,
+        ID: data.ID,
+        Server: data.Server,
       };
 
       // Retrieve 'recent' variable from local storage.
@@ -67,7 +70,7 @@ const Character = (props) => {
 
       // Check if the character is in the recent array, if it is, remove it.
       for (let i = 0; i < recent.length; i++) {
-        if (recent[i].id === character.id) {
+        if (recent[i].ID === character.ID) {
           recent.splice(i, 1);
         }
       }
@@ -117,23 +120,7 @@ const Character = (props) => {
           <FiChevronsLeft className="character__icon" />
         )}
       </button>
-      <Banner
-        type=""
-        avatar={
-          <img
-            src={data.Character.Avatar}
-            className="rounded"
-            alt="character avatar"
-          />
-        }
-        name={data.Character.Name}
-        title={data.Character.Title.Name}
-        misc={data.Character.Server}
-        gender={data.Character.Gender}
-        race={data.Character.Race.Name}
-        tribe={data.Character.Tribe.Name}
-      />
-
+      <Banner character={data.Character} />
       <div className="character__content">
         <div className="character__side">
           <nav className="character__tab">
@@ -168,6 +155,73 @@ const Character = (props) => {
               compare={false}
             />
             <Information data={data} display={sideTabIndex === 2} />
+          </div>
+          <nav className="character__tab" style={{ marginTop: "2rem" }}>
+            <Button
+              content={<FaFlag className="character__icon" />}
+              condition={socialTabIndex === 0}
+              onClick={() => setSocialTabIndex(0)}
+              title="Company"
+              className="character__tab-btn"
+            />
+            <Button
+              content={<FaUserFriends className="character__icon" />}
+              condition={socialTabIndex === 1}
+              onClick={() => setSocialTabIndex(1)}
+              title="Friends"
+              className="character__tab-btn"
+            />
+          </nav>
+
+          <div
+            className={"section" + (socialTabIndex === 0 ? "" : " disabled")}
+          >
+            <div className="row gap">
+              <div
+                className="relative"
+                style={{ minWidth: "5rem", minHeight: "5rem" }}
+              >
+                <img
+                  src={data.FreeCompany.Crest[0]}
+                  className="absolute"
+                  style={{ maxHeight: "5rem" }}
+                  alt=""
+                />
+                <img
+                  src={data.FreeCompany.Crest[1]}
+                  className="absolute"
+                  style={{ maxHeight: "5rem" }}
+                  alt=""
+                />
+                <img
+                  src={data.FreeCompany.Crest[2]}
+                  className="absolute"
+                  style={{ maxHeight: "5rem" }}
+                  alt=""
+                />
+              </div>
+              <div className="col gap-sm">
+                <h2>
+                  {data.FreeCompany.Name + " [" + data.FreeCompany.Tag + "]"}
+                </h2>
+                <p>{data.FreeCompany.Slogan}</p>
+              </div>
+              <div
+                className="row gap-sm "
+                style={{ color: "var(--color-completed)", marginLeft: "auto" }}
+              >
+                <p>{data.FreeCompany.Server}</p>
+                <ImDiamonds style={{ maxHeight: "1rem", minWidth: "1rem" }} />
+              </div>
+            </div>
+            <Divider />
+            <h4>Members</h4>
+            <Friends friends={data.FreeCompanyMembers} />
+          </div>
+          <div
+            className={"section" + (socialTabIndex === 1 ? "" : " disabled")}
+          >
+            <Friends friends={data.Friends} />
           </div>
         </div>
         <div className="character__main">

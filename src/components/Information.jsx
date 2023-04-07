@@ -1,6 +1,5 @@
 import "../styles/Information.css";
 import Divider from "./Divider";
-import Banner from "./Banner";
 import maleIcon from "../images/male.png";
 import femaleIcon from "../images/female.png";
 
@@ -73,38 +72,6 @@ const Information = (props) => {
         />
         <h5>{data.Character.GuardianDeity.Name}</h5>
       </li>
-      {data.FreeCompany === null ? null : (
-        <>
-          <p>Free Company</p>
-          <Divider />
-          <Banner
-            type="free-company"
-            avatar={
-              <div className="icon--mid relative">
-                <img
-                  src={data.FreeCompany.Crest[0]}
-                  className="icon--mid absolute"
-                  alt=""
-                />
-                <img
-                  src={data.FreeCompany.Crest[1]}
-                  className="icon--mid absolute"
-                  alt=""
-                />
-                <img
-                  src={data.FreeCompany.Crest[2]}
-                  className="icon--mid absolute"
-                  alt=""
-                />
-              </div>
-            }
-            fc={data.FreeCompany.Crest}
-            name={data.FreeCompany.Name}
-            content={data.FreeCompany.Slogan}
-            misc={data.FreeCompany.Server}
-          />
-        </>
-      )}
     </ul>
   );
 };

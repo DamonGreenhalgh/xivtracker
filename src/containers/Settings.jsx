@@ -7,7 +7,7 @@ import { IoClose } from "react-icons/io5";
 
 // Components
 import Button from "../components/Button";
-import Banner from "../components/Banner";
+import MiniBanner from "../components/Banner";
 import Divider from "../components/Divider";
 import Loading from "../components/Loading";
 import Checkbox from "../components/Checkbox";
@@ -72,22 +72,7 @@ const Settings = (props) => {
           setReferenceCharacter(data);
 
           // Set banner.
-          setReferenceBanner(() => (
-            <Banner
-              type="reference"
-              avatar={
-                <img
-                  src={data.Character.Avatar}
-                  className="rounded"
-                  alt="character avatar"
-                />
-              }
-              name={data.Character.Name}
-              title={data.Character.Title.Name}
-              misc={data.Character.Server}
-              link={"/" + id}
-            />
-          ));
+          setReferenceBanner(() => <MiniBanner character={data.Character} />);
 
           // Set background splash according to reference character.
           if (personalized) {

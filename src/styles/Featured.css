@@ -3,7 +3,7 @@
     width: 30rem;
     height: 15rem;
     overflow: hidden;
-    border-radius: .25rem;
+    border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 

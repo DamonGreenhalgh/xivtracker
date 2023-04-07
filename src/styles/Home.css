@@ -3,7 +3,7 @@
     margin: auto;
     justify-content: center;
     margin-top: 8rem;
-    height: calc(100vh - 18rem);
+    /* height: calc(100vh - 18rem); */
     flex-direction: column;
     width: var(--content-width);
     gap: 2rem;
@@ -21,6 +21,19 @@
     position: fixed;
     right: 1rem;
     top: 1rem;
+}
+
+.home__search-container {
+    width: 100%;
+    overflow-y: scroll;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    border: 1px solid var(--c-mid-background);
+    background-color: var(--c-content-background-opaque);
+    padding: 1rem;
+    border-radius: .5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
 @media only screen and (max-width: 1050px) {

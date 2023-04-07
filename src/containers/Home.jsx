@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import Banner from "../components/Banner";
+import MiniBanner from "../components/MiniBanner";
 import Featured from "../components/Featured";
 import Loading from "../components/Loading";
 import brandIcon from "../images/brand-extended.png";
+import Searchbar from "../components/Searchbar";
 import "../styles/Home.css";
 
 const Home = () => {
@@ -33,21 +34,7 @@ const Home = () => {
         // Create character banners for each valid returned character.
         setResults(
           data.Results.map((result) => (
-            <Banner
-              type="search"
-              name={result.Name}
-              misc={result.Server}
-              avatar={
-                <img
-                  src={result.Avatar}
-                  className="rounded"
-                  alt="character avatar"
-                />
-              }
-              link={"/" + result.ID}
-              lang={result.Lang}
-              key={result.ID}
-            />
+            <MiniBanner character={result} key={result.ID} />
           ))
         );
       });
@@ -73,8 +60,15 @@ const Home = () => {
     <div className="home">
       <img src={brandIcon} className="home__brand" alt="xiv tracker" />
       {isLoading ? <Loading /> : null}
+      <Searchbar />
       <Featured />
-      <div className="col max-width gap">{results}</div>
+      <div
+        className={
+          "home__search-container" + (results === null ? " disabled" : "")
+        }
+      >
+        {results}
+      </div>
     </div>
   );
 };

@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     min-width: 32rem;
+    max-width: 32rem;
 }
 
 .character__main {
