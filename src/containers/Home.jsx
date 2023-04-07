@@ -60,11 +60,12 @@ const Home = () => {
     <div className="home">
       <img src={brandIcon} className="home__brand" alt="xiv tracker" />
       {isLoading ? <Loading /> : null}
-      <Searchbar />
+      <Searchbar searchCharacter={searchCharacter} />
       <Featured />
       <div
         className={
-          "home__search-container" + (results === null ? " disabled" : "")
+          "home__results banner--mini-container" +
+          (results === null ? " disabled" : "")
         }
       >
         {results}

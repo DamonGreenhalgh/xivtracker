@@ -8,8 +8,6 @@
     margin: auto;
 }
 
-
-
 .character__side {
     display: flex;
     flex-direction: column;
@@ -76,7 +74,7 @@
     border: 1px solid var(--c-mid-background);
     border-right: none;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .25rem;
+    border-radius: .5rem 0 0 .5rem;
     transition: right .5s;
 }
 

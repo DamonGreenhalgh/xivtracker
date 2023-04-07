@@ -1,7 +1,7 @@
 .featured {
     position: relative;
     width: 30rem;
-    height: 15rem;
+    height: 16.5rem;
     overflow: hidden;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);

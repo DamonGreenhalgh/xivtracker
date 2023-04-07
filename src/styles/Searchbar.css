@@ -8,7 +8,7 @@
     background-color: var(--c-content-background-opaque);
     outline: 1px solid var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .25rem;
+    border-radius: .5rem;
 }
 
 .searchbar__icon {
@@ -25,7 +25,7 @@
     width: 100%;
     background-color: var(--c-content-background-opaque);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .25rem;
+    border-radius: .5rem;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@
 
 .recent--active {
     padding: 1rem;
-    height: 15rem;
+    height: 16.5rem;
     border: 1px solid var(--c-mid-background);
 }
 
@@ -44,17 +44,12 @@
     justify-content: space-between;
 }
 
-.recent__collection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
 .recent__profile {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: .5rem;
-    border-radius: .25rem;
+    border-radius: .5rem;
 }
 
 .recent__profile:hover {

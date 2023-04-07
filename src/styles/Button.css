@@ -1,7 +1,7 @@
 .button {
     overflow: hidden;
     position: relative;
-    border-radius: .25rem;
+    border-radius: .5rem;
     padding: 1rem;
     justify-content: start;
     color: var(--c-minor-text);

@@ -101,7 +101,7 @@ input:focus {
   background-color: var(--c-content-background-opaque);
   outline: 1px solid var(--c-mid-background);
   color: var(--c-minor-text);
-  border-radius: .25rem;
+  border-radius: .5rem;
 }
 
 .select--disabled {
@@ -127,7 +127,7 @@ input:focus {
   background-color: var(--c-content-background-opaque);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
   border: 1px solid var(--c-mid-background);
-  border-radius: .25rem;
+  border-radius: .5rem;
   color: var(--c-minor-text);
   transition: height .25s ease-in-out;
 }

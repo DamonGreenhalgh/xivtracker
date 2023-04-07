@@ -36,6 +36,14 @@
     gap: 1rem;
 }
 
+.home__results {
+    background-color: var(--c-content-background-opaque);
+    padding: 1rem;
+    border: 1px solid var(--c-mid-background);
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    border-radius: .5rem;
+}
+
 @media only screen and (max-width: 1050px) {
 
     .home {

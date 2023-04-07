@@ -17,11 +17,18 @@ const MiniBanner = (props) => {
           <b>{character.Name}</b>
         </p>
         <div className="banner__server">
-          <p style={{ fontSize: ".6rem" }}>{character.Server}</p>
+          <p
+            style={{
+              fontSize: ".6rem",
+              textDecorationColor: "var(--color-completed)",
+            }}
+          >
+            {character.Server}
+          </p>
           <ImDiamonds style={{ maxHeight: ".6rem", minWidth: "1rem" }} />
         </div>
       </div>
-      <p>{character.Lang}</p>
+      {/* <p>{character.Lang}</p> */}
     </Link>
   );
 };

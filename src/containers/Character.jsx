@@ -16,6 +16,7 @@ import Stats from "../components/Stats";
 import Equipment from "../components/Equipment";
 import Information from "../components/Information";
 import Friends from "../components/Friends";
+import FreeCompany from "./FreeCompany";
 
 // Style
 import { MdWork, MdPets } from "react-icons/md";
@@ -26,7 +27,6 @@ import { IoStatsChart } from "react-icons/io5";
 import { AiFillProfile } from "react-icons/ai";
 import "../styles/Character.css";
 import Divider from "../components/Divider";
-import { ImDiamonds } from "react-icons/im";
 
 /**
  * @name Character
@@ -172,52 +172,11 @@ const Character = (props) => {
               className="character__tab-btn"
             />
           </nav>
-
-          <div
-            className={"section" + (socialTabIndex === 0 ? "" : " disabled")}
-          >
-            <div className="row gap">
-              <div
-                className="relative"
-                style={{ minWidth: "5rem", minHeight: "5rem" }}
-              >
-                <img
-                  src={data.FreeCompany.Crest[0]}
-                  className="absolute"
-                  style={{ maxHeight: "5rem" }}
-                  alt=""
-                />
-                <img
-                  src={data.FreeCompany.Crest[1]}
-                  className="absolute"
-                  style={{ maxHeight: "5rem" }}
-                  alt=""
-                />
-                <img
-                  src={data.FreeCompany.Crest[2]}
-                  className="absolute"
-                  style={{ maxHeight: "5rem" }}
-                  alt=""
-                />
-              </div>
-              <div className="col gap-sm">
-                <h2>
-                  {data.FreeCompany.Name + " [" + data.FreeCompany.Tag + "]"}
-                </h2>
-                <p>{data.FreeCompany.Slogan}</p>
-              </div>
-              <div
-                className="row gap-sm "
-                style={{ color: "var(--color-completed)", marginLeft: "auto" }}
-              >
-                <p>{data.FreeCompany.Server}</p>
-                <ImDiamonds style={{ maxHeight: "1rem", minWidth: "1rem" }} />
-              </div>
-            </div>
-            <Divider />
-            <h4>Members</h4>
-            <Friends friends={data.FreeCompanyMembers} />
-          </div>
+          <FreeCompany
+            freeCompany={data.FreeCompany}
+            freeCompanyMembers={data.FreeCompanyMembers}
+            display={socialTabIndex === 0}
+          />
           <div
             className={"section" + (socialTabIndex === 1 ? "" : " disabled")}
           >

@@ -8,6 +8,7 @@ import Divider from "./Divider";
 import MiniBanner from "./MiniBanner";
 
 const Searchbar = (props) => {
+  const { searchCharacter } = props;
   const [displayRecent, setDisplayRecent] = useState(false);
   const [name, setName] = useState("");
   const [server, setServer] = useState("Server");
@@ -17,7 +18,7 @@ const Searchbar = (props) => {
   const callbackMethod = (event) => {
     event.preventDefault();
     setDisplayRecent(false);
-    props.search(name, server);
+    searchCharacter(name, server);
   };
 
   useEffect(() => {
@@ -177,7 +178,7 @@ const Searchbar = (props) => {
           />
         </div>
         <Divider />
-        <div className="recent__collection">{recent}</div>
+        <div className="banner--mini-container">{recent}</div>
       </div>
     </form>
   );
