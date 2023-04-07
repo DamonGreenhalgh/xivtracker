@@ -12,7 +12,7 @@ const Achievement = (props) => {
   const { data, loading } = useFetchData(
     "https://xivapi.com/achievement/" + id
   );
-  return loading ? null : (
+  return loading || data === null ? null : (
     <li className="achievement">
       <Item icon={"https://xivapi.com" + icon} />
       <div className="col gap-sm">

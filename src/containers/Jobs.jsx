@@ -82,11 +82,7 @@ const Jobs = (props) => {
 
       <div
         className={
-          "jobs__collection" +
-          (displayPanel
-            ? " jobs__collection--single war-magic--single"
-            : " war-magic") +
-          (displayJob ? "" : " disabled")
+          "jobs__collection war-magic" + (displayJob ? "" : " disabled")
         }
       >
         <JobHeader name="Tank" icon={tankIcon} />
@@ -108,11 +104,7 @@ const Jobs = (props) => {
       </div>
       <div
         className={
-          "jobs__collection" +
-          (displayPanel
-            ? " jobs__collection--single hand-land--single"
-            : " hand-land") +
-          (!displayJob ? "" : " disabled")
+          "jobs__collection hand-land" + (!displayJob ? "" : " disabled")
         }
       >
         <JobHeader name="Hand" icon={handIcon} />

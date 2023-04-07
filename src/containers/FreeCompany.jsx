@@ -50,7 +50,7 @@ const FreeCompany = (props) => {
           <Friends friends={freeCompanyMembers} />
         </>
       ) : (
-        <FailToLoad />
+        <FailToLoad type="noFreeCompanyError" />
       )}
     </div>
   );

@@ -29,36 +29,40 @@ const Collection = (props) => {
   const [displayedMinions, setDisplayedMinions] = useState([]);
 
   useEffect(() => {
-    setDisplayedMounts(
-      mounts.map((mount, index) =>
-        mount.Name.toLowerCase().includes(searchInput) ? (
-          <Item
-            name={mount.Name}
-            icon={mount.Icon}
-            collectionType={"Mount"}
-            key={index}
-          />
-        ) : null
-      )
-    );
-    setDisplayedMinions(
-      minions.map((minion, index) =>
-        minion.Name.toLowerCase().includes(searchInput) ? (
-          <Item
-            name={minion.Name}
-            icon={minion.Icon}
-            collectionType={"Minion"}
-            key={index}
-          />
-        ) : null
-      )
-    );
+    if (mounts !== null) {
+      setDisplayedMounts(
+        mounts.map((mount, index) =>
+          mount.Name.toLowerCase().includes(searchInput) ? (
+            <Item
+              name={mount.Name}
+              icon={mount.Icon}
+              collectionType={"Mount"}
+              key={index}
+            />
+          ) : null
+        )
+      );
+    }
+    if (minions !== null) {
+      setDisplayedMinions(
+        minions.map((minion, index) =>
+          minion.Name.toLowerCase().includes(searchInput) ? (
+            <Item
+              name={minion.Name}
+              icon={minion.Icon}
+              collectionType={"Minion"}
+              key={index}
+            />
+          ) : null
+        )
+      );
+    }
   }, [searchInput]);
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
       {mounts === null || minions === null ? (
-        <FailToLoad />
+        <FailToLoad type="noMountsMinionsError" />
       ) : (
         <>
           <div className="completion__container">

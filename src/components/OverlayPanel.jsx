@@ -115,7 +115,7 @@ const OverlayPanel = (props) => {
           </div>
         </>
       ) : (
-        <FailToLoad type={"referenceError"} />
+        <FailToLoad type="referenceCharacterError" />
       )}
     </div>
   );

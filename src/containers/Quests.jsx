@@ -128,7 +128,7 @@ const Quests = (props) => {
       </div>
       <Divider />
       {achievementsList.length === 0 ? (
-        <FailToLoad />
+        <FailToLoad type="achievementsPrivateError" />
       ) : (
         <>
           {content[panel]}

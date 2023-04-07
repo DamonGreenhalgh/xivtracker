@@ -46,7 +46,7 @@ const Achievements = (props) => {
       </div>
       <Divider />
       {achievements.List.length === 0 ? (
-        <FailToLoad />
+        <FailToLoad type="achievementsPrivateError" />
       ) : (
         <>
           <div className="row gap align-center">

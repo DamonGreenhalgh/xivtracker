@@ -4,7 +4,7 @@ import MiniBanner from "./MiniBanner";
 const Friends = (props) => {
   const { friends } = props;
   return friends.length === 0 ? (
-    <FailToLoad />
+    <FailToLoad type="noFriendsError" />
   ) : (
     <>
       <div className="friends">
