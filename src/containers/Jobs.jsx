@@ -51,13 +51,7 @@ const Jobs = (props) => {
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <div className="row justify-between">
-        <h2>Jobs</h2>
-        <CompletionMetric
-          numerator={completion[0]}
-          denominator={completion[1]}
-        />
-      </div>
+      <CompletionMetric numerator={completion[0]} denominator={completion[1]} />
       <Divider />
       <div className="row gap">
         <Button

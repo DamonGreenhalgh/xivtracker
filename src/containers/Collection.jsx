@@ -63,13 +63,10 @@ const Collection = (props) => {
         </>
       ) : (
         <>
-          <div className="row justify-between">
-            <h2>Collection</h2>
-            <CompletionMetric
-              numerator={mounts.length + minions.length}
-              denominator={totalCollection}
-            />
-          </div>
+          <CompletionMetric
+            numerator={mounts.length + minions.length}
+            denominator={totalCollection}
+          />
           <Divider />
           <div className="collection__content">
             <div className="row gap align-center">

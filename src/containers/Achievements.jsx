@@ -37,13 +37,10 @@ const Achievements = (props) => {
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <div className="row justify-between">
-        <h2>Achievements</h2>
-        <CompletionMetric
-          numerator={achievements.List.length}
-          denominator={totalAchievements}
-        />
-      </div>
+      <CompletionMetric
+        numerator={achievements.List.length}
+        denominator={totalAchievements}
+      />
       <Divider />
       {achievements.List.length === 0 ? (
         <FailToLoad />

@@ -119,13 +119,7 @@ const Quests = (props) => {
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <div className="row justify-between">
-        <h2>Quests</h2>
-        <CompletionMetric
-          numerator={completion[0]}
-          denominator={completion[1]}
-        />
-      </div>
+      <CompletionMetric numerator={completion[0]} denominator={completion[1]} />
       <Divider />
       {achievementsList.length === 0 ? (
         <FailToLoad />
