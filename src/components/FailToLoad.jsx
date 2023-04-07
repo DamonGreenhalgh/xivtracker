@@ -20,7 +20,7 @@ const FailToLoad = (props) => {
         <p>
           Oops! XIV Tracker was unable to retrieve information for this
           character. This could be because achievements are private on this
-          character. You can change these settings{" "}
+          character. If this is your character, you can change these settings{" "}
           <a
             href="https://na.finalfantasyxiv.com/lodestone/my/setting/account/"
             style={{ textDecoration: "underline" }}

@@ -29,7 +29,6 @@ const Stats = (props) => {
                 diff = attribute.Value - refAttribute.Value;
               }
             }
-            console.log(diff);
           }
           return (
             <li

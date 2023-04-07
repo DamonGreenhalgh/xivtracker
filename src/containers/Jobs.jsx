@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Button from "../components/Button";
 import JobItem from "../components/JobItem";
 import JobHeader from "../components/JobHeader";
-import CompletionMetric from "../components/CompletionMetric";
+import Completion from "../components/Completion";
 import Divider from "../components/Divider";
 
 // Assets
@@ -22,6 +22,10 @@ import "../styles/Jobs.css";
 import { GiBattleGear } from "react-icons/gi";
 import { FaFish } from "react-icons/fa";
 
+// This will change every expansion, will need to manually set.
+const numWarMagicJobs = 20;
+const numHandLandJobs = 11;
+const maxLevel = 90;
 const Jobs = (props) => {
   const { display, jobs, displayPanel } = props;
   const [displayJob, setDisplayJob] = useState(true);
@@ -29,42 +33,50 @@ const Jobs = (props) => {
   const warMagicJobs = jobs.slice(0, 20);
   const handLandJobs = jobs.slice(20);
 
-  // This will change every expansion, will need to manually set.
-  const maxLevel = 90;
-
   useEffect(() => {
-    let numMaxLevel = 0;
-    let sumOfLevels = 0;
+    let numLevelsWarMagic = 0;
+    let numLevelsHandLand = 0;
 
     for (let i = 0; i < jobs.length; i++) {
-      // If the job is at max level, increment.
-      if (jobs[i].Level === 90) {
-        numMaxLevel++;
-      }
-
-      // Add level to sum.
-      sumOfLevels += jobs[i].Level;
+      i > numWarMagicJobs - 1
+        ? (numLevelsHandLand += jobs[i].Level)
+        : (numLevelsWarMagic += jobs[i].Level);
     }
-
-    setCompletion(() => [numMaxLevel, jobs.length]);
+    setCompletion(() => [numLevelsWarMagic, numLevelsHandLand]);
   }, []);
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <CompletionMetric numerator={completion[0]} denominator={completion[1]} />
+      <div className="completion__container">
+        <Completion
+          title="War / Magic"
+          numerator={completion[0]}
+          denominator={maxLevel * numWarMagicJobs}
+        />
+        <Completion
+          title="Hand / Land"
+          numerator={completion[1]}
+          denominator={maxLevel * numHandLandJobs}
+        />
+        <Completion
+          title="Total"
+          numerator={completion[0] + completion[1]}
+          denominator={maxLevel * (numWarMagicJobs + numHandLandJobs)}
+        />
+      </div>
       <Divider />
       <div className="row gap">
         <Button
           content={<GiBattleGear className="character__icon" />}
           condition={displayJob}
           onClick={() => setDisplayJob(true)}
-          title="Combat"
+          title="War/Magic"
         />
         <Button
           content={<FaFish className="character__icon" />}
           condition={!displayJob}
           onClick={() => setDisplayJob(false)}
-          title="Profession"
+          title="Hand/Land"
         />
       </div>
 

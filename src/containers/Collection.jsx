@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 // Components
 import Item from "../components/Item";
-import CompletionMetric from "../components/CompletionMetric";
+import Completion from "../components/Completion";
 import Button from "../components/Button";
 import FailToLoad from "../components/FailToLoad";
 import Divider from "../components/Divider";
@@ -12,6 +12,9 @@ import Divider from "../components/Divider";
 import "../styles/Collection.css";
 import { FaHorseHead, FaCat, FaSearch } from "react-icons/fa";
 
+// Will have to manually update these numbers after every patch.
+const totalMounts = 248;
+const totalMinions = 465;
 /**
  * @name Collection
  * @description Collection container for mount and minion items.
@@ -20,8 +23,6 @@ import { FaHorseHead, FaCat, FaSearch } from "react-icons/fa";
  */
 const Collection = (props) => {
   const { display, mounts, minions } = props;
-  // Will have to manually update these numbers after every patch.
-  const totalCollection = 248 + 465;
   const [tabIndex, setTabIndex] = useState(0);
   const [searchInput, setSearchInput] = useState("");
   const [displayedMounts, setDisplayedMounts] = useState([]);
@@ -57,16 +58,26 @@ const Collection = (props) => {
   return (
     <div className={"section" + (display ? "" : " disabled")}>
       {mounts === null || minions === null ? (
-        <>
-          <h2>Collection</h2>
-          <FailToLoad />
-        </>
+        <FailToLoad />
       ) : (
         <>
-          <CompletionMetric
-            numerator={mounts.length + minions.length}
-            denominator={totalCollection}
-          />
+          <div className="completion__container">
+            <Completion
+              title="Mounts"
+              numerator={mounts.length}
+              denominator={totalMounts}
+            />
+            <Completion
+              title="Minions"
+              numerator={minions.length}
+              denominator={totalMinions}
+            />
+            <Completion
+              title="Total"
+              numerator={mounts.length + minions.length}
+              denominator={totalMounts + totalMinions}
+            />
+          </div>
           <Divider />
           <div className="collection__content">
             <div className="row gap align-center">

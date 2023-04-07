@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // Components
 import Navigator from "../components/Navigator";
 import FailToLoad from "../components/FailToLoad";
-import CompletionMetric from "../components/CompletionMetric";
+import Completion from "../components/Completion";
 import Divider from "../components/Divider";
 
 // Data
@@ -119,7 +119,13 @@ const Quests = (props) => {
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <CompletionMetric numerator={completion[0]} denominator={completion[1]} />
+      <div className="completion__container">
+        <Completion
+          title="Total"
+          numerator={completion[0]}
+          denominator={completion[1]}
+        />
+      </div>
       <Divider />
       {achievementsList.length === 0 ? (
         <FailToLoad />

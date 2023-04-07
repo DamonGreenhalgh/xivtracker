@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Achievement from "../components/Achievement";
 import Navigator from "../components/Navigator";
 import FailToLoad from "../components/FailToLoad";
-import CompletionMetric from "../components/CompletionMetric";
+import Completion from "../components/Completion";
 import Divider from "../components/Divider";
 
 // Style
@@ -37,10 +37,13 @@ const Achievements = (props) => {
 
   return (
     <div className={"section" + (display ? "" : " disabled")}>
-      <CompletionMetric
-        numerator={achievements.List.length}
-        denominator={totalAchievements}
-      />
+      <div className="completion__container">
+        <Completion
+          title="Total"
+          numerator={achievements.List.length}
+          denominator={totalAchievements}
+        />
+      </div>
       <Divider />
       {achievements.List.length === 0 ? (
         <FailToLoad />
