@@ -47,6 +47,8 @@
 
 .banner__avatar {
     border-radius: 100%;
+    max-height: 5rem;
+    margin: auto 0;
 }
 
 .banner__avatar--mini {

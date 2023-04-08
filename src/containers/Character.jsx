@@ -25,8 +25,8 @@ import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
 import { GiBattleGear } from "react-icons/gi";
 import { IoStatsChart } from "react-icons/io5";
 import { AiFillProfile } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import "../styles/Character.css";
-import Divider from "../components/Divider";
 
 /**
  * @name Character
@@ -42,7 +42,12 @@ const Character = (props) => {
   const [index, setIndex] = useState(0);
   const [sideTabIndex, setSideTabIndex] = useState(0);
   const [socialTabIndex, setSocialTabIndex] = useState(0);
-  const { referenceCharacter, displayPanel, setDisplayPanel } = props;
+  const {
+    referenceCharacter,
+    setReferenceCharacter,
+    displayPanel,
+    setDisplayPanel,
+  } = props;
 
   useEffect(() => {
     /**
@@ -119,6 +124,21 @@ const Character = (props) => {
         ) : (
           <FiChevronsLeft className="character__icon" />
         )}
+      </button>
+      <button
+        onClick={() => setReferenceCharacter(data)}
+        className="character__set-reference-btn"
+        style={{
+          backgroundColor:
+            referenceCharacter.Character.ID === data.Character.ID
+              ? "var(--color-completed)"
+              : "var(--color-reference)",
+        }}
+      >
+        <CgProfile />
+        {referenceCharacter.Character.ID === data.Character.ID
+          ? data.Character.Name + " is the current reference character"
+          : "Set " + data.Character.Name + " as the reference character"}
       </button>
       <Banner character={data.Character} />
       <div className="character__content">

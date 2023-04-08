@@ -91,3 +91,13 @@
     border-radius: 100%;
     transition: transform .5s;
 }
+
+.character__set-reference-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    color: var(--c-major-text);
+    border-radius: .5rem;
+}

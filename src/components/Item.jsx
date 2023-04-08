@@ -129,7 +129,7 @@ const materiaData = {
       X: 36,
     },
   },
-  "Gathers' Grasp Materia": {
+  "Gather's Grasp Materia": {
     attribute: "GP",
     value: {
       I: 1,
@@ -144,7 +144,7 @@ const materiaData = {
       X: 10,
     },
   },
-  "Gatherers' Guile Materia": {
+  "Gatherer's Guile Materia": {
     attribute: "PER",
     value: {
       I: 3,
@@ -159,7 +159,7 @@ const materiaData = {
       X: 25,
     },
   },
-  "Gatherers' Guerdon Materia": {
+  "Gatherer's Guerdon Materia": {
     attribute: "GAT",
     value: {
       I: 3,
@@ -174,7 +174,7 @@ const materiaData = {
       X: 25,
     },
   },
-  "Craftsmans' Cunning Materia": {
+  "Craftsman's Cunning Materia": {
     attribute: "CP",
     value: {
       I: 1,
@@ -189,7 +189,7 @@ const materiaData = {
       X: 10,
     },
   },
-  "Craftsmans' Command Materia": {
+  "Craftsman's Command Materia": {
     attribute: "CON",
     value: {
       I: 1,
@@ -204,7 +204,7 @@ const materiaData = {
       X: 18,
     },
   },
-  "Craftsmans' Competence Materia": {
+  "Craftsman's Competence Materia": {
     attribute: "CS",
     value: {
       I: 3,
@@ -256,7 +256,6 @@ const Item = (props) => {
             const splitIndex = mat.Name.lastIndexOf(" ");
             const name = mat.Name.substring(0, splitIndex);
             const grade = mat.Name.substring(splitIndex + 1);
-
             return (
               <div className="row align-center gap" key={index}>
                 <img

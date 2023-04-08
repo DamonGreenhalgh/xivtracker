@@ -118,6 +118,7 @@ const App = () => {
               element={
                 <Character
                   referenceCharacter={referenceCharacter}
+                  setReferenceCharacter={setReferenceCharacter}
                   displayPanel={displayPanel}
                   setDisplayPanel={setDisplayPanel}
                 />
