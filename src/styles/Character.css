@@ -37,13 +37,6 @@
     margin-left: 1rem;
 }
 
-.character__tab-btn {
-    border-radius: .5rem .5rem 0 0;
-    border-bottom: 1px solid var(--c-content-background-opaque);
-    bottom: -1px;
-    box-shadow: none !important;
-}
-
 .section {
     width: 100%;
     position: relative;

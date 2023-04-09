@@ -1,20 +1,15 @@
 // Hooks
 import { useState, useEffect } from "react";
 
-// Assets
-import { BsChevronDown, BsChevronUp } from "react-icons/bs";
-import { IoClose } from "react-icons/io5";
-
 // Components
-import Button from "../components/Button";
 import MiniBanner from "../components/Banner";
 import Divider from "../components/Divider";
-import Loading from "../components/Loading";
-import Checkbox from "../components/Checkbox";
 import Return from "../components/Return";
+import FailToLoad from "../components/FailToLoad";
 
 // Styles
 import "../styles/Settings.css";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 const splashName = [
   "None",
@@ -34,9 +29,6 @@ const storyBreakpointsId = [
 
 const Settings = (props) => {
   const [displayDropdown, setDisplayDropdown] = useState(-1);
-  const [referenceBanner, setReferenceBanner] = useState(null);
-  const [isSearching, setIsSearching] = useState(false);
-  const [error, setError] = useState("");
   const {
     theme,
     setTheme,
@@ -44,54 +36,12 @@ const Settings = (props) => {
     setReferenceCharacter,
     splash,
     setSplash,
-    personalized,
-    setPersonalized,
   } = props;
 
-  // Mount
   useEffect(() => {
-    // Set new content width
     document.documentElement.style.setProperty("--content-width", "70rem");
     document.title = "XIV Tracker | Settings";
-
-    // Update reference character data.
-    if (referenceCharacter !== null) {
-      requestData(referenceCharacter.Character.ID);
-    }
   }, []);
-
-  const requestData = async (id) => {
-    setIsSearching(true);
-    await fetch("https://xivapi.com/character/" + id + "?extended=1&data=AC", {
-      mode: "cors",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!data.Error) {
-          // Update reference character.
-          setReferenceCharacter(data);
-
-          // Set banner.
-          setReferenceBanner(() => <MiniBanner character={data.Character} />);
-
-          // Set background splash according to reference character.
-          if (personalized) {
-            let breakpoint = 0;
-            for (let i = 0; i < data.Achievements.List.length; i++) {
-              if (storyBreakpointsId.includes(data.Achievements.List[i].ID)) {
-                breakpoint++;
-              }
-            }
-            setSplash(breakpoint + 1);
-          }
-
-          setError("");
-        } else {
-          setError('No character associated with Lodestone ID: "' + id + '"');
-        }
-      });
-    setIsSearching(false);
-  };
 
   return (
     <div className="settings">
@@ -123,25 +73,17 @@ const Settings = (props) => {
             <h3>Splash</h3>
             <p>Select the background splash art to display.</p>
             <div
-              className={"select" + (personalized ? " select--disabled" : "")}
-              onClick={() =>
-                personalized
-                  ? null
-                  : setDisplayDropdown(displayDropdown === 1 ? -1 : 1)
-              }
+              className="select"
+              onClick={() => setDisplayDropdown(displayDropdown === 1 ? -1 : 1)}
             >
               {splashName[splash]}
               {displayDropdown === 1 ? <BsChevronUp /> : <BsChevronDown />}
               <div
                 className={displayDropdown === 1 ? "options" : "disabled"}
                 onClick={(e) =>
-                  personalized
-                    ? null
-                    : setSplash(
-                        Array.from(e.target.parentNode.children).indexOf(
-                          e.target
-                        )
-                      )
+                  setSplash(
+                    Array.from(e.target.parentNode.children).indexOf(e.target)
+                  )
                 }
               >
                 <div>None</div>
@@ -152,14 +94,6 @@ const Settings = (props) => {
                 <div>Endwalker</div>
               </div>
             </div>
-            <div className="row align-center gap">
-              <Checkbox
-                type="square"
-                condition={personalized}
-                update={setPersonalized}
-              />
-              <p>Use reference character to determine splash</p>
-            </div>
           </div>
 
           <div className="col gap max-width">
@@ -169,42 +103,23 @@ const Settings = (props) => {
               Allocating a reference character will show/hide content based on
               the story progress of the character. This will prevent accidental
               spoilers when viewing other characters who are further along the
-              story. <b>XIV Tracker</b> requires the Lodestone ID of the
-              character to reference.
+              story.
             </p>
             {referenceCharacter !== null ? (
-              <div className="relative">
-                {referenceBanner}
+              <>
+                <MiniBanner character={referenceCharacter.Character} />
                 <button
                   onClick={() => {
                     setReferenceCharacter(null);
-                    setReferenceBanner(null);
                   }}
                   className="settings__reference-close"
                 >
-                  <IoClose size="2em" />
+                  Remove
                 </button>
-              </div>
-            ) : null}
-            {isSearching ? (
-              <Loading />
+              </>
             ) : (
-              <div className="row">
-                <input
-                  style={{ flex: "3" }}
-                  type="text"
-                  placeholder="Lodestone ID e.g. 38592216"
-                />
-                <Button
-                  style={{ flex: "1" }}
-                  onClick={(e) =>
-                    requestData(e.target.parentNode.firstChild.value)
-                  }
-                  content="Search"
-                />
-              </div>
+              <FailToLoad type="referenceCharacterError" />
             )}
-            <p style={{ color: "red" }}>{error}</p>
           </div>
         </div>
       </div>

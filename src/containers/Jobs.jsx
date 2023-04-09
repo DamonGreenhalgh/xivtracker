@@ -67,16 +67,20 @@ const Jobs = (props) => {
       <Divider />
       <div className="row gap">
         <Button
-          content={<GiBattleGear className="character__icon" />}
+          icon={<GiBattleGear className="character__icon" />}
           condition={displayJob}
           onClick={() => setDisplayJob(true)}
-          title="War/Magic"
+          title="Show disciple of war/magic jobs"
+          text="War/Magic"
+          type="minor"
         />
         <Button
-          content={<FaFish className="character__icon" />}
+          icon={<FaFish className="character__icon" />}
           condition={!displayJob}
           onClick={() => setDisplayJob(false)}
-          title="Hand/Land"
+          title="Show disciple of hand/land jobs"
+          text="Hand/Land"
+          type="minor"
         />
       </div>
 

@@ -56,7 +56,6 @@ const App = () => {
   // Settings
   const [theme, setTheme] = useState(settingsJSON.theme);
   const [splash, setSplash] = useState(settingsJSON.splash);
-  const [personalized, setPersonalized] = useState(settingsJSON.personalized);
   const [referenceCharacter, setReferenceCharacter] = useState(null);
   const [displayPanel, setDisplayPanel] = useState(false);
 
@@ -72,7 +71,6 @@ const App = () => {
     if (localSettings !== null) {
       setTheme(localSettings.theme);
       setSplash(localSettings.splash);
-      setPersonalized(localSettings.personalized);
       setReferenceCharacter(localSettings.referenceData);
     }
 
@@ -94,11 +92,10 @@ const App = () => {
       JSON.stringify({
         theme: theme,
         splash: splash,
-        personalized: personalized,
         referenceData: referenceCharacter,
       })
     );
-  }, [theme, splash, referenceCharacter, personalized]);
+  }, [theme, splash, referenceCharacter]);
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -134,8 +131,6 @@ const App = () => {
                   setReferenceCharacter={setReferenceCharacter}
                   splash={splash}
                   setSplash={setSplash}
-                  personalized={personalized}
-                  setPersonalized={setPersonalized}
                 />
               }
             />

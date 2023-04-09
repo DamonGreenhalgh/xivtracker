@@ -1,25 +1,52 @@
-import "../styles/Searchbar.css";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaSearch, FaServer } from "react-icons/fa";
-import { BsChevronDown, BsChevronUp, BsPersonFill } from "react-icons/bs";
-import { MdClose } from "react-icons/md";
+import { useFetchData } from "../hooks/useFetchData";
+
+// Components
 import Divider from "./Divider";
 import MiniBanner from "./MiniBanner";
+import Button from "../components/Button";
+import Loading from "../components/Loading";
+
+// Style
+import "../styles/Searchbar.css";
+import { FaSearch, FaServer, FaStar, FaTimes, FaClock } from "react-icons/fa";
+import { BsChevronDown, BsChevronUp, BsPersonFill } from "react-icons/bs";
 
 const Searchbar = (props) => {
-  const { searchCharacter } = props;
   const [displayRecent, setDisplayRecent] = useState(false);
   const [name, setName] = useState("");
   const [server, setServer] = useState("Server");
   const [displayDropdown, setDisplayDropdown] = useState(false);
   const [recent, setRecent] = useState(null);
+  const [results, setResults] = useState(null);
+  const [favourites, setFavourites] = useState(null);
+  const [tabIndex, setTabIndex] = useState(0);
+  const { data, loading, ok } = useFetchData(
+    "https://xivapi.com/character/search?name=" +
+      name +
+      "&server=" +
+      (server !== "Server" ? server : "")
+  );
 
-  const callbackMethod = (event) => {
-    event.preventDefault();
-    setDisplayRecent(false);
-    searchCharacter(name, server);
-  };
+  useEffect(() => {
+    if (ok && data !== null) {
+      setResults(
+        data.Results.map((result) => (
+          <MiniBanner character={result} key={result.ID} />
+        ))
+      );
+      setTabIndex(1);
+    } else {
+      setResults(null);
+      setTabIndex(0);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (loading) {
+      setTabIndex(1);
+    }
+  }, [loading]);
 
   useEffect(() => {
     const recentSearches = JSON.parse(localStorage.getItem("recent"));
@@ -35,7 +62,7 @@ const Searchbar = (props) => {
   return (
     <form
       className={"searchbar searchbar--" + props.type}
-      onSubmit={callbackMethod}
+      onSubmit={(e) => e.preventDefault()}
       autoComplete="off"
     >
       <div
@@ -55,29 +82,25 @@ const Searchbar = (props) => {
         type="text"
         placeholder="Name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) => {
+          setName(e.target.value);
+          // searchCharacter(name, server);
+        }}
         name="name"
         onClick={() => {
-          setDisplayRecent(displayRecent ? false : true);
+          setDisplayRecent(true);
           setDisplayDropdown(false);
         }}
       />
-      <button title="Search">
-        <FaSearch />
-      </button>
-      <div
-        className={
-          "recent recent--" +
-          props.type +
-          (displayDropdown ? " recent--active" : "")
-        }
-      >
-        <div className="recent__tab">
-          <h4>Servers</h4>
-          <MdClose
-            size="1.5em"
-            className="interactable"
+      <FaSearch style={{ minWidth: "2rem" }} />
+      <div className={"recent" + (displayDropdown ? " recent--active" : "")}>
+        <div className="row align-center gap">
+          <Button
+            title="Close"
             onClick={() => setDisplayDropdown(false)}
+            icon={<FaTimes className="character__icon" />}
+            type="minor"
+            style={{ marginLeft: "auto" }}
           />
         </div>
         <Divider />
@@ -161,24 +184,51 @@ const Searchbar = (props) => {
           <div>Zurvan</div>
         </div>
       </div>
-      <div
-        className={
-          "recent recent--" +
-          props.type +
-          (displayRecent ? " recent--active" : "")
-        }
-        onClick={() => setDisplayRecent(false)}
-      >
-        <div className="recent__tab">
-          <h4>Recently Viewed</h4>
-          <MdClose
-            size="1.5em"
-            className="interactable"
+      <div className={"recent " + (displayRecent ? " recent--active" : "")}>
+        <div className="row align-center gap">
+          <Button
+            text="Recent"
+            title="Show recent characters"
+            onClick={() => setTabIndex(0)}
+            icon={<FaClock className="character__icon" />}
+            condition={tabIndex === 0}
+            type="minor"
+          />
+          <Button
+            text="Search"
+            title="Search results"
+            onClick={() => setTabIndex(1)}
+            icon={<FaSearch className="character__icon" />}
+            condition={tabIndex === 1}
+            type="minor"
+          />
+          <Button
+            text="Favourites"
+            title="Show favourites"
+            onClick={() => setTabIndex(2)}
+            icon={<FaStar className="character__icon" />}
+            condition={tabIndex === 2}
+            type="minor"
+            style={{ color: "var(--color-experience)", marginLeft: "auto" }}
+          />
+          <Button
+            title="Close"
             onClick={() => setDisplayRecent(false)}
+            icon={<FaTimes className="character__icon" />}
+            type="minor"
           />
         </div>
         <Divider />
-        <div className="banner--mini-container">{recent}</div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div
+            className="banner--mini-container"
+            onClick={() => setDisplayRecent(false)}
+          >
+            {tabIndex === 0 ? recent : tabIndex === 1 ? results : favourites}
+          </div>
+        )}
       </div>
     </form>
   );

@@ -86,16 +86,20 @@ const Collection = (props) => {
           <div className="collection__content">
             <div className="row gap align-center">
               <Button
-                content={<FaHorseHead className="character__icon" />}
-                title="Mounts"
+                icon={<FaHorseHead className="character__icon" />}
+                title="Show mounts"
+                text="Mounts"
                 condition={tabIndex === 0}
                 onClick={() => setTabIndex(0)}
+                type="minor"
               />
               <Button
-                content={<FaCat className="character__icon" />}
-                title="Minions"
+                icon={<FaCat className="character__icon" />}
+                title="Show minions"
+                text="Minions"
                 condition={tabIndex === 1}
                 onClick={() => setTabIndex(1)}
+                type="minor"
               />
               <input
                 type="text"

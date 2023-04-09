@@ -36,22 +36,28 @@ const Profile = (props) => {
         <div className="col gap-lg width-max">
           <div className="row gap">
             <Button
-              content={<GiBattleGear className="character__icon" />}
+              icon={<GiBattleGear className="character__icon" />}
               condition={tabIndex === 0}
               onClick={() => setTabIndex(0)}
-              title="Gear"
+              title="Show gearset"
+              text="Gear"
+              type="minor"
             />
             <Button
-              content={<IoStatsChart className="character__icon" />}
+              icon={<IoStatsChart className="character__icon" />}
               condition={tabIndex === 1}
               onClick={() => setTabIndex(1)}
-              title="Attributes"
+              title="Show character attributes"
+              text="Attributes"
+              type="minor"
             />
             <Button
-              content={<AiFillProfile className="character__icon" />}
+              icon={<AiFillProfile className="character__icon" />}
               condition={tabIndex === 2}
               onClick={() => setTabIndex(2)}
-              title="Information"
+              title="Show character information"
+              text="Information"
+              type="tab"
             />
           </div>
           <Stats

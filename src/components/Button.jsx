@@ -1,29 +1,30 @@
 import "../styles/Button.css";
 
 const Button = (props) => {
-  const { type, condition, onClick, style, content, title, className } = props;
+  const { type, condition, onClick, style, icon, text, title, className } =
+    props;
   return (
     <button
       className={
-        className +
-        " button button--" +
+        "button--" +
         type +
-        (condition ? " button--active button--active--" + type : "")
+        " " +
+        className +
+        (condition ? " button--active--" + type : "")
       }
-      onClick={onClick}
       style={style}
+      onClick={onClick}
       title={title}
     >
-      {content}
-      <p style={{ marginLeft: "1rem" }}>{title}</p>
+      {icon}
+      <p>{text}</p>
     </button>
   );
 };
 
 Button.defaultProps = {
-  type: "",
+  type: "mid",
   condition: false,
-  content: "",
   onClick: null,
 };
 

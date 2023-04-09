@@ -36,7 +36,7 @@ import "../styles/Character.css";
  */
 const Character = (props) => {
   const { id } = useParams();
-  const { data, loading } = useFetchData(
+  const { data, loading, ok } = useFetchData(
     "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO,FR,FCM"
   );
   const [index, setIndex] = useState(0);
@@ -130,13 +130,17 @@ const Character = (props) => {
         className="character__set-reference-btn"
         style={{
           backgroundColor:
-            referenceCharacter.Character.ID === data.Character.ID
+            referenceCharacter === null
+              ? "var(--color-reference)"
+              : referenceCharacter.Character.ID === data.Character.ID
               ? "var(--color-completed)"
               : "var(--color-reference)",
         }}
       >
         <CgProfile />
-        {referenceCharacter.Character.ID === data.Character.ID
+        {referenceCharacter === null
+          ? "Set " + data.Character.Name + " as the reference character"
+          : referenceCharacter.Character.ID === data.Character.ID
           ? data.Character.Name + " is the current reference character"
           : "Set " + data.Character.Name + " as the reference character"}
       </button>
@@ -145,25 +149,31 @@ const Character = (props) => {
         <div className="character__side">
           <nav className="character__tab">
             <Button
-              content={<GiBattleGear className="character__icon" />}
+              icon={<GiBattleGear className="character__icon" />}
               condition={sideTabIndex === 0}
               onClick={() => setSideTabIndex(0)}
-              title="Gear"
+              title="Show current gear"
+              text="Gear"
               className="character__tab-btn"
+              type="tab"
             />
             <Button
-              content={<IoStatsChart className="character__icon" />}
+              icon={<IoStatsChart className="character__icon" />}
               condition={sideTabIndex === 1}
               onClick={() => setSideTabIndex(1)}
-              title="Attributes"
+              title="Show attributes"
+              text="Attributes"
               className="character__tab-btn"
+              type="tab"
             />
             <Button
-              content={<AiFillProfile className="character__icon" />}
+              icon={<AiFillProfile className="character__icon" />}
               condition={sideTabIndex === 2}
               onClick={() => setSideTabIndex(2)}
-              title="Information"
+              title="Set information"
+              text="Information"
               className="character__tab-btn"
+              type="tab"
             />
           </nav>
           <div className="section">
@@ -178,18 +188,22 @@ const Character = (props) => {
           </div>
           <nav className="character__tab" style={{ marginTop: "2rem" }}>
             <Button
-              content={<FaFlag className="character__icon" />}
+              icon={<FaFlag className="character__icon" />}
               condition={socialTabIndex === 0}
               onClick={() => setSocialTabIndex(0)}
-              title="Company"
+              text="Company"
+              title="Show free company"
               className="character__tab-btn"
+              type="tab"
             />
             <Button
-              content={<FaUserFriends className="character__icon" />}
+              icon={<FaUserFriends className="character__icon" />}
               condition={socialTabIndex === 1}
               onClick={() => setSocialTabIndex(1)}
-              title="Friends"
+              title="Show friends"
+              text="Friends"
               className="character__tab-btn"
+              type="tab"
             />
           </nav>
           <FreeCompany
@@ -206,32 +220,40 @@ const Character = (props) => {
         <div className="character__main">
           <nav className="character__tab">
             <Button
-              content={<MdWork className="character__icon" />}
+              icon={<MdWork className="character__icon" />}
               onClick={() => setIndex(0)}
               condition={index === 0}
-              title="Jobs"
+              title="Show jobs"
+              text="Jobs"
               className="character__tab-btn"
+              type="tab"
             />
             <Button
-              content={<MdPets className="character__icon" />}
+              icon={<MdPets className="character__icon" />}
               onClick={() => setIndex(1)}
               condition={index === 1}
-              title="Collection"
+              title="Show mounts and minions"
+              text="Collection"
               className="character__tab-btn"
+              type="tab"
             />
             <Button
-              content={<FaScroll className="character__icon" />}
+              icon={<FaScroll className="character__icon" />}
               onClick={() => setIndex(2)}
               condition={index === 2}
-              title="Quests"
+              title="Show quests and duties"
+              text="Quests"
               className="character__tab-btn"
+              type="tab"
             />
             <Button
-              content={<FaMedal className="character__icon" />}
+              icon={<FaMedal className="character__icon" />}
               onClick={() => setIndex(3)}
               condition={index === 3}
-              title="Achievements"
+              text="Achievements"
+              title="Show achievements"
               className="character__tab-btn"
+              type="tab"
             />
           </nav>
           <Jobs

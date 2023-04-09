@@ -1,6 +1,4 @@
 .full-page {
-    position:fixed;
-    z-index: 5;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -9,7 +7,7 @@
 
 .loading__icon {
     margin: 0 auto;
-    height: 5rem;
+    width: 100%;
     width: 5rem;
     animation: rotating 2s linear infinite;
 }

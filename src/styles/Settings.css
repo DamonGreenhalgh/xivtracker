@@ -27,9 +27,11 @@
 }
 
 .settings__reference-close {
-    position: absolute;
-    right: -3rem;
-    top: 1rem;
+    background-color: var(--color-error);
+    border-radius: .5rem;
+    color: var(--c-major-text);
+    padding: 1rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
 @media only screen and (max-width: 1150px) {

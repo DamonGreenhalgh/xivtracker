@@ -24,6 +24,7 @@
 .banner--mini-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
 }
 
 .banner__server {

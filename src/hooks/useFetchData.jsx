@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 export const useFetchData = (url) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [ok, setOk] = useState(true);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -18,9 +19,12 @@ export const useFetchData = (url) => {
       setLoading(true);
 
       await fetch(url, { mode: "cors", signal: signal })
-        .then((response) => response.json())
+        .then((response) => {
+          setOk(response.ok);
+          return response.json();
+        })
         .then((responseJSON) => setData(responseJSON))
-        .catch((error) => console.error(error));
+        .catch((error) => {});
 
       setLoading(false);
     };
@@ -29,5 +33,5 @@ export const useFetchData = (url) => {
     return () => controller.abort();
   }, [url]);
 
-  return { data, loading };
+  return { data, loading, ok };
 };

@@ -9,7 +9,7 @@ import Item from "./Item";
  */
 const Achievement = (props) => {
   const { name, icon, points, id } = props;
-  const { data, loading } = useFetchData(
+  const { data, loading, ok } = useFetchData(
     "https://xivapi.com/achievement/" + id
   );
   return loading || data === null ? null : (
