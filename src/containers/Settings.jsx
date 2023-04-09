@@ -39,7 +39,6 @@ const Settings = (props) => {
   } = props;
 
   useEffect(() => {
-    document.documentElement.style.setProperty("--content-width", "70rem");
     document.title = "XIV Tracker | Settings";
   }, []);
 

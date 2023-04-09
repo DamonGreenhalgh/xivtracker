@@ -15,7 +15,7 @@
     background-color: var(--c-shadow);
     border-left: 1px solid var(--c-mid-background);
     backdrop-filter: blur(1rem);
-    padding: 8rem 2rem 2rem 2rem;
+    padding: 2rem;
     box-shadow: 0 0 .8rem var(--c-shadow);
     transition: right .5s;
 }
@@ -39,4 +39,14 @@
     box-shadow: 0 0 .8rem var(--c-shadow);
     background-color: var(--c-mid-background);
     color: var(--c-major-text);
+}
+
+@media only screen and (max-width: 32rem) {
+
+    .overlay-panel {
+        max-width: 100%;
+        min-width: 100%;
+        padding: 1rem;
+    }
+    
 }

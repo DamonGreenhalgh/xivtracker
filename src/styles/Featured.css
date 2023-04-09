@@ -1,6 +1,7 @@
 .featured {
+    margin: 0 auto;
     position: relative;
-    width: 30rem;
+    max-width: 30rem;
     height: 16.5rem;
     overflow: hidden;
     border-radius: .5rem;
@@ -32,12 +33,4 @@
 
 .featured__banners img {
     width: 30rem;
-}
-
-@media only screen and (max-width: 500px) {
-
-    .featured {
-        display: none;
-    }
-
 }

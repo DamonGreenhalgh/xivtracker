@@ -4,6 +4,7 @@
   --color-error: #cc1f27;
   --color-reference: #7b42e6;
   --color-completed-transparent: #30bb6510; 
+  --content-width: 70rem;
   box-sizing: border-box;
   scrollbar-color: var(--c-mid-background) transparent;
 }
@@ -183,7 +184,7 @@ input:focus {
   background-image: linear-gradient(-90deg, transparent, rgba(255, 255, 255, 0.25));
 }
 
-@media only screen and (max-width: 1150px) {
+@media only screen and (max-width: 72rem) {
 
   * {
     --content-width: calc(100vw - 2rem)

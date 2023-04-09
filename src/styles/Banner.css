@@ -25,6 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     overflow-y: scroll;
+    scrollbar-width: thin;
 }
 
 .banner__server {
@@ -69,4 +70,12 @@
     border-radius: .5rem;
     display: flex;
     gap: 1rem;
+}
+
+@media only screen and (max-width: 30rem) {
+
+    .banner--mini-container {
+        grid-template-columns: 1fr;
+    }
+    
 }

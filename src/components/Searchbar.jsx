@@ -96,6 +96,13 @@ const Searchbar = (props) => {
       <div className={"recent" + (displayDropdown ? " recent--active" : "")}>
         <div className="row align-center gap">
           <Button
+            text="Servers"
+            title="Select a server"
+            icon={<FaServer className="character__icon" />}
+            condition={true}
+            type="minor"
+          />
+          <Button
             title="Close"
             onClick={() => setDisplayDropdown(false)}
             icon={<FaTimes className="character__icon" />}
@@ -104,84 +111,171 @@ const Searchbar = (props) => {
           />
         </div>
         <Divider />
-        <div
-          className="recent__servers"
-          onClick={(e) => setServer(e.target.innerText)}
-        >
-          <div>Server</div>
-          <div>Adamantoise</div>
-          <div>Aegis</div>
-          <div>Alexander</div>
-          <div>Anima</div>
-          <div>Asura</div>
-          <div>Atomos</div>
-          <div>Bahamut</div>
-          <div>Balmung</div>
-          <div>Behemoth</div>
-          <div>Belias</div>
-          <div>Brynhildr</div>
-          <div>Cactuar</div>
-          <div>Carbuncle</div>
-          <div>Cerberus</div>
-          <div>Chocobo</div>
-          <div>Coeurl</div>
-          <div>Diabolos</div>
-          <div>Durandal</div>
-          <div>Excalibur</div>
-          <div>Exodus</div>
-          <div>Faerie</div>
-          <div>Famfrit</div>
-          <div>Fenrir</div>
-          <div>Garuda</div>
-          <div>Gilgamesh</div>
-          <div>Goblin</div>
-          <div>Gungnir</div>
-          <div>Hades</div>
-          <div>Hyperion</div>
-          <div>Ifrit</div>
-          <div>Ixion</div>
-          <div>Jenova</div>
-          <div>Kujata</div>
-          <div>Lamia</div>
-          <div>Leviathan</div>
-          <div>Lich</div>
-          <div>Louisoix</div>
-          <div>Malboro</div>
-          <div>Mandragora</div>
-          <div>Masamune</div>
-          <div>Mateus</div>
-          <div>Midgardsormr</div>
-          <div>Moogle</div>
-          <div>Odin</div>
-          <div>Omega</div>
-          <div>Pandaemonium</div>
-          <div>Phoenix</div>
-          <div>Ragnarok</div>
-          <div>Ramuh</div>
-          <div>Ridill</div>
-          <div>Sargatanas</div>
-          <div>Shinryu</div>
-          <div>Shiva</div>
-          <div>Siren</div>
-          <div>Tiamat</div>
-          <div>Titan</div>
-          <div>Tonberry</div>
-          <div>Typhon</div>
-          <div>Ultima</div>
-          <div>Ultros</div>
-          <div>Unicorn</div>
-          <div>Valefor</div>
-          <div>Yojimbo</div>
-          <div>Zalera</div>
-          <div>Zeromus</div>
-          <div>Zodiark</div>
-          <div>Spriggan</div>
-          <div>Twintania</div>
-          <div>Bismarck</div>
-          <div>Ravana</div>
-          <div>Sephirot</div>
-          <div>Sophia</div>
-          <div>Zurvan</div>
+        <div className="data-center-container">
+          <h4 style={{ gridArea: "na" }}>North America</h4>
+          <h5 style={{ gridArea: "Aether" }}>Aether</h5>
+          <div
+            className="data-center"
+            onClick={(e) => setServer(e.target.innerText)}
+            style={{ gridArea: "AetherServers" }}
+          >
+            <button>Adamantoise</button>
+            <button>Cactuar</button>
+            <button>Faerie</button>
+            <button>Gilgamesh</button>
+            <button>Jenova</button>
+            <button>Midgardsormr</button>
+            <button>Sargatanas</button>
+            <button>Siren</button>
+          </div>
+
+          <h5 style={{ gridArea: "Crystal" }}>Crystal</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "CrystalServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Balmung</button>
+            <button>Brynhildr</button>
+            <button>Coeurl</button>
+            <button>Diabolos</button>
+            <button>Goblin</button>
+            <button>Malboro</button>
+            <button>Mateus</button>
+            <button>Zalera</button>
+          </div>
+          <h5 style={{ gridArea: "Dynamis" }}>Dynamis</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "DynamisServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Halicarnassus</button>
+            <button>Maduin</button>
+            <button>Marilith</button>
+            <button>Seraph</button>
+          </div>
+          <h5 style={{ gridArea: "Primal" }}>Primal</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "PrimalServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Behemoth</button>
+            <button>Excalibur</button>
+            <button>Exodus</button>
+            <button>Famfrit</button>
+            <button>Hyperion</button>
+            <button>Lamia</button>
+            <button>Leviathan</button>
+            <button>Ultros</button>
+          </div>
+          <h4 style={{ gridArea: "eu" }}>Europe</h4>
+          <h5 style={{ gridArea: "Chaos" }}>Chaos</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "ChaosServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Cerberus</button>
+            <button>Louisoix</button>
+            <button>Moogle</button>
+            <button>Omega</button>
+            <button>Phantom</button>
+            <button>Ragnarok</button>
+            <button>Sagittarius</button>
+            <button>Spriggan</button>
+          </div>
+          <h5 style={{ gridArea: "Light" }}>Light</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "LightServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Alpha</button>
+            <button>Lich</button>
+            <button>Odin</button>
+            <button>Phoenix</button>
+            <button>Raiden</button>
+            <button>Shiva</button>
+            <button>Twintania</button>
+            <button>Zodiark</button>
+          </div>
+          <h4 style={{ gridArea: "oce" }}>Oceania</h4>
+          <h5 style={{ gridArea: "Materia" }}>Materia</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "MateriaServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Bismarck</button>
+            <button>Ravana</button>
+            <button>Sephirot</button>
+            <button>Sophia</button>
+            <button>Zurvan</button>
+          </div>
+          <h4 style={{ gridArea: "jp" }}>Japan</h4>
+          <h5 style={{ gridArea: "Elemental" }}>Elemental</h5>
+
+          <div
+            className="data-center"
+            style={{ gridArea: "ElementalServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Aegis</button>
+            <button>Atomos</button>
+            <button>Carbuncle</button>
+            <button>Garuda</button>
+            <button>Gungnir</button>
+            <button>Kujata</button>
+            <button>Tonberry</button>
+            <button>Typhon</button>
+          </div>
+          <h5 style={{ gridArea: "Gaia" }}>Gaia</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "GaiaServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Alexander</button>
+            <button>Bahamut</button>
+            <button>Durandal</button>
+            <button>Fenrir</button>
+            <button>Ifrit</button>
+            <button>Ridill</button>
+            <button>Tiamat</button>
+            <button>Ultima</button>
+          </div>
+          <h5 style={{ gridArea: "Mana" }}>Mana</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "ManaServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Anima</button>
+            <button>Asura</button>
+            <button>Chocobo</button>
+            <button>Hades</button>
+            <button>Ixion</button>
+            <button>Masamune</button>
+            <button>Pandaemonium</button>
+            <button>Titan</button>
+          </div>
+          <h5 style={{ gridArea: "Meteor" }}>Meteor</h5>
+          <div
+            className="data-center"
+            style={{ gridArea: "MeteorServers" }}
+            onClick={(e) => setServer(e.target.innerText)}
+          >
+            <button>Belias</button>
+            <button>Mandragora</button>
+            <button>Ramuh</button>
+            <button>Shinryu</button>
+            <button>Unicorn</button>
+            <button>Valefor</button>
+            <button>Yojimbo</button>
+            <button>Zeromus</button>
+          </div>
         </div>
       </div>
       <div className={"recent " + (displayRecent ? " recent--active" : "")}>
@@ -203,19 +297,11 @@ const Searchbar = (props) => {
             type="minor"
           />
           <Button
-            text="Favourites"
-            title="Show favourites"
-            onClick={() => setTabIndex(2)}
-            icon={<FaStar className="character__icon" />}
-            condition={tabIndex === 2}
-            type="minor"
-            style={{ color: "var(--color-experience)", marginLeft: "auto" }}
-          />
-          <Button
             title="Close"
             onClick={() => setDisplayRecent(false)}
             icon={<FaTimes className="character__icon" />}
             type="minor"
+            style={{ marginLeft: "auto" }}
           />
         </div>
         <Divider />
@@ -226,7 +312,7 @@ const Searchbar = (props) => {
             className="banner--mini-container"
             onClick={() => setDisplayRecent(false)}
           >
-            {tabIndex === 0 ? recent : tabIndex === 1 ? results : favourites}
+            {tabIndex === 0 ? recent : results}
           </div>
         )}
       </div>

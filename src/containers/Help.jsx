@@ -5,7 +5,6 @@ import idHelp from "../images/id-help.png";
 
 const Help = () => {
   useEffect(() => {
-    document.documentElement.style.setProperty("--content-width", "70rem");
     document.title = "XIV Tracker | Help";
   }, []);
 

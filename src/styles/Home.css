@@ -2,10 +2,9 @@
     display: flex;
     margin: auto;
     justify-content: center;
-    margin-top: 8rem;
-    /* height: calc(100vh - 18rem); */
     flex-direction: column;
     width: var(--content-width);
+    height: calc(100vh - 6rem - 10rem);
     gap: 2rem;
 }
 

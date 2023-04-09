@@ -93,7 +93,6 @@ const Character = (props) => {
       localStorage.setItem("recent", JSON.stringify(recent));
     };
 
-    document.documentElement.style.setProperty("--content-width", "70rem");
     if (!loading) {
       document.title = "XIV Tracker | " + data.Character.Name;
       storeRecent(data.Character);
@@ -139,10 +138,10 @@ const Character = (props) => {
       >
         <CgProfile />
         {referenceCharacter === null
-          ? "Set " + data.Character.Name + " as the reference character"
+          ? "Reference " + data.Character.Name
           : referenceCharacter.Character.ID === data.Character.ID
           ? data.Character.Name + " is the current reference character"
-          : "Set " + data.Character.Name + " as the reference character"}
+          : "Reference " + data.Character.Name}
       </button>
       <Banner character={data.Character} />
       <div className="character__content">

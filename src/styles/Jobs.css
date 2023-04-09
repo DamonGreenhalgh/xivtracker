@@ -59,60 +59,6 @@
     grid-template-columns: 1fr;
 }
 
-.war-magic--single {
-    grid-template-areas: 
-    "Tank        "
-    "paladin     "
-    "warrior     "
-    "darkknight  "
-    "gunbreaker  "
-    ".           "
-    "Healer      "
-    "whitemage   "
-    "scholar     "
-    "astrologian "
-    "sage        "
-    ".           "
-    "Melee       "
-    "monk        "
-    "dragoon     "
-    "ninja       "     
-    "samurai     "   
-    "reaper      " 
-    ".           "
-    "Ranged      "   
-    "bard        "
-    " machinist  "
-    " dancer     "
-    ".           "
-    " Magic      "
-    " blackmage  "
-    "summoner    "
-    "redmage     "
-    "bluemage    "
-    ;
-}
-
-.hand-land--single {
-    grid-template-areas:
-    "Hand          "
-    "carpenter     "
-    "blacksmith    "
-    "armorer       "
-    "goldsmith     "
-    "leatherworker "
-    "weaver        "
-    "alchemist     "
-    "culinarian    "
-    ".             "
-    "Land          "
-    "miner         "
-    "botanist      "
-    "fisher        "
-    ;
-}
-
-
 .job--ref {
     grid-template-areas: 
     "Tank        "

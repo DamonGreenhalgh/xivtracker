@@ -5,6 +5,7 @@
     gap: 1rem;
     width: 30rem;
     padding-right: 1rem;
+    margin: 0 auto;
     background-color: var(--c-content-background-opaque);
     outline: 1px solid var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
@@ -39,20 +40,58 @@
     border: 1px solid var(--c-mid-background);
 }
 
-.recent__servers {
-    height: 10rem;
-    display: flex;
+.data-center-container {
+    height: 100%;
     overflow-y: scroll;
+    scrollbar-width: thin;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "na na na"
+        "Aether Crystal Dynamis"
+        "AetherServers CrystalServers DynamisServers"
+        "Primal . ."
+        "PrimalServers . ."
+        "eu eu eu"
+        "Chaos Light ."
+        "ChaosServers LightServers ."
+        "oce oce oce"
+        "Materia . ."
+        "MateriaServers . ."
+        "jp jp jp"
+        "Elemental Gaia Mana"
+        "ElementalServers GaiaServers ManaServers"
+        "Meteor . ."
+        "MeteorServers . ."
+    ;
+    gap: .5rem;
+}
+
+.data-center-container h4 {
+    margin: 1rem 0;
+}
+
+.data-center-container h5 {
+    margin-left: 1rem;
+}
+
+.data-center {
+    display: flex;
     flex-direction: column;
+    align-items: start;
+    height: min-content;
 }
 
-.recent__servers div {
-    font-size: .8rem;
-    padding: .5rem;
+.data-center button {
+    font-size: .75rem;
+    width: 100%;
+    justify-content: start;
+    padding: .5rem 1.5rem;
+    border-radius: .25rem;
 }
 
-.recent__servers div:hover {
-    cursor: pointer;
+
+.data-center button:hover {
     background-color: var(--c-mid-background);
-    color: var(--c-major-text);
 }

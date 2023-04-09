@@ -6,7 +6,6 @@
     margin: auto;
     width: var(--content-width);
     gap: 2rem;
-    margin-top: 8rem;
 }
 
 .settings__form {

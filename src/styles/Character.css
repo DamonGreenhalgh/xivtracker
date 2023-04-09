@@ -1,10 +1,8 @@
 .character {
     display: flex;
     flex-direction: column;
-    max-width: 70rem;
-    min-width: 70rem;
+    max-width: var(--content-width);
     gap: 2rem;
-    padding: 8rem 0;
     margin: auto;
 }
 
@@ -93,4 +91,17 @@
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     color: var(--c-major-text);
     border-radius: .5rem;
+}
+
+@media only screen and (max-width: 72rem) {
+
+    .character__content {
+        flex-direction: column;
+    }
+
+    .character__side {
+        min-width: none;
+        max-width: none;
+    }
+    
 }

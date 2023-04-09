@@ -7,7 +7,7 @@ const Friends = (props) => {
     <FailToLoad type="noFriendsError" />
   ) : (
     <>
-      <div className="friends">
+      <div className="banner--mini-container">
         {friends.map((friend) => (
           <MiniBanner character={friend} key={friend.ID} />
         ))}{" "}
