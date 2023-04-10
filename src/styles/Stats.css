@@ -8,8 +8,9 @@
 }
 
 .attributes__list {
-    min-width: 28rem;
+    min-width: 26rem;
     display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
         "HP             MP"
         "Strength       Intelligence"

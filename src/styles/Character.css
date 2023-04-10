@@ -9,8 +9,8 @@
 .character__side {
     display: flex;
     flex-direction: column;
-    min-width: 32rem;
-    max-width: 32rem;
+    min-width: 30rem;
+    max-width: 30rem;
 }
 
 .character__main {
@@ -57,7 +57,7 @@
     max-width: 3rem;
     min-width: 3rem;
     position: fixed;
-    right: 32rem;
+    right: 30rem;
     top: calc(50% - 3rem);
     padding: 1rem;
     color: var(--c-major-text);

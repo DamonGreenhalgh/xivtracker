@@ -2,6 +2,7 @@
     position: relative;
     max-width: 30rem;
     height: 16.5rem;
+    margin: 0 auto;
     overflow: hidden;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
@@ -16,7 +17,31 @@
     justify-content: space-between;
     align-items: center;
     gap: .5rem;
-    background-image: linear-gradient(200deg, #22222985, transparent, #212024f1);
+    background-image: linear-gradient(190deg, #00000044 5%, transparent 30%, #000000ad 100%);
+
+}
+
+.featured__overlay h4 {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'Montserrat';
+    background-color: var(--color-completed);
+    color: var(--c-major-text);
+    padding: .5rem .75rem;
+    border-radius: .5rem;
+    min-height: 2rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+}
+
+.featured__titles {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    left: 1rem;
+    bottom: 1rem;
+    width: 100%;
 }
 
 .featured__overlay a {

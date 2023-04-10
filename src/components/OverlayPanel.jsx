@@ -27,18 +27,13 @@ const OverlayPanel = (props) => {
       {referenceCharacter !== null ? (
         <>
           <Banner character={referenceCharacter.Character} />
-          <Divider />
-
           <Equipment data={referenceCharacter} display={true} />
-          <Divider />
           <Stats
             data={referenceCharacter}
             referenceCharacter={data}
             display={true}
             compare={true}
           />
-          <Divider />
-          {/* <Information data={referenceCharacter} display={true} /> */}
           <div className="jobs__collection jobs__collection--single job--ref ">
             <JobHeader name="Tank" icon={tankIcon} />
             <JobHeader name="Healer" icon={healerIcon} />

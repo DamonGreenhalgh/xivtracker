@@ -17,6 +17,7 @@ import Equipment from "../components/Equipment";
 import Information from "../components/Information";
 import Friends from "../components/Friends";
 import FreeCompany from "./FreeCompany";
+import Featured from "../components/Featured";
 
 // Style
 import { MdWork, MdPets } from "react-icons/md";
@@ -146,6 +147,8 @@ const Character = (props) => {
       <Banner character={data.Character} />
       <div className="character__content">
         <div className="character__side">
+          <Featured />
+          <div style={{ minHeight: "2rem" }} />
           <nav className="character__tab">
             <Button
               icon={<GiBattleGear className="character__icon" />}
