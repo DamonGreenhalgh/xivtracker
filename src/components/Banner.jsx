@@ -5,12 +5,32 @@ import "../styles/Banner.css";
 import maleIcon from "../images/male.png";
 import femaleIcon from "../images/female.png";
 import { ImDiamonds } from "react-icons/im";
+import { useEffect, useState } from "react";
 
 const Banner = (props) => {
   const { character } = props;
+  const [level, setLevel] = useState(0);
+
+  useEffect(() => {
+    const gearList = Object.values(character.GearSet.Gear);
+    // remove soul crystal from gear list if they have one
+    if (
+      gearList[gearList.length - 1].Item.ItemUICategory.Name === "Soul Crystal"
+    ) {
+      gearList.pop();
+    }
+    let averageILVL = 0;
+    for (const gear of gearList) {
+      averageILVL += gear.Item.LevelItem;
+    }
+    setLevel(Math.round(averageILVL / gearList.length));
+  }, []);
   return (
     <Link className="banner" to={"/" + character.ID}>
-      <img src={character.Avatar} className="banner__avatar" />
+      <div className="banner__avatar-container">
+        <img src={character.Avatar} className="banner__avatar" />
+        <h4 className="banner__level">{"i" + level}</h4>
+      </div>
       <div className="banner__main-content">
         <h2>{character.Name}</h2>
         <h3>{character.Title.Name}</h3>

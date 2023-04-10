@@ -178,7 +178,7 @@ const Character = (props) => {
               type="tab"
             />
           </nav>
-          <div className="section">
+          <div className="section" style={{ zIndex: "3" }}>
             <Equipment data={data} display={sideTabIndex === 0} />
             <Stats
               data={data}
