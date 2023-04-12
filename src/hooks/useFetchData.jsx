@@ -17,7 +17,6 @@ export const useFetchData = (url) => {
 
     const fetchData = async (url) => {
       setLoading(true);
-
       await fetch(url, { mode: "cors", signal: signal })
         .then((response) => {
           setOk(response.ok);
@@ -28,7 +27,7 @@ export const useFetchData = (url) => {
 
       setLoading(false);
     };
-    setTimeout(() => fetchData(url), 100);
+    fetchData(url);
 
     return () => controller.abort();
   }, [url]);

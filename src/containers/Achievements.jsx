@@ -13,7 +13,7 @@ import "../styles/Achievements.css";
 import { FaSearch } from "react-icons/fa";
 
 const totalAchievements = 2864;
-const capacity = 8;
+const capacity = 10;
 /**
  * @name Achievements
  * @description Container for character achievements.
@@ -22,17 +22,53 @@ const capacity = 8;
  */
 const Achievements = (props) => {
   const { display, achievements } = props;
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const [searchInput, setSearchInput] = useState("");
-  const [possibleAchievements, setPossibleAchievements] = useState([]);
+  const [displayedAchievements, setDisplayedAchievements] = useState([]);
+  const [filteredAchievements, setFilteredAchievements] =
+    useState(achievements);
+
+  const fillAchievements = () => {
+    for (
+      let i = index * capacity;
+      i < Math.min((index + 1) * capacity, filteredAchievements.length);
+      i++
+    ) {
+      setTimeout(() => {
+        setDisplayedAchievements((displayedAchievements) => [
+          ...displayedAchievements,
+          <Achievement
+            name={filteredAchievements[i].Name}
+            icon={filteredAchievements[i].Icon}
+            points={filteredAchievements[i].Points}
+            id={filteredAchievements[i].ID}
+            key={filteredAchievements[i].ID * Math.random()}
+          />,
+        ]);
+      }, 100 * (i - index * capacity));
+    }
+  };
 
   useEffect(() => {
-    setPossibleAchievements(
+    setDisplayedAchievements([]);
+    fillAchievements();
+  }, [index]);
+
+  useEffect(() => {
+    // reset the displayed achievements
+    setDisplayedAchievements([]);
+
+    // filter achievements based on search term
+    setFilteredAchievements(
       achievements.List.filter((achievement) =>
         achievement.Name.toLowerCase().includes(searchInput)
       )
     );
+
     setIndex(0);
+
+    // display on page
+    fillAchievements();
   }, [searchInput]);
 
   return (
@@ -59,7 +95,7 @@ const Achievements = (props) => {
             <FaSearch className="character__icon" />
           </div>
           <ul className="col gap">
-            {possibleAchievements
+            {/* {possibleAchievements
               .slice(index * capacity, (index + 1) * capacity)
               .map((achievement) => (
                 <Achievement
@@ -69,13 +105,14 @@ const Achievements = (props) => {
                   id={achievement.ID}
                   key={achievement.ID}
                 />
-              ))}
+              ))} */}
+            {displayedAchievements}
           </ul>
           <Navigator
             update={setIndex}
             current={index}
             min={0}
-            max={Math.ceil(possibleAchievements.length / capacity) - 1}
+            max={Math.ceil(filteredAchievements.length / capacity) - 1}
             style={{ margin: "auto" }}
           />
         </>

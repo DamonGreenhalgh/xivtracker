@@ -36,19 +36,31 @@ import "../styles/Character.css";
  * @returns
  */
 const Character = (props) => {
-  const { id } = useParams();
-  const { data, loading, ok } = useFetchData(
-    "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO,FR,FCM"
-  );
-  const [index, setIndex] = useState(0);
-  const [sideTabIndex, setSideTabIndex] = useState(0);
-  const [socialTabIndex, setSocialTabIndex] = useState(0);
   const {
     referenceCharacter,
     setReferenceCharacter,
     displayPanel,
     setDisplayPanel,
   } = props;
+  const { id } = useParams();
+  const { data, loading, ok } = useFetchData(
+    "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO,FR,FCM"
+  );
+  // update ref character
+  const { refData, refLoading, refOk } = useFetchData(
+    "https://xivapi.com/character/" +
+      referenceCharacter.Character.ID +
+      "?extended=1&data=AC,FC,MIMO,FR,FCM"
+  );
+  const [index, setIndex] = useState(0);
+  const [sideTabIndex, setSideTabIndex] = useState(0);
+  const [socialTabIndex, setSocialTabIndex] = useState(0);
+
+  useEffect(() => {
+    if (!refLoading && refOk) {
+      setReferenceCharacter(refData);
+    }
+  }, [refData]);
 
   useEffect(() => {
     /**

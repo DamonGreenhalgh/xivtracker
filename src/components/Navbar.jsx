@@ -34,18 +34,18 @@ const Navbar = (props) => {
           <RiSettings3Line className="navbar__icon" />
         </button>
       </Link>
-      <button onClick={() => setDisplayPanel(displayPanel ? false : true)}>
-        {referenceCharacter !== null ? (
+      {referenceCharacter !== null ? (
+        <Link to={"/" + referenceCharacter.Character.ID}>
           <img
             src={referenceCharacter.Character.Avatar}
             className="overlay-panel__avatar"
             title={referenceCharacter.Character.Name}
             alt="reference character"
           />
-        ) : (
-          <CgProfile className="navbar__icon" />
-        )}
-      </button>
+        </Link>
+      ) : (
+        <CgProfile className="navbar__icon" />
+      )}
     </nav>
   );
 };
