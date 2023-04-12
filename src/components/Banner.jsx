@@ -38,7 +38,7 @@ const Banner = (props) => {
           <ImDiamonds style={{ minHeight: "1rem", minWidth: "1rem" }} />
           <p>{character.Server}</p>
         </div>
-        <div className="row gap-sm align-center" style={{ marginTop: "auto" }}>
+        <div className="row gap-sm align-center">
           <img
             src={character.Gender === 1 ? maleIcon : femaleIcon}
             style={{ maxHeight: "1rem" }}

@@ -18,14 +18,13 @@
 }
 
 .tooltip {
-    z-index: 4;
     display: flex;
     gap: .5rem;
+    left: 4rem;
     flex-direction: column;
     position: absolute;
     visibility: hidden;
     white-space: nowrap;
-    left: 4rem;
     padding: 1rem;
     background-color: var(--c-mid-background);
     box-shadow: 0 .5rem 2rem var(--c-shadow);
