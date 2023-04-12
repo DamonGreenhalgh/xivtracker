@@ -2,7 +2,6 @@ import Friends from "../components/Friends";
 import Divider from "../components/Divider";
 import { ImDiamonds } from "react-icons/im";
 import FailToLoad from "../components/FailToLoad";
-import "../styles/FreeCompany.css";
 
 const FreeCompany = (props) => {
   const { freeCompany, freeCompanyMembers, display } = props;
@@ -35,7 +34,9 @@ const FreeCompany = (props) => {
               />
             </div>
             <div className="col gap-sm">
-              <h2>{freeCompany.Name + " [" + freeCompany.Tag + "]"}</h2>
+              <h2 style={{ color: "#e7eff5" }}>
+                {freeCompany.Name + " [" + freeCompany.Tag + "]"}
+              </h2>
               <div className="banner__server ">
                 <ImDiamonds style={{ maxHeight: "1rem", minWidth: "1rem" }} />
 

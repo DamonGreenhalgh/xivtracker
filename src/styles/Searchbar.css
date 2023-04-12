@@ -71,6 +71,7 @@
 
 .data-center-container h4 {
     margin: 1rem 0;
+    color: var(--c-major-text);
 }
 
 .data-center-container h5 {

@@ -30,7 +30,7 @@
     right: 1rem;
     font-family: 'Montserrat';
     background-color: var(--color-completed);
-    color: var(--c-major-text);
+    color: #ecf1f3;
     padding: .5rem .75rem;
     border-radius: .5rem;
     min-height: 2rem;

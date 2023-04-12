@@ -3,15 +3,15 @@
         "name": "Light",
         "id": 0,
         "colors": {
-            "--c-background": "#ffffff",
+            "--c-background": "#e7eff5",
             "--c-content-background": "rgba(245, 244, 244, 0.815)",
-            "--c-content-background-opaque": "#f3f2f2",
-            "--c-mid-background": "#d1dae7",
-            "--c-minor-text": "#8c97a8",
-            "--c-mid-text": "#7389a5",
-            "--c-major-text": "#4a577e",
+            "--c-content-background-opaque": "#ffffff",
+            "--c-mid-background": "#e7eff5",
+            "--c-minor-text": "#8c9cb1",
+            "--c-mid-text": "#5683be",
+            "--c-major-text": "#7b42e6",
             "--c-accent": "#585bd5",
-            "--c-shadow": "rgba(18, 18, 32, 0.1)"
+            "--c-shadow": "rgba(81, 129, 192, 0.1)"
         }
     },
     "dark": {

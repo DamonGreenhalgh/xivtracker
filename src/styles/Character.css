@@ -88,8 +88,11 @@
     gap: 1rem;
     padding: 1rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    color: var(--c-major-text);
+    color: #ecf1f3;
     border-radius: .5rem;
+}
+.character__set-reference-btn:hover {
+    color: #ecf1f3;
 }
 
 @media only screen and (max-width: 72rem) {

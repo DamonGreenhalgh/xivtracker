@@ -28,7 +28,7 @@
 .settings__reference-close {
     background-color: var(--color-error);
     border-radius: .5rem;
-    color: var(--c-major-text);
+    color: #e7eff5;
     padding: 1rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }

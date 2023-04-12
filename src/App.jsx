@@ -103,11 +103,7 @@ const App = () => {
         <Loading full={true} />
       ) : (
         <>
-          <Navbar
-            referenceCharacter={referenceCharacter}
-            displayPanel={displayPanel}
-            setDisplayPanel={setDisplayPanel}
-          />
+          <Navbar referenceCharacter={referenceCharacter} theme={theme} />
           <Routes>
             <Route
               exact
@@ -135,7 +131,7 @@ const App = () => {
               }
             />
             <Route path="/help" element={<Help />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home theme={theme} />} />
           </Routes>
           <Footer />
         </>

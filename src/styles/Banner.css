@@ -63,7 +63,7 @@
     padding: .25rem .5rem;
     background-color: var(--color-reference);
     font-family: 'Montserrat';
-    color: var(--c-major-text);
+    color: #ecf1f3;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     position: absolute;

@@ -1,4 +1,5 @@
-import brand from "../images/brand.png";
+import brandIconDark from "../images/brand-dark.png";
+import brandIconLight from "../images/brand-light.png";
 import "../styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import { RiSettings3Line } from "react-icons/ri";
@@ -7,13 +8,17 @@ import { CgProfile } from "react-icons/cg";
 import Searchbar from "./Searchbar";
 
 const Navbar = (props) => {
-  const { referenceCharacter, displayPanel, setDisplayPanel } = props;
+  const { referenceCharacter, theme } = props;
   const location = useLocation();
 
   return (
     <nav className="navbar">
       <Link to="/" title="Home">
-        <img src={brand} className="navbar__brand-icon" alt="xiv tracker" />
+        <img
+          src={theme === "light" ? brandIconLight : brandIconDark}
+          className="navbar__brand-icon"
+          alt="xiv tracker"
+        />
       </Link>
       {location.pathname !== "/" ? (
         <Searchbar
