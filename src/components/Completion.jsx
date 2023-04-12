@@ -10,9 +10,9 @@ const Completion = (props) => {
         className="completion__radial"
         style={{
           background:
-            "radial-gradient(closest-side, var(--c-content-background-opaque) 77%, transparent 80% 100%), conic-gradient(var(--color-completed) " +
+            "radial-gradient(closest-side, var(--c-mid-background) 77%, transparent 80% 100%), conic-gradient(var(--c-green) " +
             percentage +
-            "%, var(--c-mid-background) 0)",
+            "%, var(--c-major-background) 0)",
         }}
       >
         {" "}

@@ -7,8 +7,8 @@
     width: 30rem;
     max-height: 3rem;
     padding: 1rem;
-    background-color: var(--c-content-background-opaque);
-    outline: 1px solid var(--c-mid-background);
+    background-color: var(--c-mid-background);
+    outline: 1px solid var(--c-major-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     border-radius: .5rem;
 }
@@ -25,7 +25,7 @@
     position: absolute;
     height: 0;
     width: 100%;
-    background-color: var(--c-content-background-opaque);
+    background-color: var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     border-radius: .5rem;
     padding: 0 1rem;
@@ -38,7 +38,7 @@
 .recent--active {
     padding: 1rem;
     height: 16.5rem;
-    border: 1px solid var(--c-mid-background);
+    border: 1px solid var(--c-major-background);
 }
 
 .data-center-container {
@@ -94,7 +94,7 @@
 }
 
 .data-center button:hover {
-    background-color: var(--c-mid-background);
+    background-color: var(--c-major-background);
 }
 
 @media only screen and (max-width: 32rem) {
@@ -104,14 +104,10 @@
         bottom: 1rem;
         left: 1rem;
         width: var(--content-width);
-        background-color: var(--c-shadow);
-        backdrop-filter: blur(1rem);
     }
 
     .recent {
         top: auto;
         bottom: 4rem;
-        background-color: var(--c-shadow);
-        backdrop-filter: blur(1rem);
     }
 }

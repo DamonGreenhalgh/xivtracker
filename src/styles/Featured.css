@@ -29,7 +29,7 @@
     top: 1rem;
     right: 1rem;
     font-family: 'Montserrat';
-    background-color: var(--color-completed);
+    background-color: var(--c-green);
     color: #ecf1f3;
     padding: .5rem .75rem;
     border-radius: .5rem;

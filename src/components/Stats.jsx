@@ -42,10 +42,7 @@ const Stats = (props) => {
               {diff !== 0 && compare ? (
                 <h5
                   style={{
-                    color:
-                      diff < 0
-                        ? "var(--color-error)"
-                        : "var(--color-completed)",
+                    color: diff < 0 ? "var(--c-red)" : "var(--c-green)",
                   }}
                 >
                   {" ( " + (diff > 0 ? "+" : "") + diff + " )"}

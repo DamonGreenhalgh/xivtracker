@@ -100,10 +100,10 @@ const Featured = () => {
           style={{
             backgroundColor:
               events[index].type === "EVENT"
-                ? "var(--color-reference)"
+                ? "var(--c-purple)"
                 : events[index].type === "PATCH"
-                ? "var(--color-completed)"
-                : "var(--color-experience)",
+                ? "var(--c-green)"
+                : "var(--c-yellow)",
           }}
         >
           {events[index].type}

@@ -21,14 +21,14 @@ const JobItem = (props) => {
       />
       <h2
         className="job__level-text"
-        style={{ color: level === 90 ? "#f09744" : null }}
+        style={{ color: level === 90 ? "var(--c-orange)" : null }}
       >
         {level}
       </h2>
       {compare ? (
         <h5
           style={{
-            color: diff < 0 ? "var(--color-error)" : "var(--color-completed)",
+            color: diff < 0 ? "var(--c-red)" : "var(--c-green)",
             minWidth: "3rem",
             textAlign: "center",
           }}
@@ -47,7 +47,7 @@ const JobItem = (props) => {
         </div>
         <Bar
           width={((exp[0] / exp[1]) * 100).toString() + "%"}
-          color="var(--color-experience)"
+          color="var(--c-yellow)"
         />
       </div>
     </a>

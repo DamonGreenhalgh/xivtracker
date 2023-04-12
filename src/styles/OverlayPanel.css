@@ -12,7 +12,7 @@
     height: 100vh;
     max-width: 30rem;
     background-color: var(--c-shadow);
-    border-left: 1px solid var(--c-mid-background);
+    border-left: 1px solid var(--c-major-background);
     backdrop-filter: blur(1rem);
     padding: 2rem;
     box-shadow: 0 0 .8rem var(--c-shadow);
@@ -31,11 +31,11 @@
 .tab {
     padding: 1rem;
     border-radius: .5rem;
-    outline: 1px solid var(--c-mid-background);
+    outline: 1px solid var(--c-major-background);
 }
 
 .tab--active {
     box-shadow: 0 0 .8rem var(--c-shadow);
-    background-color: var(--c-mid-background);
+    background-color: var(--c-major-background);
     color: var(--c-major-text);
 }

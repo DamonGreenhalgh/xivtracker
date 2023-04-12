@@ -20,7 +20,7 @@ const MiniBanner = (props) => {
           <p
             style={{
               fontSize: ".6rem",
-              textDecorationColor: "var(--color-completed)",
+              textDecorationColor: "var(--c-green)",
             }}
           >
             {character.Server}

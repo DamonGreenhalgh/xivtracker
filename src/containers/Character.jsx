@@ -131,10 +131,10 @@ const Character = (props) => {
         style={{
           backgroundColor:
             referenceCharacter === null
-              ? "var(--color-reference)"
+              ? "var(--c-purple)"
               : referenceCharacter.Character.ID === data.Character.ID
-              ? "var(--color-completed)"
-              : "var(--color-reference)",
+              ? "var(--c-green)"
+              : "var(--c-purple)",
         }}
       >
         <CgProfile />

@@ -32,7 +32,7 @@
 @media only screen and (max-width: 30rem) {
 
     .equipment{
-        margin: 0;
+        min-width: calc(100vw - 6rem);
         grid-template-columns: 3rem 1fr 3rem;
     }
 

@@ -22,15 +22,13 @@ const Achievement = (props) => {
       <div className="col gap-sm">
         <div className="achievement__header">
           <h4>{name}</h4>
-          <p style={{ color: "var(--color-experience)" }}>
+          <p style={{ color: "var(--c-yellow)" }}>
             {data.AchievementCategory.Name}
           </p>
         </div>
         <p>{data.Description}</p>
       </div>
-      <h3 style={{ marginLeft: "auto", color: "var(--color-completed)" }}>
-        {points}
-      </h3>
+      <h3 style={{ marginLeft: "auto", color: "var(--c-green)" }}>{points}</h3>
     </li>
   );
 };

@@ -1,13 +1,12 @@
 * {  
-  --color-experience: #cfb671;
-  --color-orange: rgb(240, 151, 68);
-  --color-completed: #30bb65; 
-  --color-error: #cc1f27;
-  --color-reference: #7b42e6;
-  --color-completed-transparent: #30bb6510; 
+  --c-yellow: #e4bc4f;
+  --c-orange: #f09744;
+  --c-green: #30bb65; 
+  --c-red: #cc1f27;
+  --c-purple: #7b42e6;
   --content-width: 70rem;
   box-sizing: border-box;
-  scrollbar-color: var(--c-mid-background) transparent;
+  scrollbar-color: var(--c-major-background) transparent;
 }
 
 @font-face {
@@ -26,7 +25,7 @@ body {
   font-size: 1rem;
   font-family: 'Comfortaa';
   color: var(--c-minor-text);
-  background-color: var(--c-background);
+  background-color: var(--c-minor-background);
   background-position: top;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -101,15 +100,15 @@ input:focus {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--c-content-background-opaque);
-  outline: 1px solid var(--c-mid-background);
+  background-color: var(--c-mid-background);
+  outline: 1px solid var(--c-major-background);
   color: var(--c-minor-text);
   border-radius: .5rem;
 }
 
 .select--disabled {
   cursor: default;
-  background-color: var(--c-mid-background);
+  background-color: var(--c-major-background);
   color: var(--c-minor-text);
 }
 
@@ -127,9 +126,9 @@ input:focus {
   width: 100%;
   top: 4rem;
   left: 0;
-  background-color: var(--c-content-background-opaque);
+  background-color: var(--c-mid-background);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
-  border: 1px solid var(--c-mid-background);
+  border: 1px solid var(--c-major-background);
   border-radius: .5rem;
   color: var(--c-minor-text);
   transition: height .25s ease-in-out;
@@ -141,7 +140,7 @@ input:focus {
 
 .options div:hover {
   cursor: pointer;
-  background-color: var(--c-mid-background);
+  background-color: var(--c-major-background);
   color: var(--c-mid-text);
 }
 

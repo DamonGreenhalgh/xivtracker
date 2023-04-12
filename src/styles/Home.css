@@ -27,8 +27,8 @@
     width: 100%;
     overflow-y: scroll;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border: 1px solid var(--c-mid-background);
-    background-color: var(--c-content-background-opaque);
+    border: 1px solid var(--c-major-background);
+    background-color: var(--c-mid-background);
     padding: 1rem;
     border-radius: .5rem;
     display: grid;
@@ -37,9 +37,9 @@
 }
 
 .home__results {
-    background-color: var(--c-content-background-opaque);
+    background-color: var(--c-mid-background);
     padding: 1rem;
-    border: 1px solid var(--c-mid-background);
+    border: 1px solid var(--c-major-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     border-radius: .5rem;
 }

@@ -26,7 +26,7 @@
 }
 
 .settings__reference-close {
-    background-color: var(--color-error);
+    background-color: var(--c-red);
     border-radius: .5rem;
     color: #e7eff5;
     padding: 1rem;

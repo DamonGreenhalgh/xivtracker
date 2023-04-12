@@ -12,7 +12,7 @@
 }
 
 .collection__searchbar {
-    border-bottom: 1px solid var(--c-mid-background);
+    border-bottom: 1px solid var(--c-major-background);
     width: 10rem;
     margin-left: auto;
     min-height: 3rem;

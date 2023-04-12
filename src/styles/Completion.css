@@ -6,7 +6,7 @@
 }
 
 .completion__percentage {
-    background-color: var(--color-completed);
+    background-color: var(--c-green);
     color: white;
     width: fit-content;
     padding: .5rem;
@@ -14,11 +14,11 @@
 }
 
 .completion__title {
-    color: var(--color-completed);
+    color: var(--c-green);
 }
 
 .completion__fraction {
-    color: var(--color-completed);
+    color: var(--c-green);
 }
 
 .completion__radial {
@@ -29,8 +29,8 @@
     height: 6rem;
     border-radius: 50%;
     /* background: 
-    radial-gradient(closest-side, var(--c-content-background-opaque) 77%, transparent 80% 100%),
-    conic-gradient(var(--color-completed) 75%, var(--c-mid-background) 0);  */
+    radial-gradient(closest-side, var(--c-mid-background) 77%, transparent 80% 100%),
+    conic-gradient(var(--c-green) 75%, var(--c-major-background) 0);  */
 }
 
 .completion__container {

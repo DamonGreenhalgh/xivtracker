@@ -6,13 +6,13 @@
     padding: 1rem;
     justify-content: start;
     color: var(--c-minor-text);
-    border: 1px solid var(--c-mid-background);
-    border-bottom: 1px solid var(--c-content-background-opaque);
+    border: 1px solid var(--c-major-background);
+    border-bottom: 1px solid var(--c-mid-background);
     width: min-content;
     max-width: 3rem;
     min-height: 3rem;
     bottom: -1px;
-    background-color: var(--c-content-background-opaque);
+    background-color: var(--c-mid-background);
     backdrop-filter: blur(1rem);
     transition: background-color .5s, color .5s, border .5s, box-shadow .5s, max-width .5s;
 }

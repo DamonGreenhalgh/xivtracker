@@ -271,7 +271,7 @@ const Item = (props) => {
                 <p>{mat.Name}</p>
                 <h5
                   style={{
-                    color: "var(--color-completed)",
+                    color: "var(--c-green)",
                     marginLeft: "auto",
                   }}
                 >

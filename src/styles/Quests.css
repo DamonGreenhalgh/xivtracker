@@ -25,7 +25,7 @@
 .quests__list a {
     display: flex;
     align-items: center;
-    border: 1px solid var(--c-mid-background);
+    border: 1px solid var(--c-major-background);
     gap: 2rem;
     padding: .5rem;
     height: 2rem;
@@ -38,9 +38,9 @@
 }
 
 .completed {
-    color: var(--color-completed);
-    background-color: var(--color-completed-transparent) !important;
-    outline: 1px solid var(--color-completed);
+    color: var(--c-green);
+    background-color: #30bb6510 !important;
+    outline: 1px solid var(--c-green);
 }
 
 @media only screen and (max-width: 700px) {
