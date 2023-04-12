@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Divider from "../components/Divider";
-import Return from "../components/Return";
 import idHelp from "../images/id-help.png";
 
 const Help = () => {
@@ -12,7 +11,6 @@ const Help = () => {
     <div className="settings">
       <h1>FAQ</h1>
       <Divider />
-      <Return />
       <div className="settings__row">
         <div className="col gap max-width">
           <h2>"Why can't I see my quests and achievements?"</h2>

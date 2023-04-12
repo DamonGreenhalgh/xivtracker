@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 // Components
 import MiniBanner from "../components/Banner";
 import Divider from "../components/Divider";
-import Return from "../components/Return";
 import FailToLoad from "../components/FailToLoad";
 
 // Styles
@@ -47,7 +46,6 @@ const Settings = (props) => {
       <div className="settings__form">
         <h1>Settings</h1>
         <Divider />
-        <Return />
         <div className="settings__row">
           <div className="col gap max-width">
             <h2>Appearance</h2>

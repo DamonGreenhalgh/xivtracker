@@ -34,18 +34,18 @@ const Banner = (props) => {
       <div className="banner__main-content">
         <h2>{character.Name}</h2>
         <h3>{character.Title.Name}</h3>
+        <div className="banner__server">
+          <ImDiamonds style={{ minHeight: "1rem", minWidth: "1rem" }} />
+          <p>{character.Server}</p>
+        </div>
         <div className="row gap-sm align-center" style={{ marginTop: "auto" }}>
-          <p>{character.Tribe.Name + " " + character.Race.Name}</p>
           <img
             src={character.Gender === 1 ? maleIcon : femaleIcon}
             style={{ maxHeight: "1rem" }}
             alt="gender"
           />
+          <p>{character.Tribe.Name + " " + character.Race.Name}</p>
         </div>
-      </div>
-      <div className="banner__server">
-        <p>{character.Server}</p>
-        <ImDiamonds style={{ minHeight: "1rem", minWidth: "1rem" }} />
       </div>
     </Link>
   );

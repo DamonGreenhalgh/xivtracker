@@ -8,7 +8,7 @@
 }
 
 .attributes__list {
-    min-width: 26rem;
+    /* min-width: 26rem; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
@@ -33,3 +33,41 @@
     ;
     gap: 1rem 2rem;
 }
+
+@media only screen and (max-width: 32rem) {
+
+    .attributes__list {
+        min-width: none;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "HP                 "
+        "MP                 "
+        "Strength           "
+        "Dexterity          "
+        "Vitality           "
+        "Intelligence       "
+        "Mind"
+        "divider1           "
+        "CriticalHit        "
+        "Determination      "
+        "DirectHitRate      "
+        "Defense            "
+        "MagicDefense       "
+        "divider2           "
+        "AttackPower        "
+        "SkillSpeed         "
+        "AttackMagicPotency "
+        "HealingMagicPotency"
+        "SpellSpeed         "
+        "Gathering          "
+        "Perception         "
+        "Craftsmanship      "
+        "Control            "
+        "divider3           "
+        "Tenacity           "      
+        "Piety              " 
+    ;
+    }
+
+}
+

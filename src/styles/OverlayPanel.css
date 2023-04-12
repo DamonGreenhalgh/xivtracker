@@ -11,7 +11,6 @@
     scrollbar-width: none;
     height: 100vh;
     max-width: 30rem;
-    min-width: 30rem;
     background-color: var(--c-shadow);
     border-left: 1px solid var(--c-mid-background);
     backdrop-filter: blur(1rem);
@@ -39,14 +38,4 @@
     box-shadow: 0 0 .8rem var(--c-shadow);
     background-color: var(--c-mid-background);
     color: var(--c-major-text);
-}
-
-@media only screen and (max-width: 32rem) {
-
-    .overlay-panel {
-        max-width: 100%;
-        min-width: 100%;
-        padding: 1rem;
-    }
-    
 }

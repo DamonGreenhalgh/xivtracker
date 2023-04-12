@@ -36,14 +36,12 @@ const FreeCompany = (props) => {
             </div>
             <div className="col gap-sm">
               <h2>{freeCompany.Name + " [" + freeCompany.Tag + "]"}</h2>
+              <div className="banner__server ">
+                <ImDiamonds style={{ maxHeight: "1rem", minWidth: "1rem" }} />
+
+                <p>{freeCompany.Server}</p>
+              </div>
               <p>{freeCompany.Slogan}</p>
-            </div>
-            <div
-              className="row gap-sm "
-              style={{ color: "var(--color-completed)", marginLeft: "auto" }}
-            >
-              <p>{freeCompany.Server}</p>
-              <ImDiamonds style={{ maxHeight: "1rem", minWidth: "1rem" }} />
             </div>
           </div>
           <Divider />

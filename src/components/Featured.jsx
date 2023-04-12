@@ -76,7 +76,7 @@ const Featured = () => {
   // Update
   useEffect(() => {
     backgroundContainer.current.style.transform =
-      "translate(-" + index * 30 + "rem, 0)";
+      "translateX(-" + 100 * index + "%)";
   }, [index]);
 
   return (

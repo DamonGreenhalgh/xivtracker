@@ -1,10 +1,12 @@
 .searchbar {
+    z-index: 5;
     position: relative;
     display: flex;
     align-items: center;
     gap: 1rem;
     width: 30rem;
-    padding-right: 1rem;
+    max-height: 3rem;
+    padding: 1rem;
     background-color: var(--c-content-background-opaque);
     outline: 1px solid var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
@@ -17,9 +19,9 @@
 }
 
 .recent {
-    z-index: 4;
     overflow: hidden;
     top: calc(100% + 2rem);
+    left: 0;
     position: absolute;
     height: 0;
     width: 100%;
@@ -90,7 +92,25 @@
     border-radius: .25rem;
 }
 
-
 .data-center button:hover {
     background-color: var(--c-mid-background);
+}
+
+@media only screen and (max-width: 32rem) {
+
+    .searchbar {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        width: var(--content-width);
+        background-color: var(--c-shadow);
+        backdrop-filter: blur(1rem);
+    }
+
+    .recent {
+        top: auto;
+        bottom: 4rem;
+        background-color: var(--c-shadow);
+        backdrop-filter: blur(1rem);
+    }
 }
