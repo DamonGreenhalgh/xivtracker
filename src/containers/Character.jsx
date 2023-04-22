@@ -137,7 +137,7 @@ const Character = (props) => {
               : "var(--c-purple)",
         }}
       >
-        <CgProfile />
+        <CgProfile className="character__icon" />
         {referenceCharacter === null
           ? "Reference " + data.Character.Name
           : referenceCharacter.Character.ID === data.Character.ID

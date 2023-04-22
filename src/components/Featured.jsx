@@ -37,7 +37,6 @@ const Featured = () => {
   const [index, setIndex] = useState(0);
   const [events, setEvents] = useState(Object.values(featureJSON));
   const [banners, setBanners] = useState(null);
-  const [autoScroll, setAutoScroll] = useState(null);
 
   // Mount
   useEffect(() => {
@@ -64,13 +63,11 @@ const Featured = () => {
     }
     setEvents(liveEvents);
     setBanners(liveBanners);
-    setAutoScroll(
-      setInterval(
-        () => setIndex((index) => (index + 1) % liveEvents.length),
-        3000
-      )
+    const interval = setInterval(
+      () => setIndex((index) => (index + 1) % liveEvents.length),
+      3000
     );
-    return () => clearInterval(autoScroll);
+    return () => clearInterval(interval);
   }, []);
 
   // Update
@@ -84,12 +81,9 @@ const Featured = () => {
       <div className="featured__overlay">
         <button
           className="arrow arrow--left"
-          onClick={() => {
-            setIndex((index) =>
-              index - 1 < 0 ? events.length - 1 : index - 1
-            );
-            clearInterval(autoScroll);
-          }}
+          onClick={() =>
+            setIndex((index) => (index - 1 < 0 ? events.length - 1 : index - 1))
+          }
         >
           <FaChevronLeft />
         </button>
@@ -114,10 +108,7 @@ const Featured = () => {
         </div>
         <button
           className="arrow arrow--right"
-          onClick={() => {
-            setIndex((index) => (index + 1) % events.length);
-            clearInterval(autoScroll);
-          }}
+          onClick={() => setIndex((index) => (index + 1) % events.length)}
         >
           <FaChevronRight />
         </button>

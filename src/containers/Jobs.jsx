@@ -27,7 +27,7 @@ const numWarMagicJobs = 20;
 const numHandLandJobs = 11;
 const maxLevel = 90;
 const Jobs = (props) => {
-  const { display, jobs, displayPanel } = props;
+  const { display, jobs } = props;
   const [displayJob, setDisplayJob] = useState(true);
   const [completion, setCompletion] = useState([0, 0]);
   const warMagicJobs = jobs.slice(0, 20);
@@ -98,7 +98,6 @@ const Jobs = (props) => {
         {warMagicJobs.map((job) => (
           <JobItem
             key={job.Job.ID}
-            icon={job.Job.Icon}
             name={job.Job.Name}
             level={job.Level}
             exp={[job.ExpLevel, job.ExpLevelMax]}

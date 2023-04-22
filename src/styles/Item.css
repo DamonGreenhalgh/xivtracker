@@ -18,6 +18,7 @@
 }
 
 .tooltip {
+    z-index: 4;
     display: flex;
     gap: .5rem;
     left: 4rem;

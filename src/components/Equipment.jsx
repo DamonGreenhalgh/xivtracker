@@ -12,7 +12,6 @@ const equipmentNames = [
   "Legs",
   "MainHand",
   "Necklace",
-  "OffHand",
   "Ring1",
   "Ring2",
   "SoulCrystal",
@@ -41,7 +40,11 @@ const Equipment = (props) => {
       </div>
       {Object.values(data.Character.GearSet.Gear).map((item, index) => (
         <Item
-          type={equipmentNames[index]}
+          type={
+            ["Shield"].includes(item.Item.ItemUICategory.Name)
+              ? "OffHand"
+              : equipmentNames[index]
+          }
           name={item.Item.Name}
           icon={
             ("https://xivapi.com" + item.Item.Icon).slice(0, -4) + "_hr1.png"

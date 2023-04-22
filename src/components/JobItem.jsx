@@ -1,6 +1,6 @@
 import Bar from "./Bar";
 const JobItem = (props) => {
-  const { isCombat, name, currentJob, icon, level, exp, diff, compare } = props;
+  const { isCombat, name, currentJob, level, exp, diff, compare } = props;
   const link =
     "https://na.finalfantasyxiv.com/" +
     (isCombat ? "jobguide/" : "crafting_gathering_guide/");
@@ -15,7 +15,7 @@ const JobItem = (props) => {
       href={link + nameNoGap}
     >
       <img
-        src={"https://xivapi.com" + icon}
+        src={"https://xivapi.com/cj/companion/" + nameNoGap + ".png"}
         className="icon--job"
         alt="job icon"
       />
