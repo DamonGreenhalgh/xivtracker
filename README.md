@@ -61,4 +61,4 @@ Notable features of **XIV Tracker** include,
 
 ## Disclaimer 
 
-**XIV Tracker** is not affliated with **SQUARE ENIX CO,. LTD**. **FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.**
+**XIV Tracker** is not affiliated with **SQUARE ENIX CO,. LTD**. **FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.**
