@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 /**
  * @name useFetchData
@@ -7,23 +7,30 @@ import { useEffect, useState } from 'react';
  * @returns JSON object containing the response from the fetch request.
  */
 export const useFetchData = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [ok, setOk] = useState(true);
 
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
 
-    useEffect(() => {
-        const fetchData = async (url) => {
+    const fetchData = async (url) => {
+      setLoading(true);
+      await fetch(url, { mode: "cors", signal: signal })
+        .then((response) => {
+          setOk(response.ok);
+          return response.json();
+        })
+        .then((responseJSON) => setData(responseJSON))
+        .catch((error) => {});
 
-            setLoading(true);
+      setLoading(false);
+    };
+    fetchData(url);
 
-            await fetch(url, {mode: 'cors'})
-                .then(response => response.json())
-                .then(responseJson => setData(responseJson))
+    return () => controller.abort();
+  }, [url]);
 
-            setLoading(false);
-        }
-        fetchData(url)
-    }, [url])
-
-    return { data, loading };
-}
+  return { data, loading, ok };
+};

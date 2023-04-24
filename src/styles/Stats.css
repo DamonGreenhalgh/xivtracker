@@ -1,0 +1,73 @@
+.attributes__main {
+    display: grid;
+    grid-template-areas: 
+        "type value"
+        "bar  bar  "
+    ;
+    margin-bottom: 1rem;
+}
+
+.attributes__list {
+    /* min-width: 26rem; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "HP             MP"
+        "Strength       Intelligence"
+        "Dexterity      Mind"
+        "Vitality       blank1"
+        "divider1       divider1"
+        "CriticalHit    Defense"
+        "Determination  MagicDefense"
+        "DirectHitRate  blank2"
+        "divider2       divider2"
+        "AttackPower    AttackMagicPotency"
+        "SkillSpeed     HealingMagicPotency"
+        "blank3         SpellSpeed"
+        ".              Gathering"
+        ".              Perception"
+        ".              Craftsmanship"
+        ".              Control"
+        "divider3       divider3"
+        "Tenacity       Piety" 
+    ;
+    gap: 1rem 2rem;
+}
+
+@media only screen and (max-width: 32rem) {
+
+    .attributes__list {
+        min-width: none;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "HP                 "
+        "MP                 "
+        "Strength           "
+        "Dexterity          "
+        "Vitality           "
+        "Intelligence       "
+        "Mind"
+        "divider1           "
+        "CriticalHit        "
+        "Determination      "
+        "DirectHitRate      "
+        "Defense            "
+        "MagicDefense       "
+        "divider2           "
+        "AttackPower        "
+        "SkillSpeed         "
+        "AttackMagicPotency "
+        "HealingMagicPotency"
+        "SpellSpeed         "
+        "Gathering          "
+        "Perception         "
+        "Craftsmanship      "
+        "Control            "
+        "divider3           "
+        "Tenacity           "      
+        "Piety              " 
+    ;
+    }
+
+}
+

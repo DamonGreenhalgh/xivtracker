@@ -1,165 +1,297 @@
-import '../styles/Searchbar.css';
-import { useState, useEffect  }  from 'react';
-import { Link } from 'react-router-dom';
-import { FaSearch, FaServer} from 'react-icons/fa';
-import { BsChevronDown, BsChevronUp, BsPersonFill} from 'react-icons/bs'
-import { MdClose } from 'react-icons/md';
-import Divider from './Divider';
+import { useState, useEffect } from "react";
+import { useFetchData } from "../hooks/useFetchData";
+
+// Components
+import Divider from "./Divider";
+import MiniBanner from "./MiniBanner";
+import Button from "../components/Button";
+import Loading from "../components/Loading";
+
+// Style
+import "../styles/Searchbar.css";
+import { FaSearch, FaServer, FaTimes, FaClock } from "react-icons/fa";
+import { BsPersonFill } from "react-icons/bs";
 
 const Searchbar = (props) => {
-    const [displayRecent, setDisplayRecent] = useState(false);
-    const [name, setName] = useState("");
-    const [server, setServer] = useState("Server");
-    const [displayDropdown, setDisplayDropdown] = useState(false);
-    const [recent, setRecent] = useState(null);
+  const [displayRecent, setDisplayRecent] = useState(false);
+  const [name, setName] = useState("");
+  const [server, setServer] = useState("Server");
+  const [recent, setRecent] = useState(null);
+  const [results, setResults] = useState(null);
+  const [tabIndex, setTabIndex] = useState(0);
+  const { data, loading, ok } = useFetchData(
+    "https://xivapi.com/character/search?name=" +
+      name +
+      "&server=" +
+      (server !== "Server" ? server : "")
+  );
 
-    const callbackMethod = (event) => {
-        event.preventDefault();
-        setDisplayRecent(false);
-        props.search(name, server);
+  useEffect(() => {
+    if (ok && data !== null) {
+      setResults(
+        data.Results.map((result) => (
+          <MiniBanner character={result} key={result.ID} />
+        ))
+      );
+      setTabIndex(1);
+    } else {
+      setResults(null);
+      setTabIndex(0);
     }
+  }, [data]);
 
-    useEffect(() => {
-        const recentSearches = JSON.parse(localStorage.getItem("recent"));
-        if (recentSearches !== null) {
-            setRecent(recentSearches.map(char => {
-                return(
-                    <Link to={"/" + char.id} key={char.id}>
-                        <div className="recent__profile interactable">
-                            <img src={char.avatar} className="rounded recent__avatar" alt="character avatar" />
-                            <div className="col gap-xsm">
-                                <p><b>{char.name}</b></p>
-                                <p style={{fontSize: ".6rem"}}>{char.server}</p>
-                            </div>
-                        </div>
-                    </Link>
-                );
-            }))
-        }
-    }, [])
+  useEffect(() => {
+    if (loading) {
+      setTabIndex(1);
+    }
+  }, [loading]);
 
-    return (
-        <form 
-            className={"searchbar searchbar--" + props.type}
-            onSubmit={callbackMethod} 
-            autoComplete="off"
-        >
-            <div 
-                className="select" 
-                style={{outline: "none"}}
-                onClick={() => {setDisplayDropdown(displayDropdown ? false : true); setDisplayRecent(false)}}
+  useEffect(() => {
+    const recentSearches = JSON.parse(localStorage.getItem("recent"));
+    if (recentSearches !== null) {
+      setRecent(
+        recentSearches.map((character) => {
+          return <MiniBanner character={character} key={character.ID} />;
+        })
+      );
+    }
+  }, []);
+
+  return (
+    <form
+      className={"searchbar searchbar--" + props.type}
+      onSubmit={(e) => e.preventDefault()}
+      autoComplete="off"
+    >
+      <BsPersonFill className="searchbar__icon" />
+      <input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
+        name="name"
+        onClick={() => {
+          setDisplayRecent(true);
+        }}
+      />
+      <FaSearch style={{ minWidth: "2rem" }} />
+      <div className={"recent " + (displayRecent ? " recent--active" : "")}>
+        <div className="row align-center gap">
+          <Button
+            text="Recent"
+            title="Show recent characters"
+            onClick={() => setTabIndex(0)}
+            icon={<FaClock className="character__icon" />}
+            condition={tabIndex === 0}
+            type="minor"
+          />
+          <Button
+            text="Search"
+            title="Search results"
+            onClick={() => setTabIndex(1)}
+            icon={<FaSearch className="character__icon" />}
+            condition={tabIndex === 1}
+            type="minor"
+          />
+          <Button
+            text={server}
+            title="Show server select"
+            onClick={() => setTabIndex(2)}
+            icon={<FaServer className="character__icon" />}
+            condition={tabIndex === 2}
+            style={{ marginLeft: "auto" }}
+            type="minor"
+          />
+          <Button
+            title="Close"
+            onClick={() => setDisplayRecent(false)}
+            icon={<FaTimes className="character__icon" />}
+            type="minor"
+          />
+        </div>
+        <Divider />
+        {loading ? (
+          <Loading />
+        ) : tabIndex === 2 ? (
+          <div className="data-center-container">
+            <h4 style={{ gridArea: "na" }}>North America</h4>
+            <h5 style={{ gridArea: "Aether" }}>Aether</h5>
+            <div
+              className="data-center"
+              onClick={(e) => setServer(e.target.innerText)}
+              style={{ gridArea: "AetherServers" }}
             >
-                <FaServer />
-                {server}
-                {displayDropdown ? <BsChevronUp /> : <BsChevronDown />}
+              <button>Adamantoise</button>
+              <button>Cactuar</button>
+              <button>Faerie</button>
+              <button>Gilgamesh</button>
+              <button>Jenova</button>
+              <button>Midgardsormr</button>
+              <button>Sargatanas</button>
+              <button>Siren</button>
             </div>
-            <BsPersonFill className='searchbar__icon' />
-            <input
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                name="name"
-                onClick={() => {setDisplayRecent(displayRecent ? false : true); setDisplayDropdown(false)}}
-            />
-            <button title="Search">
-                <FaSearch />
-            </button>
-            <div className={"recent recent--" + props.type + (displayDropdown ? " recent--active" : "")}>
-                <div className="recent__tab">
-                    <h4>Servers</h4>
-                    <MdClose size="1.5em" className="interactable" onClick={() => setDisplayDropdown(false)}/>
-                </div>
-                <Divider />
-                <div className='recent__servers' onClick={(e) => setServer(e.target.innerText)}>
-                    <div>Server</div>
-                    <div>Adamantoise</div>
-                    <div>Aegis</div>
-                    <div>Alexander</div>
-                    <div>Anima</div>
-                    <div>Asura</div>
-                    <div>Atomos</div>
-                    <div>Bahamut</div>
-                    <div>Balmung</div>
-                    <div>Behemoth</div>
-                    <div>Belias</div>
-                    <div>Brynhildr</div>
-                    <div>Cactuar</div>
-                    <div>Carbuncle</div>
-                    <div>Cerberus</div>
-                    <div>Chocobo</div>
-                    <div>Coeurl</div>
-                    <div>Diabolos</div>
-                    <div>Durandal</div>
-                    <div>Excalibur</div>
-                    <div>Exodus</div>
-                    <div>Faerie</div>
-                    <div>Famfrit</div>
-                    <div>Fenrir</div>
-                    <div>Garuda</div>
-                    <div>Gilgamesh</div>
-                    <div>Goblin</div>
-                    <div>Gungnir</div>
-                    <div>Hades</div>
-                    <div>Hyperion</div>
-                    <div>Ifrit</div>
-                    <div>Ixion</div>
-                    <div>Jenova</div>
-                    <div>Kujata</div>
-                    <div>Lamia</div>
-                    <div>Leviathan</div>
-                    <div>Lich</div>
-                    <div>Louisoix</div>
-                    <div>Malboro</div>
-                    <div>Mandragora</div>
-                    <div>Masamune</div>
-                    <div>Mateus</div>
-                    <div>Midgardsormr</div>
-                    <div>Moogle</div>
-                    <div>Odin</div>
-                    <div>Omega</div>
-                    <div>Pandaemonium</div>
-                    <div>Phoenix</div>
-                    <div>Ragnarok</div>
-                    <div>Ramuh</div>
-                    <div>Ridill</div>
-                    <div>Sargatanas</div>
-                    <div>Shinryu</div>
-                    <div>Shiva</div>
-                    <div>Siren</div>
-                    <div>Tiamat</div>
-                    <div>Titan</div>
-                    <div>Tonberry</div>
-                    <div>Typhon</div>
-                    <div>Ultima</div>
-                    <div>Ultros</div>
-                    <div>Unicorn</div>
-                    <div>Valefor</div>
-                    <div>Yojimbo</div>
-                    <div>Zalera</div>
-                    <div>Zeromus</div>
-                    <div>Zodiark</div>
-                    <div>Spriggan</div>
-                    <div>Twintania</div>
-                    <div>Bismarck</div>
-                    <div>Ravana</div>
-                    <div>Sephirot</div>
-                    <div>Sophia</div>
-                    <div>Zurvan</div>
-                </div>
+
+            <h5 style={{ gridArea: "Crystal" }}>Crystal</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "CrystalServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Balmung</button>
+              <button>Brynhildr</button>
+              <button>Coeurl</button>
+              <button>Diabolos</button>
+              <button>Goblin</button>
+              <button>Malboro</button>
+              <button>Mateus</button>
+              <button>Zalera</button>
             </div>
-            <div className={"recent recent--" + props.type + (displayRecent ? " recent--active" : "")} onClick={() => setDisplayRecent(false)}>
-                <div className="recent__tab">
-                    <h4>Recently Viewed</h4>
-                    <MdClose size="1.5em" className="interactable" onClick={() => setDisplayRecent(false)}/>
-                </div>
-                <Divider />
-                <div className="recent__collection">
-                    {recent}
-                </div>             
+            <h5 style={{ gridArea: "Dynamis" }}>Dynamis</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "DynamisServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Halicarnassus</button>
+              <button>Maduin</button>
+              <button>Marilith</button>
+              <button>Seraph</button>
             </div>
-        </form>
-    );
-}
+            <h5 style={{ gridArea: "Primal" }}>Primal</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "PrimalServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Behemoth</button>
+              <button>Excalibur</button>
+              <button>Exodus</button>
+              <button>Famfrit</button>
+              <button>Hyperion</button>
+              <button>Lamia</button>
+              <button>Leviathan</button>
+              <button>Ultros</button>
+            </div>
+            <h4 style={{ gridArea: "eu" }}>Europe</h4>
+            <h5 style={{ gridArea: "Chaos" }}>Chaos</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "ChaosServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Cerberus</button>
+              <button>Louisoix</button>
+              <button>Moogle</button>
+              <button>Omega</button>
+              <button>Phantom</button>
+              <button>Ragnarok</button>
+              <button>Sagittarius</button>
+              <button>Spriggan</button>
+            </div>
+            <h5 style={{ gridArea: "Light" }}>Light</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "LightServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Alpha</button>
+              <button>Lich</button>
+              <button>Odin</button>
+              <button>Phoenix</button>
+              <button>Raiden</button>
+              <button>Shiva</button>
+              <button>Twintania</button>
+              <button>Zodiark</button>
+            </div>
+            <h4 style={{ gridArea: "oce" }}>Oceania</h4>
+            <h5 style={{ gridArea: "Materia" }}>Materia</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "MateriaServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Bismarck</button>
+              <button>Ravana</button>
+              <button>Sephirot</button>
+              <button>Sophia</button>
+              <button>Zurvan</button>
+            </div>
+            <h4 style={{ gridArea: "jp" }}>Japan</h4>
+            <h5 style={{ gridArea: "Elemental" }}>Elemental</h5>
+
+            <div
+              className="data-center"
+              style={{ gridArea: "ElementalServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Aegis</button>
+              <button>Atomos</button>
+              <button>Carbuncle</button>
+              <button>Garuda</button>
+              <button>Gungnir</button>
+              <button>Kujata</button>
+              <button>Tonberry</button>
+              <button>Typhon</button>
+            </div>
+            <h5 style={{ gridArea: "Gaia" }}>Gaia</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "GaiaServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Alexander</button>
+              <button>Bahamut</button>
+              <button>Durandal</button>
+              <button>Fenrir</button>
+              <button>Ifrit</button>
+              <button>Ridill</button>
+              <button>Tiamat</button>
+              <button>Ultima</button>
+            </div>
+            <h5 style={{ gridArea: "Mana" }}>Mana</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "ManaServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Anima</button>
+              <button>Asura</button>
+              <button>Chocobo</button>
+              <button>Hades</button>
+              <button>Ixion</button>
+              <button>Masamune</button>
+              <button>Pandaemonium</button>
+              <button>Titan</button>
+            </div>
+            <h5 style={{ gridArea: "Meteor" }}>Meteor</h5>
+            <div
+              className="data-center"
+              style={{ gridArea: "MeteorServers" }}
+              onClick={(e) => setServer(e.target.innerText)}
+            >
+              <button>Belias</button>
+              <button>Mandragora</button>
+              <button>Ramuh</button>
+              <button>Shinryu</button>
+              <button>Unicorn</button>
+              <button>Valefor</button>
+              <button>Yojimbo</button>
+              <button>Zeromus</button>
+            </div>
+          </div>
+        ) : (
+          <div
+            className="banner--mini-container"
+            onClick={() => setDisplayRecent(false)}
+          >
+            {tabIndex === 0 ? recent : results}
+          </div>
+        )}
+      </div>
+    </form>
+  );
+};
 
 export default Searchbar;

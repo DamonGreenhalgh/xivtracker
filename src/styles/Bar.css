@@ -4,7 +4,7 @@
     overflow: hidden;
     height: .25rem;
     border-radius: 5px;
-    background-color: var(--c-background);
+    background-color: var(--c-minor-background);
 }
 
 .bar__completion {

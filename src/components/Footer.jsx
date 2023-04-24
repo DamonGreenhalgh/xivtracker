@@ -1,21 +1,23 @@
-import '../styles/Footer.css'
-import { FaGithub } from 'react-icons/fa';
+import "../styles/Footer.css";
+import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className="footer">
       <p>
-        <b>XIV Tracker</b> is Designed and Developed by Damon Greenhalgh.<br/>
-        <b>FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.</b>
+        <b>© 2022 - {new Date().getFullYear()} XIV Tracker v1.4.0</b>. <br />
+        <b>XIV Tracker</b> is Designed and Developed by Damon Greenhalgh.{" "}
+        <b>XIV Tracker</b> is not officially endorsed by{" "}
+        <b>SQUARE ENIX CO,. LTD</b>.<br />
+        <b> FINAL FANTASY XIV CONTENT IS PROPERTY OF SQUARE ENIX CO,. LTD.</b>
       </p>
-      <p style={{marginLeft: 'auto', minWidth: 'max-content'}}><b>XIV Tracker v1.2.2</b></p>
-      <button>
+      <button style={{ marginLeft: "auto", minWidth: "max-content" }}>
         <a href="https://github.com/DamonGreenhalgh/xivtracker">
           <FaGithub size="1.25em" />
         </a>
       </button>
     </div>
   );
-}
+};
 
 export default Footer;

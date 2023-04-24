@@ -190,6 +190,20 @@
                 "link": "quest/c4f9925e7b6/",
                 "isSpoiler": true,
                 "isMainStory": true
+            },
+            {
+                "name": "Buried Memory",
+                "id": 3105,
+                "link": "quest/bde52154975/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Gods Revel, Lands Tremble",
+                "id": 3157,
+                "link": "quest/69c190ef446/",
+                "isSpoiler": true,
+                "isMainStory": true
             }
         ]
     },
@@ -804,6 +818,20 @@
                 "link": "duty/d56ff366a07/",
                 "isSpoiler": true,
                 "isMainStory": true
+            },
+            {
+                "name": "The Fell Court of Troia",
+                "id": 3106,
+                "link": "duty/d75f0e7733b/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Lapis Manalis",
+                "id": 3158,
+                "link": "duty/ce91893321f/",
+                "isSpoiler": true,
+                "isMainStory": true
             }
         ]
     },
@@ -1054,6 +1082,20 @@
                 "link": "duty/0c90d0fd67b/",
                 "isSpoiler": true,
                 "isMainStory": true
+            },
+            {
+                "name": "Storm's Crown",
+                "id": 3107,
+                "link": "duty/7aa78623503/",
+                "isSpoiler": true,
+                "isMainStory": true
+            },
+            {
+                "name": "Mount Ordeals",
+                "id": 3160,
+                "link": "duty/0eb5dd38d5a/",
+                "isSpoiler": true,
+                "isMainStory": true
             }
         ]
     },
@@ -1149,6 +1191,13 @@
                 "link": "duty/8766feb6d35/",
                 "isSpoiler": false,
                 "isMainStory": false
+            },
+            {
+                "name": "Abyssos",
+                "id": 3108,
+                "link": "duty/4d2ad8ae660/",
+                "isSpoiler": false,
+                "isMainStory": false
             }
         ],
         "Alliance": [
@@ -1239,7 +1288,14 @@
             {
                 "name": "Aglaia",
                 "id": 3073,
-                "link": "duty/f1a29897772/",
+                "link": "duty/ced36158c27/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Euphrosyne",
+                "id": 3159,
+                "link": "",
                 "isSpoiler": false,
                 "isMainStory": false
             }
@@ -1255,42 +1311,42 @@
                 "isMainStory": false
             },
             {
-                "name": "Alexander: Gordias",
+                "name": "Gordias",
                 "id": 1231,
                 "link": "duty/fd7aa157f29/",
                 "isSpoiler": false,
                 "isMainStory": false
             },
             {
-                "name": "Alexander: Midas",
+                "name": "Midas",
                 "id": 1479,
                 "link": "duty/f93d68d7d3c/",
                 "isSpoiler": false,
                 "isMainStory": false
             },
             {
-                "name": "Alexander: The Creator",
+                "name": "The Creator",
                 "id": 1642,
                 "link": "duty/def61a894af/",
                 "isSpoiler": false,
                 "isMainStory": false
             },
             {
-                "name": "Omega: Deltascape",
+                "name": "Deltascape",
                 "id": 1898,
                 "link": "duty/0b519d7fd00/",
                 "isSpoiler": false,
                 "isMainStory": false
             },
             {
-                "name": "Omega: Sigmascape",
+                "name": "Sigmascape",
                 "id": 2027,
                 "link": "duty/28d9a03c886/",
                 "isSpoiler": false,
                 "isMainStory": false
             },
             {
-                "name": "Omega: Alpahscape",
+                "name": "Alpahscape",
                 "id": 2121,
                 "link": "duty/33360b27f26/",
                 "isSpoiler": false,
@@ -1320,7 +1376,14 @@
             {
                 "name": "Asphodelos",
                 "id": 3038,
-                "link": "duty/6a038f0d5ef/",
+                "link": "duty/ae08cc4d4bf/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Abyssos",
+                "id": 3111,
+                "link": "duty/415152e3e5d/",
                 "isSpoiler": false,
                 "isMainStory": false
             }
@@ -1344,6 +1407,20 @@
                 "name": "The Epic of Alexander",
                 "id": 2444,
                 "link": "duty/b56710190e9/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Dragonsong's Reprise",
+                "id": 3074,
+                "link": "duty/ba184b63c2d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "The Omega Protocol",
+                "id": 3162,
+                "link": "",
                 "isSpoiler": false,
                 "isMainStory": false
             }

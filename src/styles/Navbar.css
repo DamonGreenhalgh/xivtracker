@@ -1,12 +1,9 @@
 .navbar {
     display: flex;
     align-items: center;
-    z-index: 4;
-    top: 0;
-    left: 0;
     width: 100vw;
     padding: 2rem; 
-    height: 6rem;
+    max-height: 6rem;
     gap: 1rem;
 }
 
@@ -18,10 +15,4 @@
 .navbar__brand-icon {
     height: 1.5rem;
     margin-right: 2rem;
-}
-
-.navbar__profile-icon {
-    height: 2rem;
-    width: 2rem;
-    margin: auto;
 }

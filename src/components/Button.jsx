@@ -1,29 +1,31 @@
-import '../styles/Button.css';
+import "../styles/Button.css";
 
 const Button = (props) => {
-    const {
-        type,
-        condition,
-        onClick,
-        style,
-        content
-    } = props;
-    return(
-        <button 
-            className={"button button--" + type + (condition ? " button--active button--active--" + type : "")} 
-            onClick={onClick} 
-            style={style}
-        >
-            {content}
-        </button>
-    );
-}
+  const { type, condition, onClick, style, icon, text, title, className } =
+    props;
+  return (
+    <button
+      className={
+        "button--" +
+        type +
+        " " +
+        className +
+        (condition ? " button--active--" + type : "")
+      }
+      style={style}
+      onClick={onClick}
+      title={title}
+    >
+      {icon}
+      <p>{text}</p>
+    </button>
+  );
+};
 
 Button.defaultProps = {
-    type: '',
-    condition: false,
-    content: '',
-    onClick: null
-}
+  type: "mid",
+  condition: false,
+  onClick: null,
+};
 
 export default Button;

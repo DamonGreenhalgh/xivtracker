@@ -1,0 +1,41 @@
+
+.overlay-panel {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    gap: 4rem;
+    z-index: 5;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 100vh;
+    max-width: 30rem;
+    background-color: var(--c-shadow);
+    border-left: 1px solid var(--c-major-background);
+    backdrop-filter: blur(1rem);
+    padding: 2rem;
+    box-shadow: 0 0 .8rem var(--c-shadow);
+    transition: right .5s;
+}
+
+.overlay-panel--hide {
+    right: -32rem;
+}
+
+.overlay-panel__tab-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.tab {
+    padding: 1rem;
+    border-radius: .5rem;
+    outline: 1px solid var(--c-major-background);
+}
+
+.tab--active {
+    box-shadow: 0 0 .8rem var(--c-shadow);
+    background-color: var(--c-major-background);
+    color: var(--c-major-text);
+}

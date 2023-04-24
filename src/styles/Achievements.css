@@ -3,8 +3,8 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    border-radius: .25rem;
-    border: 1px solid var(--c-mid-background);
+    border-radius: .5rem;
+    border: 1px solid var(--c-major-background);
 }
 
 .achievement__header {

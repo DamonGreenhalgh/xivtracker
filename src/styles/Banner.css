@@ -1,52 +1,104 @@
 .banner {
     position: relative;
-    z-index: 2;
     display: flex;
-    width: 100%;
     padding: 2rem;
     gap: 1rem;
-    border-radius: .25rem;
-}
-
-.search {
     border-radius: .5rem;
-    font-size: .8rem;
-    padding: .5rem 1rem;
-    height: 6rem;
-    border: 1px solid var(--c-mid-background);
-    background-color: var(--c-content-background-opaque);
-    transition: background-color .25s, transform .25s;
-}
-
-.search:hover {
     background-color: var(--c-mid-background);
-    transform: translate(0, -5px);
+    border: 1px solid var(--c-major-background);
 }
 
-.free-company {
-    background-color: #404040;
-    color: rgb(202, 206, 209);
-    box-shadow: 0 0 1rem var(--c-shadow);
-}
-
-.free-company h2 {
-    color: white;
-}
-
-.reference {
-    border-radius: .25rem;
-    font-size: .8rem;
-    padding: .5rem 1rem;
-    height: 4rem;
-    border: 1px solid var(--c-mid-background);
-    background-color: var(--c-content-background-opaque);
-}
-
-.misc {
-    display: flex;
+.banner--mini {
     align-items: center;
-    gap: .25rem;
-    position: absolute;
-    top: 1rem;
-    right: .75rem;
+    max-height: 5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    gap: 1rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0); 
+}
+
+.banner--mini:hover {
+    background-color: var(--c-major-background);
+    color:var(--c-major-text);
+}
+
+.banner--mini-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+.banner__server {
+    display: flex;
+    gap: .5rem;
+    color: var(--c-green);
+}
+
+.banner--mini:hover .banner__server p {
+    text-decoration: underline;
+    text-decoration-color: var(--c-green);
+}
+
+.banner--mini:hover .banner__main-content p {
+    text-decoration: underline;
+}
+
+.banner__server--mini {
+  font-size: .5rem;
+}
+
+.banner__avatar-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.banner__level {
+    top: 4.75rem;
+    font-size: 1rem;
+    padding: .25rem .5rem;
+    background-color: var(--c-purple);
+    font-family: 'Montserrat';
+    color: #ecf1f3;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem var(--c-shadow);
+    /* position: absolute; */
+}
+
+.banner__avatar {
+    border-radius: 100%;
+    max-height: 5rem;
+    margin: auto 0;
+}
+
+.banner__avatar--mini {
+    max-height: 3rem;
+}
+
+.banner__main-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-right: auto;
+}
+
+.banner--free-company {
+    background-color: #404040;
+    padding: 1rem;
+    border-radius: .5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+@media only screen and (max-width: 30rem) {
+
+    .banner--mini-container {
+        grid-template-columns: 1fr;
+    }
+    
 }

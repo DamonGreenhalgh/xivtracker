@@ -1,16 +1,16 @@
 .searchbar {
-    z-index: 4;
+    z-index: 5;
     position: relative;
     display: flex;
     align-items: center;
     gap: 1rem;
     width: 30rem;
-    padding-right: 1rem;
-
-    background-color: var(--c-content-background-opaque);
-    outline: 1px solid var(--c-mid-background);
+    max-height: 3rem;
+    padding: 1rem;
+    background-color: var(--c-mid-background);
+    outline: 1px solid var(--c-major-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .25rem;
+    border-radius: .5rem;
 }
 
 .searchbar__icon {
@@ -19,15 +19,15 @@
 }
 
 .recent {
-    z-index: 4;
     overflow: hidden;
     top: calc(100% + 2rem);
+    left: 0;
     position: absolute;
     height: 0;
     width: 100%;
-    background-color: var(--c-content-background-opaque);
+    background-color: var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .25rem;
+    border-radius: .5rem;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
@@ -37,74 +37,77 @@
 
 .recent--active {
     padding: 1rem;
-    height: 15rem;
-    border: 1px solid var(--c-mid-background);
+    height: 16.5rem;
+    border: 1px solid var(--c-major-background);
 }
 
-.recent__tab {
-    display: flex;
-    justify-content: space-between;
-}
-
-.recent__collection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.recent__profile {
-    display: flex;
-    align-items: center;
+.data-center-container {
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
     gap: 1rem;
-    padding: .5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "na na na"
+        "Aether Crystal Dynamis"
+        "AetherServers CrystalServers DynamisServers"
+        "Primal . ."
+        "PrimalServers . ."
+        "eu eu eu"
+        "Chaos Light ."
+        "ChaosServers LightServers ."
+        "oce oce oce"
+        "Materia . ."
+        "MateriaServers . ."
+        "jp jp jp"
+        "Elemental Gaia Mana"
+        "ElementalServers GaiaServers ManaServers"
+        "Meteor . ."
+        "MeteorServers . ."
+    ;
+    gap: .5rem;
+}
+
+.data-center-container h4 {
+    margin: 1rem 0;
+    color: var(--c-major-text);
+}
+
+.data-center-container h5 {
+    margin-left: 1rem;
+}
+
+.data-center {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: min-content;
+}
+
+.data-center button {
+    font-size: .75rem;
+    width: 100%;
+    justify-content: start;
+    padding: .5rem 1.5rem;
     border-radius: .25rem;
 }
 
-.recent__profile:hover {
-    background-color: var(--c-mid-background);
-    color: var(--c-major-text);
+.data-center button:hover {
+    background-color: var(--c-major-background);
 }
 
-.recent__avatar {
-    height: 2.5rem;
-}
-
-.recent__servers {
-    height: 10rem;
-    display: flex;
-    overflow-y: scroll;
-    flex-direction: column;
-}
-
-.recent__servers div {
-    font-size: .8rem;
-    padding: .5rem;
-}
-
-.recent__servers div:hover {
-    cursor: pointer;
-    background-color: var(--c-mid-background);
-    color: var(--c-major-text);
-}
-
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 32rem) {
 
     .searchbar {
-        width: var(--content-width);
-    }
-    
-}
-
-@media only screen and (max-width: 750px) {
-
-    .searchbar--character {
-        width: var(--content-width);
         position: fixed;
         bottom: 1rem;
         left: 1rem;
+        width: var(--content-width);
     }
 
-    .recent--character {
-        bottom: 4rem;
+    .recent {
         top: auto;
+        bottom: 4rem;
     }
 }

@@ -1,14 +1,18 @@
 .full-page {
-    position:fixed;
-    z-index: 5;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 16rem);
     top: 0;
     left: 0;
 }
 
 .loading__icon {
     margin: 0 auto;
-    height: 2rem;
-    width: 2rem;
+    width: 100%;
+    width: 5rem;
+    animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
 }

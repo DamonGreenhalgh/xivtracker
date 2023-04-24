@@ -2,6 +2,7 @@
     "PATCH_6.0": {
         "title": "6.0 ENDWALKER",
         "date": "December 19th 2021",
+        "type": "EXPANSION",
         "start": [2021, 11, 19],
         "end": [2023, 11, 19],
         "link": "https://na.finalfantasyxiv.com/endwalker"
@@ -9,29 +10,57 @@
     "PATCH_6.1": {
         "title": "6.1 NEWFOUND ADVENTURE",
         "date": "April 12th 2022",
+        "type": "PATCH",
         "start": [2022, 3, 12],
-        "end": [2022, 7, 12],
+        "end": [2022, 8, 23],
         "link": "https://na.finalfantasyxiv.com/endwalker/patch_6_1/"
     },
-    "EVENT_0": {
-        "title": "LITTLE LADIES' DAY",
+    "LITTLE_LADIES_DAY_22": {
+        "title": "LITTLE LADIES' DAY 2022",
         "date": "March 14 - March 31",
+        "type": "EVENT",
         "start": [2022, 2, 14],
         "end": [2022, 2, 31],
         "link": "https://na.finalfantasyxiv.com/lodestone/special/2022/Little_Ladies_Day/jsuk7gn8z4"
     },
-    "EVENT_1": {
-        "title": "MOOGLE TREASURE TROVE",
+    "MOOGLE_TREASURE_TROVE_22": {
+        "title": "MOOGLE TREASURE TROVE 2022",
         "date": "March 14 - April 12",
+        "type": "EVENT",
         "start": [2022, 2, 14],
         "end": [2022, 3, 12],
         "link": "https://na.finalfantasyxiv.com/lodestone/special/mogmog-collection/202203/dceh8sj926"
     },
-    "EVENT_2": {
-        "title": "HATCHING TIDE",
+    "HATCHING_TIDE_22": {
+        "title": "HATCHING TIDE 2022",
         "date": "April 13 - April 27",
+        "type": "EVENT",
         "start": [2022, 3, 13],
         "end": [2022, 3, 27],
         "link": "https://na.finalfantasyxiv.com/lodestone/special/2022/Hatching_tide/qeng0r6k46"
+    },
+    "PATCH_6.2": {
+        "title": "6.2 BURIED MEMORY",
+        "date": "August 23th 2022",
+        "type": "PATCH",
+        "start": [2022, 8, 23],
+        "end": [2023, 1, 10],
+        "link": "https://na.finalfantasyxiv.com/endwalker/patch_6_2/"
+    },
+    "PATCH_6.3": {
+        "title": "6.3 GODS REVEL LANDS TREMBLE",
+        "date": "January 10th 2023",
+        "type": "PATCH",
+        "start": [2023, 1, 10],
+        "end": [2023, 11, 19],
+        "link": "https://na.finalfantasyxiv.com/endwalker/patch_6_3/"
+    },
+    "HATCHING_TIDE_23": {
+        "title": "HATCHING TIDE 2023",
+        "date": "March 27 - April 10",
+        "type": "EVENT",
+        "start": [2023, 2, 27],
+        "end": [2023, 4, 10],
+        "link": "https://na.finalfantasyxiv.com/lodestone/special/2023/Hatching_tide/gkonsy0g3l"
     }
 }
