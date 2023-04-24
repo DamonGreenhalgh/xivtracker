@@ -7,26 +7,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## Released
 
-## [1.3.0] - 2023-04-23
+## [1.3.0] - 2023-04-24
 
-This update focuses on polishing up existing features and fixing bugs.
+Compare system, updated character page layout and support for **Final Fantasy XIV** patch **6.2** '_Buried Memory_' and patch **6.3** '_Gods Revel Lands Tremble_'.
 
 ### Added
 
-- Added compare side panel to allow users to compare thier characters with other players. Currently supports comparing attributes, jobs and equipment.
+- Added compare side panel to allow users to compare their characters with other players. Currently supports comparing attributes, jobs and equipment.
 - Added collection type to collection tooltips.
 - Added notice for when error events occur.
 - Added more detailed materia information on item tooltips.
-- Added searchbar to achievements and collections.
+- Added search bar to achievements and collections.
 - Added friends and free company panels.
 - Added an easy to use reference button on character pages.
 - Added average item level indicator to character banner.
+- Added support for **Final Fantasy XIV** patch **6.2** '_Buried Memory_' and patch **6.3** '_Gods Revel Lands Tremble_' .
 
 ### Changes
 
 - Changed searchbar to dynamically search for characters as soon as the user has interacted with the component.
 - Changed server selection for better ease of use.
-- Overhaul character page layout.
+- Overhauled character page layout.
 - Changed loading image.
 - Changed completion representation to give more detailed information.
 - Updated light theme.
