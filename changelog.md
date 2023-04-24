@@ -14,9 +14,9 @@ Compare system, updated character page layout and support for **Final Fantasy XI
 ### Added
 
 - Added compare side panel to allow users to compare their characters with other players. Currently supports comparing attributes, jobs and equipment.
-- Added collection type to collection tooltips.
+- Added collection type to collection tool tips.
 - Added notice for when error events occur.
-- Added more detailed materia information on item tooltips.
+- Added more detailed materia information on item tool tips.
 - Added search bar to achievements and collections.
 - Added friends and free company panels.
 - Added an easy to use reference button on character pages.
@@ -25,7 +25,7 @@ Compare system, updated character page layout and support for **Final Fantasy XI
 
 ### Changes
 
-- Changed searchbar to dynamically search for characters as soon as the user has interacted with the component.
+- Changed search bar to dynamically search for characters as soon as the user has interacted with the component.
 - Changed server selection for better ease of use.
 - Overhauled character page layout.
 - Changed loading image.
