@@ -43,7 +43,7 @@ const Navbar = (props) => {
         <Link to={"/" + referenceCharacter.Character.ID}>
           <img
             src={referenceCharacter.Character.Avatar}
-            className="overlay-panel__avatar"
+            className="navbar__avatar"
             title={referenceCharacter.Character.Name}
             alt="reference character"
           />

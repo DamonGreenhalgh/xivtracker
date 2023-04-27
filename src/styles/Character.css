@@ -37,7 +37,6 @@
 .section {
     width: 100%;
     position: relative;
-    z-index: 2;
     display: flex;
     flex-direction: column;
     border-radius: .5rem;
@@ -73,13 +72,6 @@
     right: 0;
     color: var(--c-minor-text);
     background-color: var(--c-mid-background);
-}
-
-.overlay-panel__avatar {
-    max-height: 2rem;
-    width: 2rem;
-    border-radius: 100%;
-    transition: transform .5s;
 }
 
 .character__set-reference-btn {
