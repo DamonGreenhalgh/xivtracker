@@ -27,7 +27,6 @@
 }
 
 .button--active--tab {
-    z-index: 4;
     color: var(--c-major-text);
     max-width: 10rem;
 }

@@ -16,3 +16,10 @@
     height: 1.5rem;
     margin-right: 2rem;
 }
+
+.navbar__avatar {
+    max-height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    transition: transform .5s;
+}

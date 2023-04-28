@@ -148,8 +148,7 @@ const Character = (props) => {
       <div className="character__content">
         <div className="character__side">
           <Featured />
-          <div style={{ minHeight: "2rem" }} />
-          <nav className="character__tab">
+          <nav className="character__tab" style={{ marginTop: "2rem" }}>
             <Button
               icon={<GiBattleGear className="character__icon" />}
               condition={sideTabIndex === 0}
