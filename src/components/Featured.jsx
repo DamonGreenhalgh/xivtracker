@@ -16,6 +16,7 @@ import {
   buriedMemoryBanner,
   godsRevelLandsTrembleBanner,
   hatchingTide23Banner,
+  theDarkThroneBanner,
 } from "../images/featured";
 
 // Styles
@@ -30,6 +31,7 @@ const banner = [
   buriedMemoryBanner,
   godsRevelLandsTrembleBanner,
   hatchingTide23Banner,
+  theDarkThroneBanner,
 ];
 
 const Featured = () => {
@@ -62,6 +64,7 @@ const Featured = () => {
       }
     }
     setEvents(liveEvents);
+    console.log(liveEvents);
     setBanners(liveBanners);
     const interval = setInterval(
       () => setIndex((index) => (index + 1) % liveEvents.length),
