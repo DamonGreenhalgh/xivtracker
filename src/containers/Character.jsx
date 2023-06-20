@@ -274,11 +274,11 @@ const Character = (props) => {
             achievementsList={data.Achievements.List}
             referenceCharacter={referenceCharacter}
           />
-          {/* <Achievements
+          <Achievements
             display={!achievementTabToggle}
             achievements={data.Achievements}
             id={data.Character.ID}
-          /> */}
+          />
         </div>
       </div>
     </div>
