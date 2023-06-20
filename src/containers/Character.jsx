@@ -47,8 +47,10 @@ const Character = (props) => {
     "https://xivapi.com/character/" + id + "?extended=1&data=AC,FC,MIMO,FR,FCM"
   );
   const [index, setIndex] = useState(0);
-  const [sideTabIndex, setSideTabIndex] = useState(0);
-  const [socialTabIndex, setSocialTabIndex] = useState(0);
+  const [characterTabIndex, setCharacterTabIndex] = useState(0);
+  const [socialTabToggle, setSocialTabToggle] = useState(true);
+  const [jobsTabToggle, setJobsTabToggle] = useState(true);
+  const [achievementTabToggle, setAchievementTabToggle] = useState(true);
 
   useEffect(() => {
     /**
@@ -151,8 +153,8 @@ const Character = (props) => {
           <nav className="character__tab" style={{ marginTop: "2rem" }}>
             <Button
               icon={<GiBattleGear className="character__icon" />}
-              condition={sideTabIndex === 0}
-              onClick={() => setSideTabIndex(0)}
+              condition={characterTabIndex === 0}
+              onClick={() => setCharacterTabIndex(0)}
               title="Show current gear"
               text="Gear"
               className="character__tab-btn"
@@ -160,8 +162,8 @@ const Character = (props) => {
             />
             <Button
               icon={<IoStatsChart className="character__icon" />}
-              condition={sideTabIndex === 1}
-              onClick={() => setSideTabIndex(1)}
+              condition={characterTabIndex === 1}
+              onClick={() => setCharacterTabIndex(1)}
               title="Show attributes"
               text="Attributes"
               className="character__tab-btn"
@@ -169,8 +171,8 @@ const Character = (props) => {
             />
             <Button
               icon={<AiFillProfile className="character__icon" />}
-              condition={sideTabIndex === 2}
-              onClick={() => setSideTabIndex(2)}
+              condition={characterTabIndex === 2}
+              onClick={() => setCharacterTabIndex(2)}
               title="Set information"
               text="Information"
               className="character__tab-btn"
@@ -178,20 +180,20 @@ const Character = (props) => {
             />
           </nav>
           <div className="section" style={{ zIndex: "3" }}>
-            <Equipment data={data} display={sideTabIndex === 0} />
+            <Equipment data={data} display={characterTabIndex === 0} />
             <Stats
               data={data}
               referenceCharacter={referenceCharacter}
-              display={sideTabIndex === 1}
+              display={characterTabIndex === 1}
               compare={false}
             />
-            <Information data={data} display={sideTabIndex === 2} />
+            <Information data={data} display={characterTabIndex === 2} />
           </div>
           <nav className="character__tab" style={{ marginTop: "2rem" }}>
             <Button
               icon={<FaFlag className="character__icon" />}
-              condition={socialTabIndex === 0}
-              onClick={() => setSocialTabIndex(0)}
+              condition={socialTabToggle}
+              onClick={() => setSocialTabToggle(true)}
               text="Company"
               title="Show free company"
               className="character__tab-btn"
@@ -199,8 +201,8 @@ const Character = (props) => {
             />
             <Button
               icon={<FaUserFriends className="character__icon" />}
-              condition={socialTabIndex === 1}
-              onClick={() => setSocialTabIndex(1)}
+              condition={!socialTabToggle}
+              onClick={() => setSocialTabToggle(false)}
               title="Show friends"
               text="Friends"
               className="character__tab-btn"
@@ -210,11 +212,9 @@ const Character = (props) => {
           <FreeCompany
             freeCompany={data.FreeCompany}
             freeCompanyMembers={data.FreeCompanyMembers}
-            display={socialTabIndex === 0}
+            display={socialTabToggle}
           />
-          <div
-            className={"section" + (socialTabIndex === 1 ? "" : " disabled")}
-          >
+          <div className={"section" + (!socialTabToggle ? "" : " disabled")}>
             <Friends friends={data.Friends} />
           </div>
         </div>
@@ -222,8 +222,8 @@ const Character = (props) => {
           <nav className="character__tab">
             <Button
               icon={<MdWork className="character__icon" />}
-              onClick={() => setIndex(0)}
-              condition={index === 0}
+              onClick={() => setJobsTabToggle(true)}
+              condition={jobsTabToggle}
               title="Show jobs"
               text="Jobs"
               className="character__tab-btn"
@@ -231,17 +231,29 @@ const Character = (props) => {
             />
             <Button
               icon={<MdPets className="character__icon" />}
-              onClick={() => setIndex(1)}
-              condition={index === 1}
+              onClick={() => setJobsTabToggle(false)}
+              condition={!jobsTabToggle}
               title="Show mounts and minions"
               text="Collection"
               className="character__tab-btn"
               type="tab"
             />
+          </nav>
+          <Jobs
+            display={jobsTabToggle}
+            jobs={data.Character.ClassJobs}
+            displayPanel={displayPanel}
+          />
+          <Collection
+            display={!jobsTabToggle}
+            mounts={data.Mounts}
+            minions={data.Minions}
+          />
+          <nav className="character__tab" style={{ marginTop: "2rem" }}>
             <Button
               icon={<FaScroll className="character__icon" />}
-              onClick={() => setIndex(2)}
-              condition={index === 2}
+              onClick={() => setAchievementTabToggle(true)}
+              condition={achievementTabToggle}
               title="Show quests and duties"
               text="Quests"
               className="character__tab-btn"
@@ -249,34 +261,24 @@ const Character = (props) => {
             />
             <Button
               icon={<FaMedal className="character__icon" />}
-              onClick={() => setIndex(3)}
-              condition={index === 3}
+              onClick={() => setAchievementTabToggle(false)}
+              condition={!achievementTabToggle}
               text="Achievements"
               title="Show achievements"
               className="character__tab-btn"
               type="tab"
             />
           </nav>
-          <Jobs
-            display={index === 0}
-            jobs={data.Character.ClassJobs}
-            displayPanel={displayPanel}
-          />
-          <Collection
-            display={index === 1}
-            mounts={data.Mounts}
-            minions={data.Minions}
-          />
           <Quests
-            display={index === 2}
+            display={achievementTabToggle}
             achievementsList={data.Achievements.List}
             referenceCharacter={referenceCharacter}
           />
-          <Achievements
-            display={index === 3}
+          {/* <Achievements
+            display={!achievementTabToggle}
             achievements={data.Achievements}
             id={data.Character.ID}
-          />
+          /> */}
         </div>
       </div>
     </div>
