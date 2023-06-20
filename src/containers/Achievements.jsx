@@ -12,7 +12,7 @@ import Divider from "../components/Divider";
 import "../styles/Achievements.css";
 
 const totalAchievements = 2864;
-const capacity = 8;
+const capacity = 5;
 
 /**
  * @name Achievements

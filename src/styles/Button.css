@@ -29,6 +29,7 @@
 .button--active--tab {
     color: var(--c-major-text);
     max-width: 10rem;
+    z-index: 1;
 }
 
 .button--active--minor {
