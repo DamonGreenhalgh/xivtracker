@@ -1,16 +1,12 @@
 // Style
 import "../styles/FailToLoad.css";
 import cactuarSticker from "../images/cac.png";
-import { Link } from "react-router-dom";
 
 const message = {
   referenceCharacterError: (
     <p>
       Hmmm, looks like there is currently no reference character set on this
-      device. You can set a reference character by clicking{" "}
-      <Link to={"/settings"} style={{ textDecoration: "underline" }}>
-        here.
-      </Link>
+      device.
     </p>
   ),
   noMountsMinionsError: (
