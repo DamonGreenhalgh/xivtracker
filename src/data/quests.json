@@ -204,6 +204,13 @@
                 "link": "quest/69c190ef446/",
                 "isSpoiler": true,
                 "isMainStory": true
+            },
+            {
+                "name": "The Dark Throne",
+                "id": 3244,
+                "link": "",
+                "isSpoiler": true,
+                "isMainStory": true
             }
         ]
     },
@@ -832,6 +839,13 @@
                 "link": "duty/ce91893321f/",
                 "isSpoiler": true,
                 "isMainStory": true
+            },
+            {
+                "name": "The Aetherfont",
+                "id": 3245,
+                "link": "duty/ee802d0c0ef/",
+                "isSpoiler": true,
+                "isMainStory": true
             }
         ]
     },
@@ -1096,6 +1110,13 @@
                 "link": "duty/0eb5dd38d5a/",
                 "isSpoiler": true,
                 "isMainStory": true
+            },
+            {
+                "name": "The Voidcast Dais",
+                "id": 3246,
+                "link": "duty/ea1daa24090/",
+                "isSpoiler": true,
+                "isMainStory": true
             }
         ]
     },
@@ -1196,6 +1217,13 @@
                 "name": "Abyssos",
                 "id": 3108,
                 "link": "duty/4d2ad8ae660/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Anabaseios",
+                "id": 3248,
+                "link": "",
                 "isSpoiler": false,
                 "isMainStory": false
             }
@@ -1384,6 +1412,13 @@
                 "name": "Abyssos",
                 "id": 3111,
                 "link": "duty/415152e3e5d/",
+                "isSpoiler": false,
+                "isMainStory": false
+            },
+            {
+                "name": "Anabaseios",
+                "id": 3251,
+                "link": "",
                 "isSpoiler": false,
                 "isMainStory": false
             }

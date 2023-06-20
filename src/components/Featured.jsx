@@ -64,7 +64,6 @@ const Featured = () => {
       }
     }
     setEvents(liveEvents);
-    console.log(liveEvents);
     setBanners(liveBanners);
     const interval = setInterval(
       () => setIndex((index) => (index + 1) % liveEvents.length),
