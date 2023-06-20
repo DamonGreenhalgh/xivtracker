@@ -23,6 +23,13 @@ import msqIcon from "../images/meteor.png";
 import "../styles/Quests.css";
 
 const questIcon = [meteorIcon, dungeonIcon, trialIcon, raidIcon, highEndIcon];
+const questDescription = [
+  "* Main Scenario Quests are tracked by the completion of their associated final quest.",
+  "* Dungeons are tracked by the 'Mapping the Realm' achievement structure which can be acquired by reaching the final room within a dungeon. It is possible for a character to have the associated achievement but did not defeat the final boss (although this case is rather rare).",
+  "* Trials are tracked by the completion of their EXTREME variants.",
+  "* Raids are tracked by the completion of the final turn of a tier. For example the completion of Asphodelos: The Fourth Circle would mark Asphodelos as complete.",
+  "* High End Duties are tracked based on the completion of an ultimate duty or the final turn in a tier for a savage duty.",
+];
 
 /**
  * @name Quests
@@ -110,6 +117,7 @@ const Quests = (props) => {
               </div>
             ))}
           </div>
+          <p>{questDescription[i]}</p>
         </>
       );
     }
