@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Divider from "../components/Divider";
-import idHelp from "../images/id-help.png";
 
 const Help = () => {
   useEffect(() => {
@@ -26,35 +25,21 @@ const Help = () => {
             </a>
             .
           </p>
-          <h2>"Is XIV Tracker spoiler safe?"</h2>
+          <h2>"Is XIV Tracker spoiler free?"</h2>
           <p>
-            By default XIV Tracker will blur out content that could be
-            considered a spoiler for the main scenario questline. You must link
-            a character from Lodestone (using the character id on the url) to
-            view spoiler content.
+            By default XIV Tracker will hide content that could be considered a
+            spoiler for the main scenario questline. In order to see this
+            content you must assign a reference character that has completed the
+            content.
           </p>
         </div>
         <div className="col gap max-width">
-          <h2>"Wait a minute, where is my mount!?"</h2>
+          <h2>"I just got a new mount but it does not show up here?"</h2>
           <p>
             XIV Tracker is dependent on resources such as the official Lodestone
             site. Loadestone itself updates approximately every 12 hours. XIV
-            Tracker can only show data from the most recent update, so XIV
-            Tracker will not display updates to a character from the past 12
-            hours.
+            Tracker can only show data from the most recent update.
           </p>
-          <h2>"How do I assign a reference character?"</h2>
-          <p>
-            The Lodestone ID can be found by taking the digits after{" "}
-            <i>xivtracker.gg/... </i>
-            for example, the id for the below character would be <b>38592216</b>
-            .
-          </p>
-          <img
-            src={idHelp}
-            style={{ width: "100%", boxShadow: "0 .5rem 1rem var(--c-shadow)" }}
-            alt="lodestone id location help"
-          />
         </div>
       </div>
     </div>
