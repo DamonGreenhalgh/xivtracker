@@ -1,10 +1,7 @@
 .featured {
     position: relative;
-    max-width: 30rem;
-    min-height: 10rem;
     aspect-ratio: 16 / 9;
     width: 100%;
-    height: 16.5rem;
     margin: 0 auto;
     overflow: hidden;
     border-radius: .5rem;
@@ -54,13 +51,13 @@
 
 .featured__banners {
     display: flex;
-    width: 100%;
+    width: 300%;
     z-index: -1;
     transition: transform .5s ease-in-out;
 }
 
 .featured__banners img {
-    width: 30rem;
+    width: 100%;
 }
 
 @media only screen and (max-width: 32rem) {

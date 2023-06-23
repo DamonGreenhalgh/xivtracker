@@ -91,6 +91,12 @@ input:focus {
   outline: none;
 }
 
+iframe {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+  border: none;
+}
+
 .select {
   cursor: pointer;
   position: relative;
