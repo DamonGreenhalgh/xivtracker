@@ -108,7 +108,7 @@ iframe {
   background-color: var(--c-mid-background);
   outline: 1px solid var(--c-major-background);
   color: var(--c-minor-text);
-  border-radius: .5rem;
+  border-radius: 1rem;
 }
 
 .select--disabled {
@@ -134,7 +134,7 @@ iframe {
   background-color: var(--c-mid-background);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
   border: 1px solid var(--c-major-background);
-  border-radius: .5rem;
+  border-radius: 1rem;
   color: var(--c-minor-text);
   transition: height .25s ease-in-out;
 }

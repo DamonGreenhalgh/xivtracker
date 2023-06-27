@@ -56,14 +56,17 @@ const App = () => {
   // Settings
   const [theme, setTheme] = useState(settingsJSON.theme);
   const [splash, setSplash] = useState(settingsJSON.splash);
-  const [referenceCharacter, setReferenceCharacter] = useState(null);
-  const [displayPanel, setDisplayPanel] = useState(false);
 
   // Mount
   useEffect(() => {
     // Local storage display for testing.
-    // for (let i = 0; i < localStorage.length; i++)   {
-    //   console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+    // for (let i = 0; i < localStorage.length; i++) {
+    //   console.log(
+    //     localStorage.key(i) +
+    //       "=[" +
+    //       localStorage.getItem(localStorage.key(i)) +
+    //       "]"
+    //   );
     // }
 
     // Load settings from local storage if they exist
@@ -71,7 +74,6 @@ const App = () => {
     if (localSettings !== null) {
       setTheme(localSettings.theme);
       setSplash(localSettings.splash);
-      setReferenceCharacter(localSettings.referenceData);
     }
 
     setLoading(false);
@@ -92,10 +94,9 @@ const App = () => {
       JSON.stringify({
         theme: theme,
         splash: splash,
-        referenceData: referenceCharacter,
       })
     );
-  }, [theme, splash, referenceCharacter]);
+  }, [theme, splash]);
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -103,28 +104,15 @@ const App = () => {
         <Loading full={true} />
       ) : (
         <>
-          <Navbar referenceCharacter={referenceCharacter} theme={theme} />
+          <Navbar theme={theme} />
           <Routes>
-            <Route
-              exact
-              path="/:id"
-              element={
-                <Character
-                  referenceCharacter={referenceCharacter}
-                  setReferenceCharacter={setReferenceCharacter}
-                  displayPanel={displayPanel}
-                  setDisplayPanel={setDisplayPanel}
-                />
-              }
-            />
+            <Route exact path="/:id" element={<Character />} />
             <Route
               path="/settings"
               element={
                 <Settings
                   theme={theme}
                   setTheme={setTheme}
-                  referenceCharacter={referenceCharacter}
-                  setReferenceCharacter={setReferenceCharacter}
                   splash={splash}
                   setSplash={setSplash}
                 />

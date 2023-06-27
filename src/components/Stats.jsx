@@ -2,7 +2,7 @@ import "../styles/Stats.css";
 import Bar from "./Bar";
 
 const Stats = (props) => {
-  const { referenceCharacter, data, display, compare } = props;
+  const { data, display } = props;
   return (
     <ul className={"attributes__list" + (display ? "" : " disabled")}>
       <div className="attributes__main">
@@ -20,16 +20,7 @@ const Stats = (props) => {
       <div className="divider" style={{ gridArea: "divider3" }} />
       {Object.values(data.Character.GearSet.Attributes)
         .slice(0, -2)
-        .map((attribute, index) => {
-          let diff = 0;
-          if (referenceCharacter !== null) {
-            for (const refAttribute of referenceCharacter.Character.GearSet
-              .Attributes) {
-              if (refAttribute.Attribute.Name === attribute.Attribute.Name) {
-                diff = attribute.Value - refAttribute.Value;
-              }
-            }
-          }
+        .map((attribute) => {
           return (
             <li
               className="row gap-sm align-center"
@@ -39,15 +30,6 @@ const Stats = (props) => {
               }}
             >
               <p style={{ marginRight: "auto" }}>{attribute.Attribute.Name}</p>
-              {diff !== 0 && compare ? (
-                <h5
-                  style={{
-                    color: diff < 0 ? "var(--c-red)" : "var(--c-green)",
-                  }}
-                >
-                  {" ( " + (diff > 0 ? "+" : "") + diff + " )"}
-                </h5>
-              ) : null}
               <h4>{attribute.Value}</h4>
             </li>
           );

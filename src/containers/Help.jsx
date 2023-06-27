@@ -14,7 +14,7 @@ const Help = () => {
         <div className="col gap max-width">
           <h2>"Why can't I see my quests and achievements?"</h2>
           <p>
-            XIV Tracker uses a characters achievements to determine quest
+            XIV Tracker uses character achievements to determine quest
             completions. Lodestone has achievements set to private by default.
             You can change these settings{" "}
             <a
@@ -24,13 +24,6 @@ const Help = () => {
               here
             </a>
             .
-          </p>
-          <h2>"Is XIV Tracker spoiler free?"</h2>
-          <p>
-            By default XIV Tracker will hide content that could be considered a
-            spoiler for the main scenario questline. In order to see this
-            content you must assign a reference character that has completed the
-            content.
           </p>
         </div>
         <div className="col gap max-width">

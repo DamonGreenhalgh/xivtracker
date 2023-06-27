@@ -2,7 +2,7 @@
     position: relative;
     min-width: 3rem;
     min-height: 3rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
 
 .item__icon {
@@ -29,7 +29,7 @@
     background-color: var(--c-mid-background);
     box-shadow: 0 .5rem 2rem var(--c-shadow);
     border: 1px solid var(--c-major-background);
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
 
 .tooltip__header {

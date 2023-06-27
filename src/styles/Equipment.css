@@ -25,7 +25,7 @@
     grid-area: portrait;
     background-position: center;
     background-size: cover;
-    border-radius: .5rem;
+    border-radius: 1rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 

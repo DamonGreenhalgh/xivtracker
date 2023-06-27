@@ -38,7 +38,7 @@ const questDescription = [
  * @returns
  */
 const Quests = (props) => {
-  const { display, achievementsList, referenceCharacter } = props;
+  const { display, achievementsList } = props;
   const [panel, setPanel] = useState(0);
   const [content, setContent] = useState([]);
   const [completion, setCompletion] = useState([0, 0]);
@@ -50,15 +50,6 @@ const Quests = (props) => {
     for (let i = 0; i < achievementsList.length; i++) {
       achievementIds.push(achievementsList[i].ID);
     }
-
-    // Collect up all reference character achivement ids
-    const refAchievementIds = [];
-    if (referenceCharacter !== null) {
-      for (let i = 0; i < referenceCharacter.Achievements.List.length; i++) {
-        refAchievementIds.push(referenceCharacter.Achievements.List[i].ID);
-      }
-    }
-
     let keys, values;
     let total = 0;
     let completed = 0;
@@ -90,10 +81,6 @@ const Quests = (props) => {
                         href={eorzeadbBaseUrl + quest.link}
                         className={
                           "eorzeadb_link" +
-                          (quest.isSpoiler &&
-                          !refAchievementIds.includes(quest.id)
-                            ? " spoiler"
-                            : "") +
                           (achievementIds.includes(quest.id)
                             ? " completed"
                             : "")
@@ -126,7 +113,7 @@ const Quests = (props) => {
   }, []);
 
   return (
-    <div className={"section" + (display ? "" : " disabled")}>
+    <div className={display ? "col gap-lg" : " disabled"}>
       <div className="completion__container">
         <Completion
           title="Total"

@@ -14,7 +14,7 @@
     max-width: calc(100vw - 16rem);
     background-color: var(--c-mid-background);
     padding: 1rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
     border: 1px solid var(--c-major-background);
 }

@@ -1,12 +1,5 @@
-// Hooks
 import { useState, useEffect } from "react";
-
-// Components
-import MiniBanner from "../components/Banner";
 import Divider from "../components/Divider";
-import FailToLoad from "../components/FailToLoad";
-
-// Styles
 import "../styles/Settings.css";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
@@ -19,23 +12,9 @@ const splashName = [
   "Endwalker",
 ];
 
-const storyBreakpointsId = [
-  1129, // Heavensward
-  1691, // Stormblood
-  2233, // Shadowbringers
-  2851, // Endwalker
-];
-
 const Settings = (props) => {
   const [displayDropdown, setDisplayDropdown] = useState(-1);
-  const {
-    theme,
-    setTheme,
-    referenceCharacter,
-    setReferenceCharacter,
-    splash,
-    setSplash,
-  } = props;
+  const { theme, setTheme, splash, setSplash } = props;
 
   useEffect(() => {
     document.title = "XIV Tracker | Settings";
@@ -91,32 +70,6 @@ const Settings = (props) => {
                 <div>Endwalker</div>
               </div>
             </div>
-          </div>
-
-          <div className="col gap max-width">
-            <h2>Experience</h2>
-            <h3>Reference</h3>
-            <p>
-              Allocating a reference character will show/hide content based on
-              the story progress of the character. This will prevent accidental
-              spoilers when viewing other characters who are further along the
-              story.
-            </p>
-            {referenceCharacter !== null ? (
-              <>
-                <MiniBanner character={referenceCharacter.Character} />
-                <button
-                  onClick={() => {
-                    setReferenceCharacter(null);
-                  }}
-                  className="settings__reference-close"
-                >
-                  Remove
-                </button>
-              </>
-            ) : (
-              <FailToLoad type="referenceCharacterError" />
-            )}
           </div>
         </div>
       </div>

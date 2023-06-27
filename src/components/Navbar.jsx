@@ -8,7 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import Searchbar from "./Searchbar";
 
 const Navbar = (props) => {
-  const { referenceCharacter, theme } = props;
+  const { theme } = props;
   const location = useLocation();
 
   return (
@@ -39,18 +39,6 @@ const Navbar = (props) => {
           <RiSettings3Line className="navbar__icon" />
         </button>
       </Link>
-      {referenceCharacter !== null ? (
-        <Link to={"/" + referenceCharacter.Character.ID}>
-          <img
-            src={referenceCharacter.Character.Avatar}
-            className="navbar__avatar"
-            title={referenceCharacter.Character.Name}
-            alt="reference character"
-          />
-        </Link>
-      ) : (
-        <CgProfile className="navbar__icon" />
-      )}
     </nav>
   );
 };

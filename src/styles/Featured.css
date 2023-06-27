@@ -4,7 +4,7 @@
     width: 30rem;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: .5rem;
+    border-radius: 1rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
@@ -28,7 +28,7 @@
     background-color: var(--c-green);
     color: #ecf1f3;
     padding: .5rem .75rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
     min-height: 2rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }

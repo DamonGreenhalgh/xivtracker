@@ -10,7 +10,7 @@
     background-color: var(--c-mid-background);
     outline: 1px solid var(--c-major-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
 
 .searchbar__icon {
@@ -27,11 +27,11 @@
     width: 100%;
     background-color: var(--c-mid-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: .5rem;
+    border-radius: 1rem;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: .75rem;
     transition: height .25s, padding .5s;
 }
 

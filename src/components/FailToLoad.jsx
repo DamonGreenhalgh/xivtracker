@@ -3,12 +3,6 @@ import "../styles/FailToLoad.css";
 import cactuarSticker from "../images/cac.png";
 
 const message = {
-  referenceCharacterError: (
-    <p>
-      Hmmm, looks like there is currently no reference character set on this
-      device.
-    </p>
-  ),
   noMountsMinionsError: (
     <p>
       Hmmm, looks like this character does not have any mounts or minions in
