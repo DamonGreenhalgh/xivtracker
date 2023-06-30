@@ -32,11 +32,7 @@ const Loading = (props) => {
   }, []);
 
   return (
-    <div
-      className={
-        "col align-center justify-center gap-lg" + (full ? " full-page" : "")
-      }
-    >
+    <div className={"loading" + (full ? " full-page" : "")}>
       <img src={titan} className="loading__icon" alt="Loading Icon" />
       <p>{descriptions[descIndex] + " " + periods[perIndex]}</p>
     </div>

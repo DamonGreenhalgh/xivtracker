@@ -16,7 +16,7 @@
 
 .settings__save-button {
     width: 5rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
     margin-bottom: auto;
 }
 
@@ -27,7 +27,7 @@
 
 .settings__reference-close {
     background-color: var(--c-red);
-    border-radius: .5rem;
+    border-radius: 1rem;
     color: #e7eff5;
     padding: 1rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);

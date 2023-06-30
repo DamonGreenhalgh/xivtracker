@@ -6,7 +6,7 @@ import FailToLoad from "../components/FailToLoad";
 const FreeCompany = (props) => {
   const { freeCompany, freeCompanyMembers, display } = props;
   return (
-    <div className={"section" + (display ? "" : " disabled")}>
+    <div className={display ? "col gap" : " disabled"}>
       {freeCompany !== null ? (
         <>
           <div className="banner--free-company">
@@ -45,8 +45,9 @@ const FreeCompany = (props) => {
               <p>{freeCompany.Slogan}</p>
             </div>
           </div>
+
           <Divider />
-          <Friends friends={freeCompanyMembers} />
+          <Friends friends={freeCompanyMembers} display />
         </>
       ) : (
         <FailToLoad type="noFreeCompanyError" />

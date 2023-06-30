@@ -2,7 +2,7 @@
     position: relative;
     min-width: 3rem;
     min-height: 3rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
 
 .item__icon {
@@ -11,14 +11,13 @@
 }
 
 .glamour-icon {
-    z-index: 2;
     width: 1.1rem;
     height: 1.1rem;
     right: 0;
 }
 
 .tooltip {
-    z-index: 4;
+    z-index: 6;
     display: flex;
     gap: .5rem;
     left: 4rem;
@@ -30,7 +29,7 @@
     background-color: var(--c-mid-background);
     box-shadow: 0 .5rem 2rem var(--c-shadow);
     border: 1px solid var(--c-major-background);
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
 
 .tooltip__header {

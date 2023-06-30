@@ -1,3 +1,12 @@
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: auto;
+}
+
 .full-page {
     width: 100vw;
     height: calc(100vh - 16rem);

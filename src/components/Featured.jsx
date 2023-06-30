@@ -16,6 +16,7 @@ import {
   buriedMemoryBanner,
   godsRevelLandsTrembleBanner,
   hatchingTide23Banner,
+  theDarkThroneBanner,
 } from "../images/featured";
 
 // Styles
@@ -30,6 +31,7 @@ const banner = [
   buriedMemoryBanner,
   godsRevelLandsTrembleBanner,
   hatchingTide23Banner,
+  theDarkThroneBanner,
 ];
 
 const Featured = () => {

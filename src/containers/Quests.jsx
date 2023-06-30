@@ -23,6 +23,13 @@ import msqIcon from "../images/meteor.png";
 import "../styles/Quests.css";
 
 const questIcon = [meteorIcon, dungeonIcon, trialIcon, raidIcon, highEndIcon];
+const questDescription = [
+  "* Main Scenario Quests are tracked by the completion of their associated final quest.",
+  "* Dungeons are tracked by the 'Mapping the Realm' achievement structure which can be acquired by reaching the final room within a dungeon. It is possible for a character to have the associated achievement but did not defeat the final boss (although this case is rather rare).",
+  "* Trials are tracked by the completion of their EXTREME variants.",
+  "* Raids are tracked by the completion of the final turn of a tier. For example the completion of Asphodelos: The Fourth Circle would mark Asphodelos as complete.",
+  "* High End Duties are tracked based on the completion of an ultimate duty or the final turn in a tier for a savage duty.",
+];
 
 /**
  * @name Quests
@@ -31,7 +38,7 @@ const questIcon = [meteorIcon, dungeonIcon, trialIcon, raidIcon, highEndIcon];
  * @returns
  */
 const Quests = (props) => {
-  const { display, achievementsList, referenceCharacter } = props;
+  const { display, achievementsList } = props;
   const [panel, setPanel] = useState(0);
   const [content, setContent] = useState([]);
   const [completion, setCompletion] = useState([0, 0]);
@@ -43,15 +50,6 @@ const Quests = (props) => {
     for (let i = 0; i < achievementsList.length; i++) {
       achievementIds.push(achievementsList[i].ID);
     }
-
-    // Collect up all reference character achivement ids
-    const refAchievementIds = [];
-    if (referenceCharacter !== null) {
-      for (let i = 0; i < referenceCharacter.Achievements.List.length; i++) {
-        refAchievementIds.push(referenceCharacter.Achievements.List[i].ID);
-      }
-    }
-
     let keys, values;
     let total = 0;
     let completed = 0;
@@ -83,10 +81,6 @@ const Quests = (props) => {
                         href={eorzeadbBaseUrl + quest.link}
                         className={
                           "eorzeadb_link" +
-                          (quest.isSpoiler &&
-                          !refAchievementIds.includes(quest.id)
-                            ? " spoiler"
-                            : "") +
                           (achievementIds.includes(quest.id)
                             ? " completed"
                             : "")
@@ -110,6 +104,7 @@ const Quests = (props) => {
               </div>
             ))}
           </div>
+          <p>{questDescription[i]}</p>
         </>
       );
     }
@@ -118,7 +113,7 @@ const Quests = (props) => {
   }, []);
 
   return (
-    <div className={"section" + (display ? "" : " disabled")}>
+    <div className={display ? "col gap-lg" : " disabled"}>
       <div className="completion__container">
         <Completion
           title="Total"

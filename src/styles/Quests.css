@@ -29,13 +29,15 @@
     gap: 2rem;
     padding: .5rem;
     height: 2rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
+    font-size: 10px;
+    transition: transform .25s;
 }
 
-.spoiler {
-    filter: blur(3px);
-    pointer-events: none;
+.quests__list a:hover {
+    transform: scale(1.1);
 }
+
 
 .completed {
     color: var(--c-green);

@@ -60,7 +60,7 @@ const Collection = (props) => {
   }, [searchInput]);
 
   return (
-    <div className={"section" + (display ? "" : " disabled")}>
+    <div className={display ? "col gap-lg" : " disabled"}>
       {mounts === null || minions === null ? (
         <FailToLoad type="noMountsMinionsError" />
       ) : (

@@ -52,15 +52,23 @@
         "date": "January 10th 2023",
         "type": "PATCH",
         "start": [2023, 1, 10],
-        "end": [2023, 11, 19],
+        "end": [2023, 4, 22],
         "link": "https://na.finalfantasyxiv.com/endwalker/patch_6_3/"
     },
     "HATCHING_TIDE_23": {
         "title": "HATCHING TIDE 2023",
-        "date": "March 27 - April 10",
+        "date": "March 27nd 2023",
         "type": "EVENT",
         "start": [2023, 2, 27],
-        "end": [2023, 4, 10],
+        "end": [2023, 11, 19],
         "link": "https://na.finalfantasyxiv.com/lodestone/special/2023/Hatching_tide/gkonsy0g3l"
+    },
+    "PATCH_6.4": {
+        "title": "6.4 THE DARK THRONE",
+        "date": "May 23rd 2023",
+        "type": "PATCH",
+        "start": [2023, 4, 23],
+        "end": [2023, 11, 19],
+        "link": "https://na.finalfantasyxiv.com/endwalker/patch_6_4/"
     }
 }

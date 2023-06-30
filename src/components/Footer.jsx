@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>
-        <b>© 2022 - {new Date().getFullYear()} XIV Tracker v1.3.0</b>. <br />
+        <b>© 2021 - {new Date().getFullYear()} XIV Tracker v1.3.1</b>. <br />
         <b>XIV Tracker</b> is Designed and Developed by Damon Greenhalgh.{" "}
         <b>XIV Tracker</b> is not officially endorsed by{" "}
         <b>SQUARE ENIX CO,. LTD</b>.<br />

@@ -1,13 +1,10 @@
 .featured {
     position: relative;
-    max-width: 30rem;
-    min-height: 10rem;
     aspect-ratio: 16 / 9;
-    width: 100%;
-    height: 16.5rem;
+    width: 30rem;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: .5rem;
+    border-radius: 1rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }
 
@@ -21,7 +18,6 @@
     align-items: center;
     gap: .5rem;
     background-image: linear-gradient(190deg, #00000044 5%, transparent 30%, #000000ad 100%);
-
 }
 
 .featured__overlay h4 {
@@ -32,7 +28,7 @@
     background-color: var(--c-green);
     color: #ecf1f3;
     padding: .5rem .75rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
     min-height: 2rem;
     box-shadow: 0 .5rem 1rem var(--c-shadow);
 }

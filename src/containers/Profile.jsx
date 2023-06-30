@@ -24,7 +24,7 @@ import "../styles/Profile.css";
  * @returns
  */
 const Profile = (props) => {
-  const { display, data, referenceCharacter } = props;
+  const { display, data } = props;
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
@@ -60,12 +60,7 @@ const Profile = (props) => {
               type="tab"
             />
           </div>
-          <Stats
-            data={data}
-            referenceCharacter={referenceCharacter}
-            display={tabIndex === 1}
-            compare={false}
-          />
+          <Stats data={data} display={tabIndex === 1} />
           <Information data={data} display={tabIndex === 2} />
         </div>
       </div>

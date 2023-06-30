@@ -57,6 +57,8 @@ const Searchbar = (props) => {
     }
   }, []);
 
+  console.log(results, loading, ok);
+
   return (
     <form
       className={"searchbar searchbar--" + props.type}
@@ -112,9 +114,7 @@ const Searchbar = (props) => {
           />
         </div>
         <Divider />
-        {loading ? (
-          <Loading />
-        ) : tabIndex === 2 ? (
+        {tabIndex === 2 ? (
           <div className="data-center-container">
             <h4 style={{ gridArea: "na" }}>North America</h4>
             <h5 style={{ gridArea: "Aether" }}>Aether</h5>
@@ -281,12 +281,24 @@ const Searchbar = (props) => {
               <button>Zeromus</button>
             </div>
           </div>
+        ) : (!ok && name !== "") || loading ? (
+          <Loading />
+        ) : tabIndex === 0 ? (
+          <div className="banner--mini-container">{recent}</div>
+        ) : results === null ? (
+          <p style={{ margin: "auto" }}>
+            Start typing to search for a character!
+          </p>
+        ) : results.length === 0 ? (
+          <p
+            style={{ margin: "auto" }}
+          >{`No results found for character "${name}".`}</p>
         ) : (
           <div
             className="banner--mini-container"
             onClick={() => setDisplayRecent(false)}
           >
-            {tabIndex === 0 ? recent : results}
+            {results}{" "}
           </div>
         )}
       </div>

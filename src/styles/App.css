@@ -28,7 +28,7 @@ body {
   background-color: var(--c-minor-background);
   background-position: top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 h1, h2, h3, h4, h5, p {
@@ -64,7 +64,6 @@ button {
   align-items: center;
   justify-content: center;
   border: none;
-  z-index: 2;
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Comfortaa';
@@ -92,6 +91,12 @@ input:focus {
   outline: none;
 }
 
+iframe {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+  border: none;
+}
+
 .select {
   cursor: pointer;
   position: relative;
@@ -103,7 +108,7 @@ input:focus {
   background-color: var(--c-mid-background);
   outline: 1px solid var(--c-major-background);
   color: var(--c-minor-text);
-  border-radius: .5rem;
+  border-radius: 1.5rem;
 }
 
 .select--disabled {
@@ -119,7 +124,7 @@ input:focus {
 .options {
   display: flex;
   flex-direction: column;
-  z-index: 4;
+  z-index: 1;
   position: absolute;
   overflow: scroll;
   scrollbar-width: none;
@@ -129,7 +134,7 @@ input:focus {
   background-color: var(--c-mid-background);
   box-shadow: 0 .5rem 1rem var(--c-shadow);
   border: 1px solid var(--c-major-background);
-  border-radius: .5rem;
+  border-radius: 1rem;
   color: var(--c-minor-text);
   transition: height .25s ease-in-out;
 }

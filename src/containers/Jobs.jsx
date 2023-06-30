@@ -46,7 +46,7 @@ const Jobs = (props) => {
   }, []);
 
   return (
-    <div className={"section" + (display ? "" : " disabled")}>
+    <div className={display ? "col gap-lg" : " disabled"}>
       <div className="completion__container">
         <Completion
           title="War / Magic"
