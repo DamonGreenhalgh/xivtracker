@@ -57,8 +57,6 @@ const Searchbar = (props) => {
     }
   }, []);
 
-  console.log(results, loading, ok);
-
   return (
     <form
       className={"searchbar searchbar--" + props.type}
