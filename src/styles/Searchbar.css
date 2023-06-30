@@ -10,7 +10,7 @@
     background-color: var(--c-mid-background);
     outline: 1px solid var(--c-major-background);
     box-shadow: 0 .5rem 1rem var(--c-shadow);
-    border-radius: 1rem;
+    border-radius: 1.5rem;
 }
 
 .searchbar__icon {
@@ -90,7 +90,7 @@
     width: 100%;
     justify-content: start;
     padding: .5rem 1.5rem;
-    border-radius: .25rem;
+    border-radius: 1rem;
 }
 
 .data-center button:hover {

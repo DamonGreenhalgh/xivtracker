@@ -3,7 +3,7 @@
     flex-direction: column;
     max-width: var(--content-width);
     gap: 2rem;
-    margin: auto;
+    margin: 5rem auto 5rem auto;
 }
 
 .character__side {

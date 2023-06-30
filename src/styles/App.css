@@ -28,7 +28,7 @@ body {
   background-color: var(--c-minor-background);
   background-position: top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 h1, h2, h3, h4, h5, p {
@@ -108,7 +108,7 @@ iframe {
   background-color: var(--c-mid-background);
   outline: 1px solid var(--c-major-background);
   color: var(--c-minor-text);
-  border-radius: 1rem;
+  border-radius: 1.5rem;
 }
 
 .select--disabled {

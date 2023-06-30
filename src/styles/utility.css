@@ -48,6 +48,10 @@
     width: 100%;
 }
 
+.max-height {
+    height: 100%;
+}
+
 .gap-xsm {
     gap: .25rem;
 }
