@@ -3,11 +3,34 @@
 All changes following 1.0.0 will be documented within this file.  
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## Unreleased
-
-## [hotfix 1.3.0.1] - 2023-04-24
-
 ## Released
+
+## [1.3.1] - 2023-06-30
+
+Optimization updates and support for **Final Fantasy XIV** patch **6.4** '_The Dark Throne_'.
+
+### Added
+
+- Added support for **Final Fantasy XIV** patch **6.4** '_The Dark Throne_' content
+- Added descriptions to how quests/duties are marked for completion.
+- Added response text for edge cases during searches.
+
+### Changed
+
+- Changed character page layout.
+- Updated current patch and event banners to featured.
+- Updated help and settings pages to reflect the current app state.
+- Changed various styles across the app.
+
+### Fixed
+
+- Fixed overlay issues with tooltips and tab buttons.
+- Fixed crashes due to achievement requests.
+- Fix loading component not visible while searching for characters.
+
+### Removed
+
+- Removed reference system, this system added a significant amount of bloat to the app and would cause many edge case issues.
 
 ## [1.3.0] - 2023-04-24
 
